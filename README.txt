@@ -14,3 +14,10 @@ software projects.
 
 The goal of this project is to develop a WIS to help this organisation manage their
 business, from projects to user stories, contracts, progress logs, and quality audits.
+
+Group C1.015:
+- Student #1: Ángel García Escudero
+- Student #2: Jorge Muñoz Rodríguez
+- Student #3: Isaac Solís Padilla
+- Student #4: Javier Rodríguez Reina
+- Student #5: Alejandro Pérez Santiago
