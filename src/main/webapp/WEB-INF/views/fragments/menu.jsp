@@ -22,8 +22,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="51214349L: Muñoz Rodríguez, Jorge" action="https://findtheinvisiblecow.com"/>
 			<acme:menu-suboption code="31894688J: García Escudero, Ángel" action="https://www.nytimes.com/games/wordle/index.html"/>
-			<acme:menu-suboption code="30282701G: Rodríguez Reina, Javier" action="https://orteil.dashnet.org/cookieclicker/"/>
-		
+			<acme:menu-suboption code="30282701G: Rodríguez Reina, Javier" action="https://orteil.dashnet.org/cookieclicker"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
