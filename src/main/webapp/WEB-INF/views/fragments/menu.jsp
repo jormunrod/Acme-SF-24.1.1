@@ -24,6 +24,7 @@
 			<acme:menu-suboption code="31894688J: García Escudero, Ángel" action="https://www.nytimes.com/games/wordle/index.html"/>
 			<acme:menu-suboption code="30282701G: Rodríguez Reina, Javier" action="https://orteil.dashnet.org/cookieclicker"/>
 			<acme:menu-suboption code="49127653K: Solís Padilla, Isaac" action="https://burgerfoodporn.com/"/>
+			<acme:menu-suboption code="53932373H: P�rez Santiago, Alejandro" action="https://neal.fun/password-game"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
