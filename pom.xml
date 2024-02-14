@@ -24,7 +24,7 @@
 	<name>Acme-SF</name>
 	<description>This is a project for management and development of software projects.</description>
 	
-	<artifactId>Acme-SF-24.1.1</artifactId>
+	<artifactId>Acme-SF-D01</artifactId>
 	<version>24.1.1</version>
 	<packaging>war</packaging>
 	
