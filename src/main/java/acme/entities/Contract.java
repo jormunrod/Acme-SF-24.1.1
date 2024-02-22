@@ -1,6 +1,8 @@
 
 package acme.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
@@ -30,7 +32,7 @@ public class Contract extends AbstractEntity {
 	private String				code;
 
 	@Past
-	private String				instantiationMoment;
+	private Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
