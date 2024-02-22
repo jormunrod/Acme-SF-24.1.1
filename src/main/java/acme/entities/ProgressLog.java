@@ -1,8 +1,11 @@
 
 package acme.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
@@ -24,9 +27,8 @@ public class ProgressLog extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	// TODO: Add the relationship with the contract
-	//@ManyToOne
-	//private Contract contract;
+	@ManyToOne
+	private Contract			contract;
 
 	@Column(unique = true)
 	@NotBlank
@@ -34,14 +36,14 @@ public class ProgressLog extends AbstractEntity {
 	private String				recordId;
 
 	@Positive
-	private double				completenessPercentage;
+	private Double				completenessPercentage;
 
 	@NotBlank
 	@Length(max = 100)
 	private String				progressComment;
 
 	@Past
-	private String				registrationMoment;
+	private Date				registrationMoment;
 
 	@NotBlank
 	@Length(max = 75)
