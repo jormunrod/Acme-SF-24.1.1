@@ -43,7 +43,7 @@ public class Contract extends AbstractEntity {
 	private String				customerName;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				goals;
 
 	// TODO: Less than or equal to the corresponding project cost (in services)
