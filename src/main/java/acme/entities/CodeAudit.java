@@ -41,4 +41,6 @@ public class CodeAudit extends AbstractEntity {
 	private String				correctiveActions;
 
 	private Mark				mark;
+
+	private String				link;
 }
