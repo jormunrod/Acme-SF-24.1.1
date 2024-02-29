@@ -8,7 +8,9 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-public class Developer {
+import acme.client.data.AbstractRole;
+
+public class Developer extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
