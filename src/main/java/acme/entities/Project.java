@@ -6,9 +6,10 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -42,9 +43,10 @@ public class Project extends AbstractEntity {
 	private Boolean				hasFatalErrors;
 
 	@NotNull
-	@Positive
-	private Integer				cost;
+	@PositiveOrZero
+	private Double				cost;
 
+	@URL
 	private String				link;
 
 }
