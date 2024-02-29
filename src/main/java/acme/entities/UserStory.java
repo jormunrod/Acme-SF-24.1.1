@@ -26,7 +26,9 @@ public class UserStory extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@ManyToOne
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
 	private Project				project;
 
 	@NotBlank
