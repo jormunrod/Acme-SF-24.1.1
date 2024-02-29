@@ -14,7 +14,9 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-public class TrainingSesion {
+import acme.client.data.AbstractEntity;
+
+public class TrainingSesion extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
