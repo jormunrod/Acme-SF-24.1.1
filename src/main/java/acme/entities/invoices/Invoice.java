@@ -25,7 +25,11 @@ import lombok.Setter;
 @Setter
 public class Invoice extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Column(unique = true)
@@ -53,9 +57,15 @@ public class Invoice extends AbstractEntity {
 	@URL()
 	private String				link;
 
+	// Derived attributes -----------------------------------------------------
+
 
 	@Transient
 	public int getTotalAmount() {
 		return this.quantity + this.tax;
+
 	}
+
+	// Relationships ----------------------------------------------------------
+
 }
