@@ -25,7 +25,10 @@ import lombok.Setter;
 @Setter
 public class Sponsorship extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
 	@NotBlank()
@@ -53,5 +56,9 @@ public class Sponsorship extends AbstractEntity {
 
 	@URL()
 	private String				link;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 }
