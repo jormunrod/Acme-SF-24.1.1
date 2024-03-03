@@ -8,11 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.URL;
 
@@ -47,11 +48,11 @@ public class Invoice extends AbstractEntity {
 	private Date				dueDate;
 
 	@NotNull
-	@Min(1)
+	@Positive
 	private int					quantity;
 
 	@NotNull
-	@Min(1)
+	@PositiveOrZero
 	private int					tax;
 
 	@URL()
