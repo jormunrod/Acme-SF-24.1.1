@@ -1,6 +1,19 @@
 key,code,creationMoment,details,difficultyLevel,updateMoment,link,totalTime
-training-module-01,MOD-001,2021/05/15 08:00,Introducción a la Programación,Basic,2021/06/01 10:30,https://example.com/module1,60
-training-module-02,MOD-002,2021/06/20 09:15,Desarrollo Web con HTML y CSS,Intermediate,2021/07/10 14:45,https://example.com/module2,90
-training-module-03,MOD-003,2021/07/05 10:30,Programación Orientada a Objetos con Java,Advanced,2021/08/15 11:45,https://example.com/module3,120
-training-module-04,MOD-004,2021/08/10 13:45,Introducción a la Ciencia de Datos con Python,Basic,2021/09/05 15:30,https://example.com/module4,75
-training-module-05,MOD-005,2021/09/25 14:30,Desarrollo de Aplicaciones Móviles con Flutter,Intermediate,2021/10/20 16:00,https://example.com/module5,100
+training-module-01,MOD-001,"2021/05/15 08:00","Introducción a la Programación",Basic,"2021/06/01 10:30",https://example.com/module1,60
+training-module-02,MOD-002,"2021/05/15 00:00","Introducción a la Programación",Basic,"2021/06/01 23:59",https://example.com/module1,60
+training-module-03,MOD-003,"2021/05/15 23:59","Introducción a la Programación",Basic,"2021/06/01 00:00",https://example.com/module1,60
+training-module-04,MOD-004,"2021/05/15 08:00","Introducción a la Programación",Basic,"2021/06/01 10:30",https://example.com/module1,0
+training-module-05,MOD-005,"2021/05/15 08:00","Introducción a la Programación",Basic,"2021/06/01 10:30",https://example.com/module1,2147483647
+training-module-06,MOD-006,"2021/05/15 08:00","Introducción a la Programación",Intermediate,"2021/06/01 10:30",https://example.com/module1,60
+training-module-07,MOD-007,"2021/05/15 00:00","Introducción a la Programación",Intermediate,"2021/06/01 23:59",https://example.com/module1,60
+training-module-08,MOD-008,"2021/05/15 23:59","Introducción a la Programación",Intermediate,"2021/06/01 00:00",https://example.com/module1,60
+training-module-09,MOD-009,"2021/05/15 08:00","Introducción a la Programación",Intermediate,"2021/06/01 10:30",https://example.com/module1,0
+training-module-10,MOD-010,"2021/05/15 08:00","Introducción a la Programación",Intermediate,"2021/06/01 10:30",https://example.com/module1,2147483647
+training-module-11,MOD-011,"2021/01/01 00:00","Introducción a la Programación",Advanced,"2021/06/01 10:30",https://example.com/module1,60
+training-module-12,MOD-012,"2021/03/15 00:00","Introducción a la Programación",Advanced,"2021/06/01 23:59",https://example.com/module1,60
+training-module-13,MOD-013,"2021/05/15 23:59","Introducción a la Programación",Advanced,"2021/06/01 00:00",https://example.com/module1,60
+training-module-14,MOD-014,"2020/12/31 00:00","Introducción a la Programación",Advanced,"2021/06/01 10:30",https://example.com/module1,0
+training-module-15,MOD-015,"2021/02/15 08:00","Introducción a la Programación",Advanced,"2021/06/01 10:30",https://example.com/module1,2147483647
+training-module-16,MOD-016,"2021/05/17 00:00","Desarrollo Web con HTML y CSS",Basic,"2021/06/01 23:59",https://example.com/module16,60
+training-module-17,MOD-017,"2021/05/16 00:00","Introducción a la Seguridad Informática",Intermediate,"2021/06/01 23:59",https://example.com/module17,60
+training-module-18,MOD-018,"2021/05/15 00:00","Desarrollo de Videojuegos con Unity",Advanced,"2021/06/01 23:59",https://example.com/module18,60
