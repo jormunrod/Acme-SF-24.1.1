@@ -27,9 +27,6 @@ public class ProgressLog extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@ManyToOne
-	private Contract			contract;
-
 	@Column(unique = true)
 	@NotBlank
 	@Pattern(regexp = "PG-[A-Z]{1,2}-[0-9]{4}")
@@ -48,5 +45,12 @@ public class ProgressLog extends AbstractEntity {
 	@NotBlank
 	@Length(max = 75)
 	private String				responsiblePerson;
+
+	// Derived attributes --------------------------------------------------------
+
+	// Relationships -------------------------------------------------------------
+
+	@ManyToOne(optional = false)
+	private Contract			contract;
 
 }
