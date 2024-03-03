@@ -1,0 +1,6 @@
+key,code,creationMoment,details,difficultyLevel,updateMoment,link,totalTime
+training-module-01,MOD-001,2021/05/15 08:00,Introducción a la Programación,Basic,2021/06/01 10:30,https://example.com/module1,60
+training-module-02,MOD-002,2021/06/20 09:15,Desarrollo Web con HTML y CSS,Intermediate,2021/07/10 14:45,https://example.com/module2,90
+training-module-03,MOD-003,2021/07/05 10:30,Programación Orientada a Objetos con Java,Advanced,2021/08/15 11:45,https://example.com/module3,120
+training-module-04,MOD-004,2021/08/10 13:45,Introducción a la Ciencia de Datos con Python,Basic,2021/09/05 15:30,https://example.com/module4,75
+training-module-05,MOD-005,2021/09/25 14:30,Desarrollo de Aplicaciones Móviles con Flutter,Intermediate,2021/10/20 16:00,https://example.com/module5,100

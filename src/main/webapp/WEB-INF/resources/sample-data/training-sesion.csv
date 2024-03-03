@@ -1,0 +1,6 @@
+key,code,period,location,instructor,contactEmail,link,key:training-module
+training-sesion-01,TS-ABC-001,2024/05/15 08:00,Torre A,John Doe,johndoe@example.com,https://example.com/training1,training-module-01
+training-sesion-02,TS-DEF-002,2024/05/22 09:15,Torre B,Jane Smith,janesmith@example.com,https://example.com/training2,training-module-02
+training-sesion-03,TS-GHI-003,2024/05/29 10:30,Sala de Conferencias,Michael Johnson,michael@example.com,https://example.com/training3,training-module-03
+training-sesion-04,TS-JKL-004,2024/06/05 13:45,Auditorio,Emily Brown,emily@example.com,https://example.com/training4,training-module-04
+training-sesion-05,TS-MNO-005,2024/06/12 14:30,Salón de Reuniones,David Rodriguez,david@example.com,https://example.com/training5,training-module-05
