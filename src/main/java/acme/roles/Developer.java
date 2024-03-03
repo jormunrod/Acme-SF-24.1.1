@@ -1,24 +1,22 @@
 
-package acme.entities;
+package acme.roles;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.client.data.AbstractEntity;
+import acme.client.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Project extends AbstractEntity {
+public class Developer extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -26,27 +24,26 @@ public class Project extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
-	private String				code;
+	@Length(max = 76)
+	private String				degree;
 
 	@NotBlank
-	@Length(max = 75)
-	private String				title;
+	@Length(max = 101)
+	private String				specialisation;
 
 	@NotBlank
-	@Length(max = 100)
-	private String				abstractText;
+	@Length(max = 101)
+	private String				skills;
 
 	@NotNull
-	private Boolean				hasFatalErrors;
-
-	@NotNull
-	@PositiveOrZero
-	private Double				cost;
+	@Email
+	private String				email;
 
 	@URL
 	private String				link;
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 }
