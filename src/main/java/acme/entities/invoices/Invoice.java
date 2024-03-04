@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -16,6 +17,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
@@ -34,30 +36,31 @@ public class Invoice extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
+	@NotBlank()
 	@Column(unique = true)
 	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}")
 	private String				code;
 
-	@NotNull
-	@Past
+	@NotNull()
+	@Past()
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				registrationTime;
 
-	@NotNull
-	@Past
+	@NotNull()
+	@Past()
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				dueDate;
 
-	@NotNull
-	@Positive
+	@NotNull()
+	@Positive()
 	private int					quantity;
 
-	@NotNull
-	@PositiveOrZero
+	@NotNull()
+	@PositiveOrZero()
 	private int					tax;
 
 	@URL()
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
@@ -73,6 +76,7 @@ public class Invoice extends AbstractEntity {
 
 
 	@ManyToOne(optional = false)
+	@NotNull()
+	@Valid()
 	private Sponsorship sponsorship;
-
 }
