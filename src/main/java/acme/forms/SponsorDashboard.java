@@ -3,7 +3,7 @@ package acme.forms;
 
 import acme.client.data.AbstractForm;
 
-public class SponsotDashboard extends AbstractForm {
+public class SponsorDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -11,15 +11,15 @@ public class SponsotDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	int							totalNumberOfInvoicesWithATaxLessThanOrEqualto21;
-	int							totalNumberOfSponsorshipsWithALink;
+	Integer						totalNumberOfInvoicesWithATaxLessThanOrEqualto21;
+	Integer						totalNumberOfSponsorshipsWithALink;
 	Double						averageAmountOfTheSponsorships;
 	Double						deviationAmountOfTheSponsorships;
-	int							minimumAmountOfTheSponsorships;
-	int							maximumAmountOfTheSponsorships;
+	Integer						minimumAmountOfTheSponsorships;
+	Integer						maximumAmountOfTheSponsorships;
 	Double						averageQuantityOfTheInvoices;
 	Double						deviationQuantityOfTheInvoices;
-	int							minimumQuantityOfTheInvoices;
-	int							maximumQuantityOfTheInvoices;
+	Integer						minimumQuantityOfTheInvoices;
+	Integer						maximumQuantityOfTheInvoices;
 
 }
