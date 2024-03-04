@@ -1,12 +1,11 @@
 
-package acme.entities;
+package acme.entities.projects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -18,7 +17,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class UserStory extends AbstractEntity {
+public class Project extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -26,36 +25,31 @@ public class UserStory extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@Column(unique = true)
+	@NotBlank
+	@Length(min = 8, max = 8)
+	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
+	private String				code;
+
 	@NotBlank
 	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				description;
+	private String				abstractText;
 
-	@NotNull
-	@Positive
-	private Integer				estimatedHours;
+	private boolean				hasFatalErrors;
 
-	@NotBlank
-	@Length(max = 100)
-	private String				acceptanceCriteria;
-
-	@NotNull
-	@Valid
-	private Priority			priority;
+	@PositiveOrZero
+	private double				cost;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Project				project;
 
 }
