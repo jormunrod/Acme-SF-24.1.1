@@ -1,12 +1,13 @@
 
 package acme.forms;
 
+import acme.client.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class AuditorDashboard {
+public class AuditorDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
