@@ -1,5 +1,5 @@
 
-package acme.entities.invoices;
+package acme.entities.sponsorships;
 
 import java.util.Date;
 
@@ -21,7 +21,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.sponsorships.Sponsorship;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,30 +35,30 @@ public class Invoice extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank()
+	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}")
 	private String				code;
 
-	@NotNull()
-	@Past()
+	@NotNull
+	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				registrationTime;
 
-	@NotNull()
-	@Past()
+	@NotNull
+	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				dueDate;
 
-	@NotNull()
-	@Positive()
+	@NotNull
+	@Positive
 	private int					quantity;
 
-	@NotNull()
-	@PositiveOrZero()
+	@NotNull
+	@PositiveOrZero
 	private int					tax;
 
-	@URL()
+	@URL
 	@Length(max = 255)
 	private String				link;
 
@@ -76,7 +75,7 @@ public class Invoice extends AbstractEntity {
 
 
 	@ManyToOne(optional = false)
-	@NotNull()
-	@Valid()
+	@NotNull
+	@Valid
 	private Sponsorship sponsorship;
 }
