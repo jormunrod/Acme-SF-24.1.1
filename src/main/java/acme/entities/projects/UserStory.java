@@ -34,19 +34,18 @@ public class UserStory extends AbstractEntity {
 	@Length(max = 100)
 	private String				description;
 
-	@NotNull
 	@Positive
-	private Integer				estimatedHours;
+	private int					estimatedHours;
 
 	@NotBlank
 	@Length(max = 100)
 	private String				acceptanceCriteria;
 
 	@NotNull
-	@Valid
 	private Priority			priority;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
