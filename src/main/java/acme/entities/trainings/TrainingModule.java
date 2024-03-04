@@ -66,8 +66,8 @@ public class TrainingModule extends AbstractEntity {
 	// Relationships ----------------------------------------------------------
 
 	@ManyToOne(optional = false)
-	@NotNull()
-	@Valid()
+	@NotNull
+	@Valid
 	private Project				project;
 
 }
