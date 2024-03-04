@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -18,6 +19,7 @@ import javax.validation.constraints.PositiveOrZero;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.sponsorships.Sponsorship;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -68,5 +70,9 @@ public class Invoice extends AbstractEntity {
 	}
 
 	// Relationships ----------------------------------------------------------
+
+
+	@ManyToOne(optional = false)
+	private Sponsorship sponsorship;
 
 }

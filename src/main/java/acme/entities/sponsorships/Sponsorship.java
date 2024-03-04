@@ -1,7 +1,6 @@
 
 package acme.entities.sponsorships;
 
-import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -34,7 +33,7 @@ public class Sponsorship extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank()
-	@Pattern(regexp = "“[A-Z]{1,3}-[0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
 	private String				code;
 
 	@NotNull()
@@ -43,7 +42,12 @@ public class Sponsorship extends AbstractEntity {
 	private Date				moment;
 
 	@NotNull()
-	private Duration			duration;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				startDate;
+
+	@NotNull()
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				endDate;
 
 	@Email()
 	private String				contactEmail;
