@@ -1,5 +1,5 @@
 
-package acme.entities.sponsorships;
+package acme.entities.audits;
 
 import java.util.Date;
 
@@ -9,70 +9,53 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
+import org.hibernate.validator.constraints.time.DurationMin;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Sponsorship extends AbstractEntity {
+public class AuditRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@NotBlank()
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
+	@NotBlank
+	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}")
 	private String				code;
 
-	@NotNull()
-	@Temporal(TemporalType.TIMESTAMP)
-	@Past()
-	private Date				moment;
+	@Temporal(TemporalType.TIME)
+	@Past
+	@DurationMin(hours = 1)
+	private Date				period;
 
-	@NotNull()
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				startDate;
+	@NotNull
+	private Mark				mark;
 
-	@NotNull()
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				endDate;
-
-	@Email()
-	@Length(max = 255)
-	private String				contactEmail;
-
-	@NotNull()
-	@Positive()
-	private int					amount;
-
-	@NotNull()
-	@Valid()
-	private SponsorshipType		sponsorshipType;
-
-	@URL()
+	@URL
 	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
 	@ManyToOne(optional = false)
-	@NotNull()
-	@Valid()
-	private Project				project;
+	private CodeAudit			codeAudit;
 }
