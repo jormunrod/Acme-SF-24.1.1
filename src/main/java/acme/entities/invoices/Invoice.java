@@ -1,30 +1,30 @@
 
-package acme.entities;
+package acme.entities.invoices;
 
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
-import javax.validation.constraints.Email;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-public class TrainingSesion extends AbstractEntity {
+public class Invoice extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -32,34 +32,41 @@ public class TrainingSesion extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Pattern(regexp = "TS-[A-Z]{1,3}-[0-9]{3}")
 	@NotBlank
 	@Column(unique = true)
+	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}")
 	private String				code;
 
+	@NotNull
+	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
-	private Date				period;
-
-	@NotBlank
-	@Length(max = 76)
-	private String				location;
-
-	@NotBlank
-	@Length(max = 76)
-	private String				instructor;
+	private Date				registrationTime;
 
 	@NotNull
-	@Email
-	private String				contactEmail;
+	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				dueDate;
 
-	@URL
+	@NotNull
+	@Positive
+	private int					quantity;
+
+	@NotNull
+	@PositiveOrZero
+	private int					tax;
+
+	@URL()
 	private String				link;
-	// Derived attributes -----------------------------------------------------
-	// Relationships ----------------------------------------------------------
 
-	@Valid
-	@ManyToOne(optional = false)
-	private TrainingModule		trainingModule;
+	// Derived attributes -----------------------------------------------------
+
+
+	@Transient
+	public int getTotalAmount() {
+		return this.quantity + this.tax;
+
+	}
+
+	// Relationships ----------------------------------------------------------
 
 }

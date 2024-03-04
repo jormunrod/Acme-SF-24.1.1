@@ -49,4 +49,8 @@ public class Project extends AbstractEntity {
 	@URL
 	private String				link;
 
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
 }
