@@ -1,19 +1,20 @@
 
 package acme.entities.sponsorships;
 
-import java.time.Duration;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
-import org.hibernate.validator.constraints.time.DurationMin;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -41,8 +42,12 @@ public class Banner extends AbstractEntity {
 	private Date				updateMoment;
 
 	@NotNull
-	@DurationMin(days = 7)
-	private Duration			displayPeriod;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				displayStart;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				displayEnd;
 
 	@NotNull
 	@URL
@@ -57,4 +62,20 @@ public class Banner extends AbstractEntity {
 	@URL
 	@Length(max = 255)
 	private String				webDocument;
+
+	// Derived attributes -----------------------------------------------------
+
+
+	@Transient
+	public int getDisplayPeriod() {
+		int result;
+
+		LocalDate fechaInicio = this.displayStart.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+		LocalDate fechaFin = this.displayEnd.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+		result = Period.between(fechaInicio, fechaFin).getDays();
+
+		return result;
+	}
+
+	// Relationships ----------------------------------------------------------
 }
