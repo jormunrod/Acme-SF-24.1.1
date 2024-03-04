@@ -2,6 +2,6 @@
 package acme.entities.trainings;
 
 public enum DifficultyLevel {
-	Basic, Intermediate, Advanced
+	BASIC, INTERMEDIATE, ADVANCED
 
 }
