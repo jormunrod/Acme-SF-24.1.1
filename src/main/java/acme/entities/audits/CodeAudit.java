@@ -1,17 +1,18 @@
 
-package acme.entities;
+package acme.entities.audits;
 
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -20,33 +21,36 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class ProgressLog extends AbstractEntity {
+public class CodeAudit extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	@ManyToOne
-	private Contract			contract;
-
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "PG-[A-Z]{1,2}-[0-9]{4}")
-	private String				recordId;
+	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
+	private String				code;
 
-	@Positive
-	private Double				completenessPercentage;
+	//@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	@NotNull
+	private Date				execution;
+
+	@Valid
+	@NotNull
+	private CodeAuditType		type;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				progressComment;
+	private String				correctiveActions;
 
-	@Past
-	private Date				registrationMoment;
+	@URL
+	private String				link;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				responsiblePerson;
+	// Derived attributes -----------------------------------------------------
 
+	//TODO: Attribute mark
 }
