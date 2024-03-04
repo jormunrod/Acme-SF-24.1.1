@@ -61,6 +61,7 @@ public class TrainingSesion extends AbstractEntity {
 	// Relationships ----------------------------------------------------------
 
 	@Valid
+	@NotNull
 	@ManyToOne(optional = false)
 	private TrainingModule		trainingModule;
 
