@@ -35,36 +35,36 @@ public class Sponsorship extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@NotBlank()
+	@NotBlank
 	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
 	private String				code;
 
-	@NotNull()
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past()
+	@Past
 	private Date				moment;
 
-	@NotNull()
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				startDate;
 
-	@NotNull()
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				endDate;
 
-	@Email()
+	@Email
 	@Length(max = 255)
 	private String				contactEmail;
 
-	@NotNull()
-	@Positive()
+	@NotNull
+	@Positive
 	private int					amount;
 
-	@NotNull()
-	@Valid()
+	@NotNull
+	@Valid
 	private SponsorshipType		sponsorshipType;
 
-	@URL()
+	@URL
 	@Length(max = 255)
 	private String				link;
 
@@ -72,7 +72,7 @@ public class Sponsorship extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 	@ManyToOne(optional = false)
-	@NotNull()
-	@Valid()
+	@NotNull
+	@Valid
 	private Project				project;
 }
