@@ -1,14 +1,12 @@
 
-package acme.entities;
+package acme.entities.projects;
 
-import java.sql.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -17,10 +15,10 @@ import acme.client.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-public class TrainingModule extends AbstractEntity {
+public class UserStory extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -29,30 +27,35 @@ public class TrainingModule extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "“[A-Z]{1,3}-[0-9]{3}")
-	@Column(unique = true)
-	private String				code;
-
-	@NotNull
-	@Past
-	private Date				creationMoment;
+	@Length(max = 75)
+	private String				title;
 
 	@NotBlank
-	@Length(max = 101)
-	private String				details;
+	@Length(max = 100)
+	private String				description;
 
 	@NotNull
-	private DifficultyLevel		difficultyLevel;
+	@Positive
+	private Integer				estimatedHours;
 
-	@Past
-	private Date				updateMoment;
+	@NotBlank
+	@Length(max = 100)
+	private String				acceptanceCriteria;
+
+	@NotNull
+	@Valid
+	private Priority			priority;
 
 	@URL
 	private String				link;
 
-	@NotNull
-	private int					totalTime;
 	// Derived attributes -----------------------------------------------------
+
 	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Project				project;
 
 }
