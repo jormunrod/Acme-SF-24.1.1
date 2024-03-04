@@ -27,6 +27,7 @@ public class Project extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
+	@Length(min = 8, max = 8)
 	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
 	private String				code;
 
@@ -44,6 +45,7 @@ public class Project extends AbstractEntity {
 	private double				cost;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
