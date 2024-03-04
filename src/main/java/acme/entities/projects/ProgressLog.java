@@ -1,10 +1,13 @@
 
-package acme.entities;
+package acme.entities.projects;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
@@ -17,34 +20,33 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Project extends AbstractEntity {
+public class ProgressLog extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
-
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
+	@ManyToOne
+	private Contract			contract;
+
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
-	private String				code;
+	@Pattern(regexp = "PG-[A-Z]{1,2}-[0-9]{4}")
+	private String				recordId;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				title;
+	@Positive
+	private Double				completenessPercentage;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				abstractText;
+	private String				progressComment;
 
-	@NotNull
-	private Boolean				hasFatalErrors;
+	@Past
+	private Date				registrationMoment;
 
-	@NotNull
-	@Positive
-	private Integer				cost;
-
-	private String				link;
+	@NotBlank
+	@Length(max = 75)
+	private String				responsiblePerson;
 
 }

@@ -1,0 +1,14 @@
+key,code,moment,startDate,endDate,contactEmail,amount,sponsorshipType,link
+sponsorship-01,ABC-123,"2020/06/01 12:30","2020/05/15 08:00","2020/08/15 08:00",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-01
+sponsorship-02,ABD-123,"2020/07/10 15:45","2020/05/15 08:00","2020/08/15 08:00",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-02
+sponsorship-03,ABE-123,"2020/08/15 00:00","2020/05/15 08:00","2020/08/15 08:00",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-03
+sponsorship-04,ABF-123,"2020/09/20 23:59","2020/05/15 08:00","2020/08/15 08:00",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-04
+sponsorship-05,ABG-123,"2020/05/15 08:00","2020/05/15 08:00","2020/08/15 08:00",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-05
+sponsorship-06,ABH-123,"2020/05/15 08:00","2020/07/20 10:30","2020/09/20 10:30",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-06
+sponsorship-07,ABY-123,"2020/05/15 08:00","2020/08/25 15:45","2020/10/25 15:45",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-07
+sponsorship-08,ABJ-123,"2020/05/15 08:00","2020/09/30 20:00","2020/11/30 20:00",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-08
+sponsorship-09,ABK-123,"2020/05/15 08:00","2020/05/15 08:00","2021/07/15 08:00",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-09
+sponsorship-10,ABL-123,"2020/05/15 08:00","2020/05/15 08:00","2021/08/20 10:30",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-10
+sponsorship-11,ABM-123,"2020/05/15 08:00","2020/05/15 08:00","2021/09/25 15:45",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-11
+sponsorship-12,ABN-123,"2020/05/15 08:00","2020/05/15 08:00","2021/10/30 20:00",test@example.com,1000,FINANCIAL,https://example.com/sponsorship-12
+sponsorship-13,ABO-123,"2020/05/15 08:00","2020/05/15 08:00","2021/10/30 20:00",test@example.com,1,FINANCIAL,https://example.com/sponsorship-13
