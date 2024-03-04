@@ -11,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -41,7 +42,7 @@ public class TrainingModule extends AbstractEntity {
 	private Date				creationMoment;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				details;
 
 	@NotNull
@@ -52,9 +53,11 @@ public class TrainingModule extends AbstractEntity {
 	private Date				updateMoment;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	@NotNull
+	@Positive
 	private int					totalTime;
 	// Derived attributes -----------------------------------------------------
 	// Relationships ----------------------------------------------------------
