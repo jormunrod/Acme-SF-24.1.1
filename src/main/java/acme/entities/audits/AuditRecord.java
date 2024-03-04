@@ -38,7 +38,7 @@ public class AuditRecord extends AbstractEntity {
 	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}")
 	private String				code;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIME)
 	@Past
 	@DurationMin(hours = 1)
 	private Date				period;
