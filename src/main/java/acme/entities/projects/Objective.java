@@ -1,12 +1,16 @@
 
-package acme.entities;
+package acme.entities.projects;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -18,13 +22,18 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class UserStory extends AbstractEntity {
+public class Objective extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	private static final long	serialVersionUID	= 1L;
+	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
+
+	@Past
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				instantationMoment;
 
 	@NotBlank
 	@Length(max = 75)
@@ -35,18 +44,16 @@ public class UserStory extends AbstractEntity {
 	private String				description;
 
 	@NotNull
-	@Positive
-	private Integer				estimatedHours;
+	private ObjectivePriority	priority;
 
-	@NotBlank
-	@Length(max = 100)
-	private String				acceptanceCriteria;
+	private boolean				isCritical;
 
 	@NotNull
-	@Valid
-	private Priority			priority;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				duration;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
@@ -57,5 +64,4 @@ public class UserStory extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;
-
 }
