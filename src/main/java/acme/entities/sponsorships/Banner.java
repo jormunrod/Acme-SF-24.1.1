@@ -1,14 +1,18 @@
 
-package acme.entities;
+package acme.entities.sponsorships;
 
 import java.time.Duration;
-import java.time.Instant;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 import org.hibernate.validator.constraints.time.DurationMin;
 
 import acme.client.data.AbstractEntity;
@@ -27,12 +31,21 @@ public class Banner extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Past
-	private Instant				instantiationUpdateMoment;
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				instantiationMoment;
 
-	// TODO: must start at any moment after the instantiation/update moment
+	@Past
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				updateMoment;
+
+	@NotNull
 	@DurationMin(days = 7)
 	private Duration			displayPeriod;
 
+	@NotNull
+	@URL
 	private String				picture;
 
 	@NotBlank
