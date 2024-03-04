@@ -42,22 +42,24 @@ public class Risk extends AbstractEntity {
 
 	@NotNull
 	@Positive
-	private Double				impact;
+	private double				impact;
 
 	@NotNull
-	private Double				probability;
+	@Positive
+	private double				probability;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				description;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 	// Derived attributes -----------------------------------------------------
 
 
 	@Transient
-	public Double value() {
+	public double value() {
 
 		return this.getProbability() * this.getImpact();
 	}
