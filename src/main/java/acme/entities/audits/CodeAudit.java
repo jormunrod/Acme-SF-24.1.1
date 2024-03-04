@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.audits;
 
 import java.util.Date;
 
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Contract extends AbstractEntity {
+public class CodeAudit extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -32,21 +32,15 @@ public class Contract extends AbstractEntity {
 	private String				code;
 
 	@Past
-	private Date				instantiationMoment;
+	private Date				execution;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				providerName;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				customerName;
+	private CodeAuditType		type;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				goals;
+	private String				correctiveActions;
 
-	// TODO: Less than or equal to the corresponding project cost (in services)
-	private Double				budget;
+	private Mark				mark;
 
+	private String				link;
 }

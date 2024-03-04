@@ -1,16 +1,12 @@
 
-package acme.entities;
-
-import java.sql.Date;
+package acme.entities.projects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -19,10 +15,10 @@ import acme.client.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-public class TrainingSesion extends AbstractEntity {
+public class Project extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -30,33 +26,31 @@ public class TrainingSesion extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Pattern(regexp = "TS-[A-Z]{1,3}-[0-9]{3}")
-	@NotBlank
 	@Column(unique = true)
+	@NotBlank
+	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
 	private String				code;
 
-	@NotNull
-	private Date				period;
+	@NotBlank
+	@Length(max = 75)
+	private String				title;
 
 	@NotBlank
-	@Length(max = 76)
-	private String				location;
-
-	@NotBlank
-	@Length(max = 76)
-	private String				instructor;
+	@Length(max = 100)
+	private String				abstractText;
 
 	@NotNull
-	@Email
-	private String				contactEmail;
+	private Boolean				hasFatalErrors;
+
+	@NotNull
+	@PositiveOrZero
+	private Double				cost;
 
 	@URL
 	private String				link;
-	// Derived attributes -----------------------------------------------------
-	// Relationships ----------------------------------------------------------
 
-	@Valid
-	@ManyToOne(optional = false)
-	private TrainingModule		trainingModule;
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 }

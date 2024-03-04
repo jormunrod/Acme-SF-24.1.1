@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.projects;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -26,11 +26,6 @@ public class UserStory extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Project				project;
-
 	@NotBlank
 	@Length(max = 75)
 	private String				title;
@@ -53,5 +48,14 @@ public class UserStory extends AbstractEntity {
 
 	@URL
 	private String				link;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Project				project;
 
 }
