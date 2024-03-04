@@ -1,15 +1,17 @@
 
-package acme.entities;
+package acme.entities.trainings;
 
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -22,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class TrainingModule extends AbstractEntity {
+public class TrainingSesion extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -30,33 +32,34 @@ public class TrainingModule extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@Pattern(regexp = "TS-[A-Z]{1,3}-[0-9]{3}")
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
 	@Column(unique = true)
 	private String				code;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@Past
-	private Date				creationMoment;
+	private Date				period;
 
 	@NotBlank
-	@Length(max = 101)
-	private String				details;
+	@Length(max = 76)
+	private String				location;
+
+	@NotBlank
+	@Length(max = 76)
+	private String				instructor;
 
 	@NotNull
-	private DifficultyLevel		difficultyLevel;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Past
-	private Date				updateMoment;
+	@Email
+	private String				contactEmail;
 
 	@URL
 	private String				link;
-
-	@NotNull
-	private int					totalTime;
 	// Derived attributes -----------------------------------------------------
 	// Relationships ----------------------------------------------------------
+
+	@Valid
+	@ManyToOne(optional = false)
+	private TrainingModule		trainingModule;
 
 }
