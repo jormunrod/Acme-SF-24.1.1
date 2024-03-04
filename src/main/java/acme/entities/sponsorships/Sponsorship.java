@@ -1,11 +1,11 @@
 
 package acme.entities.sponsorships;
 
-import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -16,9 +16,11 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,7 +36,7 @@ public class Sponsorship extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank()
-	@Pattern(regexp = "“[A-Z]{1,3}-[0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
 	private String				code;
 
 	@NotNull()
@@ -43,9 +45,15 @@ public class Sponsorship extends AbstractEntity {
 	private Date				moment;
 
 	@NotNull()
-	private Duration			duration;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				startDate;
+
+	@NotNull()
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				endDate;
 
 	@Email()
+	@Length(max = 255)
 	private String				contactEmail;
 
 	@NotNull()
@@ -57,10 +65,14 @@ public class Sponsorship extends AbstractEntity {
 	private SponsorshipType		sponsorshipType;
 
 	@URL()
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
+	@ManyToOne(optional = false)
+	@NotNull()
+	@Valid()
+	private Project				project;
 }
