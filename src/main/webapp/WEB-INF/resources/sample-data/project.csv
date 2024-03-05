@@ -5,4 +5,5 @@ project-03,PRO-0003,Project 3: This is an example title for the project to test 
 project-04,PRO-0004,Project 4,_,false,10000.00,http://www.example.com/project-04
 project-05,PRO-0005,Project 5,This is the abstract for Project 5. This is an example of abstract text for testing its constraints.,false,10000.00,http://www.example.com/project-05
 project-06,PRO-0006,Project 6,This is the abstract for Project 6,false,0.00,http://www.example.com/project-06
-project-07,PRO-0007,Project 7,This is the abstract for Project 7,false,10000.00,http://www.example.com/project-07abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJ
+project-07,PRO-0007,Project 7,This is the abstract for Project 7,false,10000.00,
+project-08,PRO-0008,Project 8,This is the abstract for Project 8,false,10000.00,http://www.example.com/project-08abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJ
