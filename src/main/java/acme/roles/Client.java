@@ -28,6 +28,7 @@ public class Client extends AbstractRole {
 	@Column(unique = true)
 	@NotBlank
 	@Pattern(regexp = "CLI-[0-9]{4}")
+	@Length(max = 255)
 	private String				identification;
 
 	@NotBlank
@@ -39,9 +40,11 @@ public class Client extends AbstractRole {
 
 	@NotBlank
 	@Email
+	@Length(max = 255)
 	private String				email;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
