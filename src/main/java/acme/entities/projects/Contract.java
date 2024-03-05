@@ -1,5 +1,6 @@
 
-package acme.entities;
+package acme.entities.projects;
+
 
 import java.util.Date;
 
