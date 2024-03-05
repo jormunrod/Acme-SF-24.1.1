@@ -1,14 +1,11 @@
 
 package acme.entities.sponsorships;
 
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -64,18 +61,6 @@ public class Banner extends AbstractEntity {
 	private String				webDocument;
 
 	// Derived attributes -----------------------------------------------------
-
-
-	@Transient
-	public int getDisplayPeriod() {
-		int result;
-
-		LocalDate fechaInicio = this.displayStart.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-		LocalDate fechaFin = this.displayEnd.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-		result = Period.between(fechaInicio, fechaFin).getDays();
-
-		return result;
-	}
 
 	// Relationships ----------------------------------------------------------
 }
