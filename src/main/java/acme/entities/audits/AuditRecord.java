@@ -16,7 +16,6 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
-import org.hibernate.validator.constraints.time.DurationMin;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -38,10 +37,15 @@ public class AuditRecord extends AbstractEntity {
 	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}")
 	private String				code;
 
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	@DurationMin(hours = 1)
-	private Date				period;
+	@NotNull
+	private Date				auditPeriodStart;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	@NotNull
+	private Date				auditPeriodEnd;
 
 	@NotNull
 	private Mark				mark;
