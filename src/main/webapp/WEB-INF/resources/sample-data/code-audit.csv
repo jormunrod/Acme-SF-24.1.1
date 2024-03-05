@@ -1,7 +1,7 @@
 key,code,execution,type,correctiveActions,mark,link,key:project
 code-audit-01,AUD-001,2021/03/12 09:00,STATIC,"Optimize database queries, Update library versions",C,https://example.com/code-audit-1,project-01
 code-audit-02,AU-002,2021/03/30 00:00,DYNAMIC,"a",A,https://example.com/code-audit-2,project-01
-code-audit-03,A-003,2021/04/03 23:59:00,STATIC,"aa",A_PLUS,https://example.com/code-audit-3,project-02
+code-audit-03,A-003,2021/04/03 23:59,STATIC,"aa",A_PLUS,https://example.com/code-audit-3,project-02
 code-audit-04,AUD-004,2021/04/14 09:00,DYNAMIC,"Enhance security measures, optimize database queries, improve error handling, test data validation.",F,,project-02
 code-audit-05,AUD-005,2021/05/07 15:00,STATIC,"Implement multi-factor authentications, optimize database queries, enhance logging system, fix bugs.",F_MINUS,,project-03
 code-audit-06,AU-006,2021/06/01 12:00,STATIC,"Update encryption algorithms, Remove deprecated methods",B,https://example.com/abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcd,project-03
