@@ -9,3 +9,5 @@ user-account-sponsor-01,true,"UserIdentity{name: 'Javier', surname: 'Rodriguez R
 user-account-sponsor-02,true,"UserIdentity{name: 'Javier2', surname: 'Rodriguez Reina', email: 'javrodrei2@alum.us.es'}",sponsor2,sponsor2
 user-account-manager-01,true,"UserIdentity{name: 'Juan', surname: 'Cabello Rubio', email: 'juan@alum.us.es'}", manager1, manager1
 user-account-manager-02,true,"UserIdentity{name: 'Rodrygo', surname: 'Soto Grado', email: 'rodrygo@alum.us.es'}", manager2, manager2
+user-account-auditor-01,true,"UserIdentity{name: 'Jose Antonio', surname: 'Guerra Granado', email: 'jaguergra@alum.us.es'}",auditor1,auditor1
+user-account-auditor-02,true,"UserIdentity{name: 'Pablo', surname: 'Santiago Gomez', email: 'pabsangom@alum.us.es'}",auditor2,auditor2
