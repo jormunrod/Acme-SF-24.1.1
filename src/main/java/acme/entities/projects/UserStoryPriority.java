@@ -1,6 +1,6 @@
 
 package acme.entities.projects;
 
-public enum Priority {
+public enum UserStoryPriority {
 	MUST, SHOULD, COULD, WONT;
 }
