@@ -1,5 +1,5 @@
 
-package acme.entities.projects;
+package acme.entities.sponsorships;
 
 import java.util.Date;
 
@@ -8,24 +8,27 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.client.data.datatypes.Money;
-import acme.roles.Client;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Contract extends AbstractEntity {
+public class Invoice extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -33,44 +36,50 @@ public class Contract extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
+	@Column(unique = true)
+	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}")
 	private String				code;
 
+	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
+	private Date				registrationTime;
+
 	@NotNull
-	private Date				instantiationMoment;
+	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				dueDate;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				providerName;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				customerName;
-
-	@NotBlank
-	@Length(max = 100)
-	private String				goals;
-
-	// TODO: Less than or equal to the corresponding project cost (in services)
 	@NotNull
-	private Money				budget;
+	private Money				quantity;
+
+	@Range(min = 0, max = 1)
+	@Digits(integer = 1, fraction = 2)
+	private double				tax;
+
+	@URL
+	@Length(max = 255)
+	private String				link;
 
 	// Derived attributes -----------------------------------------------------
 
+
+	@Transient
+	public Money getTotalAmount() {
+		Double totalAmount = this.quantity.getAmount() * (1 + this.tax);
+		Money m = new Money();
+		m.setAmount(totalAmount);
+		m.setCurrency(this.quantity.getCurrency());
+		return m;
+
+	}
+
 	// Relationships ----------------------------------------------------------
 
+
+	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
-	private Project				project;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Client				client;
-
+	private Sponsorship sponsorship;
 }

@@ -1,5 +1,5 @@
 
-package acme.entities.projects;
+package acme.entities.audits;
 
 import java.util.Date;
 
@@ -15,17 +15,16 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.client.data.datatypes.Money;
-import acme.roles.Client;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Contract extends AbstractEntity {
+public class AuditRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -35,29 +34,25 @@ public class Contract extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
+	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}")
 	private String				code;
 
-	@Past
 	@Temporal(TemporalType.TIMESTAMP)
+	@Past
 	@NotNull
-	private Date				instantiationMoment;
+	private Date				auditPeriodStart;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				providerName;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				customerName;
-
-	@NotBlank
-	@Length(max = 100)
-	private String				goals;
-
-	// TODO: Less than or equal to the corresponding project cost (in services)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
 	@NotNull
-	private Money				budget;
+	private Date				auditPeriodEnd;
+
+	@NotNull
+	private Mark				mark;
+
+	@URL
+	@Length(max = 255)
+	private String				link;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -66,11 +61,5 @@ public class Contract extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Project				project;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Client				client;
-
+	private CodeAudit			codeAudit;
 }
