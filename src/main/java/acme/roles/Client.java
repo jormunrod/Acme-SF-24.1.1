@@ -1,30 +1,24 @@
 
-package acme.entities.audits;
-
-import java.util.Date;
+package acme.roles;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.client.data.AbstractEntity;
+import acme.client.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class AuditRecord extends AbstractEntity {
+public class Client extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -34,21 +28,21 @@ public class AuditRecord extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}")
-	private String				code;
+	@Pattern(regexp = "CLI-[0-9]{4}")
+	@Length(max = 255)
+	private String				identification;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Past
-	@NotNull
-	private Date				auditPeriodStart;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Past
-	@NotNull
-	private Date				auditPeriodEnd;
+	@NotBlank
+	@Length(max = 75)
+	private String				companyName;
 
 	@NotNull
-	private Mark				mark;
+	private ClientType			type;
+
+	@NotBlank
+	@Email
+	@Length(max = 255)
+	private String				email;
 
 	@URL
 	@Length(max = 255)
@@ -57,9 +51,4 @@ public class AuditRecord extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private CodeAudit			codeAudit;
 }

@@ -1,18 +1,14 @@
 
-package acme.entities.audits;
+package acme.entities.sponsorships;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -24,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class AuditRecord extends AbstractEntity {
+public class Banner extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -32,34 +28,39 @@ public class AuditRecord extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
-	@NotBlank
-	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}")
-	private String				code;
-
-	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
-	private Date				auditPeriodStart;
-
 	@Temporal(TemporalType.TIMESTAMP)
+	private Date				instantiationMoment;
+
 	@Past
 	@NotNull
-	private Date				auditPeriodEnd;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				updateMoment;
 
 	@NotNull
-	private Mark				mark;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				displayStart;
 
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				displayEnd;
+
+	@NotNull
 	@URL
 	@Length(max = 255)
-	private String				link;
+	private String				picture;
+
+	@NotBlank
+	@Length(max = 75)
+	private String				slogan;
+
+	@NotNull
+	@URL
+	@Length(max = 255)
+	private String				webDocument;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private CodeAudit			codeAudit;
 }
