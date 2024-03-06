@@ -10,11 +10,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
@@ -54,8 +54,8 @@ public class Invoice extends AbstractEntity {
 	@NotNull
 	private Money				quantity;
 
-	@PositiveOrZero
 	@Range(min = 0, max = 1)
+	@Digits(integer = 1, fraction = 2)
 	private double				tax;
 
 	@URL
