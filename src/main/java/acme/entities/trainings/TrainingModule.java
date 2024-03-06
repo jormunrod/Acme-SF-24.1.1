@@ -59,7 +59,6 @@ public class TrainingModule extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
-	@NotNull
 	@Positive
 	private int					totalTime;
 	// Derived attributes -----------------------------------------------------
