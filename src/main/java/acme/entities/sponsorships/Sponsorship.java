@@ -14,13 +14,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import acme.entities.projects.Project;
+import acme.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,36 +36,34 @@ public class Sponsorship extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@NotBlank()
+	@NotBlank
 	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
 	private String				code;
 
-	@NotNull()
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past()
+	@Past
 	private Date				moment;
 
-	@NotNull()
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				startDate;
 
-	@NotNull()
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				endDate;
 
-	@Email()
+	@Email
 	@Length(max = 255)
 	private String				contactEmail;
 
-	@NotNull()
-	@Positive()
-	private int					amount;
+	@NotNull
+	private Money				amount;
 
-	@NotNull()
-	@Valid()
+	@NotNull
 	private SponsorshipType		sponsorshipType;
 
-	@URL()
+	@URL
 	@Length(max = 255)
 	private String				link;
 
@@ -72,7 +71,13 @@ public class Sponsorship extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 	@ManyToOne(optional = false)
-	@NotNull()
-	@Valid()
+	@NotNull
+	@Valid
 	private Project				project;
+
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	private Sponsor				sponsor;
+
 }

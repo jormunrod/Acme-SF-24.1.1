@@ -1,24 +1,20 @@
 
-package acme.entities.projects;
+package acme.roles;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.client.data.AbstractEntity;
-import acme.client.data.datatypes.Money;
+import acme.client.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Project extends AbstractEntity {
+public class Auditor extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -26,25 +22,17 @@ public class Project extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
-	@NotBlank
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
-	private String				code;
-
 	@NotBlank
 	@Length(max = 75)
-	private String				title;
+	private String				firm;
+
+	@NotBlank
+	@Length(max = 25)
+	private String				professionalID;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				abstractText;
-
-	private boolean				hasFatalErrors;
-
-	private boolean				isPublished;
-
-	@NotNull
-	private Money				cost;
+	private String				certifications;
 
 	@URL
 	@Length(max = 255)
@@ -53,5 +41,4 @@ public class Project extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
 }
