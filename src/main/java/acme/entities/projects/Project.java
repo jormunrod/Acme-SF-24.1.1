@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,7 +28,6 @@ public class Project extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Length(min = 8, max = 8)
 	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
 	private String				code;
 
@@ -41,8 +41,10 @@ public class Project extends AbstractEntity {
 
 	private boolean				hasFatalErrors;
 
+	private boolean				isPublished;
+
 	@PositiveOrZero
-	private double				cost;
+	private Money				cost;
 
 	@URL
 	@Length(max = 255)
