@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -45,6 +46,7 @@ public class Risk extends AbstractEntity {
 	private double				impact;
 
 	@Range(min = 0, max = 1)
+	@Digits(integer = 1, fraction = 2)
 	private double				probability;
 
 	@NotBlank
