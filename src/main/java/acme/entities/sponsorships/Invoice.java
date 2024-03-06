@@ -8,61 +8,55 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Sponsorship extends AbstractEntity {
+public class Invoice extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
+	@Column(unique = true)
+	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}")
 	private String				code;
 
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	private Date				moment;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				registrationTime;
 
 	@NotNull
+	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				startDate;
-
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				endDate;
-
-	@Email
-	@Length(max = 255)
-	private String				contactEmail;
+	private Date				dueDate;
 
 	@NotNull
 	@Positive
-	private int					amount;
+	private int					quantity;
 
 	@NotNull
-	@Valid
-	private SponsorshipType		sponsorshipType;
+	@PositiveOrZero
+	private int					tax;
 
 	@URL
 	@Length(max = 255)
@@ -70,9 +64,18 @@ public class Sponsorship extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
+
+	@Transient
+	public int getTotalAmount() {
+		return this.quantity + this.tax;
+
+	}
+
 	// Relationships ----------------------------------------------------------
+
+
 	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
-	private Project				project;
+	private Sponsorship sponsorship;
 }
