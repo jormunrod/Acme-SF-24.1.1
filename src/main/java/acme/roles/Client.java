@@ -1,26 +1,24 @@
 
-package acme.entities.sponsorships;
+package acme.roles;
 
-import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.client.data.AbstractEntity;
+import acme.client.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Banner extends AbstractEntity {
+public class Client extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -28,37 +26,27 @@ public class Banner extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Past
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				instantiationMoment;
-
-	@Past
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				updateMoment;
-
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				displayStart;
-
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				displayEnd;
-
-	@NotNull
-	@URL
+	@Column(unique = true)
+	@NotBlank
+	@Pattern(regexp = "CLI-[0-9]{4}")
 	@Length(max = 255)
-	private String				picture;
+	private String				identification;
 
 	@NotBlank
 	@Length(max = 75)
-	private String				slogan;
+	private String				companyName;
 
 	@NotNull
+	private ClientType			type;
+
+	@NotBlank
+	@Email
+	@Length(max = 255)
+	private String				email;
+
 	@URL
 	@Length(max = 255)
-	private String				webDocument;
+	private String				link;
 
 	// Derived attributes -----------------------------------------------------
 
