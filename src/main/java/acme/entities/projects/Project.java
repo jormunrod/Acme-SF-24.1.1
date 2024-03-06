@@ -40,13 +40,17 @@ public class Project extends AbstractEntity {
 	private String				abstractText;
 
 	@NotNull
-	private Boolean				hasFatalErrors;
+	private boolean				hasFatalErrors;
+
+	@NotNull
+	private boolean				isPublished;
 
 	@NotNull
 	@PositiveOrZero
-	private Double				cost;
+	private int					cost;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
