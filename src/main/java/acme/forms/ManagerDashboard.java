@@ -2,6 +2,7 @@
 package acme.forms;
 
 import acme.client.data.AbstractForm;
+import acme.client.data.datatypes.Money;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,8 +28,8 @@ public class ManagerDashboard extends AbstractForm {
 
 	Double						averageNumberOfCost;
 	Double						deviationNumberOfCost;
-	Double						minimumNumberOfCost;
-	Double						maximumNumberOfCost;
+	Money						minimumNumberOfCost;
+	Money						maximumNumberOfCost;
 
 	// Derived attributes -----------------------------------------------------
 
