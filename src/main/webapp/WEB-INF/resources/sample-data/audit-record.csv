@@ -1,0 +1,8 @@
+key,code,auditPeriodStart,auditPeriodEnd,mark,link,key:code-audit
+audit-record-01,AU-0001-001,2021/03/12 10:00, 2021/03/12 12:00,C,http://localhost:8080/audit-record/AU-0001-001,code-audit-01
+audit-record-02,AU-0001-002,2021/03/30 07:00, 2021/03/30 13:00,A,http://localhost:8080/audit-record/AU-0001-002,code-audit-02
+audit-record-03,AU-0001-003,2021/04/04 10:00, 2021/04/04 12:00,A_PLUS,http://localhost:8080/audit-record/AU-0001-003,code-audit-03
+audit-record-04,AU-0001-004,2021/04/14 10:00, 2021/04/14 12:00,F,https://example.com/abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabc,code-audit-04
+audit-record-05,AU-0001-005,2021/05/07 16:00, 2021/05/07 19:00,F_MINUS,,code-audit-05
+audit-record-06,AU-0001-006,2021/06/01 13:00, 2021/06/01 14:30,B,https://example.com/abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcd,code-audit-06
+audit-record-07,AU-0001-007,2022/07/29 22:55, 2022/07/29 23:55,C,https://example.com/abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcd1,code-audit-07

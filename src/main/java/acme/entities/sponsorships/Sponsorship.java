@@ -14,13 +14,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import acme.entities.projects.Project;
+import acme.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -57,11 +58,9 @@ public class Sponsorship extends AbstractEntity {
 	private String				contactEmail;
 
 	@NotNull
-	@Positive
-	private int					amount;
+	private Money				amount;
 
 	@NotNull
-	@Valid
 	private SponsorshipType		sponsorshipType;
 
 	@URL
@@ -75,4 +74,10 @@ public class Sponsorship extends AbstractEntity {
 	@NotNull
 	@Valid
 	private Project				project;
+
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	private Sponsor				sponsor;
+
 }
