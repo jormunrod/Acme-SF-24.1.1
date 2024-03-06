@@ -70,6 +70,7 @@ public class Invoice extends AbstractEntity {
 		Double totalAmount = this.quantity.getAmount() * (1 + this.tax);
 		Money m = new Money();
 		m.setAmount(totalAmount);
+		m.setCurrency(this.quantity.getCurrency());
 		return m;
 
 	}
