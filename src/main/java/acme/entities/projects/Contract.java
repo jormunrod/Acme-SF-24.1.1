@@ -5,13 +5,20 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
+import acme.roles.Client;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +39,8 @@ public class Contract extends AbstractEntity {
 	private String				code;
 
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	private Date				instantiationMoment;
 
 	@NotBlank
@@ -47,6 +56,21 @@ public class Contract extends AbstractEntity {
 	private String				goals;
 
 	// TODO: Less than or equal to the corresponding project cost (in services)
-	private Double				budget;
+	@NotNull
+	private Money				budget;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Project				project;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Client				client;
 
 }
