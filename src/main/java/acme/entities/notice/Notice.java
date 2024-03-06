@@ -1,50 +1,53 @@
 
-package acme.entities.projects;
+package acme.entities.notice;
 
-import javax.persistence.Column;
+import java.util.Date;
+
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.client.data.datatypes.Money;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Project extends AbstractEntity {
+public class Notice extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
-
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
-	@NotBlank
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
-	private String				code;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	@NotNull
+	private Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
+	@Length(max = 75)
+	private String				author;
+
+	@NotBlank
 	@Length(max = 100)
-	private String				abstractText;
+	private String				message;
 
-	private boolean				hasFatalErrors;
-
-	private boolean				isPublished;
-
-	@NotNull
-	private Money				cost;
+	@Email
+	@Length(max = 255)
+	private String				email;
 
 	@URL
 	@Length(max = 255)
