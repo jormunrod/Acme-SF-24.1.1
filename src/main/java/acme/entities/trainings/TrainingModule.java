@@ -20,6 +20,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.projects.Project;
+import acme.roles.Developer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -64,6 +65,11 @@ public class TrainingModule extends AbstractEntity {
 	private int					totalTime;
 	// Derived attributes -----------------------------------------------------
 	// Relationships ----------------------------------------------------------
+
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	private Developer			developer;
 
 	@ManyToOne(optional = false)
 	@NotNull
