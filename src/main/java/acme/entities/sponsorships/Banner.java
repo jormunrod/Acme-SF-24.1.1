@@ -1,31 +1,26 @@
 
-package acme.entities.projects;
+package acme.entities.sponsorships;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.client.data.datatypes.Money;
-import acme.roles.Client;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Contract extends AbstractEntity {
+public class Banner extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -33,44 +28,39 @@ public class Contract extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
-	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
-	private String				code;
-
 	@Past
-	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				instantiationMoment;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				providerName;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				customerName;
-
-	@NotBlank
-	@Length(max = 100)
-	private String				goals;
-
-	// TODO: Less than or equal to the corresponding project cost (in services)
+	@Past
 	@NotNull
-	private Money				budget;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				updateMoment;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				displayStart;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				displayEnd;
+
+	@NotNull
+	@URL
+	@Length(max = 255)
+	private String				picture;
+
+	@NotBlank
+	@Length(max = 75)
+	private String				slogan;
+
+	@NotNull
+	@URL
+	@Length(max = 255)
+	private String				webDocument;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Project				project;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Client				client;
-
 }

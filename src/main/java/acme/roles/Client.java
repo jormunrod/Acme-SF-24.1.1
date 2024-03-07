@@ -1,25 +1,24 @@
 
-package acme.entities.projects;
+package acme.roles;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.client.data.AbstractEntity;
-import acme.roles.Manager;
+import acme.client.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class UserStory extends AbstractEntity {
+public class Client extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -27,23 +26,22 @@ public class UserStory extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@Column(unique = true)
+	@NotBlank
+	@Pattern(regexp = "C-[0-9]{4}")
+	private String				identification;
+
 	@NotBlank
 	@Length(max = 75)
-	private String				title;
-
-	@NotBlank
-	@Length(max = 100)
-	private String				description;
-
-	@Positive
-	private int					estimatedHours;
-
-	@NotBlank
-	@Length(max = 100)
-	private String				acceptanceCriteria;
+	private String				companyName;
 
 	@NotNull
-	private UserStoryPriority	priority;
+	private ClientType			type;
+
+	@NotBlank
+	@Email
+	@Length(max = 255)
+	private String				email;
 
 	@URL
 	@Length(max = 255)
@@ -52,10 +50,4 @@ public class UserStory extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Manager				manager;
-
 }
