@@ -33,7 +33,7 @@ public class Objective extends AbstractEntity {
 	@Past
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				instantationMoment;
+	private Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
@@ -50,7 +50,11 @@ public class Objective extends AbstractEntity {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				duration;
+	private Date				startDate;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				endDate;
 
 	@URL
 	@Length(max = 255)
