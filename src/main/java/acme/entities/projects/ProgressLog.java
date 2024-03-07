@@ -12,12 +12,13 @@ import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -38,9 +39,8 @@ public class ProgressLog extends AbstractEntity {
 	@Pattern(regexp = "PG-[A-Z]{1,2}-[0-9]{4}")
 	private String				recordId;
 
-	@Positive
-	@Min(0)
-	@Max(1)
+	@Range(min = 0, max = 1)
+	@Digits(integer = 1, fraction = 2)
 	private Double				completenessPercentage;
 
 	@NotBlank
