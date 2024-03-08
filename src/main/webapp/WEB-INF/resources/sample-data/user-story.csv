@@ -1,0 +1,24 @@
+key,title,description,estimatedHours,acceptanceCriteria,priority,link
+user-story-01,1,Esta es una descripción genérica,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-02,U2,Esta es una descripción genérica,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-03,Historia de Usuario 3,Esta es una descripción genérica,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-04,使用者故事4,Esta es una descripción genérica,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-05,Historia de Usuario 5: Estimación de costes asociados a las compras online,Esta es una descripción genérica,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-06,Historia de Usuario 6: Comprobación de todas las entidades unidireccionales,Esta es una descripción genérica,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-07,Historia de Usuario 7,7,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-08,Historia de Usuario 8,D8,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-09,Historia de Usuario 9,這是一個通用的描述,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-10,Historia de Usuario 10,Esta es una descripción poco detallada para cumplimentar con la información extraída con el sistema,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-11,Historia de Usuario 11,Esta es una descripción detallada sobre la historia de usuario 11 donde se indica los pasos a seguir,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-12,Historia de Usuario 12,Esta es una descripción genérica,1,Criterios técnicos y teóricos,SHOULD,https://www.google.com
+user-story-13,Historia de Usuario 13,Esta es una descripción genérica,45,3,SHOULD,https://www.google.com
+user-story-14,Historia de Usuario 14,Esta es una descripción genérica,45,C4,SHOULD,https://www.google.com
+user-story-15,Historia de Usuario 15,Esta es una descripción genérica,45,技術和理論標,SHOULD,https://www.google.com
+user-story-16,Historia de Usuario 16,Esta es una descripción genérica,45,Este es un ejemplo de los criterios de aceptación aceptados por la compañía para calidar un pedido.,SHOULD,https://www.google.com
+user-story-17,Historia de Usuario 17,Esta es una descripción genérica,45,Estos son los criterios de aceptación que validarán los requisitos impuestos por el gestor del banco,SHOULD,https://www.google.com
+user-story-18,Historia de Usuario 18,Esta es una descripción genérica,45,Criterios técnicos y teóricos,MUST,https://www.google.com
+user-story-19,Historia de Usuario 19,Esta es una descripción genérica,45,Criterios técnicos y teóricos,WONT,https://www.google.com
+user-story-20,Historia de Usuario 20,Esta es una descripción genérica,45,Criterios técnicos y teóricos,COULD,https://www.google.com
+user-story-21,Historia de Usuario 21,Esta es una descripción genérica,45,Criterios técnicos y teóricos,SHOULD,
+user-story-22,Historia de Usuario 22,Esta es una descripción genérica,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com/checkUpTo254---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+user-story-23,Historia de Usuario 23,Esta es una descripción genérica,45,Criterios técnicos y teóricos,SHOULD,https://www.google.com/checkUpTo255----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
