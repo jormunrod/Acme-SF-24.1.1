@@ -16,3 +16,5 @@ sponsorship-15,project-01,sponsor-01,ABQ-123,"2020/06/01 12:30","2020/05/15 08:0
 sponsorship-16,project-01,sponsor-01,ABR-123,"2020/06/01 12:30","2020/05/15 08:00","2020/08/15 08:00",test@example.com,"EUR 1,000.00",INKIND,https://example.com/sponsorship-15
 sponsorship-17,project-02,sponsor-01,ABS-123,"2020/06/01 12:30","2020/05/15 08:00","2020/08/15 08:00",test@example.com,"EUR 1,000.00",FINANCIAL,https://example.com/sponsorship-16
 sponsorship-18,project-03,sponsor-02,ABT-123,"2020/06/01 12:30","2020/05/15 08:00","2020/08/15 08:00",test@example.com,"EUR 1,000.00",FINANCIAL,https://example.com/sponsorship-17
+sponsorship-19,project-03,sponsor-02,ABU-123,"2020/06/01 12:30","2020/05/15 08:00","2020/08/15 08:00",test@example.com,"USD 1,000.00",FINANCIAL,https://example.com/sponsorship-17
+sponsorship-20,project-03,sponsor-02,ABV-123,"2020/06/01 12:30","2020/05/15 08:00","2020/08/15 08:00",test@example.com,"GBP 1,000.00",FINANCIAL,https://example.com/sponsorship-17

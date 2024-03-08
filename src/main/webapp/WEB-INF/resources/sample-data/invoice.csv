@@ -19,3 +19,5 @@ invoice-17,sponsorship-01,IN-8888-1111,"2020/06/01 12:30","2020/08/21 12:30","EU
 invoice-18,sponsorship-01,IN-4785-5432,"2020/06/01 12:30","2020/08/21 12:30","EUR 1,000.00",0.33,https://example.com/invoice
 invoice-19,sponsorship-02,IN-9999-1111,"2020/06/01 12:30","2020/08/21 12:30","EUR 1,000.00",0.33,https://example.com/invoice
 invoice-20,sponsorship-03,IN-1111-2222,"2020/06/01 12:30","2020/08/21 12:30","EUR 1,000.00",0.33,https://example.com/invoice
+invoice-21,sponsorship-03,IN-1111-3333,"2020/06/01 12:30","2020/08/21 12:30","USD 1,000.00",0.33,https://example.com/invoice
+invoice-22,sponsorship-03,IN-1111-4444,"2020/06/01 12:30","2020/08/21 12:30","GBP 1,000.00",0.33,https://example.com/invoice
