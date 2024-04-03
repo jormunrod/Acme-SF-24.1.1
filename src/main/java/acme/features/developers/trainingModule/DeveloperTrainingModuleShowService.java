@@ -22,12 +22,19 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 
 	@Override
 	public void authorise() {
+		super.getResponse().setAuthorised(true);
 
 	}
 
 	@Override
 	public void load() {
+		TrainingModule object;
+		int id;
 
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.getTrainingModuleById(id);
+
+		super.getBuffer().addData(object);
 	}
 
 	@Override
