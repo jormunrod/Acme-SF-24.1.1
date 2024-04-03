@@ -1,6 +1,8 @@
 
 package acme.features.developers.trainingModule;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +24,17 @@ public class DeveloperTrainingModuleListService extends AbstractService<Develope
 
 	@Override
 	public void authorise() {
+		super.getResponse().setAuthorised(true);
 
 	}
 
 	@Override
 	public void load() {
+		Collection<TrainingModule> objects;
+
+		objects = this.repository.getAllTrainingModule();
+
+		super.getBuffer().addData(objects);
 
 	}
 

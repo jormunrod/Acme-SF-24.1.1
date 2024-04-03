@@ -27,8 +27,8 @@
 			<acme:menu-suboption code="master.menu.anonymous.alepersan3" action="https://neal.fun/password-game"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.developers" access="hasRole('Developer')">
-			<acme:menu-suboption code="master.menu.developers.trainingModule.list" action="developers/trainingModule/list"/>
+		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">
+			<acme:menu-suboption code="master.menu.developer.training-module.list" action="/developer/training-module/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
