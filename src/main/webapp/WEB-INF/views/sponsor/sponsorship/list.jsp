@@ -11,5 +11,4 @@
 			<acme:list-column code="sponsor.sponsorship.list.label.contactEmail" path="contactEmail" width="10%"/>
 			<acme:list-column code="sponsor.sponsorship.list.label.amount" path="amount" width="10%"/>
 			<acme:list-column code="sponsor.sponsorship.list.label.link" path="link" width="10%"/>
-			<acme:list-column code="sponsor.sponsorship.list.label.link" path="link" width="10%"/>	
 </acme:list>
