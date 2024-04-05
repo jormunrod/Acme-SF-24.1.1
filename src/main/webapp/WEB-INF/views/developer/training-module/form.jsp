@@ -11,4 +11,6 @@
 	<acme:input-textbox code="developer.training-module.form.label.details" path="details"/>
 	<acme:input-textbox code="developer.training-module.form.label.link" path="link"/>
 	<acme:input-textbox code="developer.training-module.form.label.totalTime" path="totalTime"/>
+	
+	<acme:button code="developer.training-module.form.button.training-sessions" action="/developer/training-sesion/list?id=${id}"/>
 </acme:form>

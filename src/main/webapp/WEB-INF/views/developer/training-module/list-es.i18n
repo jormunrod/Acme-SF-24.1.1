@@ -33,3 +33,5 @@ developer.training-module.form.label.updateMoment = Momento de Actualización
 developer.training-module.form.label.details = Detalles
 developer.training-module.form.label.link = Link (Opcional)
 developer.training-module.form.label.totalTime = Tiempo Total
+
+developer.training-module.form.button.training-sessions = Sesiones de Entrenamiento
