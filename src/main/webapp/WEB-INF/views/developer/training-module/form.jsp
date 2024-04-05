@@ -4,12 +4,11 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="developer.training-module.list.label.code" path="code" width="20%"/>
-	<acme:input-textbox code="developer.training-module.list.label.creationMoment" path="creationMoment" width="10%"/>
-	<acme:input-textbox code="developer.training-module.list.label.difficultyLevel" path="difficultyLevel" width="10%"/>
-	<acme:input-textbox code="developer.training-module.list.label.updateMoment" path="updateMoment" width="10%"/>
-	<acme:input-textbox code="developer.training-module.list.label.details" path="details" width="20%"/>
-	<acme:input-textbox code="developer.training-module.list.label.link" path="link" width="20%"/>
-	<acme:input-textbox code="developer.training-module.list.label.creationMoment" path="creationMoment" width="10%"/>
-	<acme:input-textbox code="developer.training-module.list.label.totalTime" path="totalTime" width="10%"/>
+	<acme:input-textbox code="developer.training-module.form.label.code" path="code"/>
+	<acme:input-textbox code="developer.training-module.form.label.creationMoment" path="creationMoment"/>
+	<acme:input-textbox code="developer.training-module.form.label.difficultyLevel" path="difficultyLevel"/>
+	<acme:input-textbox code="developer.training-module.form.label.updateMoment" path="updateMoment"/>
+	<acme:input-textbox code="developer.training-module.form.label.details" path="details"/>
+	<acme:input-textbox code="developer.training-module.form.label.link" path="link"/>
+	<acme:input-textbox code="developer.training-module.form.label.totalTime" path="totalTime"/>
 </acme:form>

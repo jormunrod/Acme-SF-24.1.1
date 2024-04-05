@@ -24,3 +24,12 @@ developer.training-module.list.label.difficultyLevel = Difficulty Level
 developer.training-module.list.label.updateMoment = Update Moment
 developer.training-module.list.label.link = Link
 developer.training-module.list.label.totalTime = Total Time
+
+developer.training-module.form.title = Details about Training Module
+developer.training-module.form.label.code = Code
+developer.training-module.form.label.creationMoment = Creation Moment
+developer.training-module.form.label.difficultyLevel = Difficulty Level
+developer.training-module.form.label.updateMoment = Update Moment
+developer.training-module.form.label.details = Details
+developer.training-module.form.label.link = Link (Optional)
+developer.training-module.form.label.totalTime = Total Time
