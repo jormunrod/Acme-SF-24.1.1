@@ -16,10 +16,7 @@ master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 
 
-# master.menu.sponsor ###################################################
-
-master.menu.sponsor = Sponsor
-master.menu.sponsor.sponsorship.list = SponsorshipList
+# sponsor.sponsorship ##################################################
 sponsor.sponsorship.list.title = My Sponsorships
 sponsor.sponsorship.list.label.code = Code
 sponsor.sponsorship.list.label.moment = Moment
@@ -30,5 +27,11 @@ sponsor.sponsorship.list.label.amount = Amount
 sponsor.sponsorship.list.label.link = Link
 
 
-
-
+sponsor.sponsorship.form.title = Sponsorship Details
+sponsor.sponsorship.form.label.code = Code
+sponsor.sponsorship.form.label.moment = Moment
+sponsor.sponsorship.form.label.startDate = Start Date
+sponsor.sponsorship.form.label.endDate = End Date
+sponsor.sponsorship.form.label.contactEmail = Contact Email
+sponsor.sponsorship.form.label.amount = Amount
+sponsor.sponsorship.form.label.link = Link

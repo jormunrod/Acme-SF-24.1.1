@@ -15,10 +15,9 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
-# master.menu.sponsor ###################################################
+# sponsor.sponsorship ###################################################
 
-master.menu.sponsor = Patrocinador
-master.menu.sponsor.sponsorship.list = Lista de patrocinadores
+
 sponsor.sponsorship.list.title = Mis Patrocinios
 sponsor.sponsorship.list.label.code = Codigo
 sponsor.sponsorship.list.label.moment = Momento
@@ -27,3 +26,13 @@ sponsor.sponsorship.list.label.endDate = Fecha FInal
 sponsor.sponsorship.list.label.contactEmail = Email de contacto
 sponsor.sponsorship.list.label.amount = Cantidad
 sponsor.sponsorship.list.label.link = Link
+
+
+sponsor.sponsorship.form.title = Detalles de patrocinio
+sponsor.sponsorship.form.label.code = Codigo
+sponsor.sponsorship.form.label.moment = Momento
+sponsor.sponsorship.form.label.startDate = Fecha Inicio
+sponsor.sponsorship.form.label.endDate = Fecha FInal
+sponsor.sponsorship.form.label.contactEmail = Email de contacto
+sponsor.sponsorship.form.label.amount = Cantidad
+sponsor.sponsorship.form.label.link = Link
