@@ -10,8 +10,7 @@ import acme.entities.trainings.TrainingModule;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleShowService extends AbstractService<Developer, TrainingModule> {
-
+public class DeveloperTrainingModuleDeleteService extends AbstractService<Developer, TrainingModule> {
 	//Internal state -----------------------------------------------------------------------------------
 
 	@Autowired
@@ -22,7 +21,17 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		TrainingModule trainingModule;
+		Developer developer;
+
+		id = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findTrainingModuleById(id);
+		developer = trainingModule == null ? null : trainingModule.getDeveloper();
+		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(developer);
+
+		super.getResponse().setAuthorised(status);
 
 	}
 
@@ -35,6 +44,26 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 		object = this.repository.findTrainingModuleById(id);
 
 		super.getBuffer().addData(object);
+
+	}
+
+	@Override
+	public void bind(final TrainingModule object) {
+		assert object != null;
+
+		super.bind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "details", "link", "totalTime");
+
+	}
+
+	@Override
+	public void validate(final TrainingModule object) {
+		assert object != null;
+
+	}
+
+	@Override
+	public void perform(final TrainingModule object) {
+
 	}
 
 	@Override
@@ -43,7 +72,7 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime");
+		dataset = super.unbind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "details", "link", "totalTime");
 
 		super.getResponse().addData(dataset);
 	}

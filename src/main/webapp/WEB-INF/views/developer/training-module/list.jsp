@@ -11,3 +11,7 @@
 		<acme:list-column code="developer.training-module.list.label.link" path="link" width="20%"/>
 		<acme:list-column code="developer.training-module.list.label.totalTime" path="totalTime" width="10%"/>
 </acme:list>
+
+<jstl:if test="${ _command == 'list'}">
+	<acme:button code="developer.training-module.list.button.create" action="/developer/training-module/create"/>
+</jstl:if>
