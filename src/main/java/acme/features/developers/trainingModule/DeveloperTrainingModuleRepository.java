@@ -14,8 +14,8 @@ import acme.roles.Developer;
 @Repository
 public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 
-	@Query("select tm from TrainingModule tm")
-	Collection<TrainingModule> getAllTrainingModule();
+	@Query("select tm from TrainingModule tm where tm.developer.id = :id")
+	Collection<TrainingModule> getAllTrainingModuleByDeveloperId(int id);
 
 	@Query("select tm from TrainingModule tm where tm.id =:id")
 	TrainingModule findTrainingModuleById(int id);

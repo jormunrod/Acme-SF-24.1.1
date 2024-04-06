@@ -32,7 +32,7 @@ public class DeveloperTrainingModuleListService extends AbstractService<Develope
 	public void load() {
 		Collection<TrainingModule> objects;
 
-		objects = this.repository.getAllTrainingModule();
+		objects = this.repository.getAllTrainingModuleByDeveloperId(super.getRequest().getPrincipal().getActiveRoleId());
 
 		super.getBuffer().addData(objects);
 
