@@ -29,7 +29,10 @@ public class SponsorSponsorshipListService extends AbstractService<Sponsor, Spon
 	public void load() {
 		Collection<Sponsorship> objects;
 
-		objects = this.repository.findAllSponsorship();
+		int id;
+		id = super.getRequest().getPrincipal().getActiveRoleId();
+
+		objects = this.repository.findSponsorshipBySponsorId(id);
 
 		super.getBuffer().addData(objects);
 
