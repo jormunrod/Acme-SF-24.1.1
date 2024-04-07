@@ -35,3 +35,10 @@ developer.training-sesion.form.label.location = Location
 developer.training-sesion.form.label.instructor = Instructor
 developer.training-sesion.form.label.contactEmail = Contact Email
 developer.training-sesion.form.label.link = Link (Optional)
+
+
+developer.training-sesion.list.button.create = Create
+
+developer.training-sesion.form.button.create = Create
+developer.training-sesion.form.button.delete = Delete
+developer.training-sesion.form.button.update = Update

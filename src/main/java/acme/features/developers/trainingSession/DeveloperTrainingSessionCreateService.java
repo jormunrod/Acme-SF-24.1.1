@@ -10,8 +10,7 @@ import acme.entities.trainings.TrainingSesion;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingSessionShowService extends AbstractService<Developer, TrainingSesion> {
-
+public class DeveloperTrainingSessionCreateService extends AbstractService<Developer, TrainingSesion> {
 	//Internal state -----------------------------------------------------------------------------------
 
 	@Autowired
@@ -23,17 +22,45 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 	@Override
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
+
 	}
 
 	@Override
 	public void load() {
 		TrainingSesion object;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findTrainingSesionById(id);
+		object = new TrainingSesion();
 
 		super.getBuffer().addData(object);
+
+	}
+
+	@Override
+	public void bind(final TrainingSesion object) {
+		assert object != null;
+
+		super.bind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
+
+	}
+
+	@Override
+	public void validate(final TrainingSesion object) {
+		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			TrainingSesion existing;
+
+			existing = this.repository.findOneTrainingSesionByCode(object.getCode());
+			super.state(existing == null, "code", "developer.training-sesion.form.error.duplicated");
+		}
+
+	}
+
+	@Override
+	public void perform(final TrainingSesion object) {
+		assert object != null;
+
+		this.repository.save(object);
 
 	}
 
@@ -47,4 +74,5 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 
 		super.getResponse().addData(dataset);
 	}
+
 }

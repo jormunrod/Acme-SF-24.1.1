@@ -12,3 +12,7 @@
 		<acme:list-column code="developer.training-sesion.list.label.contactEmail" path="contactEmail" width="10%"/>
 		<acme:list-column code="developer.training-sesion.list.label.link" path="link" width="20%"/>
 </acme:list>
+
+<jstl:if test="${ _command == 'list'}">
+	<acme:button code="developer.training-sesion.list.button.create" action="/developer/training-sesion/create"/>
+</jstl:if>

@@ -10,7 +10,7 @@ import acme.entities.trainings.TrainingSesion;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingSessionShowService extends AbstractService<Developer, TrainingSesion> {
+public class DeveloperTrainingSessionUpdateService extends AbstractService<Developer, TrainingSesion> {
 
 	//Internal state -----------------------------------------------------------------------------------
 
@@ -22,7 +22,16 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		TrainingSesion trainingSesion;
+
+		id = super.getRequest().getData("id", int.class);
+		trainingSesion = this.repository.findTrainingSesionById(id);
+		status = trainingSesion != null;
+
+		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
@@ -34,6 +43,28 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 		object = this.repository.findTrainingSesionById(id);
 
 		super.getBuffer().addData(object);
+
+	}
+
+	@Override
+	public void bind(final TrainingSesion object) {
+		assert object != null;
+
+		super.bind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
+
+	}
+
+	@Override
+	public void validate(final TrainingSesion object) {
+		assert object != null;
+
+	}
+
+	@Override
+	public void perform(final TrainingSesion object) {
+		assert object != null;
+
+		this.repository.save(object);
 
 	}
 
