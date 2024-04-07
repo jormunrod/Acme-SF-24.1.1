@@ -32,7 +32,7 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.getTrainingModuleById(id);
+		object = this.repository.findTrainingModuleById(id);
 
 		super.getBuffer().addData(object);
 	}
