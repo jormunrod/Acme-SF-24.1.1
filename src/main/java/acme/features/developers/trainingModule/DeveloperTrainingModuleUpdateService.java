@@ -1,6 +1,8 @@
 
 package acme.features.developers.trainingModule;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,6 +78,7 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 	public void perform(final TrainingModule object) {
 		assert object != null;
 
+		object.setUpdateMoment(new Date());
 		this.repository.save(object);
 
 	}
