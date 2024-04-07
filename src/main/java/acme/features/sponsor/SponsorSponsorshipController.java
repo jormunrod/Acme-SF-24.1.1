@@ -17,12 +17,17 @@ public class SponsorSponsorshipController extends AbstractController<Sponsor, Sp
 	private SponsorSponsorshipListMineService	listMineService;
 	@Autowired
 	private SponsorSponsorshipShowService		showService;
+	@Autowired
+	private SponsorSponsorshipCreateService		createService;
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCustomCommand("list-mine", "list", this.listMineService);
+
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+
+		super.addCustomCommand("list-mine", "list", this.listMineService);
 
 	}
 
