@@ -39,7 +39,7 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 		Client client;
 
 		id = super.getRequest().getData("id", int.class);
-		contract = this.repository.findContractById(id);
+		contract = this.repository.findOneContractById(id);
 		client = contract == null ? null : contract.getClient();
 		status = client != null && super.getRequest().getPrincipal().hasRole(client);
 
@@ -52,7 +52,7 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findContractById(id);
+		object = this.repository.findOneContractById(id);
 
 		super.getBuffer().addData(object);
 	}

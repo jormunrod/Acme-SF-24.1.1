@@ -28,4 +28,5 @@ client.contract.form.label.goals = Objetivos
 client.contract.form.label.budget = Presupuesto
 client.contract.form.button.delete = Eliminar
 client.contract.form.button.update = Actualizar
+client.contract.form.button.create = Crear
 client.contract.form.error.isPublished = El contrato no puede ser modificado/eliminado porque pertenece a un proyecto publicado

@@ -41,7 +41,7 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findContractById(id);
+		object = this.repository.findOneContractById(id);
 
 		super.getBuffer().addData(object);
 	}
