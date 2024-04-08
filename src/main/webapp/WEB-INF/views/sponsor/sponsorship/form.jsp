@@ -6,7 +6,7 @@
 <acme:form>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.code" path="code" />
 	<acme:input-select code="sponsor.sponsorship.form.label.project" path="project" choices="${projects}"/>
-	<acme:input-textbox code="sponsor.sponsorship.form.label.sponsorshipType" path="sponsorshipType"/>
+	<acme:input-select code="sponsor.sponsorship.form.label.sponsorshipType" path="sponsorshipType" choices="${sponsorshipTypes}"/>
 			<acme:input-moment code="sponsor.sponsorship.form.label.moment" path="moment" />
 			<acme:input-moment code="sponsor.sponsorship.form.label.startDate" path="startDate"/>
 			<acme:input-moment code="sponsor.sponsorship.form.label.endDate" path="endDate" />
@@ -16,13 +16,13 @@
 			
 			<jstl:choose> 
         <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
-            <acme:submit code="sponsor.sponsorShip.list.button.update" action="/sponsor/sponsorship/update"/>
-            <acme:submit code="sponsor.sponsorShip.list.button.delete" action="/sponsor/sponsorship/delete"/>
-            <acme:submit code="sponsor.sponsorShip.list.button.publish" action="/sponsor/sponsorship/publish"/>
+            <acme:submit code="sponsor.sponsorship.list.button.update" action="/sponsor/sponsorship/update"/>
+            <acme:submit code="sponsor.sponsorship.list.button.delete" action="/sponsor/sponsorship/delete"/>
+            <acme:submit code="sponsor.sponsorship.list.button.publish" action="/sponsor/sponsorship/publish"/>
         </jstl:when>
 
         <jstl:when test="${_command == 'create'}">
-            <acme:submit code="sponsor.sponsorShip.list.button.create" action="/sponsor/sponsorship/create"/>
+            <acme:submit code="sponsor.sponsorship.list.button.create" action="/sponsor/sponsorship/create"/>
         </jstl:when>
     </jstl:choose>
 			

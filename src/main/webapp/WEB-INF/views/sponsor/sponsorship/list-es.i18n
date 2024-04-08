@@ -36,3 +36,8 @@ sponsor.sponsorship.form.label.endDate = Fecha FInal
 sponsor.sponsorship.form.label.contactEmail = Email de contacto
 sponsor.sponsorship.form.label.amount = Cantidad
 sponsor.sponsorship.form.label.link = Link
+
+
+sponsor.sponsorship.form.label.project = Proyecto
+sponsor.sponsorship.form.label.sponsorshipType = Tipo de Patrocinio
+sponsor.sponsorship.list.button.create = Crear Proyecto
