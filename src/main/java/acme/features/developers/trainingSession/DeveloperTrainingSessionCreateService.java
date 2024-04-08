@@ -1,11 +1,15 @@
 
 package acme.features.developers.trainingSession;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
+import acme.entities.trainings.TrainingModule;
 import acme.entities.trainings.TrainingSesion;
 import acme.roles.Developer;
 
@@ -38,9 +42,13 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	@Override
 	public void bind(final TrainingSesion object) {
 		assert object != null;
+		int trainingModuleId;
+		TrainingModule trainingModule;
 
+		trainingModuleId = super.getRequest().getData("trainingModule", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(trainingModuleId);
 		super.bind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
-
+		object.setTrainingModule(trainingModule);
 	}
 
 	@Override
@@ -67,10 +75,19 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	@Override
 	public void unbind(final TrainingSesion object) {
 		assert object != null;
-
+		int developerId;
+		Collection<TrainingModule> trainingModules;
+		SelectChoices choices;
 		Dataset dataset;
 
+		developerId = super.getRequest().getPrincipal().getActiveRoleId();
+		System.out.println(developerId);
+		trainingModules = this.repository.findTrainingModuleByDeveloperId(developerId);
+		System.out.println(trainingModules);
+		choices = SelectChoices.from(trainingModules, "code", object.getTrainingModule());
 		dataset = super.unbind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
+		dataset.put("trainingModule", choices.getSelected().getKey());
+		dataset.put("trainingModules", choices);
 
 		super.getResponse().addData(dataset);
 	}

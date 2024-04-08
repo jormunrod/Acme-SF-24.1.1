@@ -41,3 +41,5 @@ developer.training-sesion.list.button.create = Crear
 developer.training-sesion.form.button.create = Crear
 developer.training-sesion.form.button.delete = Eliminar
 developer.training-sesion.form.button.update = Actualizar
+
+developer.training-sesion.form.label.training-module = Sesiones de entrenamiento
