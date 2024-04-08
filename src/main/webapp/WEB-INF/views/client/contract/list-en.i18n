@@ -16,6 +16,7 @@ client.contract.list.label.providerName = Provider Name
 client.contract.list.label.customerName = Customer Name
 client.contract.list.label.goals = Goals
 client.contract.list.label.budget = Budget
+client.contract.list.button.create = Create
 
 client.contract.form.title = Details of Contract
 client.contract.form.label.code = Code
@@ -27,3 +28,4 @@ client.contract.form.label.goals = Goals
 client.contract.form.label.budget = Budget
 client.contract.form.button.delete = Delete
 client.contract.form.button.update = Update
+client.contract.form.error.isPublished = This contract pertains to a published project and cannot be modified/deleted

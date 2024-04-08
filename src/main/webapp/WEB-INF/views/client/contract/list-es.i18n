@@ -16,6 +16,7 @@ client.contract.list.label.providerName = Nombre del Proveedor
 client.contract.list.label.customerName = Nombre del Cliente
 client.contract.list.label.goals = Objetivos
 client.contract.list.label.budget = Presupuesto
+client.contract.list.button.create = Crear
 
 client.contract.form.title = Detalles del Contrato
 client.contract.form.label.code = Código
@@ -27,3 +28,4 @@ client.contract.form.label.goals = Objetivos
 client.contract.form.label.budget = Presupuesto
 client.contract.form.button.delete = Eliminar
 client.contract.form.button.update = Actualizar
+client.contract.form.error.isPublished = El contrato no puede ser modificado/eliminado porque pertenece a un proyecto publicado
