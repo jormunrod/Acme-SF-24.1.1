@@ -42,4 +42,8 @@ sponsor.sponsorship.form.label.link = Link
 
 sponsor.sponsorship.form.label.project = Project
 sponsor.sponsorship.form.label.sponsorshipType = Sponsorship Type 
-sponsor.sponsorship.list.button.create = Create Project
+sponsor.sponsorship.list.button.create = Create Sponsorship
+
+sponsor.sponsorship.list.button.update = Update
+sponsor.sponsorship.list.button.delete = Delete
+sponsor.sponsorship.list.button.publish = Publish

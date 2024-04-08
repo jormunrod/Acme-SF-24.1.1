@@ -40,4 +40,8 @@ sponsor.sponsorship.form.label.link = Link
 
 sponsor.sponsorship.form.label.project = Proyecto
 sponsor.sponsorship.form.label.sponsorshipType = Tipo de Patrocinio
-sponsor.sponsorship.list.button.create = Crear Proyecto
+sponsor.sponsorship.list.button.create = Crear Patrocinio
+
+sponsor.sponsorship.list.button.update = Actualizar
+sponsor.sponsorship.list.button.delete = Borrar
+sponsor.sponsorship.list.button.publish = Publicar

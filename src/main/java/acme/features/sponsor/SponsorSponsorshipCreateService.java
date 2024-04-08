@@ -1,15 +1,12 @@
 
 package acme.features.sponsor;
 
-import java.time.temporal.ChronoUnit;
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
@@ -38,6 +35,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 
 		object = new Sponsorship();
+		object.setDraftMode(true);
 
 		object.setSponsor(sponsor);
 
@@ -62,21 +60,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
-		if (super.getBuffer().getErrors().hasErrors("code")) {
-			Sponsorship existing;
-			existing = this.repository.findSponsorshipByCode(object.getCode());
-			super.state(existing == null, "code", "sponsor.sponsorShip.error.duplicated");
-		}
-
-		if (super.getBuffer().getErrors().hasErrors("endDate")) {
-			Date deadline;
-			deadline = MomentHelper.deltaFromMoment(object.getStartDate(), 30, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getEndDate(), deadline), "endDate", "sponsor.sponsorShip.error.endDate");
-		}
-
-		if (super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorShip.error.too-close");
-
 	}
 	@Override
 	public void perform(final Sponsorship object) {
@@ -98,7 +81,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getSponsorshipType());
-		dataset = super.unbind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link");
+		dataset = super.unbind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("sponsorshipTypes", typeChoices);
