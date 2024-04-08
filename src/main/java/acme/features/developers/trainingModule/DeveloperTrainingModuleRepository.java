@@ -31,4 +31,10 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 
 	@Query("select count(ts) from TrainingSesion ts where ts.trainingModule.id =:id")
 	int countTrainingSessionsByTrainingModuleId(int id);
+
+	@Query("select DISTINCT tm.project from TrainingModule tm where tm.developer.id = :id")
+	Collection<Project> findProjectsByDeveloperId(int id);
+
+	@Query("select DISTINCT tm from TrainingModule tm where tm.developer.id = :id")
+	Collection<TrainingModule> findAllTrainingModuleByDeveloperId(int id);
 }
