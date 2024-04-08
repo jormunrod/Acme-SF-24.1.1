@@ -1,5 +1,5 @@
 /**
- * Delete Service for the Contract entity.
+ * Update Service for the Contract entity.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-08
@@ -16,12 +16,11 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Contract;
-import acme.entities.projects.ProgressLog;
 import acme.entities.projects.Project;
 import acme.roles.Client;
 
 @Service
-public class ClientContractDeleteService extends AbstractService<Client, Contract> {
+public class ClientContractUpdateService extends AbstractService<Client, Contract> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -79,11 +78,7 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 	public void perform(final Contract object) {
 		assert object != null;
 
-		Collection<ProgressLog> progressLogs;
-		progressLogs = this.repository.findAllProgressLogsByContractId(object.getId());
-
-		this.repository.deleteAll(progressLogs);
-		this.repository.delete(object);
+		this.repository.save(object);
 	}
 
 	@Override
