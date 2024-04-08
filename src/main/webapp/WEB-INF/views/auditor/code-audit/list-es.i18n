@@ -1,0 +1,4 @@
+auditor.code-audit.list.label.code = Código
+auditor.code-audit.list.label.execution = Fecha de ejecución
+auditor.code-audit.list.label.type = Tipo
+auditor.code-audit.list.label.mark = Nota
