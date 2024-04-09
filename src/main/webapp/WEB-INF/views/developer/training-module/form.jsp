@@ -14,9 +14,10 @@
 	<acme:input-integer code="developer.training-module.form.label.totalTime" path="totalTime"/>
 
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:submit code="developer.training-module.form.button.delete" action="/developer/training-module/delete"/>
 			<acme:submit code="developer.training-module.form.button.update" action="/developer/training-module/update"/>
+			<acme:submit code="developer.training-module.form.button.publish" action="/developer/training-module/publish"/>
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'create' }">
