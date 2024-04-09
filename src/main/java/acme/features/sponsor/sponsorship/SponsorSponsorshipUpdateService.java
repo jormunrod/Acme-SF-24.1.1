@@ -1,5 +1,5 @@
 
-package acme.features.sponsor;
+package acme.features.sponsor.sponsorship;
 
 import java.util.Collection;
 
@@ -15,14 +15,22 @@ import acme.entities.sponsorships.SponsorshipType;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Sponsorship> {
+public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sponsorship> {
 
 	@Autowired
-	protected SponsorSponsorshipRepository repository;
+	private SponsorSponsorshipRepository repository;
 
 
 	@Override
 	public void authorise() {
+		boolean status;
+		int sponsorshipId;
+		Sponsorship sponsorship;
+		Sponsor sponsor;
+		sponsorshipId = super.getRequest().getData("id", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
+		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
+		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
 		super.getResponse().setAuthorised(true);
 
 	}
@@ -36,6 +44,33 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		object = this.repository.findOneSponsorshipById(id);
 
 		super.getBuffer().addData(object);
+	}
+	@Override
+	public void bind(final Sponsorship object) {
+		assert object != null;
+
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+
+		project = this.repository.findOneProjectById(projectId);
+
+		super.bind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link");
+		object.setProject(project);
+	}
+
+	@Override
+	public void validate(final Sponsorship object) {
+		assert object != null;
+
+	}
+	@Override
+	public void perform(final Sponsorship object) {
+		assert object != null;
+
+		this.repository.save(object);
+
 	}
 
 	@Override
@@ -55,7 +90,11 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		dataset = super.unbind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
+		dataset.put("sponsorshipType", typeChoices.getSelected().getKey());
 		dataset.put("sponsorshipTypes", typeChoices);
+
 		super.getResponse().addData(dataset);
+
 	}
+
 }

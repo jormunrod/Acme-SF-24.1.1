@@ -1,5 +1,5 @@
 
-package acme.features.sponsor;
+package acme.features.sponsor.sponsorship;
 
 import java.util.Collection;
 
@@ -10,19 +10,28 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
+import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
 import acme.entities.sponsorships.SponsorshipType;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sponsorship> {
+public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sponsorship> {
 
 	@Autowired
-	protected SponsorSponsorshipRepository repository;
+	private SponsorSponsorshipRepository repository;
 
 
 	@Override
 	public void authorise() {
+		boolean status;
+		int sponsorshipId;
+		Sponsorship sponsorship;
+		Sponsor sponsor;
+		sponsorshipId = super.getRequest().getData("id", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
+		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
+		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
 		super.getResponse().setAuthorised(true);
 
 	}
@@ -30,14 +39,10 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void load() {
 		Sponsorship object;
-		Sponsor sponsor;
+		int id;
 
-		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
-
-		object = new Sponsorship();
-		object.setDraftMode(true);
-
-		object.setSponsor(sponsor);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneSponsorshipById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -64,7 +69,13 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void perform(final Sponsorship object) {
 		assert object != null;
-		this.repository.save(object);
+
+		Collection<Invoice> invoices;
+
+		invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
+		this.repository.deleteAll(invoices);
+		this.repository.delete(object);
+
 	}
 
 	@Override
@@ -84,8 +95,11 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		dataset = super.unbind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
+		dataset.put("sponsorshipType", typeChoices.getSelected().getKey());
 		dataset.put("sponsorshipTypes", typeChoices);
+
 		super.getResponse().addData(dataset);
 
 	}
+
 }
