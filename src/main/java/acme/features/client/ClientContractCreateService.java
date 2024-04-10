@@ -61,7 +61,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		currentMoment = MomentHelper.getCurrentMoment();
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
+		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
 		object.setProject(project);
 		object.setInstantiationMoment(currentMoment);
 
@@ -97,7 +97,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		projects = this.repository.findAllPublishedProjects();
 		choices = SelectChoices.from(projects, "title", object.getProject());
-		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
+		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
 		dataset.put("projects", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 

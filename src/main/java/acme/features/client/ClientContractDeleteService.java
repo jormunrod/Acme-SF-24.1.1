@@ -61,7 +61,7 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 	public void bind(final Contract object) {
 		assert object != null;
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
+		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
 	}
 
 	@Override
@@ -96,7 +96,7 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 
 		projects = this.repository.findAllPublishedProjects();
 		choices = SelectChoices.from(projects, "title", object.getProject());
-		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
+		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
 		dataset.put("projects", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 

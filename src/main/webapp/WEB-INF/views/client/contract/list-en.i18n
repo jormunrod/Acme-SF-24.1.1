@@ -17,6 +17,7 @@ client.contract.list.label.customerName = Customer Name
 client.contract.list.label.goals = Goals
 client.contract.list.label.budget = Budget
 client.contract.list.button.create = Create
+client.contract.list.label.published = Published
 
 client.contract.form.title = Details of Contract
 client.contract.form.label.code = Code
@@ -30,3 +31,4 @@ client.contract.form.button.delete = Delete
 client.contract.form.button.update = Update
 client.contract.form.button.create = Create
 client.contract.form.error.duplicateCode = Duplicate code
+client.contract.form.label.publish = Publised
