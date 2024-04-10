@@ -66,7 +66,17 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
-		// TODO: Add project budget validation
+
+		boolean status;
+		Integer totalCost;
+
+		totalCost = this.repository.totalCostOfContractsByProjectId(object.getProject().getId());
+		status = totalCost <= object.getProject().getCost().getAmount();
+
+		System.out.println("Total cost: " + totalCost);
+		System.out.println("Project cost: " + object.getProject().getCost().getAmount());
+
+		super.state(status, "budget", "client.contract.form.error.budgetExceeded");
 	}
 
 	@Override
