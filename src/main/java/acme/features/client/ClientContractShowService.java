@@ -49,12 +49,10 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 	@Override
 	public void unbind(final Contract object) {
 		assert object != null;
-		int clientId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
 
-		clientId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());

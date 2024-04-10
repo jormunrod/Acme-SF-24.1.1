@@ -70,8 +70,10 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 
 		boolean status;
 
-		// Published for the contract
-		// Validate code
+		// TODO
+		//status = !object.getProject().isPublished();
+
+		//super.state(status, "*", "client.contract.form.error.isPublished");
 	}
 
 	@Override
@@ -88,12 +90,10 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 	@Override
 	public void unbind(final Contract object) {
 		assert object != null;
-		int clientId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
 
-		clientId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");

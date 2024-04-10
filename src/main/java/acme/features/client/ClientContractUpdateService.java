@@ -69,9 +69,10 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 
 		boolean status;
 
-		status = !object.getProject().isPublished();
+		status = this.repository.findOneContractByCodeAndDifferentId(object.getCode(), object.getId()) == null;
+		super.state(status, "code", "client.contract.form.error.duplicateCode");
 
-		super.state(status, "*", "client.contract.form.error.isPublished");
+		// TODO: Add project budget validation
 	}
 
 	@Override
@@ -84,15 +85,12 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	@Override
 	public void unbind(final Contract object) {
 		assert object != null;
-		int clientId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
 
-		clientId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 		choices = SelectChoices.from(projects, "title", object.getProject());
-
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
 		dataset.put("projects", choices.getSelected().getKey());
 		dataset.put("projects", choices);
