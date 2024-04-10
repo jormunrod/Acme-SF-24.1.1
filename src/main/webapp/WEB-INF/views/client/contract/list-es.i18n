@@ -32,3 +32,4 @@ client.contract.form.button.update = Actualizar
 client.contract.form.button.create = Crear
 client.contract.form.error.duplicateCode = Código duplicado
 client.contract.form.label.publish = Publicado
+client.contract.form.button.publish = Publicar

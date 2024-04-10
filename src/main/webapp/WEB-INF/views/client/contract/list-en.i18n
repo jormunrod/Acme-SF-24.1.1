@@ -31,4 +31,5 @@ client.contract.form.button.delete = Delete
 client.contract.form.button.update = Update
 client.contract.form.button.create = Create
 client.contract.form.error.duplicateCode = Duplicate code
-client.contract.form.label.publish = Publised
+client.contract.form.label.publish = Published
+client.contract.form.button.publish = Publish
