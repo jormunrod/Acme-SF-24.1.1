@@ -67,13 +67,6 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
-
-		boolean status;
-
-		// TODO
-		//status = !object.getProject().isPublished();
-
-		//super.state(status, "*", "client.contract.form.error.isPublished");
 	}
 
 	@Override
