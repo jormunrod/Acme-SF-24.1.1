@@ -107,7 +107,7 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 		Dataset dataset;
 
 		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsByDeveloperId(developerId);
+		projects = this.repository.findPublishedProjects();
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 		dataset = super.unbind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "details", "link", "totalTime", "draftMode");

@@ -72,7 +72,6 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 		assert object != null;
 
 		Collection<TrainingSesion> trainingSesions;
-		System.out.println(object.getId());
 		trainingSesions = this.repository.findTrainingSesionByTrainingModuleId(object.getId());
 		this.repository.deleteAll(trainingSesions);
 		this.repository.delete(object);
@@ -81,14 +80,13 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 	@Override
 	public void unbind(final TrainingModule object) {
 		assert object != null;
-		int developerId;
+
 		Collection<Project> projects;
 		SelectChoices choices;
 		SelectChoices choicesLevels;
 		Dataset dataset;
 
-		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsByDeveloperId(developerId);
+		projects = this.repository.findPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());

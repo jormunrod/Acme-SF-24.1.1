@@ -27,8 +27,18 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 	@Override
 	public void authorise() {
+		boolean status;
+		int developerId;
+		Collection<TrainingModule> trainingModules;
+		TrainingModule trainingModule;
 
-		super.getResponse().setAuthorised(true);
+		developerId = super.getRequest().getPrincipal().getActiveRoleId();
+		trainingModules = this.repository.findAllTrainingModuleByDeveloperId(developerId);
+		trainingModule = trainingModules.stream().findFirst().orElse(null);
+
+		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+
+		super.getResponse().setAuthorised(status);
 
 	}
 
@@ -39,7 +49,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		developer = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new TrainingModule();
-		object.setDraftMode(false);
+		object.setDraftMode(true);
 		object.setDeveloper(developer);
 
 		super.getBuffer().addData(object);
@@ -69,11 +79,6 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 			super.state(existing == null, "code", "developer.training-module.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("updateMoment")) {
-			boolean isUpdateAfterCreation = !object.getUpdateMoment().before(object.getCreationMoment());
-			super.state(isUpdateAfterCreation, "updateMoment", "developer.training-module.form.error.update-before-creation");
-		}
-
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
 			super.state(object.getTotalTime() > 0, "totalTime", "developer.training-module.form.error.invalid-total-time");
 
@@ -90,14 +95,13 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void unbind(final TrainingModule object) {
 		assert object != null;
-		int developerId;
+
 		Collection<Project> projects;
 		SelectChoices choices;
 		SelectChoices choicesLevels;
 		Dataset dataset;
 
-		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsByDeveloperId(developerId);
+		projects = this.repository.findPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
