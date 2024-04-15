@@ -6,6 +6,8 @@ manager.project.list.label.title = Name
 manager.project.list.label.cost = Cost
 manager.project.list.label.isPublished = Published
 
+manager.project.list.button.create = Create
+
 # manager.project.form ###################################################
 
 manager.project.form.title = My projects
@@ -14,4 +16,12 @@ manager.project.form.label.title = Name
 manager.project.form.label.abstractText = Description
 manager.project.form.label.cost = Cost
 manager.project.form.label.link = Link
+manager.project.form.label.hasFatalErrors = Fatal errors
 manager.project.form.label.isPublished = Published
+
+manager.project.form.button.create = Create
+manager.project.form.button.update = Update
+manager.project.form.button.delete = Delete
+manager.project.form.button.publish = Publish
+
+manager.project.form.error.duplicateCode = This code is already used

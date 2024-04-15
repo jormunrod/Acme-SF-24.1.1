@@ -6,6 +6,8 @@ manager.project.list.label.title = Nombre
 manager.project.list.label.cost = Coste
 manager.project.list.label.isPublished = Publicado
 
+manager.project.list.button.create = Crear
+
 # manager.project.form ###################################################
 
 manager.project.form.title = Mis proyectos
@@ -14,4 +16,12 @@ manager.project.form.label.title = Nombre
 manager.project.form.label.abstractText = Descripción
 manager.project.form.label.cost = Coste
 manager.project.form.label.link = Enlace
+manager.project.form.label.hasFatalErrors = Errores fatales
 manager.project.form.label.isPublished = Publicado
+
+manager.project.form.button.create = Crear
+manager.project.form.button.update = Actualizar
+manager.project.form.button.delete = Borrar
+manager.project.form.button.publish = Publicar
+
+manager.project.form.error.duplicateCode = El código ya existe
