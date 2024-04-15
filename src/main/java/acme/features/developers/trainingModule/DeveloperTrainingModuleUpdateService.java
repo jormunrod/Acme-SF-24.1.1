@@ -66,6 +66,12 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 	@Override
 	public void validate(final TrainingModule object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			TrainingModule existing;
+
+			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
+			super.state(existing == null, "code", "developer.training-module.form.error.duplicated");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("updateMoment")) {
 			boolean isUpdateAfterCreation = !object.getUpdateMoment().before(object.getCreationMoment());

@@ -27,7 +27,17 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		TrainingModule trainingModule;
+		Developer developer;
+
+		id = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findTrainingModuleById(id);
+		developer = trainingModule == null ? null : trainingModule.getDeveloper();
+		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(developer);
+
+		super.getResponse().setAuthorised(status);
 
 	}
 
@@ -66,6 +76,11 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
 			super.state(existing == null, "code", "developer.training-module.form.error.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("updateMoment")) {
+			boolean isUpdateAfterCreation = !object.getUpdateMoment().before(object.getCreationMoment());
+			super.state(isUpdateAfterCreation, "updateMoment", "developer.training-module.form.error.update-before-creation");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
