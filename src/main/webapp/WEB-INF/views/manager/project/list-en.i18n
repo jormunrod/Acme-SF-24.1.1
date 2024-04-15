@@ -4,6 +4,7 @@ manager.project.list.title = My projects
 manager.project.list.label.code = Code
 manager.project.list.label.title = Name
 manager.project.list.label.cost = Cost
+manager.project.list.label.isPublished = Published
 
 # manager.project.form ###################################################
 
@@ -13,3 +14,4 @@ manager.project.form.label.title = Name
 manager.project.form.label.abstractText = Description
 manager.project.form.label.cost = Cost
 manager.project.form.label.link = Link
+manager.project.form.label.isPublished = Published

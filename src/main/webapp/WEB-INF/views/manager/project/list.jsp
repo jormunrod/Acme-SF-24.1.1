@@ -6,5 +6,6 @@
 <acme:list>
 	<acme:list-column code="manager.project.list.label.code" path="code" width="20%"/>"
 	<acme:list-column code="manager.project.list.label.title" path="title" width="50%"/>
-	<acme:list-column code="manager.project.list.label.cost" path="cost" width="30%"/>
+	<acme:list-column code="manager.project.list.label.cost" path="cost" width="20%"/>
+	<acme:list-column code="manager.project.list.label.isPublished" path="isPublished" width="10%"/>
 </acme:list>
