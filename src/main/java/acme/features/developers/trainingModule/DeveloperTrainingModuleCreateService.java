@@ -27,7 +27,18 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int developerId;
+		Collection<TrainingModule> trainingModules;
+		TrainingModule trainingModule;
+
+		developerId = super.getRequest().getPrincipal().getActiveRoleId();
+		trainingModules = this.repository.findAllTrainingModuleByDeveloperId(developerId);
+		trainingModule = trainingModules.stream().findFirst().orElse(null);
+
+		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+
+		super.getResponse().setAuthorised(status);
 
 	}
 
@@ -38,7 +49,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		developer = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new TrainingModule();
-		object.setDraftMode(false);
+		object.setDraftMode(true);
 		object.setDeveloper(developer);
 
 		super.getBuffer().addData(object);
@@ -84,14 +95,13 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void unbind(final TrainingModule object) {
 		assert object != null;
-		int developerId;
+
 		Collection<Project> projects;
 		SelectChoices choices;
 		SelectChoices choicesLevels;
 		Dataset dataset;
 
-		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsByDeveloperId(developerId);
+		projects = this.repository.findPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());

@@ -66,6 +66,13 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 	@Override
 	public void validate(final TrainingModule object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			TrainingModule existing;
+
+			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
+			if (existing != null && existing.getId() != object.getId())
+				super.state(false, "code", "developer.training-module.form.error.duplicated");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("updateMoment")) {
 			boolean isUpdateAfterCreation = !object.getUpdateMoment().before(object.getCreationMoment());
@@ -100,7 +107,7 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 		Dataset dataset;
 
 		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsByDeveloperId(developerId);
+		projects = this.repository.findPublishedProjects();
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 		dataset = super.unbind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "details", "link", "totalTime", "draftMode");

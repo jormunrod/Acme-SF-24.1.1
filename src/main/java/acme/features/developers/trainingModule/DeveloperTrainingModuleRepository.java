@@ -36,6 +36,9 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 	@Query("select DISTINCT tm.project from TrainingModule tm where tm.developer.id = :id")
 	Collection<Project> findProjectsByDeveloperId(int id);
 
+	@Query("select p from Project p where p.isPublished = TRUE")
+	Collection<Project> findPublishedProjects();
+
 	@Query("select DISTINCT tm from TrainingModule tm where tm.developer.id = :id")
 	Collection<TrainingModule> findAllTrainingModuleByDeveloperId(int id);
 

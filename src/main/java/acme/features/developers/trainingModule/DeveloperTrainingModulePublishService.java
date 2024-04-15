@@ -70,7 +70,6 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 
 		id = object.getId();
 		numberOfTrainingSessions = this.repository.countTrainingSessionsByTrainingModuleId(id);
-		System.out.println(numberOfTrainingSessions);
 		status = numberOfTrainingSessions != 0;
 
 		super.state(status, "*", "developer.training-module.form.error.hasNotSessions");
@@ -99,7 +98,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		Dataset dataset;
 
 		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsByDeveloperId(developerId);
+		projects = this.repository.findPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
