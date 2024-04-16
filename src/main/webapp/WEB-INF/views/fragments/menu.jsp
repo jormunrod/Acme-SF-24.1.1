@@ -25,13 +25,12 @@
 			<acme:menu-suboption code="master.menu.anonymous.javrodrei" action="https://orteil.dashnet.org/cookieclicker"/>
 			<acme:menu-suboption code="master.menu.anonymous.isasolpad" action="https://burgerfoodporn.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.alepersan3" action="https://neal.fun/password-game"/>
-		</acme:menu-option>		
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">
+			<acme:menu-suboption code="master.menu.developer.training-module.list" action="/developer/training-module/list"/>			
+		</acme:menu-option>
 
-
-		
-		
-		
-		
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
 			<acme:menu-suboption code="master.menu.sponsor.sponsorship.list" action="/sponsor/sponsorship/list-mine"/>
 		</acme:menu-option>
@@ -68,4 +67,3 @@
 		<acme:menu-option code="master.menu.sign-out" action="/authenticated/system/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>
 </acme:menu-bar>
-
