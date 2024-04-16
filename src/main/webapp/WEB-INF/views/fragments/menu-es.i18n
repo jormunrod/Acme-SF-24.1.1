@@ -25,6 +25,13 @@ master.menu.anonymous.javrodrei = 30282701G: Rodríguez Reina, Javier
 master.menu.anonymous.isasolpad = 49127653K: Solís Padilla, Isaac
 master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 
+# master.menu.developers ######################################################
+master.menu.developer = Desarrolladores
+master.menu.developer.training-module.list = Listar Módulo de Desarrollo
+
+
+
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
