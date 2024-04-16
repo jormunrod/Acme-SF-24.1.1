@@ -77,7 +77,6 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 			super.state(!object.isHasFatalErrors(), "hasFatalErrors", "manager.project.form.error.fatalErrors");
 
 		userStories = this.repository.findAllUserStoriesByProjectId(object.getId());
-		System.out.println(userStories);
 
 		super.state(!userStories.isEmpty(), "userStory", "manager.project.form.error.hasUserStories");
 	}
