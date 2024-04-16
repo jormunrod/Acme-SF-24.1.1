@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.trainings.TrainingModule;
 import acme.entities.trainings.TrainingSesion;
 import acme.roles.Developer;
 
@@ -22,7 +23,15 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int trainingSesionId;
+		TrainingModule trainingModule;
+
+		trainingSesionId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleByTrainingSesionId(trainingSesionId);
+		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

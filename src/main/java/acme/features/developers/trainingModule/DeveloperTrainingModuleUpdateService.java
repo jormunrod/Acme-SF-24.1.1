@@ -74,11 +74,6 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 				super.state(false, "code", "developer.training-module.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("updateMoment")) {
-			boolean isUpdateAfterCreation = !object.getUpdateMoment().before(object.getCreationMoment());
-			super.state(isUpdateAfterCreation, "updateMoment", "developer.training-module.form.error.update-before-creation");
-		}
-
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
 			super.state(object.getTotalTime() > 0, "totalTime", "developer.training-module.form.error.invalid-total-time");
 

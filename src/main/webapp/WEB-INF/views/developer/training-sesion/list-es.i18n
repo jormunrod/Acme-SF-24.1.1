@@ -41,5 +41,9 @@ developer.training-sesion.list.button.create = Crear
 developer.training-sesion.form.button.create = Crear
 developer.training-sesion.form.button.delete = Eliminar
 developer.training-sesion.form.button.update = Actualizar
+developer.training-sesion.form.button.publish = Publicar
 
 developer.training-sesion.form.label.training-module = Sesiones de entrenamiento
+developer.training-sesion.form.error.duplicated = El código ya existe
+developer.training-sesion.form.error.bad-date = La Fecha Inicio debe ser al menos una semana posterior al momento de creación del módulo de entrenamiento
+developer.training-sesion.form.error.bad-duration = La duración entre la Fecha Inicio y la Fecha Finalización debe ser de al menos una semana

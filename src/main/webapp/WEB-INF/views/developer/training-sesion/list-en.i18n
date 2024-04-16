@@ -42,5 +42,9 @@ developer.training-sesion.list.button.create = Create
 developer.training-sesion.form.button.create = Create
 developer.training-sesion.form.button.delete = Delete
 developer.training-sesion.form.button.update = Update
+developer.training-sesion.form.button.publish = Publish
 
 developer.training-sesion.form.label.training-module = Training Modules
+developer.training-sesion.form.error.duplicated = Code already exists
+developer.training-sesion.form.error.bad-date = Start Date must be least one week ahead the training module creation moment
+developer.training-sesion.form.error.bad-duration = The duration between Start Date and Finish Date must be least one week 

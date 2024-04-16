@@ -1,6 +1,8 @@
 
 package acme.features.developers.trainingSession;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,12 +62,33 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	@Override
 	public void validate(final TrainingSesion object) {
 		assert object != null;
+		int id;
+		TrainingModule trainingModule;
+		id = super.getRequest().getData("masterId", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(id);
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingSesion existing;
 
 			existing = this.repository.findOneTrainingSesionByCode(object.getCode());
 			super.state(existing == null, "code", "developer.training-sesion.form.error.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			Date oneWeekAfterCreation;
+			boolean isTrue;
+			oneWeekAfterCreation = new Date(trainingModule.getCreationMoment().getTime() + 7L * 24 * 60 * 60 * 1000);
+			isTrue = object.getStartDate().before(oneWeekAfterCreation);
+			super.state(isTrue == false, "startDate", "developer.training-sesion.form.error.bad-date");
+
+		}
+		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
+			long duration = object.getFinishDate().getTime() - object.getStartDate().getTime();
+			long oneWeek = 7L * 24 * 60 * 60 * 1000;
+
+			boolean isTrue;
+			isTrue = duration < oneWeek;
+			super.state(isTrue == false, "finishDate", "developer.training-sesion.form.error.bad-duration");
 		}
 
 	}
