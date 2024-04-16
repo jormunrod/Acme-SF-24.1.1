@@ -5,7 +5,6 @@
 
 <acme:form>
 	<acme:input-textbox code="developer.training-sesion.form.label.code" path="code" placeholder="TS-AAA-000"/>
-	<acme:input-select code="developer.training-sesion.form.label.training-module" path="trainingModule" choices="${trainingModules}"/>
 	<acme:input-moment code="developer.training-sesion.form.label.startDate" path="startDate"/>
 	<acme:input-moment code="developer.training-sesion.form.label.finishDate" path="finishDate"/>
 	<acme:input-textbox code="developer.training-sesion.form.label.location" path="location"/>
@@ -20,7 +19,7 @@
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'create' }">
-			<acme:submit code="developer.training-sesion.form.button.create" action="/developer/training-sesion/create"/>
+			<acme:submit code="developer.training-sesion.form.button.create" action="/developer/training-sesion/create?masterId=${masterId}"/>
 		</jstl:when>
 	</jstl:choose>
 	

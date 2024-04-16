@@ -21,6 +21,10 @@
 			<acme:button code="developer.training-module.form.button.training-sessions" action="/developer/training-sesion/list?id=${id}"/>	
 		</jstl:when>
 		
+		<jstl:when test="${draftMode == false}">
+			<acme:button code="developer.training-module.form.button.training-sessions" action="/developer/training-sesion/list?id=${id}"/>	
+		</jstl:when>
+		
 		<jstl:when test="${_command == 'create' }">
 			<acme:submit code="developer.training-module.form.button.create" action="/developer/training-module/create"/>
 		</jstl:when>

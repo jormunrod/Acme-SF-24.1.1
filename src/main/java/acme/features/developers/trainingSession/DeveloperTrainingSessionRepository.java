@@ -30,4 +30,5 @@ public interface DeveloperTrainingSessionRepository extends AbstractRepository {
 
 	@Query("select DISTINCT tm from TrainingModule tm where tm.developer.id = :id")
 	Collection<TrainingModule> findTrainingModuleByDeveloperId(int id);
+
 }

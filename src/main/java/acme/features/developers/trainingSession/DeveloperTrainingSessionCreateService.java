@@ -1,14 +1,11 @@
 
 package acme.features.developers.trainingSession;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
 import acme.entities.trainings.TrainingModule;
 import acme.entities.trainings.TrainingSesion;
 import acme.roles.Developer;
@@ -25,7 +22,15 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		TrainingModule trainingModule;
+
+		id = super.getRequest().getData("masterId", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(id);
+		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+
+		super.getResponse().setAuthorised(status);
 
 	}
 
@@ -42,11 +47,11 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	@Override
 	public void bind(final TrainingSesion object) {
 		assert object != null;
-		int trainingModuleId;
+		int id;
 		TrainingModule trainingModule;
+		id = super.getRequest().getData("masterId", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(id);
 
-		trainingModuleId = super.getRequest().getData("trainingModule", int.class);
-		trainingModule = this.repository.findOneTrainingModuleById(trainingModuleId);
 		super.bind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
 		object.setTrainingModule(trainingModule);
 	}
@@ -68,6 +73,13 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	public void perform(final TrainingSesion object) {
 		assert object != null;
 
+		int id;
+		TrainingModule trainingModule;
+
+		id = super.getRequest().getData("masterId", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(id);
+		object.setTrainingModule(trainingModule);
+
 		this.repository.save(object);
 
 	}
@@ -75,19 +87,11 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	@Override
 	public void unbind(final TrainingSesion object) {
 		assert object != null;
-		int developerId;
-		Collection<TrainingModule> trainingModules;
-		SelectChoices choices;
+
 		Dataset dataset;
 
-		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		System.out.println(developerId);
-		trainingModules = this.repository.findTrainingModuleByDeveloperId(developerId);
-		System.out.println(trainingModules);
-		choices = SelectChoices.from(trainingModules, "code", object.getTrainingModule());
 		dataset = super.unbind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
-		dataset.put("trainingModule", choices.getSelected().getKey());
-		dataset.put("trainingModules", choices);
+		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().addData(dataset);
 	}
