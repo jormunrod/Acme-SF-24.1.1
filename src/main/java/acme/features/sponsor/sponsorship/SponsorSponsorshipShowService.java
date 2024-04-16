@@ -48,7 +48,7 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		SelectChoices typeChoices;
 
 		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsBySponsorId(sponsorId);
+		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getSponsorshipType());

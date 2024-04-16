@@ -1,7 +1,9 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,6 +62,28 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Sponsorship alredyExisting;
+			alredyExisting = this.repository.findSponsorshipByCode(object.getCode());
+			super.state(alredyExisting == null, "code", "sponsor.sponsorship.error.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			Date moment = object.getMoment();
+			Date startDate = object.getStartDate();
+
+			super.state(startDate.after(moment), "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+			Date startDate = object.getStartDate();
+			Date endDate = object.getEndDate();
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(startDate);
+			cal.add(Calendar.MONTH, 1);
+			Date oneMonthAfterStartDate = cal.getTime();
+			super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+		}
+
 	}
 	@Override
 	public void perform(final Sponsorship object) {
@@ -77,7 +101,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		SelectChoices typeChoices;
 
 		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsBySponsorId(sponsorId);
+		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getSponsorshipType());

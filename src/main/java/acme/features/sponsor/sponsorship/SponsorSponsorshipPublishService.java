@@ -10,6 +10,7 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
+import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
 import acme.entities.sponsorships.SponsorshipType;
 import acme.roles.Sponsor;
@@ -30,8 +31,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		sponsorshipId = super.getRequest().getData("id", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
-		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
-		super.getResponse().setAuthorised(true);
+		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		super.getResponse().setAuthorised(status);
 
 	}
 
@@ -64,6 +65,17 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Double amount = object.getAmount().getAmount();
+			double invoicesAmount = 0.;
+			Collection<Invoice> invoices;
+			invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
+			for (Invoice i : invoices)
+				invoicesAmount += i.getTotalAmount().getAmount();
+
+			super.state(amount - invoicesAmount == 0., "*", "sponsor.sponsorship.error.amountNotPositive");
+		}
+
 	}
 	@Override
 	public void perform(final Sponsorship object) {
@@ -85,7 +97,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		SelectChoices typeChoices;
 
 		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsBySponsorId(sponsorId);
+		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getSponsorshipType());

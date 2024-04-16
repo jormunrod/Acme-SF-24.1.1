@@ -31,8 +31,8 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		sponsorshipId = super.getRequest().getData("id", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
-		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
-		super.getResponse().setAuthorised(true);
+		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		super.getResponse().setAuthorised(status);
 
 	}
 
@@ -88,7 +88,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		SelectChoices typeChoices;
 
 		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findProjectsBySponsorId(sponsorId);
+		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getSponsorshipType());

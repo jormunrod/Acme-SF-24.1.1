@@ -20,8 +20,11 @@ public class SponsorSponsorshipListMineService extends AbstractService<Sponsor, 
 
 	@Override
 	public void authorise() {
-
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int sponsorshipId;
+		sponsorshipId = super.getRequest().getPrincipal().getActiveRoleId();
+		status = super.getRequest().getPrincipal().hasRole(this.repository.findOneSponsorById(sponsorshipId));
+		super.getResponse().setAuthorised(status);
 
 	}
 
