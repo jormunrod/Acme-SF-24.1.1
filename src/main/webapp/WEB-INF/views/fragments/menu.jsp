@@ -25,12 +25,16 @@
 			<acme:menu-suboption code="master.menu.anonymous.javrodrei" action="https://orteil.dashnet.org/cookieclicker"/>
 			<acme:menu-suboption code="master.menu.anonymous.isasolpad" action="https://burgerfoodporn.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.alepersan3" action="https://neal.fun/password-game"/>
-		</acme:menu-option>
+		</acme:menu-option>		
+
+
+		
+		
+		
 		
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
 			<acme:menu-suboption code="master.menu.sponsor.sponsorship.list" action="/sponsor/sponsorship/list-mine"/>
 		</acme:menu-option>
-
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
