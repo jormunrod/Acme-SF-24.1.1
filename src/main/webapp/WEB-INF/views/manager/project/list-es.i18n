@@ -25,3 +25,5 @@ manager.project.form.button.delete = Borrar
 manager.project.form.button.publish = Publicar
 
 manager.project.form.error.duplicateCode = El código ya existe
+manager.project.form.error.fatalErrors = El proyecto contiene errores fatales
+manager.project.form.error.hasUserStories = El proyecto debe contener al menos una historia de usuario

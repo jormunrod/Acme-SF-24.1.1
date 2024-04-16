@@ -1,4 +1,4 @@
-# manager.project.list ###################################################
+ # manager.project.list ###################################################
 
 manager.project.list.title = My projects
 manager.project.list.label.code = Code
@@ -25,3 +25,5 @@ manager.project.form.button.delete = Delete
 manager.project.form.button.publish = Publish
 
 manager.project.form.error.duplicateCode = This code is already used
+manager.project.form.error.fatalErrors = The project contains fatal errors
+manager.project.form.error.hasUserStories = The project must contains at least a user story
