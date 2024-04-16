@@ -39,6 +39,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 		TrainingSesion object;
 
 		object = new TrainingSesion();
+		object.setDraftMode(true);
 
 		super.getBuffer().addData(object);
 
@@ -90,7 +91,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
+		dataset = super.unbind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link", "draftMode");
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().addData(dataset);

@@ -13,9 +13,10 @@
 	<acme:input-url code="developer.training-sesion.form.label.link" path="link"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:submit code="developer.training-sesion.form.button.delete" action="/developer/training-sesion/delete"/>
 			<acme:submit code="developer.training-sesion.form.button.update" action="/developer/training-sesion/update"/>
+			<acme:submit code="developer.training-sesion.form.button.publish" action="/developer/training-sesion/publish"/>
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'create' }">

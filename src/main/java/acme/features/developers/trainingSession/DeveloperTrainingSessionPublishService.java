@@ -4,6 +4,7 @@ package acme.features.developers.trainingSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.trainings.TrainingModule;
 import acme.entities.trainings.TrainingSesion;
@@ -23,11 +24,11 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 	public void authorise() {
 		boolean status;
 		int trainingSesionId;
-		TrainingSesion trainingSesion;
+		TrainingModule trainingModule;
 
 		trainingSesionId = super.getRequest().getData("id", int.class);
-		trainingSesion = this.repository.findTrainingSesionById(trainingSesionId);
-		status = trainingSesion != null;
+		trainingModule = this.repository.findOneTrainingModuleByTrainingSesionId(trainingSesionId);
+		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
 
 		super.getResponse().setAuthorised(status);
 
@@ -47,13 +48,9 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 	@Override
 	public void bind(final TrainingSesion object) {
 		assert object != null;
-		int trainingModuleId;
-		TrainingModule trainingModule;
 
-		trainingModuleId = super.getRequest().getData("trainingModule", int.class);
-		trainingModule = this.repository.findOneTrainingModuleById(trainingModuleId);
 		super.bind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
-		object.setTrainingModule(trainingModule);
+
 	}
 
 	@Override
@@ -65,14 +62,24 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 	@Override
 	public void perform(final TrainingSesion object) {
 		assert object != null;
+		TrainingSesion trainingSesion;
+		trainingSesion = object;
 
-		this.repository.save(object);
+		trainingSesion.setDraftMode(false);
+
+		this.repository.save(trainingSesion);
 
 	}
 
 	@Override
 	public void unbind(final TrainingSesion object) {
 		assert object != null;
+
+		Dataset dataset;
+
+		dataset = super.unbind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link", "draftMode");
+
+		super.getResponse().addData(dataset);
 
 	}
 
