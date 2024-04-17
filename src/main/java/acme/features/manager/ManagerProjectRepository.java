@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.projects.Project;
-import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Repository
@@ -26,6 +25,9 @@ public interface ManagerProjectRepository extends AbstractRepository {
 	@Query("select p from Project p where p.code = :code")
 	Project findOneProjectByCode(String code);
 
-	@Query("select us from UserStory us where us.project.id = :id")
-	Collection<UserStory> findAllUserStoriesByProjectId(int id);
+	@Query("select count (us) from UserStory us where us.project.id = :id and us.isPublished = true")
+	Integer findAllPublishedUserStoriesByProjectId(int id);
+
+	@Query("select count (us) from UserStory us where us.project.id = :id")
+	Integer findAllUserStoriesByProjectId(int id);
 }

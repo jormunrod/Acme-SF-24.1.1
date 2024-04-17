@@ -1,15 +1,12 @@
 
 package acme.features.manager;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
-import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Service
@@ -61,7 +58,8 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	public void validate(final Project object) {
 		assert object != null;
 		boolean duplicatedCode;
-		Collection<UserStory> userStories;
+		Integer userStories;
+		Integer publishedUserStories;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Project existing;
@@ -77,8 +75,11 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 			super.state(!object.isHasFatalErrors(), "hasFatalErrors", "manager.project.form.error.fatalErrors");
 
 		userStories = this.repository.findAllUserStoriesByProjectId(object.getId());
+		publishedUserStories = this.repository.findAllPublishedUserStoriesByProjectId(object.getId());
 
-		super.state(!userStories.isEmpty(), "userStory", "manager.project.form.error.hasUserStories");
+		super.state(userStories > 0, "userStory", "manager.project.form.error.hasUserStories");
+
+		super.state(userStories.equals(publishedUserStories), "publishedUserStory", "manager.project.form.error.hasAllUserStoriesPublished");
 	}
 
 	@Override

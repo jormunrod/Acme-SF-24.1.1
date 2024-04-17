@@ -27,3 +27,4 @@ manager.project.form.button.publish = Publish
 manager.project.form.error.duplicateCode = This code is already used
 manager.project.form.error.fatalErrors = The project contains fatal errors
 manager.project.form.error.hasUserStories = The project must contains at least a user story
+manager.project.form.error.hasAllUserStoriesPublished = All user stories related to the project must be published
