@@ -16,13 +16,13 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <h2>
-	<acme:message code="developer.dashboard.form.title.general-indicators"/>
+	<acme:message code="developer.developer-dashboard.form.title.general-indicators"/>
 </h2>
 
 <table class="table table-sm">
 	<tr>
 		<th scope="row">
-			<acme:message code="developer.dashboard.form.label.total-number-of-training-module-with-an-update-moment"/>
+			<acme:message code="developer.developer-dashboard.form.label.total-number-of-training-module-with-an-update-moment"/>
 		</th>
 		<td>
 			<acme:print value="${totalNumberOfTrainingModuleWithAnUpdateMoment}"/>
@@ -30,7 +30,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="developer.dashboard.form.label.total-number-of-training-sesion-with-a-link"/>
+			<acme:message code="developer.developer-dashboard.form.label.total-number-of-training-sesion-with-a-link"/>
 		</th>
 		<td>
 			<acme:print value="${totalNumberOfTrainingSessionsWithALink}"/>
@@ -38,7 +38,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="developer.dashboard.form.label.average"/>
+			<acme:message code="developer.developer-dashboard.form.label.average"/>
 		</th>
 		<td>
 			<acme:print value="${average}"/>
@@ -46,7 +46,7 @@
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="developer.dashboard.form.label.deviation"/>
+			<acme:message code="developer.developer-dashboard.form.label.deviation"/>
 		</th>
 		<td>
 			<acme:print value="${deviation}"/>
@@ -54,7 +54,7 @@
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="developer.dashboard.form.label.minimum-time-of-the-training-module"/>
+			<acme:message code="developer.developer-dashboard.form.label.minimum-time-of-the-training-module"/>
 		</th>
 		<td>
 			<acme:print value="${minimumTimeOfTheTrainingModules}"/>
@@ -62,7 +62,7 @@
 	</tr>	
 		<tr>
 		<th scope="row">
-			<acme:message code="developer.dashboard.form.label.maximum-time-of-the-training-module"/>
+			<acme:message code="developer.developer-dashboard.form.label.maximum-time-of-the-training-module"/>
 		</th>
 		<td>
 			<acme:print value="${maximumTimeOfTheTrainingModules}"/>

@@ -17,10 +17,10 @@ public interface DeveloperDashboardRepository extends AbstractRepository {
 	@Query("select count(ts) from TrainingSesion ts where ts.link is not null")
 	Integer totalNumberOfTrainingSessionsWithALink();
 
-	@Query("select avg(tm.totalTime) from TrainingModule tm")
+	@Query("select avg(select count(tm.totalTime) from TrainingModule tm where tm.developer.id = d.id) from Developer d ")
 	Double average();
 
-	@Query("SELECT tm.totalTime FROM TrainingModule tm")
+	@Query("select tm.totalTime from TrainingModule tm")
 	Collection<Integer> findAllTrainingModuleTimes();
 
 	@Query("select min(tm.totalTime) from TrainingModule tm")
