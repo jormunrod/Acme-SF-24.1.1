@@ -13,8 +13,8 @@ project-11,manager-01,PRO-0011,Project 11,Proyecto demo: Un resumen preciso dise
 project-12,manager-01,PRO-0012,Project 12,This is the abstract for Project 12,false,true,"EUR 10,000.45",http://www.example.com/project-12
 project-13,manager-01,PRO-0013,Project 13,This is the abstract for Project 13,false,false,"EUR 10,000.45",http://www.example.com/project-13
 project-14,manager-01,PRO-0014,Project 14,This is the abstract for Project 14,false,false,"EUR 10,000.45",http://www.example.com/project-14
-project-15,manager-01,PRO-0015,Project 15,This is the abstract for Project 15,false,true,"EUR 0.00",http://www.example.com/project-15
-project-16,manager-01,PRO-0016,Project 16,This is the abstract for Project 16,false,true,"EUR 1.00",http://www.example.com/project-16
+project-15,manager-01,PRO-0015,Project 15,This is the abstract for Project 15,false,true,EUR 0.00,http://www.example.com/project-15
+project-16,manager-01,PRO-0016,Project 16,This is the abstract for Project 16,false,true,EUR 1.00,http://www.example.com/project-16
 project-17,manager-01,PRO-0017,Project 17,This is the abstract for Project 17,false,true,"EUR 10,000.45",
 project-18,manager-01,PRO-0018,Project 18,This is the abstract for Project 18,false,true,"EUR 10,000.45",http://www.example.com/project-18checkUpTo254-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 project-19,manager-01,PRO-0019,Project 19,This is the abstract for Project 19,false,true,"EUR 10,000.45",http://www.example.com/project-18chechUpTo255------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
