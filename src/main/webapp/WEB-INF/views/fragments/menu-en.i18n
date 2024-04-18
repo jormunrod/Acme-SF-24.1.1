@@ -29,6 +29,7 @@ master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 master.menu.developer = Developers
 master.menu.developer.training-module.list = Training Module List
 master.menu.developer.dashboard = Dashboard
+master.menu.developer.training-module.list-all = Publish Training Module List
 
 # master.menu.administrator ###################################################
 
