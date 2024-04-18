@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
@@ -20,7 +21,15 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		Project project;
+
+		id = super.getRequest().getData("projectId", int.class);
+		project = this.repository.findOneProjectById(id);
+		status = project != null && (project.isPublished() || super.getRequest().getPrincipal().hasRole(project.getManager()));
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -28,8 +37,8 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 		Collection<UserStory> objects;
 		int id;
 
-		id = super.getRequest().getPrincipal().getActiveRoleId();
-		objects = this.repository.findAllUserStoryByManagerId(id);
+		id = super.getRequest().getData("projectId", int.class);
+		objects = this.repository.findAllUserStoryByProjectId(id);
 
 		super.getBuffer().addData(objects);
 	}
@@ -40,8 +49,19 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "title", "estimatedHours", "priority", "project", "isPublished");
+		dataset = super.unbind(object, "title", "estimatedHours", "priority", "isPublished");
 
 		super.getResponse().addData(dataset);
 	}
+
+	//	@Override
+	//	public void unbind(final Collection<UserStory> objects) {
+	//		assert objects != null;
+	//
+	//		int masterId;
+	//
+	//		masterId = super.getRequest().getData("id", int.class);
+	//
+	//		super.getResponse().addGlobal("masterId", masterId);
+	//	}
 }

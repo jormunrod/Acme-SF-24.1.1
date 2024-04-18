@@ -10,18 +10,17 @@
 	<acme:input-textarea code="manager.user-story.form.label.acceptanceCriteria" path="acceptanceCriteria"/>
 	<acme:input-select code="manager.user-story.form.label.priority" path="priority" choices="${priority}"/>
 	<acme:input-url code="manager.user-story.form.label.link" path="link"/>
-	<acme:input-select code="manager.user-story.form.label.project" path="project" choices="${project}"/>
 	<acme:input-checkbox code="manager.user-story.form.label.isPublished" readonly="true" path="isPublished"/>
 	
-	<jstl:choose>
+	<!--<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
-			<acme:submit code="manager.project.form.button.delete" action="/manager/project/delete"/>
-			<acme:submit code="manager.project.form.button.update" action="/manager/project/update"/>
-			<acme:submit code="manager.project.form.button.publish" action="/manager/project/publish"/>
+			<acme:submit code="manager.user-story.form.button.delete" action="/manager/user-story/delete"/>
+			<acme:submit code="manager.user-story.form.button.update" action="/manager/user-story/update"/>
+			<acme:submit code="manager.user-story.form.button.publish" action="/manager/user-story/publish"/>
 		</jstl:when>
 
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="manager.project.form.button.create" action="/manager/project/create"/>
+			<acme:submit code="manager.user-story.form.button.create" action="/manager/user-story/create?projectId=${masterId}"/>
 		</jstl:when>
-	</jstl:choose>
+	</jstl:choose>-->
 </acme:form>

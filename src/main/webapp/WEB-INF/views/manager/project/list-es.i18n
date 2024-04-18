@@ -19,6 +19,7 @@ manager.project.form.label.link = Enlace
 manager.project.form.label.hasFatalErrors = Errores fatales
 manager.project.form.label.isPublished = Publicado
 
+manager.project.form.button.userStory = Historias de usuario
 manager.project.form.button.create = Crear
 manager.project.form.button.update = Actualizar
 manager.project.form.button.delete = Borrar

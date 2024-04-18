@@ -11,6 +11,4 @@
 	<acme:list-column code="manager.user-story.list.label.isPublished" path="isPublished" width="20%"/>
 </acme:list>
 
-<jstl:if test="${_command == 'list'}">
-    <acme:button code="manager.user-story.list.button.create" action="/manager/project/create"/>"
-</jstl:if>
+<!--<acme:button test="${ _command == 'list'}" code="manager.user-story.list.button.create" action="/manager/user-story/create?projectId=${masterId}"/>-->
