@@ -21,3 +21,19 @@ sponsor.invoice.list.title = Invoices
 sponsor.invoice.list.label.code = Code
 sponsor.invoice.list.label.registrationTime = Registration Time
 sponsor.invoice.list.label.dueDate = Due Date
+
+
+
+sponsor.invoice.form.title = Invoice Details
+sponsor.invoice.form.label.code = Code
+sponsor.invoice.form.label.registrationTime : Registration Time
+sponsor.invoice.form.label.dueDate = Due Date
+sponsor.invoice.form.label.quantity = Quantity
+sponsor.invoice.form.label.tax = Tax
+sponsor.invoice.form.label.link = Link
+
+sponsor.invoice.form.button.create = Create
+sponsor.invoice.form.button.delete = Delete
+sponsor.invoice.form.button.update = Update
+sponsor.invoice.form.button.publish = Publish
+

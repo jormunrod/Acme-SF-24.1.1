@@ -1,8 +1,6 @@
 
 package acme.features.sponsor.invoice;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,37 +11,35 @@ import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice> {
+public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice> {
 
 	@Autowired
-	private SponsorInvoiceRepository repository;
+	protected SponsorInvoiceRepository repository;
 
 
 	@Override
 	public void authorise() {
-
 		boolean status;
-		int id;
+		int invoiceId;
 		Sponsorship sponsorship;
 
-		id = super.getRequest().getData("id", int.class);
-		sponsorship = this.repository.findOneSponsorshipById(id);
+		invoiceId = super.getRequest().getData("id", int.class);
+		sponsorship = this.repository.findOneSponsorshipByInvoiceId(invoiceId);
 		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
 	public void load() {
-		Collection<Invoice> objects;
-
+		Invoice object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findInvoiceById(id);
 
-		objects = this.repository.findInvoicesBySponsorshipId(id);
-
-		super.getBuffer().addData(objects);
-
+		super.getBuffer().addData(object);
 	}
 
 	@Override
@@ -56,17 +52,4 @@ public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice>
 
 		super.getResponse().addData(dataset);
 	}
-
-	@Override
-	public void unbind(final Collection<Invoice> objects) {
-		assert objects != null;
-
-		int masterId;
-
-		masterId = super.getRequest().getData("id", int.class);
-
-		super.getResponse().addGlobal("masterId", masterId);
-
-	}
-
 }
