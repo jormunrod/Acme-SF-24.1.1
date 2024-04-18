@@ -14,4 +14,5 @@
 
 <jstl:if test="${ _command == 'list'}">
 	<acme:button code="developer.training-module.list.button.create" action="/developer/training-module/create"/>
+	
 </jstl:if>
