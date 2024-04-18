@@ -30,9 +30,6 @@ master.menu.developer = Desarrolladores
 master.menu.developer.training-module.list = Listar Módulo de Desarrollo
 master.menu.developer.dashboard = Panel de indicadores
 
-
-
-
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
@@ -56,6 +53,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.manager = Gestor
 master.menu.manager.project.list = Proyectos
+master.menu.manager.user-story.list = Historias de usuario
 
 # master.menu.user-account ####################################################
 

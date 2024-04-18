@@ -1,5 +1,5 @@
 
-package acme.features.manager;
+package acme.features.manager.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +10,10 @@ import acme.entities.projects.Project;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectShowService extends AbstractService<Manager, Project> {
+public class ManagerProjectUpdateService extends AbstractService<Manager, Project> {
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	protected ManagerProjectRepository repository;
 
 
 	@Override
@@ -26,7 +26,7 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 		id = super.getRequest().getData("id", int.class);
 		project = this.repository.findOneProjectById(id);
 		manager = project == null ? null : project.getManager();
-		status = project != null && super.getRequest().getPrincipal().hasRole(manager);
+		status = project != null && !project.isPublished() && super.getRequest().getPrincipal().hasRole(manager);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -40,6 +40,36 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 		object = this.repository.findOneProjectById(id);
 
 		super.getBuffer().addData(object);
+	}
+
+	@Override
+	public void bind(final Project object) {
+		assert object != null;
+
+		super.bind(object, "code", "title", "abstractText", "isPublished", "hasFatalErrors", "cost", "link");
+	}
+
+	@Override
+	public void validate(final Project object) {
+		assert object != null;
+		boolean status;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Project existing;
+			existing = this.repository.findOneProjectByCode(object.getCode());
+			if (existing != null)
+				status = existing.getId() == object.getId();
+			else
+				status = false;
+			super.state(existing == null || status, "code", "manager.project.form.error.duplicateCode");
+		}
+	}
+
+	@Override
+	public void perform(final Project object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override
