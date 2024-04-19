@@ -64,6 +64,8 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 				status = false;
 			super.state(existing == null || status, "title", "manager.user-story.form.error.duplicateTitle");
 		}
+
+		super.state(!object.getProject().isPublished(), "link", "manager.user-story.form.error.projectPublished");
 	}
 
 	@Override
