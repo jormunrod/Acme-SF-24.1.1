@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.projects.Contract;
+import acme.entities.projects.ProgressLog;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
+import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
 import acme.entities.trainings.TrainingModule;
+import acme.entities.trainings.TrainingSesion;
 import acme.roles.Manager;
 
 @Service
@@ -60,21 +64,49 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	@Override
 	public void perform(final Project object) {
 		assert object != null;
+
 		Collection<UserStory> userStories;
-		Collection<TrainingModule> trainingModules;
 		Collection<Contract> contracts;
-		Collection<CodeAudit> codeAudits;
+		Collection<TrainingModule> trainingModules;
 		Collection<Sponsorship> sponsorships;
+		Collection<CodeAudit> codeAudits;
+
 		userStories = this.repository.findAllUserStoriesByProjectId(object.getId());
-		trainingModules = this.repository.findAllTrainingModulesByProjectId(object.getId());
 		contracts = this.repository.findAllContractsByProjectId(object.getId());
-		codeAudits = this.repository.findAllCodeAuditsByProjectId(object.getId());
+		trainingModules = this.repository.findAllTrainingModulesByProjectId(object.getId());
 		sponsorships = this.repository.findAllSponsorshipsByProjectId(object.getId());
+		codeAudits = this.repository.findAllCodeAuditsByProjectId(object.getId());
+
 		this.repository.deleteAll(userStories);
-		this.repository.deleteAll(trainingModules);
+
+		for (Contract c : contracts) {
+			Collection<ProgressLog> progressLogs = this.repository.findAllProgressLogsByContractId(c.getId());
+			this.repository.deleteAll(progressLogs);
+		}
+
 		this.repository.deleteAll(contracts);
-		this.repository.deleteAll(codeAudits);
+
+		for (TrainingModule tm : trainingModules) {
+			Collection<TrainingSesion> trainingSesions = this.repository.findAllTrainingSesionByTrainingModuleId(tm.getId());
+			this.repository.deleteAll(trainingSesions);
+		}
+
+		this.repository.deleteAll(trainingModules);
+
+		for (Sponsorship s : sponsorships) {
+			Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorshipId(s.getId());
+			this.repository.deleteAll(invoices);
+		}
+
 		this.repository.deleteAll(sponsorships);
+
+		for (CodeAudit ca : codeAudits) {
+			Collection<AuditRecord> auditRecords = this.repository.findAllAduditRecordsByCodeAuditId(ca.getId());
+			this.repository.deleteAll(auditRecords);
+		}
+
+		this.repository.deleteAll(codeAudits);
+
 		this.repository.delete(object);
 	}
 	@Override

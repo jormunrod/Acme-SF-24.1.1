@@ -7,12 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.projects.Contract;
+import acme.entities.projects.ProgressLog;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
+import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
 import acme.entities.trainings.TrainingModule;
+import acme.entities.trainings.TrainingSesion;
 import acme.roles.Manager;
 
 @Repository
@@ -47,4 +51,16 @@ public interface ManagerProjectRepository extends AbstractRepository {
 
 	@Query("select s from Sponsorship s where s.project.id = :id")
 	Collection<Sponsorship> findAllSponsorshipsByProjectId(int id);
+
+	@Query("select pl from ProgressLog pl where pl.contract.id = :id")
+	Collection<ProgressLog> findAllProgressLogsByContractId(int id);
+
+	@Query("select ts from TrainingSesion ts where ts.trainingModule.id = :id")
+	Collection<TrainingSesion> findAllTrainingSesionByTrainingModuleId(int id);
+
+	@Query("select i from Invoice i where i.sponsorship.id = :id")
+	Collection<Invoice> findAllInvoicesBySponsorshipId(int id);
+
+	@Query("select ar from AuditRecord ar where ar.codeAudit.id = :id")
+	Collection<AuditRecord> findAllAduditRecordsByCodeAuditId(int id);
 }
