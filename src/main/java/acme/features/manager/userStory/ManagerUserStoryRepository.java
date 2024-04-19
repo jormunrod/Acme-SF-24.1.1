@@ -26,4 +26,7 @@ public interface ManagerUserStoryRepository extends AbstractRepository {
 
 	@Query("select m from Manager m where m.id = :id")
 	Manager findOneManagerById(int id);
+
+	@Query("select us from UserStory us where us.title = :title")
+	UserStory findOneUserStoryByTitle(String title);
 }
