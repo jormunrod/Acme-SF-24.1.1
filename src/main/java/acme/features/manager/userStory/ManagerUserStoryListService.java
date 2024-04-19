@@ -54,14 +54,14 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 		super.getResponse().addData(dataset);
 	}
 
-	//	@Override
-	//	public void unbind(final Collection<UserStory> objects) {
-	//		assert objects != null;
-	//
-	//		int masterId;
-	//
-	//		masterId = super.getRequest().getData("id", int.class);
-	//
-	//		super.getResponse().addGlobal("masterId", masterId);
-	//	}
+	@Override
+	public void unbind(final Collection<UserStory> objects) {
+		assert objects != null;
+
+		int projectId;
+
+		projectId = super.getRequest().getData("projectId", int.class);
+
+		super.getResponse().addGlobal("projectId", projectId);
+	}
 }
