@@ -45,13 +45,8 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	@Override
 	public void bind(final Project object) {
 		assert object != null;
-		int id;
-		Manager manager;
 
-		id = super.getRequest().getData("id", int.class);
-		manager = this.repository.findOneManagerById(id);
 		super.bind(object, "code", "title", "abstractText", "isPublished", "hasFatalErrors", "cost", "link");
-		object.setManager(manager);
 	}
 
 	@Override

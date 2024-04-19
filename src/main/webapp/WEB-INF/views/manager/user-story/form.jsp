@@ -10,9 +10,11 @@
 	<acme:input-textarea code="manager.user-story.form.label.acceptanceCriteria" path="acceptanceCriteria"/>
 	<acme:input-select code="manager.user-story.form.label.priority" path="priority" choices="${priority}"/>
 	<acme:input-url code="manager.user-story.form.label.link" path="link"/>
-	<acme:input-checkbox code="manager.user-story.form.label.isPublished" readonly="true" path="isPublished"/>
 	
 	<jstl:choose>
+		<jstl:when test="${_command == 'show' && isPublished == true}">
+			<acme:input-checkbox code="manager.user-story.form.label.isPublished" readonly="true" path="isPublished"/>
+		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
 			<acme:submit code="manager.user-story.form.button.delete" action="/manager/user-story/delete"/>
 			<acme:submit code="manager.user-story.form.button.update" action="/manager/user-story/update"/>

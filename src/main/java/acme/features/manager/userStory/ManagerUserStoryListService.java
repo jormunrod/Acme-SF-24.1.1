@@ -27,7 +27,7 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 
 		id = super.getRequest().getData("projectId", int.class);
 		project = this.repository.findOneProjectById(id);
-		status = project != null && (project.isPublished() || super.getRequest().getPrincipal().hasRole(project.getManager()));
+		status = project != null && super.getRequest().getPrincipal().hasRole(project.getManager());
 
 		super.getResponse().setAuthorised(status);
 	}
