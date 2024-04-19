@@ -1,0 +1,31 @@
+# manager.project.list ############################################
+
+manager.project.list.title = Mis proyectos
+manager.project.list.label.code = Código
+manager.project.list.label.title = Nombre
+manager.project.list.label.cost = Coste
+manager.project.list.label.isPublished = Publicado
+
+manager.project.list.button.create = Crear
+
+# manager.project.form ###################################################
+
+manager.project.form.title = Mis proyectos
+manager.project.form.label.code = Código
+manager.project.form.label.title = Nombre
+manager.project.form.label.abstractText = Descripción
+manager.project.form.label.cost = Coste
+manager.project.form.label.link = Enlace
+manager.project.form.label.hasFatalErrors = Errores fatales
+manager.project.form.label.isPublished = Publicado
+
+manager.project.form.button.userStory = Historias de usuario
+manager.project.form.button.create = Crear
+manager.project.form.button.update = Actualizar
+manager.project.form.button.delete = Borrar
+manager.project.form.button.publish = Publicar
+
+manager.project.form.error.duplicateCode = El código ya existe
+manager.project.form.error.fatalErrors = El proyecto contiene errores fatales
+manager.project.form.error.hasUserStories = El proyecto debe contener al menos una historia de usuario
+manager.project.form.error.hasAllUserStoriesPublished = Todas las historias de usuario asociadas al proyecto deben estar publicadas
