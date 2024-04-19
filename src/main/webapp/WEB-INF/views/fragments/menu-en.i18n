@@ -25,6 +25,11 @@ master.menu.anonymous.javrodrei = 30282701G: Rodríguez Reina, Javier
 master.menu.anonymous.isasolpad = 49127653K: Solís Padilla, Isaac
 master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 
+# master.menu.developers ######################################################
+master.menu.developer = Developers
+master.menu.developer.training-module.list = Training Module List
+master.menu.developer.dashboard = Dashboard
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
@@ -57,3 +62,9 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-developer = Become a developer
+master.menu.user-account.developer = Developer data
+# master.menu.sponsor ###################################################
+
+master.menu.sponsor = Sponsor
+master.menu.sponsor.sponsorship.list = SponsorshipList

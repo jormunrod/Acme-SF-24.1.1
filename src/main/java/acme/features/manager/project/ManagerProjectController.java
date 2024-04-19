@@ -1,5 +1,5 @@
 
-package acme.features.manager;
+package acme.features.manager.project;
 
 import javax.annotation.PostConstruct;
 

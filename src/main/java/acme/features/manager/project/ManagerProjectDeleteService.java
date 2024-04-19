@@ -1,5 +1,5 @@
 
-package acme.features.manager;
+package acme.features.manager.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import acme.entities.projects.Project;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectUpdateService extends AbstractService<Manager, Project> {
+public class ManagerProjectDeleteService extends AbstractService<Manager, Project> {
 
 	@Autowired
 	protected ManagerProjectRepository repository;
@@ -52,24 +52,14 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 	@Override
 	public void validate(final Project object) {
 		assert object != null;
-		boolean status;
-
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Project existing;
-			existing = this.repository.findOneProjectByCode(object.getCode());
-			if (existing != null)
-				status = existing.getId() == object.getId();
-			else
-				status = false;
-			super.state(existing == null || status, "code", "manager.project.form.error.duplicateCode");
-		}
 	}
 
 	@Override
 	public void perform(final Project object) {
 		assert object != null;
 
-		this.repository.save(object);
+		// TODO Implement all the necessary business logic to delete the project
+		this.repository.delete(object);
 	}
 
 	@Override
