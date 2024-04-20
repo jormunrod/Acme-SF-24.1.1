@@ -10,12 +10,12 @@
 
 ############# developer.developer-dashboard #######################################
 
-developer.developer-dashboard.form.title = Panel de Control del Desarrollador
+master.menu.sponsor.dashboard = Dashboard
 
-developer.developer-dashboard.form.title.general-indicators = Indicadores Generales
-developer.developer-dashboard.form.label.total-number-of-training-module-with-an-update-moment = Número total de Módulos de entrenamiento con fecha de actualización
-developer.developer-dashboard.form.label.total-number-of-training-sesion-with-a-link = Número total de Sesiones de entrenamiento con un link
-developer.developer-dashboard.form.label.average = Media del tiempo total de los Módulos de entrenamiento
-developer.developer-dashboard.form.label.deviation = Desviación del tiempo total de los Módulos de entrenamiento
-developer.developer-dashboard.form.label.minimum-time-of-the-training-module = Mínimo valor del tiempo total de los módulos de entrenamiento
-developer.developer-dashboard.form.label.maximum-time-of-the-training-module = Máximo valor del tiempo total de los módulos de entrenamiento
+sponsor.sponsor-dashboard.form.title = Dashboard
+
+sponsor.dashboard.form.title.general-indicators = General indicators
+
+sponsor.dashboard.form.label.total-number-of-invoices-with-a-tax-less-than-or-equal-to-21 = Invoices with tax less than or equal to 21%
+
+sponsor.dashboard.form.label.total-number-of-sponsorships-with-a-link = Sponsorships with link

@@ -27,6 +27,8 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 
 	@Override
 	public void load() {
+
+		int sponsorId;
 		SponsorDashboard dashboard;
 		Integer totalNumberOfInvoicesWithATaxLessThanOrEqualTo21;
 		Integer totalNumberOfSponsorshipsWithALink;
@@ -46,8 +48,9 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		m.setAmount(23.4);
 		m.setCurrency("EUR");
 
-		totalNumberOfInvoicesWithATaxLessThanOrEqualTo21 = i;
-		totalNumberOfSponsorshipsWithALink = i;
+		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
+		totalNumberOfInvoicesWithATaxLessThanOrEqualTo21 = this.repository.countInvoicesBySponsorIdAndTaxLimit21(sponsorId);
+		totalNumberOfSponsorshipsWithALink = this.repository.countSponsorshipsWithNonEmptyLinkBySponsorId(sponsorId);
 
 		averageAmountOfTheSponsorships = m;
 		deviationAmountOfTheSponsorships = m;

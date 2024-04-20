@@ -11,12 +11,12 @@
 
 ############# developer.developer-dashboard #######################################
 
-developer.developer-dashboard.form.title = Developer Dashboard
+master.menu.sponsor.dashboard = Panel de datos
 
-developer.developer-dashboard.form.title.general-indicators = General Indicators
-developer.developer-dashboard.form.label.total-number-of-training-module-with-an-update-moment = Total number of Training Module with an Update Moment
-developer.developer-dashboard.form.label.total-number-of-training-sesion-with-a-link = Total number of Training Session with a Link
-developer.developer-dashboard.form.label.average = Average of the Total Time of Training Modules
-developer.developer-dashboard.form.label.deviation = Deviation of the Total Time of Training Modules
-developer.developer-dashboard.form.label.minimum-time-of-the-training-module = Minimum Total Time of the Training Module
-developer.developer-dashboard.form.label.maximum-time-of-the-training-module = Maximum Total Time of the Training Module
+sponsor.sponsor-dashboard.form.title = Panel de datos
+
+sponsor.dashboard.form.title.general-indicators = Indicadores generales
+
+sponsor.dashboard.form.label.total-number-of-invoices-with-a-tax-less-than-or-equal-to-21 = Facturas con impuestos iguales o menores al 21%
+
+sponsor.dashboard.form.label.total-number-of-sponsorships-with-a-link = Patrocinios que tengan link
