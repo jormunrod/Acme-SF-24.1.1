@@ -60,7 +60,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void bind(final Contract object) {
 		assert object != null;
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
+		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished", "project");
 	}
 
 	@Override
