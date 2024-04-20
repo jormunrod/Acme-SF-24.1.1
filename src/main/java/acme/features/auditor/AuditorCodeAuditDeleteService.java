@@ -87,7 +87,7 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 		Dataset dataset;
 
 		projects = this.repository.findPublishedProjects();
-		choices = SelectChoices.from(projects, "title", object.getProject());
+		choices = SelectChoices.from(projects, "code", object.getProject());
 		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "mark", "link", "isPublished");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", projects);

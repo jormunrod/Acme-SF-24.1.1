@@ -69,7 +69,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		mark = object.getMark();
 		status = !(mark.equals(Mark.F) || mark.equals(Mark.F_MINUS));
 
-		super.state(status, "*", "auditor.code-audit.form.err.fail-mark");
+		super.state(status, "mark", "auditor.code-audit.form.err.fail-mark");
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		Dataset dataset;
 
 		projects = this.repository.findPublishedProjects();
-		choices = SelectChoices.from(projects, "title", object.getProject());
+		choices = SelectChoices.from(projects, "code", object.getProject());
 		choicesType = SelectChoices.from(CodeAuditType.class, object.getType());
 		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "mark", "link", "isPublished");
 		dataset.put("project", choices.getSelected().getKey());
