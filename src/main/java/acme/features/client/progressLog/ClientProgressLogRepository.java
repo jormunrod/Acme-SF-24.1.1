@@ -13,8 +13,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
-import acme.entities.projects.Contract;
-import acme.entities.projects.ProgressLog;
+import acme.entities.contracts.Contract;
+import acme.entities.contracts.ProgressLog;
 
 @Repository
 public interface ClientProgressLogRepository extends AbstractRepository {

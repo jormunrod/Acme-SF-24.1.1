@@ -24,8 +24,8 @@ public class ClientDashboard extends AbstractForm {
 	Integer						numberOfProgressLogsBetween50And75;
 	Integer						numberOfProgressLogsAbove75;
 
-	Double						averageBudget;
-	Double						deviationBudget;
+	Money						averageBudget;
+	Money						deviationBudget;
 	Money						minimumBudget;
 	Money						maximumBudget;
 

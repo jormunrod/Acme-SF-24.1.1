@@ -1,0 +1,15 @@
+# messages-es.i18n
+
+############# client.client-dashboard #######################################
+
+client.client-dashboard.form.title = Panel de Control de Cliente
+
+client.client-dashboard.form.title.general-indicators = Indicadores Generales
+client.client-dashboard.form.label.number-of-progress-logs-below-25	= Número de registros de progreso por debajo de 25:
+client.client-dashboard.form.label.number-of-progress-logs-between-25-and-50 = Número de registros de progreso entre 25 y 50: 
+client.client-dashboard.form.label.number-of-progress-logs-between-50-and-75 = Número de registros de progreso entre 50 y 75:
+client.client-dashboard.form.label.number-of-progress-logs-above-75 = Número de registros de progreso por encima de 75:
+client.client-dashboard.form.label.average-budget = Presupuesto promedio: 
+client.client-dashboard.form.label.deviation-budget = Desviación del presupuesto: 
+client.client-dashboard.form.label.minimum-budget = Presupuesto mínimo: 
+client.client-dashboard.form.label.maximum-budget = Presupuesto máximo: 
