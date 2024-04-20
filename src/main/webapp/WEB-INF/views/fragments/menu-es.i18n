@@ -25,13 +25,14 @@ master.menu.anonymous.javrodrei = 30282701G: Rodríguez Reina, Javier
 master.menu.anonymous.isasolpad = 49127653K: Solís Padilla, Isaac
 master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 
+# master.menu.client ##########################################################
+
+master.menu.client = Cliente
+master.menu.client.contract.list = Lista de contratos
 # master.menu.developers ######################################################
 master.menu.developer = Desarrolladores
 master.menu.developer.training-module.list = Listar Módulo de Desarrollo
 master.menu.developer.dashboard = Panel de indicadores
-
-
-
 
 # master.menu.administrator ###################################################
 
@@ -51,6 +52,16 @@ master.menu.provider.favourite-link = Enlace favorito
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.code-audit.list = Mis auditorías
+
+# master.menu.manager #########################################################
+
+master.menu.manager = Gestor
+master.menu.manager.project.list = Proyectos
 
 # master.menu.user-account ####################################################
 

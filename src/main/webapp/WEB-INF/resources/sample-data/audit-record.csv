@@ -6,3 +6,8 @@ audit-record-04,AU-0001-004,2021/04/14 10:00, 2021/04/14 12:00,F,https://example
 audit-record-05,AU-0001-005,2021/05/07 16:00, 2021/05/07 19:00,F_MINUS,,code-audit-05
 audit-record-06,AU-0001-006,2021/06/01 13:00, 2021/06/01 14:30,B,https://example.com/abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcd,code-audit-06
 audit-record-07,AU-0001-007,2022/07/29 22:55, 2022/07/29 23:55,C,https://example.com/abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcd1,code-audit-07
+audit-record-08,AU-0001-008,2021/03/12 11:00, 2021/03/13 19:00,A,,code-audit-01
+audit-record-09,AU-0001-009,2021/03/12 12:00, 2021/03/14 19:00,A,,code-audit-01
+audit-record-10,AU-0001-010,2021/03/30 08:00, 2021/03/31 19:00,B,,code-audit-02
+audit-record-11,AU-0001-011,2021/03/30 09:00, 2021/04/01 19:00,B,,code-audit-02
+audit-record-12,AU-0001-012,2021/03/30 10:00, 2021/04/02 19:00,A,,code-audit-02
