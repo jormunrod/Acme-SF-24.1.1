@@ -17,7 +17,7 @@ import acme.entities.projects.ProgressLog;
 import acme.roles.Client;
 
 @Service
-public class ClientProgressLogUpdateService extends AbstractService<Client, ProgressLog> {
+public class ClientProgressLogPublishService extends AbstractService<Client, ProgressLog> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -74,8 +74,11 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	@Override
 	public void perform(final ProgressLog object) {
 		assert object != null;
+		ProgressLog progressLog;
+		progressLog = object;
 
-		this.repository.save(object);
+		progressLog.setPublished(true);
+		this.repository.save(progressLog);
 	}
 
 	@Override
@@ -84,6 +87,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		Dataset dataset;
 
 		dataset = super.unbind(object, "recordId", "completenessPercentage", "progressComment", "registrationMoment", "responsiblePerson", "isPublished");
+
 		super.getResponse().addData(dataset);
 	}
 

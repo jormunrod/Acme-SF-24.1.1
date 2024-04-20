@@ -1,5 +1,5 @@
 /**
- * Update Service for the ProgressLog entity.
+ * Delete Service for the ProgressLog entity.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-20
@@ -17,7 +17,7 @@ import acme.entities.projects.ProgressLog;
 import acme.roles.Client;
 
 @Service
-public class ClientProgressLogUpdateService extends AbstractService<Client, ProgressLog> {
+public class ClientProgressLogDeleteService extends AbstractService<Client, ProgressLog> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -61,21 +61,13 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	@Override
 	public void validate(final ProgressLog object) {
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
-			ProgressLog existing;
-
-			existing = this.repository.findOneProgressLogByRecordId(object.getRecordId());
-			if (existing != null && existing.getId() != object.getId())
-				super.state(existing == null, "recordId", "client.progress-log.form.error.duplicated");
-		}
 	}
 
 	@Override
 	public void perform(final ProgressLog object) {
 		assert object != null;
 
-		this.repository.save(object);
+		this.repository.delete(object);
 	}
 
 	@Override
@@ -84,6 +76,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		Dataset dataset;
 
 		dataset = super.unbind(object, "recordId", "completenessPercentage", "progressComment", "registrationMoment", "responsiblePerson", "isPublished");
+
 		super.getResponse().addData(dataset);
 	}
 
