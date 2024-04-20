@@ -1,5 +1,5 @@
 
-package acme.features.auditor;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -11,19 +11,18 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.CodeAuditType;
-import acme.entities.audits.Mark;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditPublishService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private AuditorCodeAuditRepository repository;
 
-	// AbstractService interface ---------------------------------------------
+	// AbstractService interface --------------------------
 
 
 	@Override
@@ -34,6 +33,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		id = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditById(id);
+
 		status = codeAudit != null && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
@@ -48,39 +48,6 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		object = this.repository.findOneCodeAuditById(id);
 
 		super.getBuffer().addData(object);
-	}
-
-	@Override
-	public void bind(final CodeAudit object) {
-		assert object != null;
-
-		super.bind(object, "code", "execution", "type", "correctiveActions", "mark", "link");
-	}
-
-	@Override
-	public void validate(final CodeAudit object) {
-		assert object != null;
-
-		System.out.println(object);
-
-		boolean status;
-		Mark mark;
-
-		mark = object.getMark();
-		status = !(mark.equals(Mark.F) || mark.equals(Mark.F_MINUS));
-
-		super.state(status, "mark", "auditor.code-audit.form.err.fail-mark");
-	}
-
-	@Override
-	public void perform(final CodeAudit object) {
-		assert object != null;
-		CodeAudit codeAudit;
-		codeAudit = object;
-
-		codeAudit.setPublished(true);
-
-		this.repository.save(codeAudit);
 	}
 
 	@Override

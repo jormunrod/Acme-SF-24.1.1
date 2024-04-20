@@ -1,5 +1,5 @@
 
-package acme.features.auditor;
+package acme.features.auditor.codeAudit;
 
 import java.util.ArrayList;
 import java.util.Collection;

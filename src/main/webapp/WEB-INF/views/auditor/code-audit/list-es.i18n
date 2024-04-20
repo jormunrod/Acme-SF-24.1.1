@@ -17,6 +17,7 @@ auditor.code-audit.list.label.published = Publicado
 
 auditor.code-audit.list.button.create = Crear
 
+auditor.code-audit.list.button.auditRecord = Registros de auditoría 
 auditor.code-audit.form.button.create = Crear
 auditor.code-audit.form.button.delete = Borrar
 auditor.code-audit.form.button.update = Actualizar
