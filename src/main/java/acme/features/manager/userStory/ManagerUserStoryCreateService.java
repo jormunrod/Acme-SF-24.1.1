@@ -65,7 +65,15 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 	@Override
 	public void validate(final UserStory object) {
 		assert object != null;
-		//TODO: Implement all validation rules
+
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			UserStory existing;
+
+			existing = this.repository.findOneUserStoryByTitle(object.getTitle());
+			super.state(existing == null, "title", "manager.userStory.form.error.duplicateTitle");
+		}
+
+		super.state(!object.getProject().isPublished(), "link", "manager.user-story.form.error.projectPublished");
 	}
 
 	@Override
