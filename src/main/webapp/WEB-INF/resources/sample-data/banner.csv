@@ -1,12 +1,12 @@
 key,instantiationMoment,updateMoment,displayStart,displayEnd,picture,slogan,webDocument
-banner-01,2016/12/31 12:30,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/8YcXhS0.png,Slogan,http://example.com
-banner-02,2016/12/31 00:00,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/MtBRoNP.png,Slogan,http://example.com
-banner-03,2016/12/21 00:01,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/NGLSjk6.png,Slogan,http://example.com
-banner-04,2016/12/31 23:59,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/fihihcF.png,Slogan,http://example.com
-banner-05,2016/01/01 12:30,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/2eVF1HG.png,Slogan,http://example.com
-banner-06,2016/01/01 00:00,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/CqtMSmM.png,Slogan,http://example.com
-banner-07,2016/01/01 00:01,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/sgx1bFo.png,Slogan,http://example.com
-banner-08,2016/01/01 23:59,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/qu5SrLN.png,Slogan,http://example.com
+banner-01,2016/12/31 12:30,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/8YcXhS0.png,Slogan,https://www.worldwildlife.org/
+banner-02,2016/12/31 00:00,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/MtBRoNP.png,Slogan,https://www.doctorswithoutborders.org/
+banner-03,2016/12/21 00:01,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/NGLSjk6.png,Slogan,https://www.change.org/
+banner-04,2016/12/31 23:59,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/fihihcF.png,Slogan,https://fundacionelgancho.org/
+banner-05,2016/01/01 12:30,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/2eVF1HG.png,Slogan,https://www.afoprodei.com/
+banner-06,2016/01/01 00:00,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/CqtMSmM.png,Slogan,https://fundacionmornese.com/
+banner-07,2016/01/01 00:01,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/sgx1bFo.png,Slogan,https://www.pulserasrosas.com/
+banner-08,2016/01/01 23:59,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,https://i.imgur.com/qu5SrLN.png,Slogan,https://www.adefisal.org/
 banner-09,2016/02/29 12:30,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,http://examplepicture.com,Slogan,http://example.com
 banner-10,2016/02/29 00:00,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,http://examplepicture.com,Slogan,http://example.com
 banner-11,2016/02/29 00:01,2020/07/01 12:30,2022/07/30 00:01,2022/08/21 12:30,http://examplepicture.com,Slogan,http://example.com
