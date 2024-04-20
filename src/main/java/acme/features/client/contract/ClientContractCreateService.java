@@ -1,18 +1,20 @@
 /**
- * Update Service for the Contract entity.
+ * Create Service for the Contract entity.
  * 
  * @Author: jormunrod
- * @Date: 2024-04-08
+ * @Date: 2024-04-09
  */
 
-package acme.features.client;
+package acme.features.client.contract;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Contract;
@@ -20,7 +22,7 @@ import acme.entities.projects.Project;
 import acme.roles.Client;
 
 @Service
-public class ClientContractUpdateService extends AbstractService<Client, Contract> {
+public class ClientContractCreateService extends AbstractService<Client, Contract> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -32,26 +34,17 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		Contract contract;
-		Client client;
-
-		id = super.getRequest().getData("id", int.class);
-		contract = this.repository.findOneContractById(id);
-		client = contract == null ? null : contract.getClient();
-		status = client != null && super.getRequest().getPrincipal().hasRole(client);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Contract object;
-		int id;
+		Client client;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneContractById(id);
+		client = this.repository.findOneClientById(super.getRequest().getPrincipal().getActiveRoleId());
+		object = new Contract();
+		object.setClient(client);
 
 		super.getBuffer().addData(object);
 	}
@@ -59,20 +52,33 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	@Override
 	public void bind(final Contract object) {
 		assert object != null;
+		int projectId;
+		Project project;
+		Date currentMoment;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
+
+		currentMoment = MomentHelper.getCurrentMoment();
 
 		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
+		object.setProject(project);
+		object.setInstantiationMoment(currentMoment);
+
 	}
 
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
 
-		boolean status;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Contract existing;
 
-		status = this.repository.findOneContractByCodeAndDifferentId(object.getCode(), object.getId()) == null;
-		super.state(status, "code", "client.contract.form.error.duplicateCode");
+			existing = this.repository.findOneContractByCode(object.getCode());
+			super.state(existing == null, "code", "client.contract.form.error.duplicated");
+		}
 
-		// TODO: Add project budget validation
+		// TODO: For a contract to be published, the sum of all budgets cannot exceed the total cost of the corresponding project.
 	}
 
 	@Override

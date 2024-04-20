@@ -1,11 +1,11 @@
 /**
- * List Service for the Contract entity.
+ * Delete Service for the Contract entity.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-08
  */
 
-package acme.features.client;
+package acme.features.client.contract;
 
 import java.util.Collection;
 
@@ -16,11 +16,12 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Contract;
+import acme.entities.projects.ProgressLog;
 import acme.entities.projects.Project;
 import acme.roles.Client;
 
 @Service
-public class ClientContractShowService extends AbstractService<Client, Contract> {
+public class ClientContractDeleteService extends AbstractService<Client, Contract> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -32,7 +33,17 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		Contract contract;
+		Client client;
+
+		id = super.getRequest().getData("id", int.class);
+		contract = this.repository.findOneContractById(id);
+		client = contract == null ? null : contract.getClient();
+		status = client != null && super.getRequest().getPrincipal().hasRole(client);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -47,6 +58,29 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 	}
 
 	@Override
+	public void bind(final Contract object) {
+		assert object != null;
+
+		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
+	}
+
+	@Override
+	public void validate(final Contract object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Contract object) {
+		assert object != null;
+
+		Collection<ProgressLog> progressLogs;
+		progressLogs = this.repository.findAllProgressLogsByContractId(object.getId());
+
+		this.repository.deleteAll(progressLogs);
+		this.repository.delete(object);
+	}
+
+	@Override
 	public void unbind(final Contract object) {
 		assert object != null;
 		Collection<Project> projects;
@@ -54,13 +88,12 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		Dataset dataset;
 
 		projects = this.repository.findAllPublishedProjects();
-
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
-		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices.getSelected().getKey());
 		dataset.put("projects", choices);
-		super.getResponse().addData(dataset);
 
+		super.getResponse().addData(dataset);
 	}
 
 }

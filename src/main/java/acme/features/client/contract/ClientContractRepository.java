@@ -5,7 +5,7 @@
  * @Date: 2024-04-08
  */
 
-package acme.features.client;
+package acme.features.client.contract;
 
 import java.util.Collection;
 
