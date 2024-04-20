@@ -34,3 +34,4 @@ client.contract.form.error.duplicateCode = Código duplicado
 client.contract.form.label.publish = Publicado
 client.contract.form.button.publish = Publicar
 client.contract.form.error.budgetExceeded = Presupuesto excedido
+client.contract.form.button.progress-logs = Historial de Progreso
