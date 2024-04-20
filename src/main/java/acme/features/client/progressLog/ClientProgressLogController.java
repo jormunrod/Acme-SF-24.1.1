@@ -30,9 +30,9 @@ public class ClientProgressLogController extends AbstractController<Client, Prog
 	@Autowired
 	protected ClientProgressLogCreateService	createService;
 
-	//	@Autowired
-	//	protected ClientProgressLogUpdateService	updateService;
-	//
+	@Autowired
+	protected ClientProgressLogUpdateService	updateService;
+
 	//	@Autowired
 	//	protected ClientProgressLogDeleteService	deleteService;
 	//
@@ -47,7 +47,7 @@ public class ClientProgressLogController extends AbstractController<Client, Prog
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
-		//		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("update", this.updateService);
 		//		super.addBasicCommand("delete", this.deleteService);
 
 		//		super.addCustomCommand("publish", "update", this.publishService);
