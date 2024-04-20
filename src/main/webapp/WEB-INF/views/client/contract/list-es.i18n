@@ -1,0 +1,36 @@
+# menu-en.i18n
+
+# master.menu #################################################################
+
+master.menu.home = Home
+master.menu.sign-up = Sign up
+master.menu.sign-in = Sign in
+master.menu.sign-out = Sign out
+
+# master.client.contract #####################################################
+
+client.contract.list.title = Lista de Contratos
+client.contract.list.label.code = Código
+client.contract.list.label.instantiationMoment = Momento de Instanciación
+client.contract.list.label.providerName = Nombre del Proveedor
+client.contract.list.label.customerName = Nombre del Cliente
+client.contract.list.label.goals = Objetivos
+client.contract.list.label.budget = Presupuesto
+client.contract.list.button.create = Crear
+client.contract.list.label.published = Publicado
+
+client.contract.form.title = Detalles del Contrato
+client.contract.form.label.code = Código
+client.contract.form.label.project = Proyecto
+client.contract.form.label.instantiationMoment = Momento de Instanciación
+client.contract.form.label.providerName = Nombre del Proveedor
+client.contract.form.label.customerName = Nombre del Cliente
+client.contract.form.label.goals = Objetivos
+client.contract.form.label.budget = Presupuesto
+client.contract.form.button.delete = Eliminar
+client.contract.form.button.update = Actualizar
+client.contract.form.button.create = Crear
+client.contract.form.error.duplicateCode = Código duplicado
+client.contract.form.label.publish = Publicado
+client.contract.form.button.publish = Publicar
+client.contract.form.error.budgetExceeded = Presupuesto excedido

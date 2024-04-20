@@ -27,6 +27,10 @@
 			<acme:menu-suboption code="master.menu.anonymous.alepersan3" action="https://neal.fun/password-game"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
+			<acme:menu-suboption code="master.menu.client.contract.list" action="/client/contract/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">
 			<acme:menu-suboption code="master.menu.developer.training-module.list" action="/developer/training-module/list"/>	
 			<acme:menu-separator/>
