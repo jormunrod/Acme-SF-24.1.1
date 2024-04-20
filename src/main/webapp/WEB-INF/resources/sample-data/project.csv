@@ -1,20 +1,63 @@
 key,key:manager,code,title,abstractText,isPublished,hasFatalErrors,cost,link
-project-01,manager-01,PRO-0001,1,This is the abstract for Project 1,false,true,45,http://www.example.com/project-01
-project-02,manager-01,PRO-0002,P2,This is the abstract for Project 2,false,true,45,http://www.example.com/project-02
-project-03,manager-01,PRO-0003,Project 3,This is the abstract for Project 3,false,true,45,http://www.example.com/project-03
-project-04,manager-01,PRO-0004,項目4,This is the abstract for Project 4,false,true,45,http://www.example.com/project-04
-project-05,manager-01,PRO-0005,Project 5: This is an example title for the project to test its constraint,This is the abstract for Project 5,false,true,45,http://www.example.com/project-05
-project-06,manager-01,PRO-0006,Project 6: This is an example title for the project to test its constraints,This is the abstract for Project 6,false,true,45,http://www.example.com/project-06
-project-07,manager-01,PRO-0007,Project 7,7,false,true,45,http://www.example.com/project-07
-project-08,manager-01,PRO-0008,Project 8,A8,false,true,45,http://www.example.com/project-08
-project-09,manager-01,PRO-0009,Project 9,這是項目 4 的摘要,false,true,45,http://www.example.com/project-09
-project-10,manager-02,PRO-0010,Project 10,Este proyecto ilustra un ejemplo conciso asegurando que el resumen se ajuste con los 99 caracteres.,false,true,45,http://www.example.com/project-10
-project-11,manager-02,PRO-0011,Project 11,Proyecto demo: Un resumen preciso diseñado para ajustarse perfectamente al límite de 100 caracteres.,false,true,45,http://www.example.com/project-11
-project-12,manager-02,PRO-0012,Project 12,This is the abstract for Project 12,false,true,45,http://www.example.com/project-12
-project-13,manager-02,PRO-0013,Project 13,This is the abstract for Project 13,true,false,45,http://www.example.com/project-13
-project-14,manager-02,PRO-0014,Project 14,This is the abstract for Project 14,false,false,45,http://www.example.com/project-14
-project-15,manager-02,PRO-0015,Project 15,This is the abstract for Project 15,false,true,0,http://www.example.com/project-15
-project-16,manager-02,PRO-0016,Project 16,This is the abstract for Project 16,false,true,1,http://www.example.com/project-16
-project-17,manager-02,PRO-0017,Project 17,This is the abstract for Project 17,false,true,45,
-project-18,manager-02,PRO-0018,Project 18,This is the abstract for Project 18,false,true,45,http://www.example.com/project-18checkUpTo254-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-project-19,manager-02,PRO-0019,Project 19,This is the abstract for Project 19,false,true,45,http://www.example.com/project-18chechUpTo255------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+project-01,manager-01,PRO-0001,1,This is the abstract for Project 1,false,true,"EUR 10,000.45",http://www.example.com/project-01
+project-02,manager-01,PRO-0002,P2,This is the abstract for Project 2,false,true,"EUR 10,000.45",http://www.example.com/project-02
+project-03,manager-01,PRO-0003,Project 3,This is the abstract for Project 3,false,true,"EUR 10,000.45",http://www.example.com/project-03
+project-04,manager-01,PRO-0004,項目4,This is the abstract for Project 4,false,true,"EUR 10,000.45",http://www.example.com/project-04
+project-05,manager-01,PRO-0005,Project 5: This is an example title for the project to test its constraint,This is the abstract for Project 5,false,true,"EUR 10,000.45",http://www.example.com/project-05
+project-06,manager-01,PRO-0006,Project 6: This is an example title for the project to test its constraints,This is the abstract for Project 6,false,true,"EUR 10,000.45",http://www.example.com/project-06
+project-07,manager-01,PRO-0007,Project 7,7,false,true,"EUR 10,000.45",http://www.example.com/project-07
+project-08,manager-01,PRO-0008,Project 8,A8,false,true,"EUR 10,000.45",http://www.example.com/project-08
+project-09,manager-01,PRO-0009,Project 9,這是項目 4 的摘要,false,true,"EUR 10,000.45",http://www.example.com/project-09
+project-10,manager-01,PRO-0010,Project 10,Este proyecto ilustra un ejemplo conciso asegurando que el resumen se ajuste con los 99 caracteres.,false,true,"EUR 10,000.45",http://www.example.com/project-10
+project-11,manager-01,PRO-0011,Project 11,Proyecto demo: Un resumen preciso diseñado para ajustarse perfectamente al límite de 100 caracteres.,false,true,"EUR 10,000.45",http://www.example.com/project-11
+project-12,manager-01,PRO-0012,Project 12,This is the abstract for Project 12,false,true,"EUR 10,000.45",http://www.example.com/project-12
+project-13,manager-01,PRO-0013,Project 13,This is the abstract for Project 13,false,false,"EUR 10,000.45",http://www.example.com/project-13
+project-14,manager-01,PRO-0014,Project 14,This is the abstract for Project 14,false,false,"EUR 10,000.45",http://www.example.com/project-14
+project-15,manager-01,PRO-0015,Project 15,This is the abstract for Project 15,false,true,"EUR 0.00",http://www.example.com/project-15
+project-16,manager-01,PRO-0016,Project 16,This is the abstract for Project 16,false,true,"EUR 1.00",http://www.example.com/project-16
+project-17,manager-01,PRO-0017,Project 17,This is the abstract for Project 17,false,true,"EUR 10,000.45",
+project-18,manager-01,PRO-0018,Project 18,This is the abstract for Project 18,false,true,"EUR 10,000.45",http://www.example.com/project-18checkUpTo254-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+project-19,manager-01,PRO-0019,Project 19,This is the abstract for Project 19,false,true,"EUR 10,000.45",http://www.example.com/project-18chechUpTo255------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+project-20,manager-02,PRO-0020,Project 20,This is the abstract for Project 20,true,false,"EUR 25,000.00",http://www.example.com/project-20
+project-21,manager-02,PRO-0021,Project 21,This is the abstract for Project 21,true,false,"EUR 7,500.00",http://www.example.com/project-21
+project-22,manager-02,PRO-0022,Project 22,This is the abstract for Project 22,false,false,"EUR 12,500.00",http://www.example.com/project-22
+project-23,manager-02,PRO-0023,Project 23,This is the abstract for Project 23,true,false,"USD 25,000.00",http://www.example.com/project-23
+project-24,manager-02,PRO-0024,Project 24,This is the abstract for Project 24,true,false,"USD 7,500.00",http://www.example.com/project-24
+project-25,manager-02,PRO-0025,Project 25,This is the abstract for Project 25,false,false,"USD 12,500.00",http://www.example.com/project-25
+project-26,manager-02,PRO-0026,Project 26,This is the abstract for Project 23,true,false,"GBP 25,000.00",http://www.example.com/project-26
+project-27,manager-02,PRO-0027,Project 27,This is the abstract for Project 24,true,false,"GBP 7,500.00",http://www.example.com/project-27
+project-28,manager-02,PRO-0028,Project 28,This is the abstract for Project 25,false,false,"GBP 12,500.00",http://www.example.com/project-28
+project-29,manager-02,PRO-0029,Project 29,This is the abstract for Project 29,true,false,"EUR 20,000.00",http://www.example.com/project-29
+project-30,manager-03,PRO-0030,Project 30,This is the abstract for Project 30,true,false,"EUR 25,000.00",http://www.example.com/project-30
+project-31,manager-03,PRO-0031,Project 31,This is the abstract for Project 31,true,false,"EUR 7,500.00",http://www.example.com/project-31
+project-32,manager-03,PRO-0032,Project 32,This is the abstract for Project 32,false,false,"EUR 12,500.00",http://www.example.com/project-32
+project-33,manager-03,PRO-0033,Project 33,This is the abstract for Project 33,true,false,"USD 25,000.00",http://www.example.com/project-33
+project-34,manager-03,PRO-0034,Project 34,This is the abstract for Project 34,true,false,"USD 7,500.00",http://www.example.com/project-34
+project-35,manager-03,PRO-0035,Project 35,This is the abstract for Project 35,false,false,"USD 12,500.00",http://www.example.com/project-35
+project-36,manager-03,PRO-0036,Project 36,This is the abstract for Project 33,true,false,"GBP 25,000.00",http://www.example.com/project-36
+project-37,manager-03,PRO-0037,Project 37,This is the abstract for Project 34,true,false,"GBP 7,500.00",http://www.example.com/project-37
+project-38,manager-03,PRO-0038,Project 38,This is the abstract for Project 35,false,false,"GBP 12,500.00",http://www.example.com/project-38
+project-39,manager-03,PRO-0039,Project 39,This is the abstract for Project 39,true,false,"EUR 20,000.00",http://www.example.com/project-39
+project-40,manager-04,PRO-0040,Project 40,This is the abstract for Project 40,true,false,"EUR 25,000.00",http://www.example.com/project-40
+project-41,manager-04,PRO-0041,Project 41,This is the abstract for Project 41,true,false,"EUR 7,500.00",http://www.example.com/project-41
+project-42,manager-04,PRO-0042,Project 42,This is the abstract for Project 42,false,false,"EUR 12,500.00",http://www.example.com/project-42
+project-43,manager-04,PRO-0043,Project 43,This is the abstract for Project 43,true,false,"USD 25,000.00",http://www.example.com/project-43
+project-44,manager-04,PRO-0044,Project 44,This is the abstract for Project 44,true,false,"USD 7,500.00",http://www.example.com/project-44
+project-45,manager-04,PRO-0045,Project 45,This is the abstract for Project 45,false,false,"USD 12,500.00",http://www.example.com/project-45
+project-46,manager-04,PRO-0046,Project 46,This is the abstract for Project 43,true,false,"GBP 25,000.00",http://www.example.com/project-46
+project-47,manager-04,PRO-0047,Project 47,This is the abstract for Project 44,true,false,"GBP 7,500.00",http://www.example.com/project-47
+project-48,manager-04,PRO-0048,Project 48,This is the abstract for Project 45,false,false,"GBP 12,500.00",http://www.example.com/project-48
+project-49,manager-04,PRO-0049,Project 49,This is the abstract for Project 49,true,false,"EUR 20,000.00",http://www.example.com/project-49
+project-50,manager-05,PRO-0050,Project 50,This is the abstract for Project 50,true,false,"EUR 25,000.00",http://www.example.com/project-50
+project-51,manager-05,PRO-0051,Project 51,This is the abstract for Project 51,true,false,"EUR 7,500.00",http://www.example.com/project-51
+project-52,manager-05,PRO-0052,Project 52,This is the abstract for Project 52,false,false,"EUR 12,500.00",http://www.example.com/project-52
+project-53,manager-05,PRO-0053,Project 53,This is the abstract for Project 53,true,false,"USD 25,000.00",http://www.example.com/project-53
+project-54,manager-05,PRO-0054,Project 54,This is the abstract for Project 54,true,false,"USD 7,500.00",http://www.example.com/project-54
+project-55,manager-05,PRO-0055,Project 55,This is the abstract for Project 55,false,false,"USD 12,500.00",http://www.example.com/project-55
+project-56,manager-05,PRO-0056,Project 56,This is the abstract for Project 53,true,false,"GBP 25,000.00",http://www.example.com/project-56
+project-57,manager-05,PRO-0057,Project 57,This is the abstract for Project 54,true,false,"GBP 7,500.00",http://www.example.com/project-57
+project-58,manager-05,PRO-0058,Project 58,This is the abstract for Project 55,false,false,"GBP 12,500.00",http://www.example.com/project-58
+project-59,manager-05,PRO-0059,Project 59,This is the abstract for Project 59,true,false,"EUR 20,000.00",http://www.example.com/project-59
+project-60,manager-01,PRO-0060,Project 60,This is the abstract for Project 60,true,false,"EUR 50,000.00",http://www.example.com/project-60
+project-61,manager-01,PRO-0061,Project 61,This is the abstract for Project 61,true,false,"USD 50,000.00",http://www.example.com/project-61
+project-62,manager-01,PRO-0062,Project 62,This is the abstract for Project 62,true,false,"GBP 50,000.00",http://www.example.com/project-62
