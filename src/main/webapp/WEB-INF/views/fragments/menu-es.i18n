@@ -29,6 +29,10 @@ master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 
 master.menu.client = Cliente
 master.menu.client.contract.list = Lista de contratos
+# master.menu.developers ######################################################
+master.menu.developer = Desarrolladores
+master.menu.developer.training-module.list = Listar Módulo de Desarrollo
+master.menu.developer.dashboard = Panel de indicadores
 
 # master.menu.administrator ###################################################
 
@@ -49,6 +53,16 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.code-audit.list = Mis auditorías
+
+# master.menu.manager #########################################################
+
+master.menu.manager = Gestor
+master.menu.manager.project.list = Proyectos
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -57,3 +71,8 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-developer = Hazte desarrollador
+master.menu.user-account.developer = Datos de desarrollador
+# master.menu.sponsor ########################################################
+master.menu.sponsor = Patrocinador
+master.menu.sponsor.sponsorship.list = Lista de patrocinadores
