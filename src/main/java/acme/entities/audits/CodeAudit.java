@@ -51,12 +51,13 @@ public class CodeAudit extends AbstractEntity {
 	@Length(max = 100)
 	private String				correctiveActions;
 
-	@NotNull
 	private Mark				mark;
 
 	@URL
 	@Length(max = 255)
 	private String				link;
+
+	private boolean				isPublished;
 
 	// Derived attributes -----------------------------------------------------
 
