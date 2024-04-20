@@ -14,14 +14,21 @@
 	<acme:input-checkbox code="client.contract.form.label.publish" readonly="true" path="isPublished"/>
 
 	<jstl:choose>
+	
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
 			<acme:submit code="client.contract.form.button.delete" action="/client/contract/delete"/>
 			<acme:submit code="client.contract.form.button.update" action="/client/contract/update"/>
 			<acme:submit code="client.contract.form.button.publish" action="/client/contract/publish"/>
 		</jstl:when>
 
-		<jstl:when test="${_command == 'create' }">
-			<acme:submit code="client.contract.form.button.create" action="/client/contract/create"/>
+		<jstl:when test="${isPublished == true}">
+			<acme:button code="client.contract.form.button.progress-logs" action="/client/progress-log/list?id=${id}"/>
 		</jstl:when>
+		
+		<jstl:when test="${_command == 'create' }">
+			<acme:submit code="client.contract.form.button.create"
+				action="/client/contract/create" />
+		</jstl:when>
+		
 	</jstl:choose>
 </acme:form>

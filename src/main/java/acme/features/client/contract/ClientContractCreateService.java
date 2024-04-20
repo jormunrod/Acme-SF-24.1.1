@@ -77,8 +77,6 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			existing = this.repository.findOneContractByCode(object.getCode());
 			super.state(existing == null, "code", "client.contract.form.error.duplicated");
 		}
-
-		// TODO: For a contract to be published, the sum of all budgets cannot exceed the total cost of the corresponding project.
 	}
 
 	@Override
