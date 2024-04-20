@@ -1,0 +1,24 @@
+# administrator.banner.list ###################################################
+
+administrator.banner.list.title = Mis anuncios publicitarios
+administrator.banner.list.label.instantiationMoment = Momento de instanciación
+administrator.banner.list.label.updateMoment = Momento de actualización
+administrator.banner.list.label.displayStart = Inicio de visualización
+administrator.banner.list.label.displayEnd = Fin de visualización
+
+administrator.banner.list.button.create = Crear
+
+# administrator.banner.form ###################################################
+
+administrator.banner.form.title = Mis anuncios publicitarios
+administrator.banner.form.label.instantiationMoment = Momento de instanciación
+administrator.banner.form.label.updateMoment = Momento de actualización
+administrator.banner.form.label.displayStart = Inicio de visualización
+administrator.banner.form.label.displayEnd = Fin de visualización
+administrator.banner.form.label.picture = Imagen
+administrator.banner.form.label.slogan = Eslogan
+administrator.banner.form.label.webDocument = Documento web
+
+administrator.banner.form.button.create = Crear
+administrator.banner.form.button.update = Actualizar
+administrator.banner.form.button.delete = Borrar

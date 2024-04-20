@@ -13,7 +13,7 @@ import acme.roles.Manager;
 public class ManagerProjectPublishService extends AbstractService<Manager, Project> {
 
 	@Autowired
-	protected ManagerProjectRepository repository;
+	private ManagerProjectRepository repository;
 
 
 	@Override

@@ -16,7 +16,7 @@ import acme.roles.Manager;
 public class ManagerUserStoryUpdateService extends AbstractService<Manager, UserStory> {
 
 	@Autowired
-	protected ManagerUserStoryRepository repository;
+	private ManagerUserStoryRepository repository;
 
 
 	@Override
