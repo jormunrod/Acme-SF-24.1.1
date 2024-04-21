@@ -1,5 +1,5 @@
 
-package acme.entities.projects;
+package acme.entities.contracts;
 
 import java.util.Date;
 
@@ -53,6 +53,8 @@ public class ProgressLog extends AbstractEntity {
 	@NotBlank
 	@Length(max = 75)
 	private String				responsiblePerson;
+
+	private boolean				isPublished			= false;
 
 	// Derived attributes --------------------------------------------------------
 

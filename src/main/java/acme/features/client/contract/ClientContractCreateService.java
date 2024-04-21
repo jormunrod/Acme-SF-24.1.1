@@ -17,7 +17,7 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.entities.projects.Contract;
+import acme.entities.contracts.Contract;
 import acme.entities.projects.Project;
 import acme.roles.Client;
 
@@ -77,8 +77,6 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			existing = this.repository.findOneContractByCode(object.getCode());
 			super.state(existing == null, "code", "client.contract.form.error.duplicated");
 		}
-
-		// TODO: For a contract to be published, the sum of all budgets cannot exceed the total cost of the corresponding project.
 	}
 
 	@Override
