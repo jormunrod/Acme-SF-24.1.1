@@ -44,23 +44,42 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		Money maximumQuantityOfTheInvoices;
 
 		int i = 1;
-		Money m = new Money();
-		m.setAmount(23.4);
-		m.setCurrency("EUR");
+
+		Double cuantity;
 
 		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
+
 		totalNumberOfInvoicesWithATaxLessThanOrEqualTo21 = this.repository.countInvoicesBySponsorIdAndTaxLimit21(sponsorId);
 		totalNumberOfSponsorshipsWithALink = this.repository.countSponsorshipsWithNonEmptyLinkBySponsorId(sponsorId);
 
-		averageAmountOfTheSponsorships = m;
-		deviationAmountOfTheSponsorships = m;
-		minimumAmountOfTheSponsorships = m;
-		maximumAmountOfTheSponsorships = m;
+		Double amount1 = this.repository.averageAmountOfSponsorshipsBySponsorId(sponsorId);
+		Money m1 = new Money();
+		m1.setCurrency("EUR");
+		m1.setAmount(amount1);
+		averageAmountOfTheSponsorships = m1;
 
-		averageQuantityOfTheInvoices = m;
-		deviationQuantityOfTheInvoices = m;
-		minimumQuantityOfTheInvoices = m;
-		maximumQuantityOfTheInvoices = m;
+		Double amount2 = this.repository.averageAmountOfSponsorshipsBySponsorId(sponsorId);
+		Money m2 = new Money();
+		m2.setCurrency("EUR");
+		m2.setAmount(amount2);
+		deviationAmountOfTheSponsorships = m2;
+
+		Double amount3 = this.repository.findMinAmountBySponsorId(sponsorId);
+		Money m3 = new Money();
+		m3.setCurrency("EUR");
+		m3.setAmount(amount3);
+		minimumAmountOfTheSponsorships = m3;
+
+		Double amount4 = this.repository.findMaxAmountBySponsorId(sponsorId);
+		Money m4 = new Money();
+		m4.setCurrency("EUR");
+		m4.setAmount(amount4);
+		maximumAmountOfTheSponsorships = m4;
+
+		averageQuantityOfTheInvoices = m2;
+		deviationQuantityOfTheInvoices = m2;
+		minimumQuantityOfTheInvoices = m2;
+		maximumQuantityOfTheInvoices = m2;
 
 		dashboard = new SponsorDashboard();
 		dashboard.setAverageAmountOfTheSponsorships(averageAmountOfTheSponsorships);
