@@ -10,13 +10,12 @@
 
 
 ############# developer.developer-dashboard #######################################
+developer.developer-dashboard.form.title = Panel de Control del Desarrollador
 
-developer.developer-dashboard.form.title = Developer Dashboard
-
-developer.developer-dashboard.form.title.general-indicators = General Indicators
-developer.developer-dashboard.form.label.total-number-of-training-module-with-an-update-moment = Total number of Training Module with an Update Moment
-developer.developer-dashboard.form.label.total-number-of-training-sesion-with-a-link = Total number of Training Session with a Link
-developer.developer-dashboard.form.label.average = Average of the Total Time of Training Modules
-developer.developer-dashboard.form.label.deviation = Deviation of the Total Time of Training Modules
-developer.developer-dashboard.form.label.minimum-time-of-the-training-module = Minimum Total Time of the Training Module
-developer.developer-dashboard.form.label.maximum-time-of-the-training-module = Maximum Total Time of the Training Module
+developer.developer-dashboard.form.title.general-indicators = Indicadores Generales
+developer.developer-dashboard.form.label.total-number-of-training-module-with-an-update-moment = Número total de Módulos de entrenamiento con fecha de actualización
+developer.developer-dashboard.form.label.total-number-of-training-sesion-with-a-link = Número total de Sesiones de entrenamiento con un link
+developer.developer-dashboard.form.label.average = Media del tiempo total de los Módulos de entrenamiento
+developer.developer-dashboard.form.label.deviation = Desviación del tiempo total de los Módulos de entrenamiento
+developer.developer-dashboard.form.label.minimum-time-of-the-training-module = Mínimo valor del tiempo total de los módulos de entrenamiento
+developer.developer-dashboard.form.label.maximum-time-of-the-training-module = Máximo valor del tiempo total de los módulos de entrenamiento

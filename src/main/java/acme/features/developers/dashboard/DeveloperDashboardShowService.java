@@ -27,8 +27,10 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 	}
 
 	public Double calculateStandardDeviation() {
-		Double mean = this.repository.average();
-		Collection<Integer> times = this.repository.findAllTrainingModuleTimes();
+		int developerId;
+		developerId = super.getRequest().getPrincipal().getActiveRoleId();
+		Double mean = this.repository.average(developerId);
+		Collection<Integer> times = this.repository.findAllTrainingModuleTimes(developerId);
 		double variance = 0.0;
 
 		for (Integer time : times)
@@ -47,13 +49,16 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		Double deviation;
 		Integer minimumTimeOfTheTrainingModules;
 		Integer maximumTimeOfTheTrainingModules;
+		int developerId;
 
-		totalNumberOfTrainingModuleWithAnUpdateMoment = this.repository.totalNumberOfTrainingModuleWithAnUpdateMoment();
-		totalNumberOfTrainingSessionsWithALink = this.repository.totalNumberOfTrainingSessionsWithALink();
-		average = this.repository.average();
+		developerId = super.getRequest().getPrincipal().getActiveRoleId();
+
+		totalNumberOfTrainingModuleWithAnUpdateMoment = this.repository.totalNumberOfTrainingModuleWithAnUpdateMoment(developerId);
+		totalNumberOfTrainingSessionsWithALink = this.repository.totalNumberOfTrainingSessionsWithALink(developerId);
+		average = this.repository.average(developerId);
 		deviation = this.calculateStandardDeviation();
-		minimumTimeOfTheTrainingModules = this.repository.minimumTimeOfTheTrainingModules();
-		maximumTimeOfTheTrainingModules = this.repository.maximumTimeOfTheTrainingModules();
+		minimumTimeOfTheTrainingModules = this.repository.minimumTimeOfTheTrainingModules(developerId);
+		maximumTimeOfTheTrainingModules = this.repository.maximumTimeOfTheTrainingModules(developerId);
 
 		dashboard = new DeveloperDashboard();
 		dashboard.setTotalNumberOfTrainingModuleWithAnUpdateMoment(totalNumberOfTrainingModuleWithAnUpdateMoment);
