@@ -1,5 +1,5 @@
 
-package acme.features.auditor;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -15,7 +15,7 @@ import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -33,7 +33,6 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 		id = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditById(id);
-
 		status = codeAudit != null && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
@@ -41,8 +40,8 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 	@Override
 	public void load() {
-		CodeAudit object;
 		int id;
+		CodeAudit object;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCodeAuditById(id);
@@ -51,8 +50,37 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 	}
 
 	@Override
+	public void bind(final CodeAudit object) {
+		assert object != null;
+
+		super.bind(object, "code", "execution", "type", "correctiveActions", "mark", "link");
+	}
+
+	@Override
+	public void validate(final CodeAudit object) {
+		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			CodeAudit existing;
+
+			existing = this.repository.findOneCodeAuditByCode(object.getCode());
+			if (existing != null && existing.getId() != object.getId())
+				super.state(false, "*", "auditor.code-audit.form.error.duplicated");
+
+		}
+	}
+
+	@Override
+	public void perform(final CodeAudit object) {
+		assert object != null;
+
+		this.repository.save(object);
+	}
+
+	@Override
 	public void unbind(final CodeAudit object) {
 		assert object != null;
+
 		Collection<Project> projects;
 		SelectChoices choices;
 		SelectChoices choicesType;
@@ -61,9 +89,9 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		projects = this.repository.findPublishedProjects();
 		choices = SelectChoices.from(projects, "code", object.getProject());
 		choicesType = SelectChoices.from(CodeAuditType.class, object.getType());
-		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "mark", "link", "isPublished");
+		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "mark", "link");
 		dataset.put("project", choices.getSelected().getKey());
-		dataset.put("projects", choices);
+		dataset.put("projects", projects);
 		dataset.put("types", choicesType);
 
 		super.getResponse().addData(dataset);

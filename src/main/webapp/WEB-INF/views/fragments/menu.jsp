@@ -61,6 +61,8 @@
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 		    <acme:menu-suboption code="master.menu.auditor.code-audit.list" action="/auditor/code-audit/list"/>
+		    <acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.auditor.dashboard" action="/auditor/auditor-dashboard/show"/>
 		</acme:menu-option>
 			
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">

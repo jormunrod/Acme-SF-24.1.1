@@ -1,5 +1,5 @@
 
-package acme.features.auditor;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -9,20 +9,21 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
+import acme.entities.audits.CodeAuditType;
+import acme.entities.audits.Mark;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditPublishService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private AuditorCodeAuditRepository repository;
 
-	// AbstractService interface --------------------------
+	// AbstractService interface ---------------------------------------------
 
 
 	@Override
@@ -40,8 +41,8 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 
 	@Override
 	public void load() {
-		int id;
 		CodeAudit object;
+		int id;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCodeAuditById(id);
@@ -60,23 +61,26 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
+		System.out.println(object);
+
 		boolean status;
+		Mark mark;
 
-		status = !object.isPublished();
+		mark = object.getMark();
+		status = !(mark.equals(Mark.F) || mark.equals(Mark.F_MINUS));
 
-		super.state(status, "*", "auditor.code-audit.form.error.isPublished");
-
+		super.state(status, "mark", "auditor.code-audit.form.err.fail-mark");
 	}
 
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
+		CodeAudit codeAudit;
+		codeAudit = object;
 
-		Collection<AuditRecord> auditRecords;
-		auditRecords = this.repository.findAllAuditRecordsByCodeAuditId(object.getId());
+		codeAudit.setPublished(true);
 
-		this.repository.deleteAll(auditRecords);
-		this.repository.delete(object);
+		this.repository.save(codeAudit);
 	}
 
 	@Override
@@ -84,13 +88,16 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 		assert object != null;
 		Collection<Project> projects;
 		SelectChoices choices;
+		SelectChoices choicesType;
 		Dataset dataset;
 
 		projects = this.repository.findPublishedProjects();
 		choices = SelectChoices.from(projects, "code", object.getProject());
+		choicesType = SelectChoices.from(CodeAuditType.class, object.getType());
 		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "mark", "link", "isPublished");
 		dataset.put("project", choices.getSelected().getKey());
-		dataset.put("projects", projects);
+		dataset.put("projects", choices);
+		dataset.put("types", choicesType);
 
 		super.getResponse().addData(dataset);
 	}
