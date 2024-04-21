@@ -1,0 +1,15 @@
+# list-en.i18n
+
+# authenticated.claim #####################################################
+
+authenticated.claim.list.title = Claim List
+
+authenticated.claim.list.label.code = Code
+authenticated.claim.list.label.instantiationMoment = Instantiation Moment	
+authenticated.claim.list.label.heading = Heading
+authenticated.claim.list.label.description = Description
+authenticated.claim.list.label.department = Department
+authenticated.claim.list.label.email = Email
+authenticated.claim.list.label.link = Link
+
+authenticated.claim.list.button.create = Create

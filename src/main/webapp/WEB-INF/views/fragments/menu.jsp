@@ -66,6 +66,8 @@
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
 			<acme:menu-suboption code="master.menu.manager.project.list" action="/manager/project/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.claim" action="/authenticated/claim/list" access="isAuthenticated()"/>
 	</acme:menu-left>
 
 	<acme:menu-right>
