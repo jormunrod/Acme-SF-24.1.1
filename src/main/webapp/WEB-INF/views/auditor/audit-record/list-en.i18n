@@ -23,3 +23,6 @@ auditor.audit-record.form.button.delete = Delete
 auditor.audit-record.form.button.publish = Publish
 
 auditor.audit-record.form.error.duplicated = Code already exists
+auditor.audit-record.form.error.codeAuditPublished = Code Audit is published
+auditor.audit-record.form.error.end-date = End date must be greater than start date
+auditor.audit-record.form.error.duration = Duration must be greater than 1 hour

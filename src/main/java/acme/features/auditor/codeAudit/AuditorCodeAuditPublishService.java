@@ -61,8 +61,6 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
-		System.out.println(object);
-
 		boolean status;
 		Mark mark;
 
