@@ -61,8 +61,6 @@ public class Claim extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
-	private boolean				isPublished			= false;
-
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

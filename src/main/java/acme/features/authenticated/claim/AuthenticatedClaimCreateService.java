@@ -50,7 +50,7 @@ public class AuthenticatedClaimCreateService extends AbstractService<Authenticat
 
 		currentMoment = MomentHelper.getCurrentMoment();
 
-		super.bind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link", "isPublished");
+		super.bind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link");
 		object.setInstantiationMoment(currentMoment);
 
 	}
@@ -79,7 +79,7 @@ public class AuthenticatedClaimCreateService extends AbstractService<Authenticat
 		assert object != null;
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link", "isPublished");
+		dataset = super.unbind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link");
 
 		super.getResponse().addData(dataset);
 	}

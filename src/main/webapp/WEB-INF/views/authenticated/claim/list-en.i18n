@@ -23,8 +23,5 @@ authenticated.claim.form.label.department = Department
 authenticated.claim.form.label.email = Email
 authenticated.claim.form.label.link = Link
 authenticated.claim.form.button.create = Create
-authenticated.claim.form.button.update = Update
-authenticated.claim.form.button.delete = Delete
-authenticated.claim.form.button.publish = Publish
 
 authenticated.claim.form.error.duplicated = Claim code already exists

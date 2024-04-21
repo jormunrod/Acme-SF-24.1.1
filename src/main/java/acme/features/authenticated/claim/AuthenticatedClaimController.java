@@ -22,22 +22,13 @@ public class AuthenticatedClaimController extends AbstractController<Authenticat
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedClaimShowService		showService;
+	private AuthenticatedClaimShowService	showService;
 
 	@Autowired
-	private AuthenticatedClaimListService		listService;
+	private AuthenticatedClaimListService	listService;
 
 	@Autowired
-	private AuthenticatedClaimCreateService		createService;
-
-	@Autowired
-	private AuthenticatedClaimUpdateService		updateService;
-
-	@Autowired
-	private AuthenticatedClaimDeleteService		deleteService;
-
-	@Autowired
-	private AuthenticatedClaimPublishService	publishService;
+	private AuthenticatedClaimCreateService	createService;
 
 	// AbstractController interface -------------------------------------------
 
@@ -47,10 +38,6 @@ public class AuthenticatedClaimController extends AbstractController<Authenticat
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
-		super.addBasicCommand("delete", this.deleteService);
-
-		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }
