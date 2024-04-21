@@ -15,4 +15,14 @@
 	
 	<acme:submit test="${_command == 'create'}" code="authenticated.claim.form.button.create" action="/authenticated/claim/create"/>
 	<acme:submit test="${_command == 'update'}" code="authenticated.claim.form.button.update" action="/authenticated/claim/update"/>
+	
+	<jstl:choose>
+	
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
+			<acme:submit code="authenticated.claim.form.button.delete" action="/authenticated/claim/delete"/>
+			<acme:submit code="authenticated.claim.form.button.update" action="/authenticated/claim/update"/>
+			<acme:submit code="authenticated.claim.form.button.publish" action="/authenticated/claim/publish"/>
+		</jstl:when>
+		
+	</jstl:choose>
 </acme:form>

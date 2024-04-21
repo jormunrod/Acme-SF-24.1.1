@@ -1,5 +1,5 @@
 /**
- * List Service for the Claim entity.
+ * Update Service for the Claim entity.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-21
@@ -16,7 +16,7 @@ import acme.client.services.AbstractService;
 import acme.entities.claims.Claim;
 
 @Service
-public class AuthenticatedClaimShowService extends AbstractService<Authenticated, Claim> {
+public class AuthenticatedClaimUpdateService extends AbstractService<Authenticated, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -40,6 +40,34 @@ public class AuthenticatedClaimShowService extends AbstractService<Authenticated
 		object = this.repository.findOneClaimById(id);
 
 		super.getBuffer().addData(object);
+	}
+
+	@Override
+	public void bind(final Claim object) {
+		assert object != null;
+
+		super.bind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link", "isPublished");
+	}
+
+	@Override
+	public void validate(final Claim object) {
+		assert object != null;
+		Claim duplicate;
+
+		boolean status;
+
+		duplicate = this.repository.findOneClaimByCode(object.getCode());
+		if (duplicate != null && duplicate.getId() != object.getId()) {
+			status = false;
+			super.state(status, "code", "client.contract.form.error.duplicateCode");
+		}
+	}
+
+	@Override
+	public void perform(final Claim object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override
