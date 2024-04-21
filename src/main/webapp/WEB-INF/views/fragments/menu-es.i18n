@@ -26,9 +26,10 @@ master.menu.anonymous.isasolpad = 49127653K: Solís Padilla, Isaac
 master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 
 # master.menu.client ##########################################################
-
 master.menu.client = Cliente
 master.menu.client.contract.list = Lista de contratos
+master.menu.client.dashboard = Panel de indicadores
+
 # master.menu.developers ######################################################
 master.menu.developer = Desarrolladores
 master.menu.developer.training-module.list = Listar Módulo de Desarrollo

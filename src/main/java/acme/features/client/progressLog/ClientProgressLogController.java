@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.entities.projects.ProgressLog;
+import acme.entities.contracts.ProgressLog;
 import acme.roles.Client;
 
 @Controller
