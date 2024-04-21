@@ -5,7 +5,7 @@
  * @Date: 2024-04-21
  */
 
-package acme.features.authenticated.claim;
+package acme.features.any.claim;
 
 import javax.annotation.PostConstruct;
 
@@ -13,22 +13,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.client.data.accounts.Authenticated;
+import acme.client.data.accounts.Any;
 import acme.entities.claims.Claim;
 
 @Controller
-public class AuthenticatedClaimController extends AbstractController<Authenticated, Claim> {
+public class AnyClaimController extends AbstractController<Any, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedClaimShowService	showService;
+	private AnyClaimShowService		showService;
 
 	@Autowired
-	private AuthenticatedClaimListService	listService;
+	private AnyClaimListService		listService;
 
 	@Autowired
-	private AuthenticatedClaimCreateService	createService;
+	private AnyClaimCreateService	createService;
 
 	// AbstractController interface -------------------------------------------
 

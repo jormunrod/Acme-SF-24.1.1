@@ -5,26 +5,26 @@
  * @Date: 2024-04-21
  */
 
-package acme.features.authenticated.claim;
+package acme.features.any.claim;
 
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Authenticated;
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.claims.Claim;
 
 @Service
-public class AuthenticatedClaimCreateService extends AbstractService<Authenticated, Claim> {
+public class AnyClaimCreateService extends AbstractService<Any, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedClaimRepository repository;
+	protected AnyClaimRepository repository;
 
 	// AbstractService interface -----------------------------------------------
 
