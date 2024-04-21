@@ -29,8 +29,10 @@ master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 
 master.menu.client = Client
 master.menu.client.contract.list = List contracts
+master.menu.client.dashboard = Dashboard
 
 # master.menu.developers ######################################################
+
 master.menu.developer = Developers
 master.menu.developer.training-module.list = Training Module List
 master.menu.developer.dashboard = Dashboard
@@ -79,3 +81,7 @@ master.menu.user-account.developer = Developer data
 
 master.menu.sponsor = Sponsor
 master.menu.sponsor.sponsorship.list = SponsorshipList
+
+master.menu.user-account.become-sponsor = Become a sponsor
+
+master.menu.user-account.sponsor = Datos de patrocinador

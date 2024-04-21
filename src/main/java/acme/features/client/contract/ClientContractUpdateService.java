@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.entities.projects.Contract;
+import acme.entities.contracts.Contract;
 import acme.entities.projects.Project;
 import acme.roles.Client;
 
@@ -60,7 +60,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void bind(final Contract object) {
 		assert object != null;
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
+		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished", "project");
 	}
 
 	@Override

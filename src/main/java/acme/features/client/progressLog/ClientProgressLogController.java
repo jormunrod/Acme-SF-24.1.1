@@ -1,11 +1,11 @@
 /**
- * Controller for the client's contracts.
+ * Controller for the client's progressLog.
  * 
  * @Author: jormunrod
- * @Date: 2024-04-08
+ * @Date: 2024-04-20
  */
 
-package acme.features.client.contract;
+package acme.features.client.progressLog;
 
 import javax.annotation.PostConstruct;
 
@@ -13,39 +13,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.entities.contracts.Contract;
+import acme.entities.contracts.ProgressLog;
 import acme.roles.Client;
 
 @Controller
-public class ClientContractController extends AbstractController<Client, Contract> {
+public class ClientProgressLogController extends AbstractController<Client, ProgressLog> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ClientContractShowService		showService;
+	protected ClientProgressLogListService		listService;
 
 	@Autowired
-	private ClientContractListService		listService;
+	protected ClientProgressLogShowService		showService;
 
 	@Autowired
-	private ClientContractCreateService		createService;
+	protected ClientProgressLogCreateService	createService;
 
 	@Autowired
-	private ClientContractUpdateService		updateService;
+	protected ClientProgressLogUpdateService	updateService;
 
 	@Autowired
-	private ClientContractDeleteService		deleteService;
+	protected ClientProgressLogDeleteService	deleteService;
 
 	@Autowired
-	private ClientContractPublishService	publishService;
+	protected ClientProgressLogPublishService	publishService;
 
 	// AbstractController interface -------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
