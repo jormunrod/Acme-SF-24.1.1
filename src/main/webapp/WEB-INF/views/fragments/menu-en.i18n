@@ -38,7 +38,7 @@ master.menu.developer = Developers
 master.menu.developer.training-module.list = Training Module List
 master.menu.developer.dashboard = Dashboard
 master.menu.developer.training-module.list-all = Publish Training Module List
-master.menu.list-published = List Published
+master.menu.list-published = Any
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
