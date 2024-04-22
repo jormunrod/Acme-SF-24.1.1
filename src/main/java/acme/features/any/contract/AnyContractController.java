@@ -16,10 +16,10 @@ public class AnyContractController extends AbstractController<Any, Contract> {
 	// Internal state ---------------------------------------------------------------------
 
 	@Autowired
-	protected AnyContractListService listService;
+	protected AnyContractListService	listService;
 
-	//	@Autowired
-	//	protected AnyContractShowService	showService;
+	@Autowired
+	protected AnyContractShowService	showService;
 
 	// Constructors ------------------------------------------------------------------------
 
@@ -27,6 +27,6 @@ public class AnyContractController extends AbstractController<Any, Contract> {
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
-		//		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("show", this.showService);
 	}
 }

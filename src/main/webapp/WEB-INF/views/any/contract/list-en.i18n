@@ -28,3 +28,4 @@ client.contract.form.label.publish = Published
 client.contract.form.button.publish = Publish
 client.contract.form.error.budgetExceeded = Budget exceeded
 client.contract.form.button.progress-logs = Progress Logs
+any.contract.form.title = Details of Contract

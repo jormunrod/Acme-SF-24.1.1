@@ -1,33 +1,27 @@
-/**
- * Show Service for the Contract entity.
- * 
- * @Author: jormunrod
- * @Date: 2024-04-08
- */
 
-package acme.features.client.contract;
+package acme.features.any.contract;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.contracts.Contract;
 import acme.entities.projects.Project;
-import acme.roles.Client;
 
 @Service
-public class ClientContractShowService extends AbstractService<Client, Contract> {
+public class AnyContractShowService extends AbstractService<Any, Contract> {
 
-	// Internal state ---------------------------------------------------------
+	//Internal state -----------------------------------------------------------------------------------
 
 	@Autowired
-	protected ClientContractRepository repository;
+	protected AnyContractRepository repository;
 
-	// AbstractService interface -----------------------------------------------
+	// AbstractService interface ---------------------------------------------------------------------
 
 
 	@Override
@@ -41,7 +35,7 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneContractById(id);
+		object = this.repository.findContractById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -61,5 +55,4 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		dataset.put("projects", choices);
 		super.getResponse().addData(dataset);
 	}
-
 }
