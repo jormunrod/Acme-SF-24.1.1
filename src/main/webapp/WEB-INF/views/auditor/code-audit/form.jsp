@@ -9,8 +9,8 @@
 	<acme:input-moment code="auditor.code-audit.form.label.execution" path="execution"/>
 	<acme:input-select code="auditor.code-audit.form.label.type" path="type" choices="${types}"/>
 	<acme:input-textarea code="auditor.code-audit.form.label.correctiveActions" path="correctiveActions" placeholder=""/>
-	<acme:input-textarea code="auditor.code-audit.form.label.mark" readonly="true" path="mark"/>
-	<acme:input-url code="auditor.code-audit.form.label.link" path="link" placeholder=""/>
+	<acme:input-textarea code="auditor.code-audit.form.label.mark" readonly="true" path="mark" placeholder=""/>
+	<acme:input-url code="auditor.code-audit.form.label.link" path="link" placeholder="https://www.acme.com"/>
 
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' && isPublished == true}">

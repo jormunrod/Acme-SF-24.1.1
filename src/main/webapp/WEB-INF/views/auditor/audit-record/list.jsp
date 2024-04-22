@@ -11,4 +11,4 @@
 	<acme:list-column code="auditor.audit-record.list.label.isPublished" path="isPublished" width="20%"/>
 </acme:list>
 
-<acme:button test="${ _command == 'list'}" code="auditor.audit-record.list.button.create" action="/auditor/audit-record/create?codeAuditId=${codeAuditId}"/>
+<acme:button test="${showCreate}" code="auditor.audit-record.list.button.create" action="/auditor/audit-record/create?codeAuditId=${codeAuditId}"/>

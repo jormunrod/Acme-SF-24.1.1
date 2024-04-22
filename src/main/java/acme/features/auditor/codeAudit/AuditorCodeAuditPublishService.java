@@ -63,19 +63,22 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		assert object != null;
 
 		boolean status;
+		Collection<AuditRecord> auditRecords;
 		Mark mark;
 
-		mark = object.getMark();
-		status = !(mark.equals(Mark.F) || mark.equals(Mark.F_MINUS));
-
-		super.state(status, "mark", "auditor.code-audit.form.err.fail-mark");
-
-		Collection<AuditRecord> auditRecords;
-
 		auditRecords = this.repository.findAllAuditRecordsByCodeAuditId(object.getId());
-		status = auditRecords.stream().allMatch(ar -> ar.isPublished());
 
+		status = !auditRecords.isEmpty();
+		super.state(status, "*", "auditor.code-audit.form.err.no-audit-records");
+
+		status = auditRecords.stream().allMatch(ar -> ar.isPublished());
 		super.state(status, "*", "auditor.code-audit.form.err.audit-records-not-published");
+
+		if (!auditRecords.isEmpty() && status) {
+			mark = object.getMark();
+			status = !(mark.equals(Mark.F) || mark.equals(Mark.F_MINUS));
+			super.state(status, "mark", "auditor.code-audit.form.err.fail-mark");
+		}
 	}
 
 	@Override

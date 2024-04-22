@@ -24,3 +24,4 @@ auditor.audit-record.form.error.duplicated = El código ya existe
 auditor.audit-record.form.error.codeAuditPublished = El código de auditoría está publicado
 auditor.audit-record.form.error.end-date = La fecha de inicio debe ser anterior a la fecha de fin
 auditor.audit-record.form.error.duration = La duración de la auditoría tiene que ser mayor a 1 hora
+auditor.audit-record.form.error.codeAuditPublished = El código de auditoría está publicado
