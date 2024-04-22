@@ -37,7 +37,7 @@ master.menu.client.dashboard = Dashboard
 master.menu.developer = Developers
 master.menu.developer.training-module.list = Training Module List
 master.menu.developer.dashboard = Dashboard
-master.menu.developer.training-module.list-all = Publish Training Module List
+master.menu.developer.training-module.list-all = Training Module List
 master.menu.list-published = List Published
 # master.menu.administrator ###################################################
 
@@ -79,13 +79,17 @@ master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-developer = Become a developer
 master.menu.user-account.developer = Developer data
+
 # master.menu.sponsor ###################################################
 
 master.menu.sponsor = Sponsor
 master.menu.sponsor.sponsorship.list = SponsorshipList
 master.menu.user-account.become-sponsor = Become a sponsor
-master.menu.user-account.become-client = Become a client
 master.menu.user-account.sponsor = Datos de patrocinador
+
+# master.menu.client #########################################################
+master.menu.user-account.become-client = Become a client
+master.menu.user-account.client = Client data
 
 # master.menu.any ###################################################
 any.training-module.list.title = Published Trainig Modules List
