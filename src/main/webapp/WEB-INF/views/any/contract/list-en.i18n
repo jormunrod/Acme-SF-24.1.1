@@ -1,31 +1,31 @@
 # menu-en.i18n
 
-# master.client.contract #####################################################
+# master.any.contract #####################################################
 
-client.contract.list.title = List of Contracts
-client.contract.list.label.code = Code
-client.contract.list.label.instantiationMoment = Instantiation Moment
-client.contract.list.label.providerName = Provider Name
-client.contract.list.label.customerName = Customer Name
-client.contract.list.label.goals = Goals
-client.contract.list.label.budget = Budget
-client.contract.list.button.create = Create
-client.contract.list.label.published = Published
+any.contract.list.title = List of Contracts
+any.contract.list.label.code = Code
+any.contract.list.label.instantiationMoment = Instantiation Moment
+any.contract.list.label.providerName = Provider Name
+any.contract.list.label.customerName = Customer Name
+any.contract.list.label.goals = Goals
+any.contract.list.label.budget = Budget
+any.contract.list.button.create = Create
+any.contract.list.label.published = Published
 
-client.contract.form.title = Details of Contract
-client.contract.form.label.code = Code
-client.contract.form.label.project = Project
-client.contract.form.label.instantiationMoment = Instantiation Moment
-client.contract.form.label.providerName = Provider Name
-client.contract.form.label.customerName = Customer Name
-client.contract.form.label.goals = Goals
-client.contract.form.label.budget = Budget
-client.contract.form.button.delete = Delete
-client.contract.form.button.update = Update
-client.contract.form.button.create = Create
-client.contract.form.error.duplicateCode = Duplicate code
-client.contract.form.label.publish = Published
-client.contract.form.button.publish = Publish
-client.contract.form.error.budgetExceeded = Budget exceeded
-client.contract.form.button.progress-logs = Progress Logs
+any.contract.form.title = Details of Contract
+any.contract.form.label.code = Code
+any.contract.form.label.project = Project
+any.contract.form.label.instantiationMoment = Instantiation Moment
+any.contract.form.label.providerName = Provider Name
+any.contract.form.label.customerName = Customer Name
+any.contract.form.label.goals = Goals
+any.contract.form.label.budget = Budget
+any.contract.form.button.delete = Delete
+any.contract.form.button.update = Update
+any.contract.form.button.create = Create
+any.contract.form.error.duplicateCode = Duplicate code
+any.contract.form.label.publish = Published
+any.contract.form.button.publish = Publish
+any.contract.form.error.budgetExceeded = Budget exceeded
+any.contract.form.button.progress-logs = Progress Logs
 any.contract.form.title = Details of Contract
