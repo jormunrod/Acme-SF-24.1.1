@@ -1,0 +1,29 @@
+# administrator.banner.list ###################################################
+
+administrator.banner.list.title = My banners
+administrator.banner.list.label.instantiationMoment = Instantiation moment
+administrator.banner.list.label.updateMoment = Update moment
+administrator.banner.list.label.displayStart = Display start
+administrator.banner.list.label.displayEnd = Display end
+
+administrator.banner.list.button.create = Create
+
+# administrator.banner.form ###################################################
+
+administrator.banner.form.title = My banners
+administrator.banner.form.label.instantiationMoment = Instantiation moment
+administrator.banner.form.label.updateMoment = Update moment
+administrator.banner.form.label.displayStart = Display start
+administrator.banner.form.label.displayEnd = Display end
+administrator.banner.form.label.picture = Picture
+administrator.banner.form.label.slogan = Slogan
+administrator.banner.form.label.webDocument = Web document
+
+administrator.banner.form.button.create = Create
+administrator.banner.form.button.update = Update
+administrator.banner.form.button.delete = Delete
+
+administrator.banner.form.error.displayEnd = The display end date must be greater than the display start date
+administrator.banner.form.error.displayStartAfterInstantiation = The display start date must be greater than the instantiation
+administrator.banner.form.error.displayStartAfterUpdate = The display start date must be greater than the update moment
+administrator.banner.form.error.isDisplayForAWeek = The display period must be at least one week
