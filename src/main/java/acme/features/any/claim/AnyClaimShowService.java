@@ -1,5 +1,5 @@
 /**
- * List Service for the Claim entity.
+ * Show Service for the Claim entity.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-21

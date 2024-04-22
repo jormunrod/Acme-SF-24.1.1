@@ -1,5 +1,5 @@
 /**
- * List Service for the Contract entity.
+ * Show Service for the Contract entity.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-08
