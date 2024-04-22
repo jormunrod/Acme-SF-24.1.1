@@ -16,7 +16,10 @@ public class AnyTrainingModuleController extends AbstractController<Any, Trainin
 	// Internal state ---------------------------------------------------------------------
 
 	@Autowired
-	protected AnyTrainingModuleListService listService;
+	protected AnyTrainingModuleListService	listService;
+
+	@Autowired
+	protected AnyTrainingModuleShowService	showService;
 
 	// Constructors ------------------------------------------------------------------------
 
@@ -24,5 +27,6 @@ public class AnyTrainingModuleController extends AbstractController<Any, Trainin
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 }

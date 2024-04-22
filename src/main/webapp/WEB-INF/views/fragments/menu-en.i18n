@@ -64,3 +64,7 @@ master.menu.user-account.developer = Developer data
 
 master.menu.sponsor = Sponsor
 master.menu.sponsor.sponsorship.list = SponsorshipList
+
+# master.menu.any ###################################################
+any.training-module.list.title = Published Trainig Modules List
+any.training-module.form.title = Published Trainig Module List Details
