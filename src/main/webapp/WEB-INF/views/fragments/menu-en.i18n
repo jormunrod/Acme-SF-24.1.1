@@ -14,6 +14,7 @@ master.menu.home = Home
 master.menu.sign-up = Sign up
 master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
+master.menu.claim = Claim
 
 # master.menu.anonymous #######################################################
 
@@ -26,21 +27,24 @@ master.menu.anonymous.isasolpad = 49127653K: Solís Padilla, Isaac
 master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 
 # master.menu.client ##########################################################
+
 master.menu.client = Client
 master.menu.client.contract.list = List contracts
 master.menu.client.dashboard = Dashboard
 
-
 # master.menu.developers ######################################################
+
 master.menu.developer = Developers
 master.menu.developer.training-module.list = Training Module List
 master.menu.developer.dashboard = Dashboard
-
+master.menu.developer.training-module.list-all = Publish Training Module List
+master.menu.list-published = List Published
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.banners = Banners
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
@@ -79,7 +83,11 @@ master.menu.user-account.developer = Developer data
 
 master.menu.sponsor = Sponsor
 master.menu.sponsor.sponsorship.list = SponsorshipList
-
 master.menu.user-account.become-sponsor = Become a sponsor
-
+master.menu.user-account.become-client = Become a client
 master.menu.user-account.sponsor = Datos de patrocinador
+
+# master.menu.any ###################################################
+any.training-module.list.title = Published Trainig Modules List
+any.training-module.form.title = Published Trainig Module List Details
+

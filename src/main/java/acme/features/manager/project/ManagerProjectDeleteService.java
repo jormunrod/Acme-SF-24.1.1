@@ -24,7 +24,7 @@ import acme.roles.Manager;
 public class ManagerProjectDeleteService extends AbstractService<Manager, Project> {
 
 	@Autowired
-	protected ManagerProjectRepository repository;
+	private ManagerProjectRepository repository;
 
 
 	@Override

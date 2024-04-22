@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
 import acme.entities.trainings.TrainingModule;
+import acme.features.any.trainingModule.AnyTrainingModuleListService;
 import acme.roles.Developer;
 
 @Controller
@@ -31,6 +32,9 @@ public class DeveloperTrainingModuleController extends AbstractController<Develo
 
 	@Autowired
 	protected DeveloperTrainingModulePublishService	publishService;
+
+	@Autowired
+	protected AnyTrainingModuleListService			listAllService;
 
 	// Constructors ------------------------------------------------------------------------
 
