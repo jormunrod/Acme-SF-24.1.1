@@ -30,11 +30,10 @@
 		
 		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">
 			<acme:menu-suboption code="master.menu.developer.training-module.list" action="/developer/training-module/list"/>	
-			<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/developer/training-module/list-all"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.developer.dashboard" action="/developer/developer-dashboard/show"/>
 		</acme:menu-option>
-
+		
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
 			<acme:menu-suboption code="master.menu.sponsor.sponsorship.list" action="/sponsor/sponsorship/list-mine"/>
 		</acme:menu-option>
@@ -53,6 +52,10 @@
 
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.list-published" access="hasRole('Any')">
+		<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/any/training-module/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

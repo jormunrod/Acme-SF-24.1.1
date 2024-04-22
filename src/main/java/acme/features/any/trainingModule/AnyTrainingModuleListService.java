@@ -1,23 +1,23 @@
 
-package acme.features.developers.trainingModule;
+package acme.features.any.trainingModule;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.trainings.TrainingModule;
-import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleListAllService extends AbstractService<Developer, TrainingModule> {
+public class AnyTrainingModuleListService extends AbstractService<Any, TrainingModule> {
 
 	//Internal state -----------------------------------------------------------------------------------
 
 	@Autowired
-	protected DeveloperTrainingModuleRepository repository;
+	protected AnyTrainingModuleRepository repository;
 
 	// AbstractService interface ---------------------------------------------------------------------
 
@@ -32,7 +32,7 @@ public class DeveloperTrainingModuleListAllService extends AbstractService<Devel
 	public void load() {
 		Collection<TrainingModule> objects;
 
-		objects = this.repository.getAllTrainingModulePublishByDeveloperId(super.getRequest().getPrincipal().getActiveRoleId());
+		objects = this.repository.getAllTrainingModulePublished();
 
 		super.getBuffer().addData(objects);
 
