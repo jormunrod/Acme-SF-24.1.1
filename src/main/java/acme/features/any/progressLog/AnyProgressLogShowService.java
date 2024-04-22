@@ -1,5 +1,5 @@
 /**
- * List Service for the ProgressLog entity of any role.
+ * Show Service for the ProgressLog entity of any role.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-22
