@@ -35,6 +35,9 @@ master.menu.client.dashboard = Panel de indicadores
 master.menu.developer = Desarrolladores
 master.menu.developer.training-module.list = Listar Módulo de Desarrollo
 master.menu.developer.dashboard = Panel de indicadores
+master.menu.developer.training-module.list-all = Listar Módulo de Desarrollo Publicados
+master.menu.list-published = Listado Publicados
+
 
 # master.menu.administrator ###################################################
 
@@ -82,3 +85,8 @@ master.menu.sponsor.sponsorship.list = Lista de patrocinadores
 master.menu.user-account.become-sponsor = Hazte patrocinador
 master.menu.user-account.become-client = Hazte cliente
 master.menu.user-account.sponsor = Datos de patrocinador
+
+# master.menu.any ########################################################
+any.training-module.list.title = Módulos de entrenamiento publicados
+any.training-module.form.title = Detalles del módulo de entrenamiento publicado
+
