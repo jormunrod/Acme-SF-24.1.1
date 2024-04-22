@@ -28,3 +28,4 @@ auditor.code-audit.form.label.project = Proyecto
 auditor.code-audit.form.error.duplicated = El código ya existe
 auditor.code-audit.form.error.fail-mark = Esta auditoría de código tiene una nota menor que 'C'
 auditor.code-audit.form.error.isPublished = Esta auditoría de código ya ha sido publicada
+auditor.code-audit.form.err.audit-records-not-published = Hay registros de auditoría sin publicar
