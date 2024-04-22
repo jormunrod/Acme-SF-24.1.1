@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
+import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
@@ -21,8 +22,15 @@ public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice>
 	@Override
 	public void authorise() {
 
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		Sponsorship sponsorship;
 
+		id = super.getRequest().getData("id", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(id);
+		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -30,7 +38,7 @@ public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice>
 		Collection<Invoice> objects;
 
 		int id;
-		id = super.getRequest().getData("masterId", int.class);
+		id = super.getRequest().getData("id", int.class);
 
 		objects = this.repository.findInvoicesBySponsorshipId(id);
 
@@ -44,9 +52,21 @@ public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice>
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode");
 
 		super.getResponse().addData(dataset);
+	}
+
+	@Override
+	public void unbind(final Collection<Invoice> objects) {
+		assert objects != null;
+
+		int masterId;
+
+		masterId = super.getRequest().getData("id", int.class);
+
+		super.getResponse().addGlobal("masterId", masterId);
+
 	}
 
 }

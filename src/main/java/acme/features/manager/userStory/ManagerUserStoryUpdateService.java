@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
+import acme.entities.projects.UserStoryPriority;
 import acme.roles.Manager;
 
 @Service
@@ -45,14 +47,25 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 	public void bind(final UserStory object) {
 		assert object != null;
 
-		super.bind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link", "isPublished");
+		super.bind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link");
 	}
 
 	@Override
 	public void validate(final UserStory object) {
 		assert object != null;
+		boolean status;
 
-		//TODO: Implement all the validations
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			UserStory existing;
+			existing = this.repository.findOneUserStoryByTitle(object.getTitle());
+			if (existing != null)
+				status = existing.getId() == object.getId();
+			else
+				status = false;
+			super.state(existing == null || status, "title", "manager.user-story.form.error.duplicateTitle");
+		}
+
+		super.state(!object.getProject().isPublished(), "link", "manager.user-story.form.error.projectPublished");
 	}
 
 	@Override
@@ -66,9 +79,12 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 	public void unbind(final UserStory object) {
 		assert object != null;
 
+		SelectChoices choices;
 		Dataset dataset;
 
-		dataset = super.unbind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link", "isPublished");
+		choices = SelectChoices.from(UserStoryPriority.class, object.getPriority());
+		dataset = super.unbind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link");
+		dataset.put("priority", choices);
 
 		super.getResponse().addData(dataset);
 	}
