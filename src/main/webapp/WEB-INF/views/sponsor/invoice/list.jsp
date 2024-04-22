@@ -21,3 +21,9 @@
 	<acme:list-column code="sponsor.invoice.list.label.dueDate" path="dueDate" width="20%"/>
 	
 </acme:list>
+
+<jstl:choose>
+	<jstl:when test="${ _command == 'list'}">
+		<acme:button code="sponsor.invoice.form.button.create" action="/sponsor/invoice/create?masterId=${masterId}"/>
+	</jstl:when>
+</jstl:choose>

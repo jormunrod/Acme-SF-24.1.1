@@ -27,7 +27,6 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 
 		id = super.getRequest().getData("id", int.class);
 		project = this.repository.findOneProjectByUserStoryId(id);
-		System.out.println("project: " + project.getCode());
 		status = project != null && !project.isPublished() && super.getRequest().getPrincipal().hasRole(project.getManager());
 
 		super.getResponse().setAuthorised(status);
@@ -54,8 +53,18 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	@Override
 	public void validate(final UserStory object) {
 		assert object != null;
+		boolean status;
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			UserStory existing;
+			existing = this.repository.findOneUserStoryByTitle(object.getTitle());
+			if (existing != null)
+				status = existing.getId() == object.getId();
+			else
+				status = false;
+			super.state(existing == null || status, "title", "manager.user-story.form.error.duplicateTitle");
+		}
 
-		//TODO: Implement all the validation rules
+		super.state(!object.getProject().isPublished(), "link", "manager.user-story.form.error.projectPublished");
 	}
 
 	@Override
