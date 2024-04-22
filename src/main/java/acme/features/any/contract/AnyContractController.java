@@ -1,3 +1,9 @@
+/**
+ * Controller for the contracts of any user.
+ * 
+ * @Author: jormunrod
+ * @Date: 2024-04-22
+ */
 
 package acme.features.any.contract;
 
