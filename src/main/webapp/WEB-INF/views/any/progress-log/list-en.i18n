@@ -1,0 +1,25 @@
+# menu-en.i18n
+
+# master.any.progress-log #####################################################
+
+any.progress-log.list.title = Progress Log
+any.progress-log.list.label.recordId = ID
+any.progress-log.list.label.completenessPercentage = Completeness percentage
+any.progress-log.list.label.progressComment = Progress comment
+any.progress-log.list.label.registrationMoment = Registration moment
+any.progress-log.list.label.responsiblePerson = Responsible person
+any.progress-log.list.button.create = Create
+
+any.progress-log.form.title = Progress Log
+any.progress-log.form.label.recordId = ID
+any.progress-log.form.label.completenessPercentage = Completeness percentage
+any.progress-log.form.label.progressComment = Progress comment
+any.progress-log.form.label.registrationMoment = Registration moment
+any.progress-log.form.label.responsiblePerson = Responsible person
+any.progress-log.form.label.isPublished = Published
+any.progress-log.form.button.create = Create
+any.progress-log.form.button.delete = Delete
+any.progress-log.form.button.update = Update
+any.progress-log.form.button.publish = Publish
+any.progress-log.form.error.duplicated = This ID already exists
+
