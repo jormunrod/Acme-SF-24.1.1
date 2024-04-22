@@ -1,6 +1,11 @@
 
 package acme.features.administrator;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +51,28 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
-		//TODO: Implement all the validations rules
+
+		boolean displayStartAfterInstantiation;
+		boolean displayStartAfterUpdate;
+		boolean displayEndAfterDisplayStart;
+		boolean isDisplayForAWeek;
+
+		Date displayStart = object.getDisplayStart();
+		Date displayEnd = object.getDisplayEnd();
+
+		LocalDateTime startDateTime = LocalDateTime.ofInstant(displayStart.toInstant(), ZoneId.systemDefault());
+		LocalDateTime endDateTime = LocalDateTime.ofInstant(displayEnd.toInstant(), ZoneId.systemDefault());
+
+		isDisplayForAWeek = Duration.between(startDateTime, endDateTime).toDays() > 7;
+
+		displayEndAfterDisplayStart = displayEnd.after(displayStart);
+		displayStartAfterInstantiation = object.getInstantiationMoment().before(displayStart);
+		displayStartAfterUpdate = object.getUpdateMoment().before(displayStart);
+
+		super.state(displayEndAfterDisplayStart, "displayEnd", "administrator.banner.form.error.displayEnd");
+		super.state(displayStartAfterInstantiation, "displayStart", "administrator.banner.form.error.displayStartAfterInstantiation");
+		super.state(displayStartAfterUpdate, "displayStart", "administrator.banner.form.error.displayStartAfterUpdate");
+		super.state(isDisplayForAWeek, "*", "administrator.banner.form.error.isDisplayForAWeek");
 	}
 
 	@Override

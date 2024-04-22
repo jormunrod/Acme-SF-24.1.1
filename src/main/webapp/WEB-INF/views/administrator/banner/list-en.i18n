@@ -22,3 +22,8 @@ administrator.banner.form.label.webDocument = Web document
 administrator.banner.form.button.create = Create
 administrator.banner.form.button.update = Update
 administrator.banner.form.button.delete = Delete
+
+administrator.banner.form.error.displayEnd = The display end date must be greater than the display start date
+administrator.banner.form.error.displayStartAfterInstantiation = The display start date must be greater than the instantiation
+administrator.banner.form.error.displayStartAfterUpdate = The display start date must be greater than the update moment
+administrator.banner.form.error.isDisplayForAWeek = The display period must be at least one week
