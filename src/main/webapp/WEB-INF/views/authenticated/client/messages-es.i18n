@@ -1,0 +1,14 @@
+# menu-es.i18n
+
+# authenticated.client #####################################################
+
+authenticated.client.form.title = Cliente
+authenticated.client.form.label.identification = Identificación
+authenticated.client.form.label.companyName = Nombre de la empresa
+authenticated.client.form.label.type = Tipo
+authenticated.client.form.label.email = Correo electrónico
+authenticated.client.form.label.link = Enlace
+
+client.contract.form.error.duplicated = Ya existe un cliente con esa identificación
+
+authenticated.client.form.button.create = Crear

@@ -1,0 +1,25 @@
+# menu-es.i18n
+
+
+# master.client.progress-log #####################################################
+
+client.progress-log.list.title = Historial de progreso
+client.progress-log.list.label.recordId = ID
+client.progress-log.list.label.completenessPercentage = Porcentaje de completitud
+client.progress-log.list.label.progressComment = Comentario de progreso
+client.progress-log.list.label.registrationMoment = Momento de registro
+client.progress-log.list.label.responsiblePerson = Persona responsable
+client.progress-log.list.button.create = Crear
+
+client.progress-log.form.title = Historial de progreso
+client.progress-log.form.label.recordId = ID
+client.progress-log.form.label.completenessPercentage = Porcentaje de completitud
+client.progress-log.form.label.progressComment = Comentario de progreso
+client.progress-log.form.label.registrationMoment = Momento de registro
+client.progress-log.form.label.responsiblePerson = Persona responsable
+client.progress-log.form.label.isPublished = Publicado
+client.progress-log.form.button.create = Crear
+client.progress-log.form.button.delete = Eliminar
+client.progress-log.form.button.update = Actualizar
+client.progress-log.form.button.publish = Publicar
+client.progress-log.form.error.duplicated = Ya existe un registro con el mismo ID
