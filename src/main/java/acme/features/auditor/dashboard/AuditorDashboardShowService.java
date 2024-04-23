@@ -44,7 +44,7 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		totalNumberOfDynamicCodeAudits = this.repository.totalNumberOfDynamicCodeAudits(auditorId);
 
 		averageNumberOfAuditRecord = this.repository.averageNumberOfAuditRecord(auditorId);
-		// deviationNumberOfAuditRecord = this.repository.deviationNumberOfAuditRecord(auditorId);
+		deviationNumberOfAuditRecord = this.repository.deviationNumberOfAuditRecord(auditorId);
 		minimumNumberOfAuditRecord = this.repository.minimumNumberOfAuditRecord(auditorId);
 		maximumNumberOfAuditRecord = this.repository.maximumNumberOfAuditRecord(auditorId);
 
@@ -58,7 +58,7 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		dashboard.setTotalNumberOfDynamicCodeAudits(totalNumberOfDynamicCodeAudits);
 
 		dashboard.setAverageNumberOfAuditRecord(averageNumberOfAuditRecord);
-		// dashboard.setDeviationNumberOfAuditRecord(deviationNumberOfAuditRecord);
+		dashboard.setDeviationNumberOfAuditRecord(deviationNumberOfAuditRecord);
 		dashboard.setMinimumNumberOfAuditRecord(minimumNumberOfAuditRecord);
 		dashboard.setMaximumNumberOfAuditRecord(maximumNumberOfAuditRecord);
 
