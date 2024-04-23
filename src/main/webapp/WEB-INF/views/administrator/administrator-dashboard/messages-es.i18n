@@ -7,3 +7,23 @@
 # this software. It has been tested carefully, but it is not guaranteed for any particular
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
+administrator.administrator-dashboard.form.title = Panel de Administrador
+dashboard.form.title.principal-statistics = Estadísticas Principales
+dashboard.form.label.total-number-of-auditor-principals = Número de Auditores
+dashboard.form.label.total-number-of-client-principals = Número de Clientes
+dashboard.form.label.total-number-of-consumer-principals = Número de Consumidores
+dashboard.form.label.total-number-of-developer-principals = Número de Desarrolladores
+dashboard.form.label.total-number-of-manager-principals = Número de Gerentes
+dashboard.form.label.total-number-of-provider-principals = Número de Proveedores
+dashboard.form.label.total-number-of-sponsor-principals = Número de Patrocinadores
+dashboard.form.label.ratio-of-notices-with-email-and-link = Proporción de Notificaciones con Email y Enlace
+dashboard.form.label.ratio-of-critical-objectives = Proporción de Objetivos Críticos
+dashboard.form.label.ratio-of-non-critical-objectives = Proporción de Objetivos No Críticos
+dashboard.form.label.average-risk-value = Valor Promedio de Riesgo
+dashboard.form.label.minimum-risk-value = Valor Mínimo de Riesgo
+dashboard.form.label.maximum-risk-value = Valor Máximo de Riesgo
+dashboard.form.label.standard-deviation-risk-value = Desviación Estándar del Valor de Riesgo
+dashboard.form.label.average-number-of-claims-in-last-ten-weeks = Promedio de Reclamaciones en las Últimas Diez Semanas
+dashboard.form.label.minimum-number-of-claims-in-last-ten-weeks = Mínimo de Reclamaciones en las Últimas Diez Semanas
+dashboard.form.label.maximum-number-of-claims-in-last-ten-weeks = Máximo de Reclamaciones en las Últimas Diez Semanas
+dashboard.form.label.standard-deviation-number-of-claims-in-last-ten-weeks = Desviación Estándar de Reclamaciones en las Últimas Diez Semanas

@@ -8,4 +8,23 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-############# developer.developer-dashboard #######################################
+administrator.administrator-dashboard.form.title = Administrator Dashboard
+dashboard.form.title.principal-statistics = Stattistics
+dashboard.form.label.total-number-of-auditor-principals = Number of Auditors
+dashboard.form.label.total-number-of-client-principals = Number of Clients
+dashboard.form.label.total-number-of-consumer-principals = Number of Consumers
+dashboard.form.label.total-number-of-developer-principals = Number of Developers
+dashboard.form.label.total-number-of-manager-principals = Number of Managers
+dashboard.form.label.total-number-of-provider-principals = Number of Providers
+dashboard.form.label.total-number-of-sponsor-principals = Number of Sponsors
+dashboard.form.label.ratio-of-notices-with-email-and-link = Ratio of Notices with Email and Link
+dashboard.form.label.ratio-of-critical-objectives = Ratio of Critical Objectives
+dashboard.form.label.ratio-of-non-critical-objectives = Ratio of Non-Critical Objectives
+dashboard.form.label.average-risk-value = Average Risk Value
+dashboard.form.label.minimum-risk-value = Minimum Risk Value
+dashboard.form.label.maximum-risk-value = Maximum Risk Value
+dashboard.form.label.standard-deviation-risk-value = Standard Deviation of Risk Value
+dashboard.form.label.average-number-of-claims-in-last-ten-weeks = Average Number of Claims in Last Ten Weeks
+dashboard.form.label.minimum-number-of-claims-in-last-ten-weeks = Minimum Number of Claims in Last Ten Weeks
+dashboard.form.label.maximum-number-of-claims-in-last-ten-weeks = Maximum Number of Claims in Last Ten Weeks
+dashboard.form.label.standard-deviation-number-of-claims-in-last-ten-weeks = Standard Deviation of Claims in Last Ten Weeks
