@@ -53,7 +53,7 @@ public class DeveloperTrainingSessionListService extends AbstractService<Develop
 		assert object != null;
 		int id;
 		Dataset dataset;
-		id = super.getRequest().getData("id", int.class);
+
 		dataset = super.unbind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
 
 		super.getResponse().addData(dataset);
@@ -64,10 +64,15 @@ public class DeveloperTrainingSessionListService extends AbstractService<Develop
 		assert objects != null;
 
 		int masterId;
+		final boolean showCreate;
+		TrainingModule trainingModule;
 
 		masterId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(masterId);
+		showCreate = trainingModule.isDraftMode() && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
 
 		super.getResponse().addGlobal("masterId", masterId);
+		super.getResponse().addGlobal("showCreate", showCreate);
 
 	}
 }

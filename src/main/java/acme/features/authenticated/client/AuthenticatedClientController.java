@@ -21,12 +21,16 @@ public class AuthenticatedClientController extends AbstractController<Authentica
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedClientCreateService createService;
+	private AuthenticatedClientCreateService	createService;
+
+	@Autowired
+	private AuthenticatedClientUpdateService	updateService;
 
 
 	// Constructors -----------------------------------------------------------
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
 	}
 }

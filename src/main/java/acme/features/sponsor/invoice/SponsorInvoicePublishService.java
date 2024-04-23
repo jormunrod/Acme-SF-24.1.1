@@ -1,6 +1,9 @@
 
 package acme.features.sponsor.invoice;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +56,41 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	@Override
 	public void validate(final Invoice object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Invoice alredyExisting;
+			Invoice actual;
+			boolean status = true;
+			int id;
+			id = super.getRequest().getData("id", int.class);
+			alredyExisting = this.repository.findInvoiceByCode(object.getCode());
+			actual = this.repository.findInvoiceById(id);
+			if (alredyExisting != null)
+				status = alredyExisting.getCode().equals(actual.getCode());
+			super.state(status, "code", "sponsor.invoice.error.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			Double quantity = object.getQuantity().getAmount();
+			super.state(quantity != null && quantity > 0., "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("tax")) {
+			Double tax = object.getTax();
+			super.state(tax != null && tax >= 0., "tax", "sponsor.invoice.error.taxNegative");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
+			Date registrationTime = object.getRegistrationTime();
+			Date dueDate = object.getDueDate();
+
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(registrationTime);
+			cal.add(Calendar.MONTH, 1);
+
+			Date oneMonthAfterRegistration = cal.getTime();
+
+			super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
+
+		}
 
 	}
 	@Override
