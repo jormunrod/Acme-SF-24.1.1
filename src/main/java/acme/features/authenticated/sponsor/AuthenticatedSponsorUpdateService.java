@@ -24,6 +24,7 @@ public class AuthenticatedSponsorUpdateService extends AbstractService<Authentic
 	@Override
 	public void authorise() {
 		boolean status;
+		Principal principal;
 
 		status = super.getRequest().getPrincipal().hasRole(Sponsor.class);
 
@@ -35,9 +36,9 @@ public class AuthenticatedSponsorUpdateService extends AbstractService<Authentic
 		Sponsor object;
 		Principal principal;
 		int userAccountId;
-
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
+
 		object = this.repository.findOneSponsorByUserAccountId(userAccountId);
 
 		super.getBuffer().addData(object);

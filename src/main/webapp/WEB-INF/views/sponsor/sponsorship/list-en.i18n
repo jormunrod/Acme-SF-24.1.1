@@ -58,3 +58,6 @@ sponsor.sponsorship.error.duplicated = This code is alredy in use.
 sponsor.sponsorship.error.startDateBeforeMoment = Start date must be after Moment
 sponsor.sponsorship.error.endDateNotOneMonthAfter = End date must be at least one moth after start date
 sponsor.sponsorship.error.amountNotPositive = Amount must be positive
+
+
+sponsor.sponsorship.list.label.draftMode = Draft Mode
