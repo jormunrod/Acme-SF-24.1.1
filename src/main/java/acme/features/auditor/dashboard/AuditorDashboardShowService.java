@@ -24,6 +24,7 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 	@Override
 	public void load() {
 		AuditorDashboard dashboard;
+		int auditorId;
 		Integer totalNumberOfStaticCodeAudits;
 		Integer totalNumberOfDynamicCodeAudits;
 
@@ -37,25 +38,27 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		Integer minimumTimeOfPeriodInAuditRecord;
 		Integer maximumTimeOfPeriodInAuditRecord;
 
-		totalNumberOfStaticCodeAudits = this.repository.totalNumberOfStaticCodeAudits();
-		totalNumberOfDynamicCodeAudits = this.repository.totalNumberOfDynamicCodeAudits();
+		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		averageNumberOfAuditRecord = this.repository.averageNumberOfAuditRecord();
-		deviationNumberOfAuditRecord = this.repository.deviationNumberOfAuditRecord();
-		minimumNumberOfAuditRecord = this.repository.minimumNumberOfAuditRecord();
-		maximumNumberOfAuditRecord = this.repository.maximumNumberOfAuditRecord();
+		totalNumberOfStaticCodeAudits = this.repository.totalNumberOfStaticCodeAudits(auditorId);
+		totalNumberOfDynamicCodeAudits = this.repository.totalNumberOfDynamicCodeAudits(auditorId);
 
-		averageTimeOfPeriodInAuditRecord = this.repository.averageTimeOfPeriodInAuditRecord();
-		deviationTimeOfPeriodInAuditRecord = this.repository.deviationTimeOfPeriodInAuditRecord();
-		minimumTimeOfPeriodInAuditRecord = this.repository.minimumTimeOfPeriodInAuditRecord();
-		maximumTimeOfPeriodInAuditRecord = this.repository.maximumTimeOfPeriodInAuditRecord();
+		averageNumberOfAuditRecord = this.repository.averageNumberOfAuditRecord(auditorId);
+		// deviationNumberOfAuditRecord = this.repository.deviationNumberOfAuditRecord(auditorId);
+		minimumNumberOfAuditRecord = this.repository.minimumNumberOfAuditRecord(auditorId);
+		maximumNumberOfAuditRecord = this.repository.maximumNumberOfAuditRecord(auditorId);
+
+		averageTimeOfPeriodInAuditRecord = this.repository.averageTimeOfPeriodInAuditRecord(auditorId);
+		deviationTimeOfPeriodInAuditRecord = this.repository.deviationTimeOfPeriodInAuditRecord(auditorId);
+		minimumTimeOfPeriodInAuditRecord = this.repository.minimumTimeOfPeriodInAuditRecord(auditorId);
+		maximumTimeOfPeriodInAuditRecord = this.repository.maximumTimeOfPeriodInAuditRecord(auditorId);
 
 		dashboard = new AuditorDashboard();
 		dashboard.setTotalNumberOfStaticCodeAudits(totalNumberOfStaticCodeAudits);
 		dashboard.setTotalNumberOfDynamicCodeAudits(totalNumberOfDynamicCodeAudits);
 
 		dashboard.setAverageNumberOfAuditRecord(averageNumberOfAuditRecord);
-		dashboard.setDeviationNumberOfAuditRecord(deviationNumberOfAuditRecord);
+		// dashboard.setDeviationNumberOfAuditRecord(deviationNumberOfAuditRecord);
 		dashboard.setMinimumNumberOfAuditRecord(minimumNumberOfAuditRecord);
 		dashboard.setMaximumNumberOfAuditRecord(maximumNumberOfAuditRecord);
 

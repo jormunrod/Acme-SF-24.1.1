@@ -9,28 +9,28 @@ import acme.client.repositories.AbstractRepository;
 @Repository
 public interface AuditorDashboardRepository extends AbstractRepository {
 
-	@Query("select count(ca) from CodeAudit ar where ca.type = 'STATIC'")
-	Integer totalNumberOfStaticCodeAudits();
+	@Query("select count(ca) from CodeAudit ar where ca.auditor.id = :auditorId && ca.type = 'STATIC'")
+	Integer totalNumberOfStaticCodeAudits(int auditorId);
 
-	@Query("select count(ca) from CodeAudit ar where ca.type = 'DYNAMIC'")
-	Integer totalNumberOfDynamicCodeAudits();
+	@Query("select count(ca) from CodeAudit ar where ca.auditor.id = :auditorId && ca.type = 'DYNAMIC'")
+	Integer totalNumberOfDynamicCodeAudits(int auditorId);
 
-	@Query("select avg(select count(ar) from AuditRecord ar where a.worker.id = w.id) from CodeAudit ca")
-	Double averageNumberOfAuditRecord();
+	@Query("select avg(select count(ar) from AuditRecord ar where a.worker.id = w.id) from CodeAudit ca where ca.auditor.id = :auditorId")
+	Double averageNumberOfAuditRecord(int auditorId);
 
 	//Double deviationNumberOfAuditRecord();
 
-	@Query("select min(select count(ar) from AuditRecord ar where a.worker.id = w.id) from CodeAudit ca")
-	Integer minimumNumberOfAuditRecord();
+	@Query("select min(select count(ar) from AuditRecord ar where a.worker.id = w.id) from CodeAudit ca where ca.auditor.id = :auditorId")
+	Integer minimumNumberOfAuditRecord(int auditorId);
 
-	@Query("select max(select count(ar) from AuditRecord ar where a.worker.id = w.id) from CodeAudit ca")
-	Integer maximumNumberOfAuditRecord();
+	@Query("select max(select count(ar) from AuditRecord ar where a.worker.id = w.id) from CodeAudit ca where ca.auditor.id = :auditorId")
+	Integer maximumNumberOfAuditRecord(int auditorId);
 
-	Double averageTimeOfPeriodInAuditRecord();
+	Double averageTimeOfPeriodInAuditRecord(int auditorId);
 
-	Double deviationTimeOfPeriodInAuditRecord();
+	Double deviationTimeOfPeriodInAuditRecord(int auditorId);
 
-	Integer minimumTimeOfPeriodInAuditRecord();
+	Integer minimumTimeOfPeriodInAuditRecord(int auditorId);
 
-	Integer maximumTimeOfPeriodInAuditRecord();
+	Integer maximumTimeOfPeriodInAuditRecord(int auditorId);
 }
