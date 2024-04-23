@@ -1,8 +1,6 @@
 
 package acme.features.developers.dashboard;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,20 +24,6 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		super.getResponse().setAuthorised(true);
 	}
 
-	public Double calculateStandardDeviation() {
-		int developerId;
-		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		Double mean = this.repository.average(developerId);
-		Collection<Integer> times = this.repository.findAllTrainingModuleTimes(developerId);
-		double variance = 0.0;
-
-		for (Integer time : times)
-			variance += Math.pow(time - mean, 2);
-
-		variance = variance / times.size();
-		return Math.sqrt(variance);
-	}
-
 	@Override
 	public void load() {
 		DeveloperDashboard dashboard;
@@ -56,7 +40,7 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		totalNumberOfTrainingModuleWithAnUpdateMoment = this.repository.totalNumberOfTrainingModuleWithAnUpdateMoment(developerId);
 		totalNumberOfTrainingSessionsWithALink = this.repository.totalNumberOfTrainingSessionsWithALink(developerId);
 		average = this.repository.average(developerId);
-		deviation = this.calculateStandardDeviation();
+		deviation = this.repository.deviation(developerId);
 		minimumTimeOfTheTrainingModules = this.repository.minimumTimeOfTheTrainingModules(developerId);
 		maximumTimeOfTheTrainingModules = this.repository.maximumTimeOfTheTrainingModules(developerId);
 

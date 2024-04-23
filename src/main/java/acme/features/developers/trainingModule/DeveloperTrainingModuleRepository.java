@@ -47,4 +47,7 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 
 	@Query("select tm from TrainingModule tm where tm.draftMode = FALSE")
 	Collection<TrainingModule> getAllTrainingModulePublished();
+
+	@Query("select count(ts) from TrainingSesion ts where ts.trainingModule.id = :id and ts.draftMode = FALSE")
+	int countPublishedTrainingSessionsByTrainingModuleId(int id);
 }

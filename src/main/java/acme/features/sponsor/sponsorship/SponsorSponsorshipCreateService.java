@@ -77,18 +77,21 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date moment = object.getMoment();
 			Date startDate = object.getStartDate();
-
-			super.state(startDate.after(moment), "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
+			if (moment != null && startDate != null)
+				super.state(startDate.after(moment), "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			Date startDate = object.getStartDate();
 			Date endDate = object.getEndDate();
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(startDate);
-			cal.add(Calendar.MONTH, 1);
-			Date oneMonthAfterStartDate = cal.getTime();
-			super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+			if (startDate != null && endDate != null) {
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(startDate);
+				cal.add(Calendar.MONTH, 1);
+				Date oneMonthAfterStartDate = cal.getTime();
+				super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+			}
+
 		}
 
 	}
