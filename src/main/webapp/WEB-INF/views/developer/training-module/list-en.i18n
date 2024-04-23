@@ -46,6 +46,7 @@ developer.training-module.form.button.publish = Publish
 developer.training-module.form.label.project = Projects
 
 developer.training-module.form.error.hasNotSessions = Training module does not have training sessions
+developer.training-module.form.error.hasUnpublishedSessions = Training Sessions are not published
 developer.training-module.form.error.invalid-total-time = Total time must be positive and greater than zero
 developer.training-module.form.error.update-before-creation = Update moment must be before creation moment
 developer.training-module.form.error.duplicated = Code already exists 
