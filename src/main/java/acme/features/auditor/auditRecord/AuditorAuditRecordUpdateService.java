@@ -71,11 +71,13 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 
 		super.state(!object.getCodeAudit().isPublished(), "*", "auditor.audit-record.form.error.published");
 
-		LocalDateTime startDateTime = LocalDateTime.ofInstant(object.getAuditPeriodStart().toInstant(), ZoneId.systemDefault());
-		LocalDateTime endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
+		if (object.getAuditPeriodStart() != null && object.getAuditPeriodEnd() != null) {
+			LocalDateTime startDateTime = LocalDateTime.ofInstant(object.getAuditPeriodStart().toInstant(), ZoneId.systemDefault());
+			LocalDateTime endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
 
-		super.state(startDateTime.isBefore(endDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.end-date");
-		super.state(Duration.between(startDateTime, endDateTime).toHours() >= 1, "auditPeriodEnd", "auditor.audit-record.form.error.duration");
+			super.state(startDateTime.isBefore(endDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.end-date");
+			super.state(Duration.between(startDateTime, endDateTime).toHours() >= 1, "auditPeriodEnd", "auditor.audit-record.form.error.duration");
+		}
 	}
 
 	@Override
@@ -93,7 +95,7 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		Dataset dataset;
 
 		choices = SelectChoices.from(Mark.class, object.getMark());
-		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link");
+		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "isPublished");
 		dataset.put("mark", choices);
 
 		super.getResponse().addData(dataset);

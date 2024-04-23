@@ -16,22 +16,22 @@ public class AuditorCodeAuditController extends AbstractController<Auditor, Code
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditListService			listService;
+	private AuditorCodeAuditListService		listService;
 
 	@Autowired
-	protected AuditorCodeAuditShowService		showService;
+	private AuditorCodeAuditShowService		showService;
 
 	@Autowired
-	protected AuditorCodeAuditCreateService		createService;
+	private AuditorCodeAuditCreateService	createService;
 
 	@Autowired
-	protected AuditorCodeAuditUpdateService		updateService;
+	private AuditorCodeAuditUpdateService	updateService;
 
 	@Autowired
-	protected AuditorCodeAuditDeleteService		deleteService;
+	private AuditorCodeAuditDeleteService	deleteService;
 
 	@Autowired
-	protected AuditorCodeAuditPublishService	publishService;
+	private AuditorCodeAuditPublishService	publishService;
 
 	// Constructors -----------------------------------------------------------
 
