@@ -48,10 +48,5 @@ sponsor.sponsorship.list.button.publish = Publicar
 sponsor.sponsorship.list.button.inovices = Facturas
 
 
-sponsor.sponsorship.error.NotAllInvoicesPublished = No todas las facturas están publicadas
-sponsor.sponsorship.error.invoicesLeft = Todavía hay facturas por añadir para alcanzar la cantidad del patrocinio
-sponsor.sponsorship.error.invoicesLeftOver = La suma de los cantidades totales de las facturas supera el monto del patrocinio
-sponsor.sponsorship.error.duplicated = Este código ya está en uso
-sponsor.sponsorship.error.startDateBeforeMoment = La fecha de inicio debe ser después del momento actual
-sponsor.sponsorship.error.endDateNotOneMonthAfter = La fecha de finalización debe ser al menos un mes después de la fecha de inicio
-sponsor.sponsorship.error.amountNotPositive = La cantidad debe ser positiva
+master.menu.sponsor.sponsorship.list-all= Listar Patrocinios Publicados
+any.sponsorship.list.title = Patrocinios Publicados

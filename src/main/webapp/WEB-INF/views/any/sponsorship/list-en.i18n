@@ -51,10 +51,5 @@ sponsor.sponsorship.list.button.inovices = Invoices
 
 
 
-sponsor.sponsorship.error.NotAllInvoicesPublished = Not all the invoices are published
-sponsor.sponsorship.error.invoicesLeft = There are still invoices to add to reach the sponsorship amount.
-sponsor.sponsorship.error.invoicesLeftOver = The sum of the total invoice amounts exceeds the sponsorship amount
-sponsor.sponsorship.error.duplicated = This code is alredy in use.
-sponsor.sponsorship.error.startDateBeforeMoment = Start date must be after Moment
-sponsor.sponsorship.error.endDateNotOneMonthAfter = End date must be at least one moth after start date
-sponsor.sponsorship.error.amountNotPositive = Amount must be positive
+master.menu.sponsor.sponsorship.list-all= List Published Sponsorships
+any.sponsorship.list.title = Published Sponsorships

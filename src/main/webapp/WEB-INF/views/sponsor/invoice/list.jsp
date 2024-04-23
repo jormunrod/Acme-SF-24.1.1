@@ -23,7 +23,7 @@
 </acme:list>
 
 <jstl:choose>
-	<jstl:when test="${ _command == 'list'}">
+	<jstl:when test="${showCreate}">
 		<acme:button code="sponsor.invoice.form.button.create" action="/sponsor/invoice/create?masterId=${masterId}"/>
 	</jstl:when>
 </jstl:choose>
