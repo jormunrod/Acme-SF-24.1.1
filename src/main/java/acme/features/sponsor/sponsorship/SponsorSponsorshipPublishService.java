@@ -71,13 +71,16 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			Double amount = object.getAmount().getAmount();
 			double invoicesAmount = 0.;
+			boolean todasPublicadas = true;
 			Collection<Invoice> invoices;
 			invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
 			for (Invoice i : invoices) {
 				if (i.isDraftMode())
-					super.state(false, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
+					todasPublicadas = false;
 				invoicesAmount += i.getTotalAmount().getAmount();
 			}
+			if (todasPublicadas == false)
+				super.state(false, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
 			if (amount - invoicesAmount > 0.)
 				super.state(amount - invoicesAmount == 0., "*", "sponsor.sponsorship.error.invoicesLeft");
 			if (amount - invoicesAmount < 0.)
