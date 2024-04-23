@@ -9,5 +9,6 @@ authenticated.client.form.label.type = Type
 authenticated.client.form.label.email = Email
 authenticated.client.form.label.link = Link
 authenticated.client.form.button.create = Create
+authenticated.client.form.button.update = Update
 
-client.contract.form.error.duplicated = A client with the same identification already exists.
+client.contract.form.error.duplicated = A client with the same identification already exists

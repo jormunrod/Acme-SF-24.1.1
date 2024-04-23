@@ -1,5 +1,5 @@
 /**
- * Update Service for the Contract entity.
+ * Publish Service for the Contract entity.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-08

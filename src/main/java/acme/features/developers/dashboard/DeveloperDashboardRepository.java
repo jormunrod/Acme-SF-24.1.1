@@ -20,6 +20,9 @@ public interface DeveloperDashboardRepository extends AbstractRepository {
 	@Query("select avg(tm.totalTime) from TrainingModule tm where tm.developer.id = :developerId ")
 	Double average(int developerId);
 
+	@Query("select stddev(tm.totalTime) from TrainingModule tm where tm.developer.id = :developerId")
+	Double deviation(int developerId);
+
 	@Query("select tm.totalTime from TrainingModule tm where tm.developer.id = :developerId")
 	Collection<Integer> findAllTrainingModuleTimes(int developerId);
 

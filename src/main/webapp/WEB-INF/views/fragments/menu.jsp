@@ -63,6 +63,7 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+
 		
 		<acme:menu-option code="master.menu.list-published">
 		<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/any/training-module/list"/>
@@ -77,7 +78,13 @@
 			<acme:menu-suboption code="master.menu.manager.project.list" action="/manager/project/list"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.list-published">
+			<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/any/training-module/list"/>
+			<acme:menu-suboption code="master.menu.client.contract.list-all" action="/any/contract/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.claim" action="/any/claim/list"/>
+
 
 	</acme:menu-left>
 
@@ -96,6 +103,7 @@
 			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create" access="!hasRole('Sponsor')"/>
 			<acme:menu-suboption code="master.menu.user-account.sponsor" action="/authenticated/sponsor/update" access="hasRole('Sponsor')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-client" action="/authenticated/client/create" access="!hasRole('Client')"/>
+			<acme:menu-suboption code="master.menu.user-account.client" action="/authenticated/client/update" access="hasRole('Client')"/>
 			
 		</acme:menu-option>
 
