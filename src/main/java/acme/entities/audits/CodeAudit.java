@@ -39,7 +39,7 @@ public class CodeAudit extends AbstractEntity {
 	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
 	private String				code;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
 	private Date				execution;
@@ -57,6 +57,7 @@ public class CodeAudit extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
+	@NotNull
 	private boolean				isPublished;
 
 	// Derived attributes -----------------------------------------------------

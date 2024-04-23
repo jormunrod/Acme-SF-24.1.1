@@ -5,6 +5,7 @@ auditor.code-audit.list.label.code = Code
 auditor.code-audit.list.label.execution = Execution date
 auditor.code-audit.list.label.type = Type
 auditor.code-audit.list.label.mark = Mark
+auditor.code-audit.list.label.published = Published
 
 auditor.code-audit.form.title = Details about Code Audit
 auditor.code-audit.form.label.code = Code
@@ -13,10 +14,10 @@ auditor.code-audit.form.label.type = Type
 auditor.code-audit.form.label.correctiveActions = Corrective actions
 auditor.code-audit.form.label.mark = Mark
 auditor.code-audit.form.label.link = Link (Optional)
-auditor.code-audit.list.label.published = Published
 
 auditor.code-audit.list.button.create = Create
 
+auditor.code-audit.form.button.auditRecord = Audit Records
 auditor.code-audit.form.button.create = Create
 auditor.code-audit.form.button.delete = Delete
 auditor.code-audit.form.button.update = Update
@@ -27,3 +28,5 @@ auditor.code-audit.form.label.project = Project
 auditor.code-audit.form.err.duplicated = Code already exists
 auditor.code-audit.form.err.fail-mark = This code audit has a mark lower than 'C'
 auditor.code-audit.form.error.isPublished = This code audit is already published
+auditor.code-audit.form.err.audit-records-not-published = There are audit records not published
+auditor.code-audit.form.err.no-audit-records = There are no audit records
