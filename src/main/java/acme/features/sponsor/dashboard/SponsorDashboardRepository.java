@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.roles.Sponsor;
 
 @Repository
 public interface SponsorDashboardRepository extends AbstractRepository {
@@ -14,5 +15,8 @@ public interface SponsorDashboardRepository extends AbstractRepository {
 
 	@Query("select count(s) from Sponsorship s where s.sponsor.id = :id and s.link is not null and s.link <> ''")
 	Integer countSponsorshipsWithNonEmptyLinkBySponsorId(int id);
+
+	@Query("select s from Sponsor s where s.id = :id")
+	Sponsor findOneSponsorById(int id);
 
 }

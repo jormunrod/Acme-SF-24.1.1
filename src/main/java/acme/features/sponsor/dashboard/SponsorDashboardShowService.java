@@ -22,7 +22,14 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		Sponsor sponsor;
+
+		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
+
+		status = super.getRequest().getPrincipal().hasRole(sponsor);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

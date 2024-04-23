@@ -55,3 +55,5 @@ sponsor.sponsorship.error.duplicated = Este código ya está en uso
 sponsor.sponsorship.error.startDateBeforeMoment = La fecha de inicio debe ser después del momento actual
 sponsor.sponsorship.error.endDateNotOneMonthAfter = La fecha de finalización debe ser al menos un mes después de la fecha de inicio
 sponsor.sponsorship.error.amountNotPositive = La cantidad debe ser positiva
+
+sponsor.sponsorship.list.label.draftMode = Modo Borrador
