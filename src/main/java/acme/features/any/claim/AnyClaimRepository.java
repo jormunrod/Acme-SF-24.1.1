@@ -1,8 +1,8 @@
 /**
- * Repository for the contract entity
+ * Repository for the claim entity
  * 
  * @Author: jormunrod
- * @Date: 2024-04-08
+ * @Date: 2024-04-21
  */
 
 package acme.features.any.claim;

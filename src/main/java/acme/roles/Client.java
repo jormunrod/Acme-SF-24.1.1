@@ -1,3 +1,8 @@
+/**
+ * Client role
+ * 
+ * @Author: jormunrod
+ */
 
 package acme.roles;
 

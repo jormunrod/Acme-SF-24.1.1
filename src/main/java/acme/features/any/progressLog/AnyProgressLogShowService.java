@@ -1,43 +1,34 @@
 /**
- * List Service for the ProgressLog entity.
+ * Show Service for the ProgressLog entity of any role.
  * 
  * @Author: jormunrod
- * @Date: 2024-04-20
+ * @Date: 2024-04-22
  */
 
-package acme.features.client.progressLog;
+package acme.features.any.progressLog;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.contracts.Contract;
 import acme.entities.contracts.ProgressLog;
-import acme.roles.Client;
 
 @Service
-public class ClientProgressLogShowService extends AbstractService<Client, ProgressLog> {
+public class AnyProgressLogShowService extends AbstractService<Any, ProgressLog> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ClientProgressLogRepository repository;
+	protected AnyProgressLogRepository repository;
 
 	// AbstractService interface -----------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int progressLogId;
-		Contract contract;
-
-		progressLogId = super.getRequest().getData("id", int.class);
-		contract = this.repository.findOneContractByProgressLogId(progressLogId);
-		status = contract != null && super.getRequest().getPrincipal().hasRole(contract.getClient());
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override

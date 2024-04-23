@@ -36,6 +36,7 @@ master.menu.developer = Desarrolladores
 master.menu.developer.training-module.list = Listar Módulo de Desarrollo
 master.menu.developer.dashboard = Panel de indicadores
 master.menu.developer.training-module.list-all = Listar Módulo de Desarrollo Publicados
+master.menu.client.contract.list-all = Listar Contratos Publicados
 master.menu.list-published = Listado Publicados
 
 

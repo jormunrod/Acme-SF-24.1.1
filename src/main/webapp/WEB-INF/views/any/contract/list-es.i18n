@@ -1,0 +1,31 @@
+# menu-en.i18n
+
+# master.any.contract #####################################################
+
+any.contract.list.title = Lista de Contratos
+any.contract.list.label.code = Código
+any.contract.list.label.instantiationMoment = Momento de Instanciación
+any.contract.list.label.providerName = Nombre del Proveedor
+any.contract.list.label.customerName = Nombre del Cliente
+any.contract.list.label.goals = Objetivos
+any.contract.list.label.budget = Presupuesto
+any.contract.list.button.create = Crear
+any.contract.list.label.published = Publicado
+
+any.contract.form.title = Detalles del Contrato
+any.contract.form.label.code = Código
+any.contract.form.label.project = Proyecto
+any.contract.form.label.instantiationMoment = Momento de Instanciación
+any.contract.form.label.providerName = Nombre del Proveedor
+any.contract.form.label.customerName = Nombre del Cliente
+any.contract.form.label.goals = Objetivos
+any.contract.form.label.budget = Presupuesto
+any.contract.form.button.delete = Eliminar
+any.contract.form.button.update = Actualizar
+any.contract.form.button.create = Crear
+any.contract.form.error.duplicateCode = Código duplicado
+any.contract.form.label.publish = Publicado
+any.contract.form.button.publish = Publicar
+any.contract.form.error.budgetExceeded = Presupuesto excedido
+any.contract.form.button.progress-logs = Historial de Progreso
+any.contract.form.title = Detalles del Contrato

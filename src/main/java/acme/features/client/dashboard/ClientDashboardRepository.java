@@ -1,3 +1,9 @@
+/**
+ * Repository for the client dashboard.
+ * 
+ * @Author: jormunrod
+ * @Date: 2024-04-20
+ */
 
 package acme.features.client.dashboard;
 
