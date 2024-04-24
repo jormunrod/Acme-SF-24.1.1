@@ -38,8 +38,9 @@ master.menu.developer = Developers
 master.menu.developer.training-module.list = Training Module List
 master.menu.developer.dashboard = Dashboard
 
-master.menu.developer.training-module.list-all = Publish Training Module List
+master.menu.developer.training-module.list-all = Published Training Module List
 master.menu.client.contract.list-all = Published Contracts List
+master.menu.sponsor.sponsorship.list-all= Published Sponsorships List
 master.menu.list-published = Any
 
 
@@ -69,6 +70,7 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.auditor = Auditor
 master.menu.auditor.code-audit.list = My code audits
 master.menu.auditor.dashboard = Dashboard
+master.menu.auditor.code-audit.list-all = Published Code Audits List
 
 # master.menu.manager #########################################################
 
