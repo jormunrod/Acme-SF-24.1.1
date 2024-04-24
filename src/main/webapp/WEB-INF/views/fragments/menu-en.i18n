@@ -84,10 +84,11 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-developer = Become a developer
-master.menu.user-account.become-auditor = Become an auditor
 master.menu.user-account.developer = Developer data
 master.menu.user-account.become-sponsor = Become a sponsor
 master.menu.user-account.sponsor = Datos de patrocinador
+master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor = Auditor data
 
 # master.menu.sponsor ###################################################
 
