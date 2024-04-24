@@ -67,6 +67,7 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.auditor = Auditor
 master.menu.auditor.code-audit.list = My code audits
+master.menu.auditor.dashboard = Dashboard
 
 # master.menu.manager #########################################################
 
