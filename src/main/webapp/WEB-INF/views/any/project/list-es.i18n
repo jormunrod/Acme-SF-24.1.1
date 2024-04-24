@@ -1,0 +1,21 @@
+# any.project.list ###################################################
+
+any.project.list.title = Proyectos publicados
+any.project.list.label.manager = Nombre de usuario del gestor
+any.project.list.label.code = Código
+any.project.list.label.title = Nombre
+any.project.list.label.cost = Coste
+
+# any.project.form ###################################################
+
+any.project.form.title = Proyecto
+any.project.form.label.manager = Nombre de usuario del gestor
+any.project.form.label.code = Código
+any.project.form.label.title = Nombre
+any.project.form.label.abstractText = Descripción
+any.project.form.label.cost = Coste
+any.project.form.label.link = Enlace (Opcional)
+any.project.form.label.hasFatalErrors = Errores fatales
+any.project.form.label.isPublished = Publicado
+
+any.project.form.button.userStory = Historias de usuario
