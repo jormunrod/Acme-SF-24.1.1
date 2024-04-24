@@ -20,11 +20,10 @@ master.menu.sign-out = Sign out
 developer.training-sesion.list.title = Sesiones de Entrenamiento
 developer.training-sesion.list.label.code = Código
 developer.training-sesion.list.label.startDate = Fecha Inicio
-developer.training-sesion.list.label.finishDate = Fecha Fin
 developer.training-sesion.list.label.location = Localización
-developer.training-sesion.list.label.instructor = Instructor
-developer.training-sesion.list.label.contactEmail = Email
-developer.training-sesion.list.label.link = Link (Opcional)
+developer.training-sesion.list.label.draftMode = Modo Borrador
+
+
 
 
 developer.training-sesion.form.title = Seción de Entrenamiento
