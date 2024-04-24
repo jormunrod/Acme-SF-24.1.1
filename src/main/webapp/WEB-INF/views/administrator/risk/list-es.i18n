@@ -13,7 +13,7 @@ administrator.risk.form.label.identificationDate = Fecha de Identificación
 administrator.risk.form.label.impact = Impacto
 administrator.risk.form.label.probability = Probabilidad
 administrator.risk.form.label.description = Descripción
-administrator.risk.form.label.link = Enlace (Opcional)
+administrator.risk.form.label.link = Link (Opcional)
 
 administrator.risk.form.error.duplicated = El código ya existe
 administrator.risk.form.error.invalid-impact = El impacto debe ser positivo
