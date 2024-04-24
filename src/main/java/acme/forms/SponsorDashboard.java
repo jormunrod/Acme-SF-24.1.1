@@ -1,6 +1,8 @@
 
 package acme.forms;
 
+import java.util.List;
+
 import acme.client.data.AbstractForm;
 import acme.client.data.datatypes.Money;
 import lombok.Getter;
@@ -19,34 +21,14 @@ public class SponsorDashboard extends AbstractForm {
 	Integer						totalNumberOfInvoicesWithATaxLessThanOrEqualTo21;
 	Integer						totalNumberOfSponsorshipsWithALink;
 
-	Money						averageAmountOfTheSponsorshipsEUR;
-	Money						deviationAmountOfTheSponsorshipsEUR;
-	Money						minimumAmountOfTheSponsorshipsEUR;
-	Money						maximumAmountOfTheSponsorshipsEUR;
+	List<Money>					averageAmountOfTheSponsorships;
+	List<Money>					deviationAmountOfTheSponsorships;
+	List<Money>					minimumAmountOfTheSponsorships;
+	List<Money>					maximumAmountOfTheSponsorships;
 
-	Money						averageAmountOfTheSponsorshipsUSD;
-	Money						deviationAmountOfTheSponsorshipsUSD;
-	Money						minimumAmountOfTheSponsorshipsUSD;
-	Money						maximumAmountOfTheSponsorshipsUSD;
-
-	Money						averageAmountOfTheSponsorshipsGBP;
-	Money						deviationAmountOfTheSponsorshipsGBP;
-	Money						minimumAmountOfTheSponsorshipsGBP;
-	Money						maximumAmountOfTheSponsorshipsGBP;
-
-	Money						averageQuantityOfTheInvoicesEUR;
-	Money						deviationQuantityOfTheInvoicesEUR;
-	Money						minimumQuantityOfTheInvoicesEUR;
-	Money						maximumQuantityOfTheInvoicesEUR;
-
-	Money						averageQuantityOfTheInvoicesUSD;
-	Money						deviationQuantityOfTheInvoicesUSD;
-	Money						minimumQuantityOfTheInvoicesUSD;
-	Money						maximumQuantityOfTheInvoicesUSD;
-
-	Money						averageQuantityOfTheInvoicesGBP;
-	Money						deviationQuantityOfTheInvoicesGBP;
-	Money						minimumQuantityOfTheInvoicesGBP;
-	Money						maximumQuantityOfTheInvoicesGBP;
+	List<Money>					averageQuantityOfTheInvoices;
+	List<Money>					deviationQuantityOfTheInvoices;
+	List<Money>					minimumQuantityOfTheInvoices;
+	List<Money>					maximumQuantityOfTheInvoices;
 
 }

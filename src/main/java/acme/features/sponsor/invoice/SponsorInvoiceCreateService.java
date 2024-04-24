@@ -81,6 +81,21 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
 
 		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			int id;
+			Sponsorship sponsorship;
+
+			id = super.getRequest().getData("masterId", int.class);
+			sponsorship = this.repository.findOneSponsorshipById(id);
+			String currency = object.getQuantity().getCurrency();
+
+			super.state(currency != null && currency.equals(sponsorship.getAmount().getCurrency()), "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			String currency = object.getQuantity().getCurrency();
+			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
 
 	}
 	@Override
