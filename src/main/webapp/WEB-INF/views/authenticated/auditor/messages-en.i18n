@@ -1,0 +1,10 @@
+# menu-en.i18n
+
+# authenticated.client #####################################################
+
+authenticated.auditor.form.title = Auditor Login
+authenticated.auditor.form.label.firm = Firm
+authenticated.auditor.form.label.professionalID = Professional ID
+authenticated.auditor.form.label.certifications = Certifications
+authenticated.auditor.form.label.link = Link (Optional)
+authenticated.auditor.form.button.create = Create
