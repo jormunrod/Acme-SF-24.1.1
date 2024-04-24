@@ -25,7 +25,7 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	public void authorise() {
 		boolean status;
 		Sponsor sponsor;
-
+		// validar que el que estoy mostrando es mio
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 
 		status = super.getRequest().getPrincipal().hasRole(sponsor);
