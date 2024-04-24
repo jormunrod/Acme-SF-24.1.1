@@ -97,6 +97,11 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 
 			super.state(currency != null && currency.equals(sponsorship.getAmount().getCurrency()), "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			String currency = object.getQuantity().getCurrency();
+			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
 
 	}
 	@Override

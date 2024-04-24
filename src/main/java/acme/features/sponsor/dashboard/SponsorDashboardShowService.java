@@ -63,7 +63,7 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 
 		for (int i = 0; i < sponsorhipAverages.size(); i++) {
 			Object[] result = sponsorhipAverages.get(i);
-			String currencyA = " " + result[0];
+			String currencyA = " /" + result[0];
 			Double averageA = (Double) result[1];
 			Money a = new Money();
 			a.setAmount(averageA);
@@ -71,7 +71,7 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 			averageAmountOfTheSponsorships.add(a);
 
 			Object[] minimumResult = sponsorhipMinimmums.get(i);
-			String currencyMin = " " + minimumResult[0];
+			String currencyMin = " /" + minimumResult[0];
 			Double minimum = (Double) minimumResult[1];
 			Money minAmount = new Money();
 			minAmount.setAmount(minimum);
@@ -79,7 +79,7 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 			minimumAmountOfTheSponsorships.add(minAmount);
 
 			Object[] maximumResult = sponsorhipMaximums.get(i);
-			String currencyMax = " " + maximumResult[0];
+			String currencyMax = " /" + maximumResult[0];
 			Double maximum = (Double) maximumResult[1];
 			Money maxAmount = new Money();
 			maxAmount.setAmount(maximum);
@@ -87,7 +87,7 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 			maximumAmountOfTheSponsorships.add(maxAmount);
 
 			Object[] deviationResults = sponsorhipDeviations.get(i);
-			String currencyDev = " " + deviationResults[0];
+			String currencyDev = " /" + deviationResults[0];
 			Double amountDev = (Double) deviationResults[1];
 			Money d = new Money();
 			d.setAmount(amountDev);
@@ -95,7 +95,7 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 			deviationAmountOfTheSponsorships.add(d);
 
 			Object[] invoiceAverageResult = invoiceAverages.get(i);
-			String currencyInvA = (String) invoiceAverageResult[0];
+			String currencyInvA = " /" + invoiceAverageResult[0];
 			Double averageInvA = (Double) invoiceAverageResult[1];
 			Money invoiceAvg = new Money();
 			invoiceAvg.setAmount(averageInvA);
@@ -103,7 +103,7 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 			averageQuantityOfTheInvoices.add(invoiceAvg);
 
 			Object[] invoiceMinimumResult = invoiceMinimmums.get(i);
-			String currencyInvMin = (String) invoiceMinimumResult[0];
+			String currencyInvMin = " /" + invoiceMinimumResult[0];
 			Double minimumInv = (Double) invoiceMinimumResult[1];
 			Money invoiceMin = new Money();
 			invoiceMin.setAmount(minimumInv);
@@ -111,7 +111,7 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 			minimumQuantityOfTheInvoices.add(invoiceMin);
 
 			Object[] invoiceMaximumResult = invoiceMaximums.get(i);
-			String currencyInvMax = (String) invoiceMaximumResult[0];
+			String currencyInvMax = " /" + invoiceMaximumResult[0];
 			Double maximumInv = (Double) invoiceMaximumResult[1];
 			Money invoiceMax = new Money();
 			invoiceMax.setAmount(maximumInv);
@@ -119,7 +119,7 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 			maximumQuantityOfTheInvoices.add(invoiceMax);
 
 			Object[] invoiceDeviationResult = invoiceDeviations.get(i);
-			String currencyInvDev = (String) invoiceDeviationResult[0];
+			String currencyInvDev = " /" + invoiceDeviationResult[0];
 			Double deviationInv = (Double) invoiceDeviationResult[1];
 			Money invoiceDev = new Money();
 			invoiceDev.setAmount(deviationInv);
