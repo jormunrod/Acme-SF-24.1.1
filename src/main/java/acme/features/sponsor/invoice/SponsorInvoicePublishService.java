@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
-import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
@@ -29,10 +28,11 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		Sponsor sponsor;
 
 		id = super.getRequest().getData("id", int.class);
+
 		object = this.repository.findInvoiceById(id);
 		sponsor = object.getSponsorship().getSponsor();
 
-		status = super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
+		status = object.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
 
 		super.getResponse().setAuthorised(status);
 
@@ -92,16 +92,20 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
 
 		}
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
-			int id;
-			Sponsorship sponsorship;
 
-			id = super.getRequest().getData("masterId", int.class);
-			sponsorship = this.repository.findOneSponsorshipById(id);
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+
+			Invoice invoice;
+			int id;
+
+			id = super.getRequest().getData("id", int.class);
+			invoice = this.repository.findInvoiceById(id);
+
 			String currency = object.getQuantity().getCurrency();
 
-			super.state(currency != null && currency.equals(sponsorship.getAmount().getCurrency()), "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
+			super.state(currency != null && currency.equals(invoice.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
 		}
+
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			String currency = object.getQuantity().getCurrency();
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))

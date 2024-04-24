@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
-import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
@@ -32,7 +31,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		object = this.repository.findInvoiceById(id);
 		sponsor = object.getSponsorship().getSponsor();
 
-		status = super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
+		status = object.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
 
 		super.getResponse().setAuthorised(status);
 
@@ -88,14 +87,16 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 
 		}
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
-			int id;
-			Sponsorship sponsorship;
 
-			id = super.getRequest().getData("masterId", int.class);
-			sponsorship = this.repository.findOneSponsorshipById(id);
+			Invoice invoice;
+			int id;
+
+			id = super.getRequest().getData("id", int.class);
+			invoice = this.repository.findInvoiceById(id);
+
 			String currency = object.getQuantity().getCurrency();
 
-			super.state(currency != null && currency.equals(sponsorship.getAmount().getCurrency()), "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
+			super.state(currency != null && currency.equals(invoice.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			String currency = object.getQuantity().getCurrency();
