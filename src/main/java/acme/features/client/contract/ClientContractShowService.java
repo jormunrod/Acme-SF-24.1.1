@@ -1,5 +1,5 @@
 /**
- * List Service for the Contract entity.
+ * Show Service for the Contract entity.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-08
@@ -60,7 +60,6 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		super.getResponse().addData(dataset);
-
 	}
 
 }
