@@ -84,9 +84,6 @@
 			<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/any/training-module/list"/>
 			<acme:menu-suboption code="master.menu.client.contract.list-all" action="/any/contract/list"/>
 		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.claim" action="/any/claim/list"/>
-
 
 	</acme:menu-left>
 
@@ -96,6 +93,7 @@
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
+			<acme:menu-suboption code="master.menu.user-account.become-manager" action="/authenticated/manager/create" access="!hasRole('Manager')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>

@@ -1,0 +1,8 @@
+# autehnticated.manager.form #######################################
+authenticated.manager.form.title = Registro de Gestor
+authenticated.manager.form.label.degree = Grado
+authenticated.manager.form.label.overview = Información General
+authenticated.manager.form.label.certifications = Certificaciones
+authenticated.manager.form.label.link = Enlace (Opcional)
+
+authenticated.manager.form.button.create = Crear
