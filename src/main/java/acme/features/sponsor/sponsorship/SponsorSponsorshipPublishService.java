@@ -55,12 +55,17 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 		int projectId;
 		Project project;
+		Sponsorship sponsorship;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(id);
 
 		projectId = super.getRequest().getData("project", int.class);
 
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link");
+		super.bind(object, "code", "sponsorshipType", "startDate", "endDate", "contactEmail", "amount", "link");
+		object.setMoment(sponsorship.getMoment());
 		object.setProject(project);
 	}
 
@@ -117,7 +122,21 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			Money amount = object.getAmount();
 			super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Sponsorship sponsorship;
+			int id;
+			id = super.getRequest().getData("id", int.class);
+			sponsorship = this.repository.findOneSponsorshipById(id);
+			String currency = object.getAmount().getCurrency();
+			if (!currency.equals(sponsorship.getAmount().getCurrency()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
+				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
+		}
 
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			String currency = object.getAmount().getCurrency();
+			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
 	}
 	@Override
 	public void perform(final Sponsorship object) {
@@ -137,15 +156,20 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		SelectChoices choices;
 		Dataset dataset;
 		SelectChoices typeChoices;
+		Sponsorship sponsorship;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(id);
 
 		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getSponsorshipType());
-		dataset = super.unbind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
+		dataset = super.unbind(object, "code", "sponsorshipType", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
+		dataset.put("moment", sponsorship.getMoment());
 		dataset.put("sponsorshipType", typeChoices.getSelected().getKey());
 		dataset.put("sponsorshipTypes", typeChoices);
 

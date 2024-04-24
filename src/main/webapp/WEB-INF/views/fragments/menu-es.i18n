@@ -33,12 +33,12 @@ master.menu.client.dashboard = Panel de indicadores
 
 # master.menu.developers ######################################################
 master.menu.developer = Desarrolladores
-master.menu.developer.training-module.list = Listar Módulo de Desarrollo
+master.menu.developer.training-module.list = Lista de Módulos de Desarrollo
 master.menu.developer.dashboard = Panel de indicadores
-master.menu.developer.training-module.list-all = Listar Módulo de Desarrollo Publicados
-master.menu.client.contract.list-all = Listar Contratos Publicados
-master.menu.list-published = Cualquier Rol
 
+master.menu.developer.training-module.list-all = Lista de Módulos de Desarrollo Publicados
+master.menu.client.contract.list-all = Lista de Contratos Publicados
+master.menu.list-published = Listados Publicados
 
 # master.menu.administrator ###################################################
 
@@ -71,6 +71,8 @@ master.menu.auditor.code-audit.list-all = Listar Códigos de Auditorías Publica
 
 master.menu.manager = Gestor
 master.menu.manager.project.list = Proyectos
+master.menu.manager.dashboard = Panel de indicadores
+master.menu.manager.project.list-all = Lista de Proyectos Publicados
 
 # master.menu.user-account ####################################################
 
@@ -93,12 +95,8 @@ master.menu.sponsor = Patrocinador
 master.menu.sponsor.sponsorship.list = Lista de patrocinios
 master.menu.user-account.become-sponsor = Hazte patrocinador
 master.menu.user-account.sponsor = Datos de patrocinador
+master.menu.sponsor.sponsorship.list-all= Lista de Patrocinios Publicados
 
 # master.menu.client #########################################################
 master.menu.user-account.become-client = Hazte cliente
 master.menu.user-account.client = Datos de cliente
-
-# master.menu.any ########################################################
-any.training-module.list.title = Módulos de entrenamiento publicados
-any.training-module.form.title = Detalles del módulo de entrenamiento publicado
-

@@ -27,197 +27,76 @@
 	
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.average-amount-of-the-sponsorships-eur"/>
+			<acme:message code="sponsor.dashboard.form.label.average-amount-of-the-sponsorships"/>
 		</th>
 		<td>
-			<acme:print value="${averageAmountOfTheSponsorshipsEUR}"/>
+			<acme:print value="${averageAmountOfTheSponsorships}"/>
 		</td>
 	</tr>
+
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.average-amount-of-the-sponsorships-usd"/>
+			<acme:message code="sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships"/>
 		</th>
 		<td>
-			<acme:print value="${averageAmountOfTheSponsorshipsUSD}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.average-amount-of-the-sponsorships-gbp"/>
-		</th>
-		<td>
-			<acme:print value="${averageAmountOfTheSponsorshipsGBP}"/>
+			<acme:print value="${deviationAmountOfTheSponsorships}"/>
 		</td>
 	</tr>
 	
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships-eur"/>
+			<acme:message code="sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships"/>
 		</th>
 		<td>
-			<acme:print value="${deviationAmountOfTheSponsorshipsEUR}"/>
+			<acme:print value="${minimumAmountOfTheSponsorships}"/>
 		</td>
 	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships-usd"/>
-		</th>
-		<td>
-			<acme:print value="${deviationAmountOfTheSponsorshipsUSD}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships-gbp"/>
-		</th>
-		<td>
-			<acme:print value="${deviationAmountOfTheSponsorshipsGBP}"/>
-		</td>
-	</tr>
+
 	
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships-eur"/>
+			<acme:message code="sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships"/>
 		</th>
 		<td>
-			<acme:print value="${minimumAmountOfTheSponsorshipsEUR}"/>
+			<acme:print value="${maximumAmountOfTheSponsorships}"/>
 		</td>
 	</tr>
+
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships-usd"/>
+			<acme:message code="sponsor.dashboard.form.label.average-quantity-of-the-invoices"/>
 		</th>
 		<td>
-			<acme:print value="${minimumAmountOfTheSponsorshipsUSD}"/>
+			<acme:print value="${averageQuantityOfTheInvoices}"/>
 		</td>
 	</tr>
+
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships-gbp"/>
+			<acme:message code="sponsor.dashboard.form.label.deviation-quantity-of-the-invoices"/>
 		</th>
 		<td>
-			<acme:print value="${minimumAmountOfTheSponsorshipsGBP}"/>
+			<acme:print value="${deviationQuantityOfTheInvoices}"/>
 		</td>
 	</tr>
-	
+
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships-eur"/>
+			<acme:message code="sponsor.dashboard.form.label.minimum-quantity-of-the-invoices"/>
 		</th>
 		<td>
-			<acme:print value="${maximumAmountOfTheSponsorshipsEUR}"/>
+			<acme:print value="${minimumQuantityOfTheInvoices}"/>
 		</td>
 	</tr>
+
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships-usd"/>
+			<acme:message code="sponsor.dashboard.form.label.maximum-quantity-of-the-invoices"/>
 		</th>
 		<td>
-			<acme:print value="${maximumAmountOfTheSponsorshipsUSD}"/>
+			<acme:print value="${maximumQuantityOfTheInvoices}"/>
 		</td>
 	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships-gbp"/>
-		</th>
-		<td>
-			<acme:print value="${maximumAmountOfTheSponsorshipsGBP}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.average-quantity-of-the-invoices-eur"/>
-		</th>
-		<td>
-			<acme:print value="${averageQuantityOfTheInvoicesEUR}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.average-quantity-of-the-invoices-usd"/>
-		</th>
-		<td>
-			<acme:print value="${averageQuantityOfTheInvoicesUSD}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.average-quantity-of-the-invoices-gbp"/>
-		</th>
-		<td>
-			<acme:print value="${averageQuantityOfTheInvoicesGBP}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.deviation-quantity-of-the-invoices-eur"/>
-		</th>
-		<td>
-			<acme:print value="${deviationQuantityOfTheInvoicesEUR}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.deviation-quantity-of-the-invoices-usd"/>
-		</th>
-		<td>
-			<acme:print value="${deviationQuantityOfTheInvoicesUSD}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.deviation-quantity-of-the-invoices-gbp"/>
-		</th>
-		<td>
-			<acme:print value="${deviationQuantityOfTheInvoicesGBP}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.minimum-quantity-of-the-invoices-eur"/>
-		</th>
-		<td>
-			<acme:print value="${minimumQuantityOfTheInvoicesEUR}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.minimum-quantity-of-the-invoices-usd"/>
-		</th>
-		<td>
-			<acme:print value="${minimumQuantityOfTheInvoicesUSD}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.minimum-quantity-of-the-invoices-gbp"/>
-		</th>
-		<td>
-			<acme:print value="${minimumQuantityOfTheInvoicesGBP}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.maximum-quantity-of-the-invoices-eur"/>
-		</th>
-		<td>
-			<acme:print value="${maximumQuantityOfTheInvoicesEUR}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.maximum-quantity-of-the-invoices-usd"/>
-		</th>
-		<td>
-			<acme:print value="${maximumQuantityOfTheInvoicesUSD}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.maximum-quantity-of-the-invoices-gbp"/>
-		</th>
-		<td>
-			<acme:print value="${maximumQuantityOfTheInvoicesGBP}"/>
-		</td>
-	</tr>
+
+
 </table>
