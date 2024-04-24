@@ -1,5 +1,5 @@
 
-package acme.features.administrator;
+package acme.features.administrator.banner;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

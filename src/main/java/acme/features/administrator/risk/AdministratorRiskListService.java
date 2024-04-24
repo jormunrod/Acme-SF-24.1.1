@@ -1,5 +1,5 @@
 
-package acme.features.administrator;
+package acme.features.administrator.risk;
 
 import java.util.Collection;
 
@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.sponsorships.Banner;
+import acme.entities.risk.Risk;
 
 @Service
-public class AdministratorBannerListService extends AbstractService<Administrator, Banner> {
+public class AdministratorRiskListService extends AbstractService<Administrator, Risk> {
 
 	@Autowired
-	private AdministratorBannerRepository repository;
+	protected AdministratorRiskRepository repository;
 
 
 	@Override
@@ -29,21 +29,21 @@ public class AdministratorBannerListService extends AbstractService<Administrato
 
 	@Override
 	public void load() {
-		Collection<Banner> objects;
+		Collection<Risk> objects;
 
-		objects = this.repository.findAllBanners();
+		objects = this.repository.findAllRisk();
 
 		super.getBuffer().addData(objects);
 	}
 
 	@Override
-	public void unbind(final Banner object) {
+	public void unbind(final Risk object) {
 		assert object != null;
 
 		Dataset dataset;
-
-		dataset = super.unbind(object, "instantiationMoment", "updateMoment", "displayStart", "displayEnd");
+		dataset = super.unbind(object, "reference", "identificationDate", "impact");
 
 		super.getResponse().addData(dataset);
 	}
+
 }

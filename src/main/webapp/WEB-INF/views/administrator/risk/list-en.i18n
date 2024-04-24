@@ -1,0 +1,23 @@
+# administrator.risk.list ###################################################
+administrator.risk.list.title = Risks
+administrator.risk.list.label.reference = Reference
+administrator.risk.list.label.identificationDate = Identification Date
+administrator.risk.list.label.impact = Impact
+
+
+# administrator.risk.form ###################################################
+administrator.risk.form.title = Risk
+administrator.risk.form.label.reference = Reference
+administrator.risk.form.label.identificationDate = Identification Date
+administrator.risk.form.label.impact = Impact
+administrator.risk.form.label.probability = Probability
+administrator.risk.form.label.description = Description
+administrator.risk.form.label.link  = Link (Optional)
+
+administrator.risk.list.button.create = Create
+administrator.risk.form.button.update = Update
+administrator.risk.form.button.delete = Delete
+
+administrator.risk.form.error.duplicated = Code already exists
+administrator.risk.form.error.invalid-impact = Impact must be positive
+administrator.risk.form.error.invalid-probability = Pobability must be between 0 and 1
