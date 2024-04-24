@@ -3,6 +3,7 @@ administrator.risk.list.title = Risks
 administrator.risk.list.label.reference = Reference
 administrator.risk.list.label.identificationDate = Identification Date
 administrator.risk.list.label.impact = Impact
+administrator.risk.list.label.value = Value
 
 
 # administrator.risk.form ###################################################
@@ -17,6 +18,9 @@ administrator.risk.form.label.link  = Link (Optional)
 administrator.risk.list.button.create = Create
 administrator.risk.form.button.update = Update
 administrator.risk.form.button.delete = Delete
+
+administrator.risk.form.button.create = Create
+
 
 administrator.risk.form.error.duplicated = Code already exists
 administrator.risk.form.error.invalid-impact = Impact must be positive

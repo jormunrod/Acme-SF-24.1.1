@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="administrator.risk.form.label.reference" path="reference"/>
+	<acme:input-textbox code="administrator.risk.form.label.reference" path="reference" placeholder="R-000"/>
 	<acme:input-moment code="administrator.risk.form.label.identificationDate" path="identificationDate"/>
 	<acme:input-double code="administrator.risk.form.label.impact" path="impact"/>
 	<acme:input-double code="administrator.risk.form.label.probability" path="probability"/>

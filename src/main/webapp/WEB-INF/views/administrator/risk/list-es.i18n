@@ -3,6 +3,7 @@ administrator.risk.list.title = Riesgos
 administrator.risk.list.label.reference = Referencia
 administrator.risk.list.label.identificationDate = Fecha de Identificación
 administrator.risk.list.label.impact = Impacto
+administrator.risk.list.label.value = Valor
 
 
 # administrator.risk.form ###################################################
