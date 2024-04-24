@@ -1,8 +1,6 @@
 
 package acme.features.developers.dashboard;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,18 +24,6 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		super.getResponse().setAuthorised(true);
 	}
 
-	public Double calculateStandardDeviation() {
-		Double mean = this.repository.average();
-		Collection<Integer> times = this.repository.findAllTrainingModuleTimes();
-		double variance = 0.0;
-
-		for (Integer time : times)
-			variance += Math.pow(time - mean, 2);
-
-		variance = variance / times.size();
-		return Math.sqrt(variance);
-	}
-
 	@Override
 	public void load() {
 		DeveloperDashboard dashboard;
@@ -47,13 +33,16 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		Double deviation;
 		Integer minimumTimeOfTheTrainingModules;
 		Integer maximumTimeOfTheTrainingModules;
+		int developerId;
 
-		totalNumberOfTrainingModuleWithAnUpdateMoment = this.repository.totalNumberOfTrainingModuleWithAnUpdateMoment();
-		totalNumberOfTrainingSessionsWithALink = this.repository.totalNumberOfTrainingSessionsWithALink();
-		average = this.repository.average();
-		deviation = this.calculateStandardDeviation();
-		minimumTimeOfTheTrainingModules = this.repository.minimumTimeOfTheTrainingModules();
-		maximumTimeOfTheTrainingModules = this.repository.maximumTimeOfTheTrainingModules();
+		developerId = super.getRequest().getPrincipal().getActiveRoleId();
+
+		totalNumberOfTrainingModuleWithAnUpdateMoment = this.repository.totalNumberOfTrainingModuleWithAnUpdateMoment(developerId);
+		totalNumberOfTrainingSessionsWithALink = this.repository.totalNumberOfTrainingSessionsWithALink(developerId);
+		average = this.repository.average(developerId);
+		deviation = this.repository.deviation(developerId);
+		minimumTimeOfTheTrainingModules = this.repository.minimumTimeOfTheTrainingModules(developerId);
+		maximumTimeOfTheTrainingModules = this.repository.maximumTimeOfTheTrainingModules(developerId);
 
 		dashboard = new DeveloperDashboard();
 		dashboard.setTotalNumberOfTrainingModuleWithAnUpdateMoment(totalNumberOfTrainingModuleWithAnUpdateMoment);

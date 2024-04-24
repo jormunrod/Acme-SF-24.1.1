@@ -8,12 +8,13 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
+master.menu.claim = Reclamar
 
 # master.menu.anonymous #######################################################
 
@@ -34,12 +35,17 @@ master.menu.client.dashboard = Panel de indicadores
 master.menu.developer = Desarrolladores
 master.menu.developer.training-module.list = Listar Módulo de Desarrollo
 master.menu.developer.dashboard = Panel de indicadores
+master.menu.developer.training-module.list-all = Listar Módulo de Desarrollo Publicados
+master.menu.client.contract.list-all = Listar Contratos Publicados
+master.menu.list-published = Listado Publicados
+
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.banners = Anuncios publicitarios
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
@@ -74,7 +80,18 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.become-developer = Hazte desarrollador
 master.menu.user-account.developer = Datos de desarrollador
+
 # master.menu.sponsor ########################################################
 master.menu.sponsor = Patrocinador
-master.menu.sponsor.sponsorship.list = Lista de patrocinadores
+master.menu.sponsor.sponsorship.list = Lista de patrocinios
 master.menu.user-account.become-sponsor = Hazte patrocinador
+master.menu.user-account.sponsor = Datos de patrocinador
+
+# master.menu.client #########################################################
+master.menu.user-account.become-client = Hazte cliente
+master.menu.user-account.client = Datos de cliente
+
+# master.menu.any ########################################################
+any.training-module.list.title = Módulos de entrenamiento publicados
+any.training-module.form.title = Detalles del módulo de entrenamiento publicado
+

@@ -1,3 +1,8 @@
+/**
+ * Contract Entity
+ * 
+ * @Author: jormunrod
+ */
 
 package acme.entities.contracts;
 

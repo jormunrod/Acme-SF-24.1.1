@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.CodeAuditType;
 import acme.entities.audits.Mark;
@@ -61,15 +62,23 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
-		System.out.println(object);
-
 		boolean status;
+		Collection<AuditRecord> auditRecords;
 		Mark mark;
 
-		mark = object.getMark();
-		status = !(mark.equals(Mark.F) || mark.equals(Mark.F_MINUS));
+		auditRecords = this.repository.findAllAuditRecordsByCodeAuditId(object.getId());
 
-		super.state(status, "mark", "auditor.code-audit.form.err.fail-mark");
+		status = !auditRecords.isEmpty();
+		super.state(status, "*", "auditor.code-audit.form.err.no-audit-records");
+
+		status = auditRecords.stream().allMatch(ar -> ar.isPublished());
+		super.state(status, "*", "auditor.code-audit.form.err.audit-records-not-published");
+
+		if (!auditRecords.isEmpty() && status) {
+			mark = object.getMark();
+			status = !(mark.equals(Mark.F) || mark.equals(Mark.F_MINUS));
+			super.state(status, "mark", "auditor.code-audit.form.err.fail-mark");
+		}
 	}
 
 	@Override
