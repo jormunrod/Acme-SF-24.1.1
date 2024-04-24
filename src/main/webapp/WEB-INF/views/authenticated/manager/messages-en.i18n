@@ -6,4 +6,5 @@ authenticated.manager.form.label.certifications = Certifications
 authenticated.manager.form.label.link = Link (Optional)
 
 authenticated.manager.form.button.create = Create
+authenticated.manager.form.button.update = Update
  

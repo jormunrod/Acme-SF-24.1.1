@@ -14,11 +14,15 @@ import acme.roles.Manager;
 public class AuthenticatedManagerController extends AbstractController<Authenticated, Manager> {
 
 	@Autowired
-	private AuthenticatedManagerCreateService createService;
+	private AuthenticatedManagerCreateService	createService;
+
+	@Autowired
+	private AuthenticatedManagerUpdateService	updateService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
 	}
 }
