@@ -37,7 +37,7 @@ master.menu.developer.training-module.list = Listar Módulo de Desarrollo
 master.menu.developer.dashboard = Panel de indicadores
 master.menu.developer.training-module.list-all = Listar Módulo de Desarrollo Publicados
 master.menu.client.contract.list-all = Listar Contratos Publicados
-master.menu.list-published = Listado Publicados
+master.menu.list-published = Cualquier Rol
 
 
 # master.menu.administrator ###################################################
@@ -85,6 +85,7 @@ master.menu.user-account.become-developer = Hazte desarrollador
 master.menu.user-account.developer = Datos de desarrollador
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.risk = Riesgos
 
 # master.menu.sponsor ########################################################
 master.menu.sponsor = Patrocinador
