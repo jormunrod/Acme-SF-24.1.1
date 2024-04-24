@@ -1,0 +1,21 @@
+# master.any.code-audit #####################################################
+
+any.code-audit.list.title = List of Code Audits
+any.code-audit.list.label.code = Code
+any.code-audit.list.label.auditor = Auditor
+any.code-audit.list.label.execution = Execution Date
+any.code-audit.list.label.type = Type
+any.code-audit.list.label.mark = Mark
+
+any.code-audit.form.title = Details of Code Audit
+any.code-audit.form.label.auditor = Auditor
+any.code-audit.form.label.code = Code
+any.code-audit.form.label.project = Project
+any.code-audit.form.label.execution = Execution Date
+any.code-audit.form.label.type = Type
+any.code-audit.form.label.correctiveActions = Corrective Actions
+any.code-audit.form.label.mark = Mark
+any.code-audit.form.label.link = Link (Optional)
+
+any.code-audit.form.button.create = Create
+any.code-audit.form.button.audit-record = Audit Record

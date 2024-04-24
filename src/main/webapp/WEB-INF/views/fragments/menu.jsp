@@ -76,14 +76,17 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.list-published">
-			<acme:menu-suboption code="master.menu.manager.project.list-all" action="/any/project/list"/>
+			<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/any/training-module/list"/>
+			<acme:menu-suboption code="master.menu.client.contract.list-all" action="/any/contract/list"/>
+			<acme:menu-suboption code="master.menu.sponsor.sponsorship.list-all" action="/any/sponsorship/list"/>
+			<acme:menu-suboption code="master.menu.auditor.code-audit.list-all" action="/any/code-audit/list"/>
+      <acme:menu-suboption code="master.menu.manager.project.list-all" action="/any/project/list"/>
 			<acme:menu-suboption code="master.menu.client.contract.list-all" action="/any/contract/list"/>
 			<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/any/training-module/list"/>
 			<acme:menu-suboption code="master.menu.sponsor.sponsorship.list-all" action="/any/sponsorship/list"/>
       <acme:menu-separator/>
 	  	<acme:menu-suboption code="master.menu.claim" action="/any/claim/list"/>
-	  	</acme:menu-option>
-
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
