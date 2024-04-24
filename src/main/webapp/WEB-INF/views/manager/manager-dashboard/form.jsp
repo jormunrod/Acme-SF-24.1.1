@@ -50,6 +50,14 @@
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
+				code="manager.manager-dashboard.form.label.deviation-number-of-estimated-hours" />
+		</th>
+		<td>
+			<acme:print value="${deviationNumberOfEstimatedHours}" />
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"><acme:message
 				code="manager.manager-dashboard.form.label.minimum-number-of-estimated-hours" />
 		</th>
 		<td>
@@ -58,10 +66,10 @@
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="manager.manager-dashboard.form.label.maximum-number-of-estimated-hours" />
+				code="manager.manager-dashboard.form.label.maximum-number-of-cost" />
 		</th>
 		<td>
-			<acme:print value="${maximumNumberOfEstimatedHours}" />
+			<acme:print value="${maximumNumberOfCost}" />
 		</td>
 	</tr>
 	<tr>
@@ -70,6 +78,14 @@
 		</th>
 		<td>
 			<acme:print value="${averageNumberOfCost}" />
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"><acme:message
+				code="manager.manager-dashboard.form.label.deviation-number-of-estimated-hours" />
+		</th>
+		<td>
+			<acme:print value="${deviationNumberOfEstimatedHours}" />
 		</td>
 	</tr>
 	<tr>

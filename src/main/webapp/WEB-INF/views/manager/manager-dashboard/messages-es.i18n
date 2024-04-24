@@ -9,9 +9,11 @@ manager.manager-dashboard.form.label.total-number-could-user-stories = Total de 
 manager.manager-dashboard.form.label.total-number-wont-user-stories = Total de historias de usuario que no serán realizadas
 
 manager.manager-dashboard.form.label.average-number-of-estimated-hours = Número medio de horas estimadas por historia de usuario
+manager.manager-dashboard.form.label.deviation-number-of-estimated-hours = Desviación del número de horas estimadas por historia de usuario
 manager.manager-dashboard.form.label.minimum-number-of-estimated-hours = Número mínimo de horas estimadas por historia de usuario
 manager.manager-dashboard.form.label.maximum-number-of-estimated-hours = Número máximo de horas estimadas por historia de usuario
 
 manager.manager-dashboard.form.label.average-number-of-cost = Número medio del coste de un proyecto
+manager.manager-dashboard.form.label.deviation-number-of-cost = Desviación del coste de un proyecto
 manager.manager-dashboard.form.label.minimum-number-of-cost = Número mínimo del coste de un proyecto
 manager.manager-dashboard.form.label.maximum-number-of-cost = Número máximo del coste de un proyecto

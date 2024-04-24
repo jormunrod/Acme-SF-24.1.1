@@ -24,35 +24,39 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 	@Override
 	public void load() {
 		ManagerDashboard dashboard;
+		int id;
+
+		id = super.getRequest().getPrincipal().getActiveRoleId();
+
 		Integer totalNumberOfMUSTUserStories;
 		Integer totalNumberOfSHOULDUserStories;
 		Integer totalNumberOfCOULDUserStories;
 		Integer totalNumberOfWONTUserStories;
 
 		Double averageNumberOfEstimatedHours;
-		//Double deviationNumberOfEstimatedHours;
+		Double deviationNumberOfEstimatedHours;
 		Integer minimumNumberOfEstimatedHours;
 		Integer maximumNumberOfEstimatedHours;
 
 		Double averageNumberOfCost;
-		//Double deviationNumberOfCost;
+		Double deviationNumberOfCost;
 		Integer minimumNumberOfCost;
 		Integer maximumNumberOfCost;
 
-		totalNumberOfMUSTUserStories = this.repository.totalNumberOfMUSTUserStories();
-		totalNumberOfSHOULDUserStories = this.repository.totalNumberOfSHOULDUserStories();
-		totalNumberOfCOULDUserStories = this.repository.totalNumberOfCOULDUserStories();
-		totalNumberOfWONTUserStories = this.repository.totalNumberOfWONTUserStories();
+		totalNumberOfMUSTUserStories = this.repository.totalNumberOfMUSTUserStories(id);
+		totalNumberOfSHOULDUserStories = this.repository.totalNumberOfSHOULDUserStories(id);
+		totalNumberOfCOULDUserStories = this.repository.totalNumberOfCOULDUserStories(id);
+		totalNumberOfWONTUserStories = this.repository.totalNumberOfWONTUserStories(id);
 
-		averageNumberOfEstimatedHours = this.repository.averageNumberOfEstimatedHours();
-		//deviationNumberOfEstimatedHours = this.repository.deviationNumberOfEstimatedHours();
-		minimumNumberOfEstimatedHours = this.repository.minimumNumberOfEstimatedHours();
-		maximumNumberOfEstimatedHours = this.repository.maximumNumberOfEstimatedHours();
+		averageNumberOfEstimatedHours = this.repository.averageNumberOfEstimatedHours(id);
+		deviationNumberOfEstimatedHours = this.repository.deviationNumberOfEstimatedHours(id);
+		minimumNumberOfEstimatedHours = this.repository.minimumNumberOfEstimatedHours(id);
+		maximumNumberOfEstimatedHours = this.repository.maximumNumberOfEstimatedHours(id);
 
-		averageNumberOfCost = this.repository.averageNumberOfCost();
-		//deviationNumberOfCost = this.repository.deviationNumberOfCost();
-		minimumNumberOfCost = this.repository.minimumNumberOfCost();
-		maximumNumberOfCost = this.repository.maximumNumberOfCost();
+		averageNumberOfCost = this.repository.averageNumberOfCost(id);
+		deviationNumberOfCost = this.repository.deviationNumberOfCost(id);
+		minimumNumberOfCost = this.repository.minimumNumberOfCost(id);
+		maximumNumberOfCost = this.repository.maximumNumberOfCost(id);
 
 		dashboard = new ManagerDashboard();
 		dashboard.setTotalNumberOfMUSTUserStories(totalNumberOfMUSTUserStories);
@@ -61,12 +65,12 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 		dashboard.setTotalNumberOfWONTUserStories(totalNumberOfWONTUserStories);
 
 		dashboard.setAverageNumberOfEstimatedHours(averageNumberOfEstimatedHours);
-		//dashboard.setDeviationNumberOfEstimatedHours(deviationNumberOfEstimatedHours);
+		dashboard.setDeviationNumberOfEstimatedHours(deviationNumberOfEstimatedHours);
 		dashboard.setMinimumNumberOfEstimatedHours(minimumNumberOfEstimatedHours);
 		dashboard.setMaximumNumberOfEstimatedHours(maximumNumberOfEstimatedHours);
 
 		dashboard.setAverageNumberOfCost(averageNumberOfCost);
-		//dashboard.setDeviationNumberOfCost(deviationNumberOfCost);
+		dashboard.setDeviationNumberOfCost(deviationNumberOfCost);
 		dashboard.setMinimumNumberOfCost(minimumNumberOfCost);
 		dashboard.setMaximumNumberOfCost(maximumNumberOfCost);
 
@@ -79,8 +83,8 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 
 		dataset = super.unbind(object, "totalNumberOfMUSTUserStories", "totalNumberOfSHOULDUserStories", //
 			"totalNumberOfCOULDUserStories", "totalNumberOfWONTUserStories", "averageNumberOfEstimatedHours", //
-			/* "deviationNumberOfEstimatedHours", */ "minimumNumberOfEstimatedHours", //
-			"maximumNumberOfEstimatedHours", "averageNumberOfCost", /* "deviationNumberOfCost", */ //
+			"deviationNumberOfEstimatedHours", "minimumNumberOfEstimatedHours", //
+			"maximumNumberOfEstimatedHours", "averageNumberOfCost", "deviationNumberOfCost", //
 			"minimumNumberOfCost", "maximumNumberOfCost");
 
 		super.getResponse().addData(dataset);
