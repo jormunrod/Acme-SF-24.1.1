@@ -19,14 +19,34 @@ public class SponsorDashboard extends AbstractForm {
 	Integer						totalNumberOfInvoicesWithATaxLessThanOrEqualTo21;
 	Integer						totalNumberOfSponsorshipsWithALink;
 
-	Money						averageAmountOfTheSponsorships;
-	Money						deviationAmountOfTheSponsorships;
-	Money						minimumAmountOfTheSponsorships;
-	Money						maximumAmountOfTheSponsorships;
+	Money						averageAmountOfTheSponsorshipsEUR;
+	Money						deviationAmountOfTheSponsorshipsEUR;
+	Money						minimumAmountOfTheSponsorshipsEUR;
+	Money						maximumAmountOfTheSponsorshipsEUR;
 
-	Money						averageQuantityOfTheInvoices;
-	Money						deviationQuantityOfTheInvoices;
-	Money						minimumQuantityOfTheInvoices;
-	Money						maximumQuantityOfTheInvoices;
+	Money						averageAmountOfTheSponsorshipsUSD;
+	Money						deviationAmountOfTheSponsorshipsUSD;
+	Money						minimumAmountOfTheSponsorshipsUSD;
+	Money						maximumAmountOfTheSponsorshipsUSD;
+
+	Money						averageAmountOfTheSponsorshipsGBP;
+	Money						deviationAmountOfTheSponsorshipsGBP;
+	Money						minimumAmountOfTheSponsorshipsGBP;
+	Money						maximumAmountOfTheSponsorshipsGBP;
+
+	Money						averageQuantityOfTheInvoicesEUR;
+	Money						deviationQuantityOfTheInvoicesEUR;
+	Money						minimumQuantityOfTheInvoicesEUR;
+	Money						maximumQuantityOfTheInvoicesEUR;
+
+	Money						averageQuantityOfTheInvoicesUSD;
+	Money						deviationQuantityOfTheInvoicesUSD;
+	Money						minimumQuantityOfTheInvoicesUSD;
+	Money						maximumQuantityOfTheInvoicesUSD;
+
+	Money						averageQuantityOfTheInvoicesGBP;
+	Money						deviationQuantityOfTheInvoicesGBP;
+	Money						minimumQuantityOfTheInvoicesGBP;
+	Money						maximumQuantityOfTheInvoicesGBP;
 
 }

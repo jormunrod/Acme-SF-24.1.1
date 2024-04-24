@@ -25,6 +25,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.javrodrei" action="https://orteil.dashnet.org/cookieclicker"/>
 			<acme:menu-suboption code="master.menu.anonymous.isasolpad" action="https://burgerfoodporn.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.alepersan3" action="https://neal.fun/password-game"/>
+			<acme:menu-separator/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
@@ -38,7 +39,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.developer.dashboard" action="/developer/developer-dashboard/show"/>
 		</acme:menu-option>
-
+		
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
 			<acme:menu-suboption code="master.menu.sponsor.sponsorship.list" action="/sponsor/sponsorship/list-mine"/>
 			<acme:menu-separator/>
@@ -46,6 +47,8 @@
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.banners" action="/administrator/banner/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/system/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/system/populate-sample"/>			
@@ -60,7 +63,13 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+
 		
+		<acme:menu-option code="master.menu.list-published">
+		<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/any/training-module/list"/>
+		<acme:menu-suboption code="master.menu.sponsor.sponsorship.list-all" action="/any/sponsorship/list"/>
+		</acme:menu-option>
+    
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 		    <acme:menu-suboption code="master.menu.auditor.code-audit.list" action="/auditor/code-audit/list"/>
 		</acme:menu-option>
@@ -68,6 +77,15 @@
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
 			<acme:menu-suboption code="master.menu.manager.project.list" action="/manager/project/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.list-published">
+			<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/any/training-module/list"/>
+			<acme:menu-suboption code="master.menu.client.contract.list-all" action="/any/contract/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.claim" action="/any/claim/list"/>
+
+
 	</acme:menu-left>
 
 	<acme:menu-right>
@@ -84,6 +102,9 @@
 			<acme:menu-suboption code="master.menu.user-account.developer" action="/authenticated/developer/update" access="hasRole('Developer')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create" access="!hasRole('Sponsor')"/>
 			<acme:menu-suboption code="master.menu.user-account.sponsor" action="/authenticated/sponsor/update" access="hasRole('Sponsor')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-client" action="/authenticated/client/create" access="!hasRole('Client')"/>
+			<acme:menu-suboption code="master.menu.user-account.client" action="/authenticated/client/update" access="hasRole('Client')"/>
+			
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/authenticated/system/sign-out" access="isAuthenticated()"/>

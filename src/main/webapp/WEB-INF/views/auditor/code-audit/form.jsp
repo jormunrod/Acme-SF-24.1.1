@@ -9,11 +9,15 @@
 	<acme:input-moment code="auditor.code-audit.form.label.execution" path="execution"/>
 	<acme:input-select code="auditor.code-audit.form.label.type" path="type" choices="${types}"/>
 	<acme:input-textarea code="auditor.code-audit.form.label.correctiveActions" path="correctiveActions" placeholder=""/>
-	<acme:input-textarea code="auditor.code-audit.form.label.mark" readonly="true" path="mark"/>
-	<acme:input-url code="auditor.code-audit.form.label.link" path="link" placeholder=""/>
+	<acme:input-textarea code="auditor.code-audit.form.label.mark" readonly="true" path="mark" placeholder=""/>
+	<acme:input-url code="auditor.code-audit.form.label.link" path="link" placeholder="https://www.acme.com"/>
 
 	<jstl:choose>
+		<jstl:when test="${_command == 'show' && isPublished == true}">
+			<acme:button code="auditor.code-audit.form.button.auditRecord" action="/auditor/audit-record/list?codeAuditId=${id}"/>	
+		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
+			<acme:button code="auditor.code-audit.form.button.auditRecord" action="/auditor/audit-record/list?codeAuditId=${id}"/>
 			<acme:submit code="auditor.code-audit.form.button.delete" action="/auditor/code-audit/delete"/>
 			<acme:submit code="auditor.code-audit.form.button.update" action="/auditor/code-audit/update"/>
 			<acme:submit code="auditor.code-audit.form.button.publish" action="/auditor/code-audit/publish"/>

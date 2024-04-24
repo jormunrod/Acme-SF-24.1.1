@@ -40,7 +40,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 			status = true;
 		else
 			status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
-		super.getResponse().setAuthorised(status);
+
 		super.getResponse().setAuthorised(status);
 
 	}

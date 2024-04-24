@@ -1,11 +1,14 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
@@ -70,10 +73,49 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			double invoicesAmount = 0.;
 			Collection<Invoice> invoices;
 			invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
-			for (Invoice i : invoices)
+			for (Invoice i : invoices) {
+				if (i.isDraftMode())
+					super.state(false, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
 				invoicesAmount += i.getTotalAmount().getAmount();
+			}
+			if (amount - invoicesAmount > 0.)
+				super.state(amount - invoicesAmount == 0., "*", "sponsor.sponsorship.error.invoicesLeft");
+			if (amount - invoicesAmount < 0.)
+				super.state(amount - invoicesAmount == 0., "*", "sponsor.sponsorship.error.invoicesLeftOver");
+		}
 
-			super.state(amount - invoicesAmount == 0., "*", "sponsor.sponsorship.error.amountNotPositive");
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Sponsorship alredyExisting;
+			Sponsorship actual;
+			boolean status = true;
+			int id;
+			id = super.getRequest().getData("id", int.class);
+			alredyExisting = this.repository.findSponsorshipByCode(object.getCode());
+			actual = this.repository.findOneSponsorshipById(id);
+			if (alredyExisting != null)
+				status = alredyExisting.getCode().equals(actual.getCode());
+			super.state(status, "code", "sponsor.sponsorship.error.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			Date moment = object.getMoment();
+			Date startDate = object.getStartDate();
+
+			super.state(startDate.after(moment), "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+			Date startDate = object.getStartDate();
+			Date endDate = object.getEndDate();
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(startDate);
+			cal.add(Calendar.MONTH, 1);
+			Date oneMonthAfterStartDate = cal.getTime();
+			super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Money amount = object.getAmount();
+			super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
 		}
 
 	}

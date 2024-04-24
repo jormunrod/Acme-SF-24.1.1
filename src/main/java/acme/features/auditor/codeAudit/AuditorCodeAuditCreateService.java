@@ -1,5 +1,5 @@
 
-package acme.features.auditor;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -15,7 +15,7 @@ import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditCreateService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -28,13 +28,13 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
-		CodeAudit codeAudit;
+		int auditorId;
+		Auditor auditor;
 
-		id = super.getRequest().getData("id", int.class);
-		codeAudit = this.repository.findOneCodeAuditById(id);
+		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
+		auditor = this.repository.findOneAuditorById(auditorId);
 
-		status = codeAudit != null && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
+		status = super.getRequest().getPrincipal().hasRole(auditor);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -42,12 +42,47 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 	@Override
 	public void load() {
 		CodeAudit object;
-		int id;
+		Auditor auditor;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCodeAuditById(id);
+		auditor = this.repository.findOneAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
+		object = new CodeAudit();
+		object.setPublished(false);
+		object.setAuditor(auditor);
 
 		super.getBuffer().addData(object);
+	}
+
+	@Override
+	public void bind(final CodeAudit object) {
+		assert object != null;
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
+		super.bind(object, "code", "execution", "type", "correctiveActions", "link");
+		object.setProject(project);
+	}
+
+	@Override
+	public void validate(final CodeAudit object) {
+		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			CodeAudit existing;
+
+			existing = this.repository.findOneCodeAuditByCode(object.getCode());
+			super.state(existing == null, "code", "auditor.code-audit.form.err.duplicated");
+		}
+
+		super.state(!object.isPublished(), "*", "auditor.code-audit.form.err.isPublished");
+	}
+
+	@Override
+	public void perform(final CodeAudit object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override

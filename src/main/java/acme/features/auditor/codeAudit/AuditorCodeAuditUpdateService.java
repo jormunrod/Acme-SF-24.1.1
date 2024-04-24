@@ -1,5 +1,5 @@
 
-package acme.features.auditor;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -11,19 +11,18 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.CodeAuditType;
-import acme.entities.audits.Mark;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditPublishService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private AuditorCodeAuditRepository repository;
 
-	// AbstractService interface ---------------------------------------------
+	// AbstractService interface --------------------------
 
 
 	@Override
@@ -41,8 +40,8 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 	@Override
 	public void load() {
-		CodeAudit object;
 		int id;
+		CodeAudit object;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCodeAuditById(id);
@@ -54,38 +53,35 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		super.bind(object, "code", "execution", "type", "correctiveActions", "mark", "link");
+		super.bind(object, "code", "project", "execution", "type", "correctiveActions", "mark", "link");
 	}
 
 	@Override
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
-		System.out.println(object);
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			CodeAudit existing;
 
-		boolean status;
-		Mark mark;
+			existing = this.repository.findOneCodeAuditByCode(object.getCode());
+			if (existing != null && existing.getId() != object.getId())
+				super.state(false, "code", "auditor.code-audit.form.err.duplicated");
+		}
 
-		mark = object.getMark();
-		status = !(mark.equals(Mark.F) || mark.equals(Mark.F_MINUS));
-
-		super.state(status, "mark", "auditor.code-audit.form.err.fail-mark");
+		super.state(!object.isPublished(), "*", "auditor.code-audit.form.err.isPublished");
 	}
 
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
-		CodeAudit codeAudit;
-		codeAudit = object;
 
-		codeAudit.setPublished(true);
-
-		this.repository.save(codeAudit);
+		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final CodeAudit object) {
 		assert object != null;
+
 		Collection<Project> projects;
 		SelectChoices choices;
 		SelectChoices choicesType;
@@ -94,7 +90,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		projects = this.repository.findPublishedProjects();
 		choices = SelectChoices.from(projects, "code", object.getProject());
 		choicesType = SelectChoices.from(CodeAuditType.class, object.getType());
-		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "mark", "link", "isPublished");
+		dataset = super.unbind(object, "code", "project", "execution", "type", "correctiveActions", "mark", "link", "isPublished");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("types", choicesType);

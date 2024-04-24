@@ -1,12 +1,5 @@
 # menu-en.i18n
 
-# master.menu #################################################################
-
-master.menu.home = Home
-master.menu.sign-up = Sign up
-master.menu.sign-in = Sign in
-master.menu.sign-out = Sign out
-
 # master.client.progress-log #####################################################
 
 client.progress-log.list.title = Progress Log
@@ -29,5 +22,4 @@ client.progress-log.form.button.delete = Delete
 client.progress-log.form.button.update = Update
 client.progress-log.form.button.publish = Publish
 client.progress-log.form.error.duplicated = This ID already exists
-
 
