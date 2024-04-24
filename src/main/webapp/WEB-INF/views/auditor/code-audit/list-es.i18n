@@ -1,0 +1,32 @@
+#master.auditor.code-audit ######################################################
+
+auditor.code-audit.list.title = Listado de Auditorías de código
+auditor.code-audit.list.label.code = Código
+auditor.code-audit.list.label.execution = Fecha de ejecución
+auditor.code-audit.list.label.type = Tipo
+auditor.code-audit.list.label.mark = Nota
+
+auditor.code-audit.form.title = Detalles de auditoría de código
+auditor.code-audit.form.label.code = Código
+auditor.code-audit.form.label.execution = Fecha de ejecución
+auditor.code-audit.form.label.type = Tipo
+auditor.code-audit.form.label.correctiveActions = Acciones correctivas
+auditor.code-audit.form.label.mark = Nota
+auditor.code-audit.form.label.link = Enlace (Opcional)
+auditor.code-audit.list.label.published = Publicado
+
+auditor.code-audit.list.button.create = Crear
+
+auditor.code-audit.list.button.auditRecord = Registros de auditoría 
+auditor.code-audit.form.button.create = Crear
+auditor.code-audit.form.button.delete = Borrar
+auditor.code-audit.form.button.update = Actualizar
+auditor.code-audit.form.button.publish = Publicar
+
+auditor.code-audit.form.label.project = Proyecto
+
+auditor.code-audit.form.error.duplicated = El código ya existe
+auditor.code-audit.form.error.fail-mark = Esta auditoría de código tiene una nota menor que 'C'
+auditor.code-audit.form.error.isPublished = Esta auditoría de código ya ha sido publicada
+auditor.code-audit.form.err.audit-records-not-published = Hay registros de auditoría sin publicar
+auditor.code-audit.form.err.no-audit-records = No hay registros de auditoría

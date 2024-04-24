@@ -119,7 +119,6 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		Dataset dataset;
 		SelectChoices typeChoices;
 
-		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());

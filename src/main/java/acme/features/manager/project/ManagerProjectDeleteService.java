@@ -10,8 +10,8 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
-import acme.entities.projects.Contract;
-import acme.entities.projects.ProgressLog;
+import acme.entities.contracts.Contract;
+import acme.entities.contracts.ProgressLog;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
 import acme.entities.sponsorships.Invoice;
@@ -24,7 +24,7 @@ import acme.roles.Manager;
 public class ManagerProjectDeleteService extends AbstractService<Manager, Project> {
 
 	@Autowired
-	protected ManagerProjectRepository repository;
+	private ManagerProjectRepository repository;
 
 
 	@Override

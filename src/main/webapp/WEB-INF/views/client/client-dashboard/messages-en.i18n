@@ -1,0 +1,15 @@
+# messages-en.i18n
+
+############# client.client-dashboard #######################################
+
+client.client-dashboard.form.title = Client Dashboard
+
+client.client-dashboard.form.title.general-indicators = General Indicators
+client.client-dashboard.form.label.number-of-progress-logs-below-25	= Number of progress logs below 25: 
+client.client-dashboard.form.label.number-of-progress-logs-between-25-and-50 = Number of progress logs between 25 and 50: 
+client.client-dashboard.form.label.number-of-progress-logs-between-50-and-75 = Number of progress logs between 50 and 75: 
+client.client-dashboard.form.label.number-of-progress-logs-above-75 = Number of progress logs above 75: 
+client.client-dashboard.form.label.average-budget = Average budget: 
+client.client-dashboard.form.label.deviation-budget = Deviation budget: 
+client.client-dashboard.form.label.minimum-budget = Minimum budget: 
+client.client-dashboard.form.label.maximum-budget = Maximum budget: 

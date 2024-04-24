@@ -64,15 +64,15 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 	public void validate(final TrainingModule object) {
 		assert object != null;
 
-		boolean status;
-		int id;
-		int numberOfTrainingSessions;
+		int id = object.getId();
 
-		id = object.getId();
-		numberOfTrainingSessions = this.repository.countTrainingSessionsByTrainingModuleId(id);
-		status = numberOfTrainingSessions != 0;
+		int totalNumberOfTrainingSessions = this.repository.countTrainingSessionsByTrainingModuleId(id);
+		int publishedTrainingSessions = this.repository.countPublishedTrainingSessionsByTrainingModuleId(id);
 
-		super.state(status, "*", "developer.training-module.form.error.hasNotSessions");
+		if (totalNumberOfTrainingSessions == 0)
+			super.state(false, "*", "developer.training-module.form.error.hasNotSessions");
+		else if (publishedTrainingSessions != totalNumberOfTrainingSessions)
+			super.state(false, "*", "developer.training-module.form.error.hasUnpublishedSessions");
 
 	}
 
