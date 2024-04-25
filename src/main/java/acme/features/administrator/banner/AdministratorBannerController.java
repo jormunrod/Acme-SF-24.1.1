@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
 import acme.client.data.accounts.Administrator;
-import acme.entities.sponsorships.Banner;
+import acme.entities.banner.Banner;
 
 @Controller
 public class AdministratorBannerController extends AbstractController<Administrator, Banner> {
