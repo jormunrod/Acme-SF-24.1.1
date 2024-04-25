@@ -1,6 +1,6 @@
 # manager.manager-dashboard.form ###################################################
 
-manager.manager-dashboard.form.title = Panel de indicadores de gestor
+manager.manager-dashboard.form.title = Panel de indicadores del gestor
 manager.manager-dashboard.form.title.general-indicators = Indicadores generales
 
 manager.manager-dashboard.form.label.total-number-must-user-stories = Total de historias de usuario que deben ser realizadas
