@@ -22,4 +22,5 @@ client.progress-log.form.button.delete = Delete
 client.progress-log.form.button.update = Update
 client.progress-log.form.button.publish = Publish
 client.progress-log.form.error.duplicated = This ID already exists
+client.progress-log.list.label.isPublished = Published
 

@@ -8,6 +8,7 @@
 package acme.features.client.progressLog;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +59,13 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 		assert object != null;
 		Dataset dataset;
 		dataset = super.unbind(object, "recordId", "completenessPercentage", "progressComment", "registrationMoment", "responsiblePerson", "isPublished");
+
+		if (object.isPublished()) {
+			final Locale local = super.getRequest().getLocale();
+
+			dataset.put("isPublished", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+		} else
+			dataset.put("isPublished", "No");
 
 		super.getResponse().addData(dataset);
 	}
