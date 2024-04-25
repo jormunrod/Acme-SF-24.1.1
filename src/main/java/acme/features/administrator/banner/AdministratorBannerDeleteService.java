@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.sponsorships.Banner;
+import acme.entities.banner.Banner;
 
 @Service
 public class AdministratorBannerDeleteService extends AbstractService<Administrator, Banner> {
