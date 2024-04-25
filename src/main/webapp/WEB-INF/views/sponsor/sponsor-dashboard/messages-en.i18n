@@ -21,37 +21,11 @@ sponsor.dashboard.form.label.total-number-of-invoices-with-a-tax-less-than-or-eq
 sponsor.dashboard.form.label.total-number-of-sponsorships-with-a-link = Sponsorships with link
 
 
-
-
-
-sponsor.dashboard.form.label.average-amount-of-the-sponsorships-eur = Average Amount Of Sponsorhips In Euros
-sponsor.dashboard.form.label.average-amount-of-the-sponsorships-usd = Average Amount Of Sponsorships In U.S. Dollars
-sponsor.dashboard.form.label.average-amount-of-the-sponsorships-gbp = Average Amount Of Sponsorships In British Pounds
-
-sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships-eur = Standard Deviation Of Sponsorship Amounts In Euros
-sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships-usd = Standard Deviation Of Sponsorship Amounts In U.S. Dollars
-sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships-gbp = Standard Deviation Of Sponsorship Amounts In British Pounds
-
-sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships-eur = Minimum Amount Of Sponsorships In Euros
-sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships-usd = Minimum Amount Of Sponsorships In U.S. Dollars
-sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships-gbp = Minimum Amount Of Sponsorships In British Pounds
-
-sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships-eur = Maximum Amount Of Sponsorships In Euros
-sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships-usd = Maximum Amount Of Sponsorships In U.S. Dollars
-sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships-gbp = Maximum Amount Of Sponsorships In British Pounds
-
-sponsor.dashboard.form.label.average-quantity-of-the-invoices-eur = Average Quantity Of Invoices In Euros
-sponsor.dashboard.form.label.average-quantity-of-the-invoices-usd = Average Quantity Of Invoices In U.S. Dollars
-sponsor.dashboard.form.label.average-quantity-of-the-invoices-gbp = Average Quantity Of Invoices In British Pounds
-
-sponsor.dashboard.form.label.deviation-quantity-of-the-invoices-eur = Standard Deviation Of Invoice Quantities In Euros
-sponsor.dashboard.form.label.deviation-quantity-of-the-invoices-usd = Standard Deviation Of Invoice Quantities In U.S. Dollars
-sponsor.dashboard.form.label.deviation-quantity-of-the-invoices-gbp = Standard Deviation Of Invoice Quantities In British Pounds
-
-sponsor.dashboard.form.label.minimum-quantity-of-the-invoices-eur = Minimum Quantity Of Invoices In Euros
-sponsor.dashboard.form.label.minimum-quantity-of-the-invoices-usd = Minimum Quantity Of Invoices In U.S. Dollars
-sponsor.dashboard.form.label.minimum-quantity-of-the-invoices-gbp = Minimum Quantity Of Invoices In British Pounds
-
-sponsor.dashboard.form.label.maximum-quantity-of-the-invoices-eur = Maximum Quantity Of Invoices In Euros
-sponsor.dashboard.form.label.maximum-quantity-of-the-invoices-usd = Maximum Quantity Of Invoices In U.S. Dollars
-sponsor.dashboard.form.label.maximum-quantity-of-the-invoices-gbp = Maximum Quantity Of Invoices In British Pounds
+sponsor.dashboard.form.label.average-amount-of-the-sponsorships = Average amount of sponsorships
+sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships = Deviation in the amount of sponsorships
+sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships = Minimum amount of sponsorships
+sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships = Maximum amount of sponsorships
+sponsor.dashboard.form.label.average-quantity-of-the-invoices = Average quantity of invoices
+sponsor.dashboard.form.label.deviation-quantity-of-the-invoices = Deviation in the quantity of invoices
+sponsor.dashboard.form.label.minimum-quantity-of-the-invoices = Minimum quantity of invoices
+sponsor.dashboard.form.label.maximum-quantity-of-the-invoices = Maximum quantity of invoices

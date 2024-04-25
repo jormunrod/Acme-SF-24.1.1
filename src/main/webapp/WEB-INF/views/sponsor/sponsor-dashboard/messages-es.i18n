@@ -22,34 +22,11 @@ sponsor.dashboard.form.label.total-number-of-invoices-with-a-tax-less-than-or-eq
 sponsor.dashboard.form.label.total-number-of-sponsorships-with-a-link = Patrocinios que tengan link
 
 
-sponsor.dashboard.form.label.average-amount-of-the-sponsorships-eur = Cantidad Promedio de Patrocinios en Euros
-sponsor.dashboard.form.label.average-amount-of-the-sponsorships-usd = Cantidad Promedio de Patrocinios en Dólares Estadounidenses
-sponsor.dashboard.form.label.average-amount-of-the-sponsorships-gbp = Cantidad Promedio de Patrocinios en Libras Esterlinas
-
-sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships-eur = Desviación Estándar de las Cantidades de Patrocinios en Euros
-sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships-usd = Desviación Estándar de las Cantidades de Patrocinios en Dólares Estadounidenses
-sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships-gbp = Desviación Estándar de las Cantidades de Patrocinios en Libras Esterlinas
-
-sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships-eur = Cantidad Mínima de Patrocinios en Euros
-sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships-usd = Cantidad Mínima de Patrocinios en Dólares Estadounidenses
-sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships-gbp = Cantidad Mínima de Patrocinios en Libras Esterlinas
-
-sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships-eur = Cantidad Máxima de Patrocinios en Euros
-sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships-usd = Cantidad Máxima de Patrocinios en Dólares Estadounidenses
-sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships-gbp = Cantidad Máxima de Patrocinios en Libras Esterlinas
-
-sponsor.dashboard.form.label.average-quantity-of-the-invoices-eur = Cantidad Promedio de Facturas en Euros
-sponsor.dashboard.form.label.average-quantity-of-the-invoices-usd = Cantidad Promedio de Facturas en Dólares Estadounidenses
-sponsor.dashboard.form.label.average-quantity-of-the-invoices-gbp = Cantidad Promedio de Facturas en Libras Esterlinas
-
-sponsor.dashboard.form.label.deviation-quantity-of-the-invoices-eur = Desviación Estándar de las Cantidades de Facturas en Euros
-sponsor.dashboard.form.label.deviation-quantity-of-the-invoices-usd = Desviación Estándar de las Cantidades de Facturas en Dólares Estadounidenses
-sponsor.dashboard.form.label.deviation-quantity-of-the-invoices-gbp = Desviación Estándar de las Cantidades de Facturas en Libras Esterlinas
-
-sponsor.dashboard.form.label.minimum-quantity-of-the-invoices-eur = Cantidad Mínima de Facturas en Euros
-sponsor.dashboard.form.label.minimum-quantity-of-the-invoices-usd = Cantidad Mínima de Facturas en Dólares Estadounidenses
-sponsor.dashboard.form.label.minimum-quantity-of-the-invoices-gbp = Cantidad Mínima de Facturas en Libras Esterlinas
-
-sponsor.dashboard.form.label.maximum-quantity-of-the-invoices-eur = Cantidad Máxima de Facturas en Euros
-sponsor.dashboard.form.label.maximum-quantity-of-the-invoices-usd = Cantidad Máxima de Facturas en Dólares Estadounidenses
-sponsor.dashboard.form.label.maximum-quantity-of-the-invoices-gbp = Cantidad Máxima de Facturas en Libras Esterlinas
+sponsor.dashboard.form.label.average-amount-of-the-sponsorships = Cantidad promedio de los patrocinios
+sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships = Desviación en la cantidad de los patrocinios
+sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships = Cantidad mínima de los patrocinios
+sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships = Cantidad máxima de los patrocinios
+sponsor.dashboard.form.label.average-quantity-of-the-invoices = Cantidad promedio de las facturas
+sponsor.dashboard.form.label.deviation-quantity-of-the-invoices = Desviación en la cantidad de las facturas
+sponsor.dashboard.form.label.minimum-quantity-of-the-invoices = Cantidad mínima de las facturas
+sponsor.dashboard.form.label.maximum-quantity-of-the-invoices = Cantidad máxima de las facturas

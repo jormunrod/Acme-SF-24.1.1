@@ -29,10 +29,11 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		Sponsor sponsor;
 
 		id = super.getRequest().getData("id", int.class);
+
 		object = this.repository.findInvoiceById(id);
 		sponsor = object.getSponsorship().getSponsor();
 
-		status = super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
+		status = object.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
 
 		super.getResponse().setAuthorised(status);
 
@@ -51,7 +52,11 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	@Override
 	public void bind(final Invoice object) {
 		assert object != null;
-		super.bind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		Invoice i = this.repository.findInvoiceById(id);
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link");
+		object.setRegistrationTime(i.getRegistrationTime());
 	}
 
 	@Override
@@ -92,20 +97,40 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
 
 		}
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
-			int id;
-			Sponsorship sponsorship;
 
-			id = super.getRequest().getData("masterId", int.class);
-			sponsorship = this.repository.findOneSponsorshipById(id);
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+
+			Invoice invoice;
+			int id;
+
+			id = super.getRequest().getData("id", int.class);
+			invoice = this.repository.findInvoiceById(id);
+
 			String currency = object.getQuantity().getCurrency();
 
-			super.state(currency != null && currency.equals(sponsorship.getAmount().getCurrency()), "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
+			super.state(currency != null && currency.equals(invoice.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
 		}
+
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			String currency = object.getQuantity().getCurrency();
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+				super.state(false, "amount", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			int id;
+			Sponsorship sponsorship;
+			Invoice invoice;
+
+			id = super.getRequest().getData("id", int.class);
+			invoice = this.repository.findInvoiceById(id);
+			sponsorship = invoice.getSponsorship();
+
+			Double totalAmounOfinvoice = this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId()) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId());
+			totalAmounOfinvoice += object.getTotalAmountWithTax().getAmount();
+			totalAmounOfinvoice -= invoice.getTotalAmountWithTax().getAmount();
+
+			if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
+				super.state(false, "quantity", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
 		}
 
 	}
@@ -113,6 +138,7 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	public void perform(final Invoice object) {
 		assert object != null;
 		object.setDraftMode(false);
+		object.setTotalAmount(object.getTotalAmountWithTax());
 		this.repository.save(object);
 
 	}
@@ -120,10 +146,14 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	@Override
 	public void unbind(final Invoice object) {
 		assert object != null;
-
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		Invoice i = this.repository.findInvoiceById(id);
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode");
-
+		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode", "totalAmount");
+		if (object.getQuantity() != null)
+			dataset.put("totalAmount", object.getTotalAmountWithTax());
+		dataset.put("registrationTime", i.getRegistrationTime());
 		super.getResponse().addData(dataset);
 
 	}

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
@@ -51,8 +52,12 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("masterId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
 
-		super.bind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link", "totalAmount");
 		object.setSponsorship(sponsorship);
+		object.setRegistrationTime(MomentHelper.getBaseMoment());
+		if (object.getQuantity() != null)
+			object.setTotalAmount(object.getTotalAmountWithTax());
+
 	}
 
 	@Override
@@ -94,7 +99,18 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			String currency = object.getQuantity().getCurrency();
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+				super.state(false, "quantity", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			int id;
+			Sponsorship sponsorship;
+			id = super.getRequest().getData("masterId", int.class);
+			sponsorship = this.repository.findOneSponsorshipById(id);
+			Double totalAmounOfinvoice = this.repository.sumTotalAmountBySponsorshipId(id) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(id);
+			totalAmounOfinvoice += object.getTotalAmountWithTax().getAmount();
+
+			if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
+				super.state(false, "quantity", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
 		}
 
 	}
@@ -107,6 +123,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("masterId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
 		object.setSponsorship(sponsorship);
+		object.setTotalAmount(object.getTotalAmountWithTax());
 		this.repository.save(object);
 	}
 
@@ -115,8 +132,11 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		assert object != null;
 
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode");
+		dataset = super.unbind(object, "code", "dueDate", "quantity", "tax", "link", "draftMode", "totalAmount");
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("registrationTime", MomentHelper.getBaseMoment());
+		if (object.getQuantity() != null)
+			dataset.put("totalAmount", object.getTotalAmountWithTax());
 		super.getResponse().addData(dataset);
 
 	}
