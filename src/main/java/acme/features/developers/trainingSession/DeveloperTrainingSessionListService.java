@@ -53,8 +53,10 @@ public class DeveloperTrainingSessionListService extends AbstractService<Develop
 		assert object != null;
 		int id;
 		Dataset dataset;
+		String draftModeIntl = object.isDraftMode() ? "✔️" : "❌";
 
-		dataset = super.unbind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link", "draftMode");
+		dataset = super.unbind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
+		dataset.put("draftMode", draftModeIntl);
 
 		super.getResponse().addData(dataset);
 	}
