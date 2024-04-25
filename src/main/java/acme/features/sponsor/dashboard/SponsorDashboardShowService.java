@@ -94,6 +94,10 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 			d.setCurrency(currencyDev);
 			deviationAmountOfTheSponsorships.add(d);
 
+		}
+
+		for (int i = 0; i < invoiceAverages.size(); i++) {
+
 			Object[] invoiceAverageResult = invoiceAverages.get(i);
 			String currencyInvA = " /" + invoiceAverageResult[0];
 			Double averageInvA = (Double) invoiceAverageResult[1];

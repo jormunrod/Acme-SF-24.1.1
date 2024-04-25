@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
@@ -87,23 +88,34 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date moment = object.getMoment();
 			Date startDate = object.getStartDate();
+			if (moment != null && startDate != null) {
+				if (!startDate.after(moment))
+					super.state(false, "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
+				if (!startDate.after(MomentHelper.getBaseMoment()))
+					super.state(false, "startDate", "sponsor.sponsorship.error.startDateMustBeInFuture");
 
-			super.state(startDate.after(moment), "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
+			}
+
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			Date startDate = object.getStartDate();
 			Date endDate = object.getEndDate();
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(startDate);
-			cal.add(Calendar.MONTH, 1);
-			Date oneMonthAfterStartDate = cal.getTime();
-			super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+			if (startDate != null && endDate != null) {
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(startDate);
+				cal.add(Calendar.MONTH, 1);
+				Date oneMonthAfterStartDate = cal.getTime();
+				super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+
+			}
+
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			Money amount = object.getAmount();
-			super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
+			if (amount != null)
+				super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
@@ -147,7 +159,7 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getSponsorshipType());
-		dataset = super.unbind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
+		dataset = super.unbind(object, "code", "sponsorshipType", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("moment", sponsorship.getMoment());

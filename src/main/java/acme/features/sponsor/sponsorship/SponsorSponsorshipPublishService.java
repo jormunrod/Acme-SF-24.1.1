@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
@@ -74,19 +75,23 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			boolean status = false;
 			Double amount = object.getAmount().getAmount();
 			double invoicesAmount = 0.;
 			Collection<Invoice> invoices;
 			invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
 			for (Invoice i : invoices) {
 				if (i.isDraftMode())
-					super.state(false, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
+					status = true;
+
 				invoicesAmount += i.getTotalAmount().getAmount();
 			}
 			if (amount - invoicesAmount > 0.)
 				super.state(amount - invoicesAmount == 0., "*", "sponsor.sponsorship.error.invoicesLeft");
 			if (amount - invoicesAmount < 0.)
 				super.state(amount - invoicesAmount == 0., "*", "sponsor.sponsorship.error.invoicesLeftOver");
+			if (status)
+				super.state(false, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
@@ -104,18 +109,28 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date moment = object.getMoment();
 			Date startDate = object.getStartDate();
+			if (moment != null && startDate != null) {
+				if (!startDate.after(moment))
+					super.state(false, "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
+				if (!startDate.after(MomentHelper.getBaseMoment()))
+					super.state(false, "startDate", "sponsor.sponsorship.error.startDateMustBeInFuture");
 
-			super.state(startDate.after(moment), "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
+			}
+
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			Date startDate = object.getStartDate();
 			Date endDate = object.getEndDate();
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(startDate);
-			cal.add(Calendar.MONTH, 1);
-			Date oneMonthAfterStartDate = cal.getTime();
-			super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+			if (startDate != null && endDate != null) {
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(startDate);
+				cal.add(Calendar.MONTH, 1);
+				Date oneMonthAfterStartDate = cal.getTime();
+				super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+
+			}
+
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {

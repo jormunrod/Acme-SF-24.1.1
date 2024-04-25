@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
@@ -51,8 +52,9 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("masterId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
 
-		super.bind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link");
 		object.setSponsorship(sponsorship);
+		object.setRegistrationTime(MomentHelper.getBaseMoment());
 	}
 
 	@Override
@@ -115,8 +117,9 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		assert object != null;
 
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode");
+		dataset = super.unbind(object, "code", "dueDate", "quantity", "tax", "link", "draftMode");
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("registrationTime", MomentHelper.getBaseMoment());
 		super.getResponse().addData(dataset);
 
 	}

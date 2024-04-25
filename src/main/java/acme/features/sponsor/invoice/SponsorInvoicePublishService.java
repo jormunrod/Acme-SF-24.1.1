@@ -51,7 +51,11 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	@Override
 	public void bind(final Invoice object) {
 		assert object != null;
-		super.bind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		Invoice i = this.repository.findInvoiceById(id);
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link");
+		object.setRegistrationTime(i.getRegistrationTime());
 	}
 
 	@Override
@@ -124,10 +128,12 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	@Override
 	public void unbind(final Invoice object) {
 		assert object != null;
-
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		Invoice i = this.repository.findInvoiceById(id);
 		Dataset dataset;
 		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode");
-
+		dataset.put("registrationTime", i.getRegistrationTime());
 		super.getResponse().addData(dataset);
 
 	}
