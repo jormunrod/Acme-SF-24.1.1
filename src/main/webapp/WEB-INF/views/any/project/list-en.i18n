@@ -8,7 +8,7 @@ any.project.list.label.cost = Cost
 
 # any.project.form ###################################################
 
-any.project.form.title = Project
+any.project.form.title = Project details
 any.project.form.label.manager = Manager username
 any.project.form.label.code = Code
 any.project.form.label.title = Name
