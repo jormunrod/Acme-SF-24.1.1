@@ -1,23 +1,23 @@
 # manager.user-story.list ############################################
 
-manager.user-story.list.title = Mis historias de usuario
+manager.user-story.list.title = Historias de usuario
 manager.user-story.list.label.title = Nombre
 manager.user-story.list.label.estimatedHours = Horas estimadas
 manager.user-story.list.label.priority = Prioridad
 manager.user-story.list.label.project = Proyecto
 manager.user-story.list.label.isPublished = Publicada
 
-manager.user-story.list.button.create = Create
+manager.user-story.list.button.create = Crear
 
 # manager.user-story.form ###################################################
 
-manager.user-story.form.title = Mis historias de usuario
+manager.user-story.form.title = Detalles de la historia de usuario
 manager.user-story.form.label.title = Nombre
 manager.user-story.form.label.description = Descripción
 manager.user-story.form.label.estimatedHours = Horas estimadas
 manager.user-story.form.label.acceptanceCriteria = Criterios de aceptación
 manager.user-story.form.label.priority = Prioridad
-manager.user-story.form.label.link = Enlace
+manager.user-story.form.label.link = Enlace (Opcional)
 manager.user-story.form.label.project = Proyecto
 manager.user-story.form.label.isPublished = Publicada
 
