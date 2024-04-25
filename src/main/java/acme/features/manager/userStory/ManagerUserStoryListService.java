@@ -48,9 +48,9 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 		assert object != null;
 
 		Dataset dataset;
-
-		dataset = super.unbind(object, "title", "estimatedHours", "priority", "isPublished");
-
+		String published = object.isPublished() ? "✔️" : "❌";
+		dataset = super.unbind(object, "title", "estimatedHours", "priority");
+		dataset.put("isPublished", published);
 		super.getResponse().addData(dataset);
 	}
 

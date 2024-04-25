@@ -43,9 +43,9 @@ public class ManagerProjectListService extends AbstractService<Manager, Project>
 		assert object != null;
 
 		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "title", "cost", "isPublished");
-
+		String published = object.isPublished() ? "✔️" : "❌";
+		dataset = super.unbind(object, "code", "title", "cost");
+		dataset.put("isPublished", published);
 		super.getResponse().addData(dataset);
 	}
 }

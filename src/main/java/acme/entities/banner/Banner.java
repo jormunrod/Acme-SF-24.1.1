@@ -1,5 +1,5 @@
 
-package acme.entities.sponsorships;
+package acme.entities.banner;
 
 import java.util.Date;
 
