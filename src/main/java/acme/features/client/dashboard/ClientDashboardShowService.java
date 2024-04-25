@@ -53,16 +53,16 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 		numberOfProgressLogsBetween50And75 = this.repository.numberOfProgressLogsBetween50And75(clientId);
 		numberOfProgressLogsAbove75 = this.repository.numberOfProgressLogsAbove75(clientId);
 		averageBudget.setAmount(this.repository.averageBudget(clientId));
-		averageBudget.setCurrency("Currency");
+		averageBudget.setCurrency("USD");
 
 		deviationBudget.setAmount(this.calculateStandardDeviation(clientId));
-		deviationBudget.setCurrency("Currency");
+		deviationBudget.setCurrency("USD");
 
 		minimumBudget.setAmount(this.repository.minimumBudget(clientId));
-		minimumBudget.setCurrency("Currency");
+		minimumBudget.setCurrency("USD");
 
 		maximumBudget.setAmount(this.repository.maximumBudget(clientId));
-		maximumBudget.setCurrency("Currency");
+		maximumBudget.setCurrency("USD");
 
 		dashboard = new ClientDashboard();
 		dashboard.setNumberOfProgressLogsBelow25(numberOfProgressLogsBelow25);
