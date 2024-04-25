@@ -16,7 +16,7 @@ master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 
 # master.developer.training-module #####################################################
-developer.training-module.list.title = Training Module List
+any.training-module.list.title = Training Module List
 developer.training-module.list.label.code = Code
 developer.training-module.list.label.creationMoment = Creation Moment
 developer.training-module.list.label.details = Details
@@ -25,7 +25,7 @@ developer.training-module.list.label.updateMoment = Update Moment
 developer.training-module.list.label.link = Link
 developer.training-module.list.label.totalTime = Total Time
 
-developer.training-module.form.title = Details about Training Module
+any.training-module.form.title = Details about Training Module
 developer.training-module.form.label.code = Code
 developer.training-module.form.label.creationMoment = Creation Moment
 developer.training-module.form.label.difficultyLevel = Difficulty Level

@@ -87,9 +87,9 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 				long duration = object.getFinishDate().getTime() - object.getStartDate().getTime();
 				long oneWeek = 7L * 24 * 60 * 60 * 1000;
 
-				boolean isDurationValid = duration < oneWeek;
-				if (isDurationValid == false)
-					super.state(false, "finishDate", "developer.training-sesion.form.error.bad-duration");
+				boolean isTrue;
+				isTrue = duration < oneWeek;
+				super.state(isTrue == false, "finishDate", "developer.training-sesion.form.error.bad-duration");
 			}
 
 	}

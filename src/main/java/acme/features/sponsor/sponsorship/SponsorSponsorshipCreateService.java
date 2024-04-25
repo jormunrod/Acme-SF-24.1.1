@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
@@ -61,7 +62,8 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link");
+		super.bind(object, "code", "sponsorshipType", "startDate", "endDate", "contactEmail", "amount", "link");
+		object.setMoment(MomentHelper.getBaseMoment());
 		object.setProject(project);
 	}
 
@@ -93,6 +95,11 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			}
 
 		}
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			String currency = object.getAmount().getCurrency();
+			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
 
 	}
 	@Override
@@ -115,9 +122,10 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getSponsorshipType());
-		dataset = super.unbind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
+		dataset = super.unbind(object, "code", "sponsorshipType", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
+		dataset.put("moment", MomentHelper.getBaseMoment());
 		dataset.put("sponsorshipTypes", typeChoices);
 		super.getResponse().addData(dataset);
 

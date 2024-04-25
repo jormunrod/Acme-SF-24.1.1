@@ -4,10 +4,10 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-		<acme:list-column code="developer.training-sesion.list.label.code" path="code" width="33%"/>
-		<acme:list-column code="developer.training-sesion.list.label.startDate" path="startDate" width="33%"/>
-		<acme:list-column code="developer.training-sesion.list.label.location" path="location" width="33%"/>
-
+	<acme:list-column code="developer.training-sesion.list.label.code" path="code" width="25%"/>
+	<acme:list-column code="developer.training-sesion.list.label.startDate" path="startDate" width="25%"/>
+	<acme:list-column code="developer.training-sesion.list.label.location" path="location" width="25%"/>
+	<acme:list-column code="developer.training-sesion.list.label.draftMode" path="draftMode" width="25%"/>
 </acme:list>
 
 <jstl:choose>

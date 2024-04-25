@@ -1,7 +1,5 @@
 
-package acme.features.administrator;
-
-import java.util.Collection;
+package acme.features.administrator.banner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Banner;
 
 @Service
-public class AdministratorBannerListService extends AbstractService<Administrator, Banner> {
+public class AdministratorBannerShowService extends AbstractService<Administrator, Banner> {
 
 	@Autowired
 	private AdministratorBannerRepository repository;
@@ -29,11 +27,13 @@ public class AdministratorBannerListService extends AbstractService<Administrato
 
 	@Override
 	public void load() {
-		Collection<Banner> objects;
+		Banner object;
+		int id;
 
-		objects = this.repository.findAllBanners();
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneBannerById(id);
 
-		super.getBuffer().addData(objects);
+		super.getBuffer().addData(object);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class AdministratorBannerListService extends AbstractService<Administrato
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "instantiationMoment", "updateMoment", "displayStart", "displayEnd");
+		dataset = super.unbind(object, "instantiationMoment", "updateMoment", "displayStart", "displayEnd", "picture", "slogan", "webDocument");
 
 		super.getResponse().addData(dataset);
 	}

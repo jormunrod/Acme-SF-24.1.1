@@ -1,0 +1,14 @@
+# master.any.audit-record #####################################################
+
+any.audit-record.list.title = List of Audit Records
+any.audit-record.list.label.code = Code
+any.audit-record.list.label.auditPeriodStart = Audit period start
+any.audit-record.list.label.auditPeriodEnd = Audit period end
+any.audit-record.list.label.mark = Mark
+
+any.audit-record.form.title = Details of Audit Record
+any.audit-record.form.label.code = Code
+any.audit-record.form.label.auditPeriodStart = Audit period start
+any.audit-record.form.label.auditPeriodEnd = Audit period end
+any.audit-record.form.label.mark = Mark
+any.audit-record.form.label.link = Link (Optional)
