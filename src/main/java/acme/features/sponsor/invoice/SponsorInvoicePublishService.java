@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
+import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
@@ -113,7 +114,23 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			String currency = object.getQuantity().getCurrency();
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+				super.state(false, "amount", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			int id;
+			Sponsorship sponsorship;
+			Invoice invoice;
+
+			id = super.getRequest().getData("id", int.class);
+			invoice = this.repository.findInvoiceById(id);
+			sponsorship = invoice.getSponsorship();
+
+			Double totalAmounOfinvoice = this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId()) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId());
+			totalAmounOfinvoice += object.getTotalAmountWithTax().getAmount();
+			totalAmounOfinvoice -= invoice.getTotalAmountWithTax().getAmount();
+
+			if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
+				super.state(false, "quantity", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
 		}
 
 	}
@@ -121,6 +138,7 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	public void perform(final Invoice object) {
 		assert object != null;
 		object.setDraftMode(false);
+		object.setTotalAmount(object.getTotalAmountWithTax());
 		this.repository.save(object);
 
 	}
@@ -132,7 +150,9 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		id = super.getRequest().getData("id", int.class);
 		Invoice i = this.repository.findInvoiceById(id);
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode");
+		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode", "totalAmount");
+		if (object.getQuantity() != null)
+			dataset.put("totalAmount", object.getTotalAmountWithTax());
 		dataset.put("registrationTime", i.getRegistrationTime());
 		super.getResponse().addData(dataset);
 

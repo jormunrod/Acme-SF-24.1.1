@@ -124,8 +124,13 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			id = super.getRequest().getData("id", int.class);
 			sponsorship = this.repository.findOneSponsorshipById(id);
 			String currency = object.getAmount().getCurrency();
+			Double amount = object.getAmount().getAmount();
+
 			if (!currency.equals(sponsorship.getAmount().getCurrency()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
 				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
+			if (!amount.equals(sponsorship.getAmount().getAmount()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
+				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
+
 		}
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			String currency = object.getAmount().getCurrency();

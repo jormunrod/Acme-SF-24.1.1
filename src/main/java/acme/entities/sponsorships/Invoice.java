@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -63,11 +62,13 @@ public class Invoice extends AbstractEntity {
 
 	private boolean				draftMode			= true;
 
+	@NotNull
+	private Money				totalAmount;
+
 	// Derived attributes -----------------------------------------------------
 
 
-	@Transient
-	public Money getTotalAmount() {
+	public Money getTotalAmountWithTax() {
 		Double totalAmount = this.quantity.getAmount() * (1 + this.tax);
 		Money m = new Money();
 		m.setAmount(totalAmount);
@@ -83,4 +84,11 @@ public class Invoice extends AbstractEntity {
 	@NotNull
 	@Valid
 	private Sponsorship sponsorship;
+
+
+	@Override
+	public String toString() {
+		return "Invoice{" + "code='" + this.code + '\'' + ", registrationTime=" + this.registrationTime + ", dueDate=" + this.dueDate + ", quantity=" + this.quantity + ", tax=" + this.tax + ", link='" + this.link + '\'' + ", draftMode=" + this.draftMode
+			+ ", totalAmount=" + this.totalAmount + '}';
+	}
 }

@@ -59,5 +59,23 @@ sponsor.sponsorship.error.startDateBeforeMoment = Start date must be after Momen
 sponsor.sponsorship.error.endDateNotOneMonthAfter = End date must be at least one moth after start date
 sponsor.sponsorship.error.amountNotPositive = Amount must be positive
 
+sponsor.invoice.error.duplicated = The invoice code is duplicated.
+sponsor.invoice.error.quantityNegative = The quantity cannot be negative.
+sponsor.invoice.error.dueDateTooEarly = The due date is too early; it must be at least one month after the registration date.
+sponsor.invoice.error.DueDateMustBeInFuture = The due date must be in the future.
+sponsor.invoice.error.quantityMustBeEqualToSponsorship = The quantity must be equal to the sponsorship amount.
+sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = The total amount is higher than the sponsorship amount.
+sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem = The currency must be admitted by the system.
+sponsor.invoice.error.taxNegative = The tax cannot be negative.
+sponsor.invoice.error.quantityNegativeOrZero = The quantity cannot be negative or zero.
+sponsor.sponsorship.error.duplicated = The sponsorship code is duplicated.
+sponsor.sponsorship.error.startDateBeforeMoment = The start date cannot be before the creation moment.
+sponsor.sponsorship.error.startDateMustBeInFuture = The start date must be in the future.
+sponsor.sponsorship.error.endDateNotOneMonthAfter = The end date must be at least one month after the start date.
+sponsor.sponsorship.error.amountNotPositive = The amount must be positive.
+sponsor.sponsorship.error.youcantChangeTheCurrency = You cannot change the amount if invoices already exist.
+sponsor.sponsorship.error.invoicesLeft = There are pending invoices left to be published.
+sponsor.sponsorship.error.NotAllInvoicesPublished = Not all invoices are published.
+
 
 sponsor.sponsorship.list.label.draftMode = Draft Mode

@@ -52,7 +52,7 @@ public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice>
 		Dataset dataset;
 
 		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode");
-
+		dataset.put("totalAmount", object.getTotalAmountWithTax());
 		super.getResponse().addData(dataset);
 	}
 }

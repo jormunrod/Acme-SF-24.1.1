@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
+import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
@@ -80,14 +82,20 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date registrationTime = object.getRegistrationTime();
 			Date dueDate = object.getDueDate();
+			Invoice invoice;
+			int id;
+			id = super.getRequest().getData("id", int.class);
+			invoice = this.repository.findInvoiceById(id);
 
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(registrationTime);
-			cal.add(Calendar.MONTH, 1);
-
-			Date oneMonthAfterRegistration = cal.getTime();
-
-			super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
+			if (registrationTime != null && dueDate != null) {
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(registrationTime);
+				cal.add(Calendar.MONTH, 1);
+				Date oneMonthAfterRegistration = cal.getTime();
+				super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
+			}
+			if (!dueDate.after(MomentHelper.getBaseMoment()))
+				super.state(false, "dueDate", "sponsor.invoice.error.DueDateMustBeInFuture");
 
 		}
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
@@ -105,13 +113,30 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			String currency = object.getQuantity().getCurrency();
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+				super.state(false, "amount", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			int id;
+			Sponsorship sponsorship;
+			Invoice invoice;
+
+			id = super.getRequest().getData("id", int.class);
+			invoice = this.repository.findInvoiceById(id);
+			sponsorship = invoice.getSponsorship();
+
+			Double totalAmounOfinvoice = this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId()) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId());
+			totalAmounOfinvoice += object.getTotalAmountWithTax().getAmount();
+			totalAmounOfinvoice -= invoice.getTotalAmountWithTax().getAmount();
+
+			if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
+				super.state(false, "quantity", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
 		}
 
 	}
 	@Override
 	public void perform(final Invoice object) {
 		assert object != null;
+		object.setTotalAmount(object.getTotalAmountWithTax());
 		this.repository.save(object);
 
 	}
@@ -123,7 +148,9 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("id", int.class);
 		Invoice i = this.repository.findInvoiceById(id);
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "dueDate", "quantity", "tax", "link", "draftMode");
+		dataset = super.unbind(object, "code", "dueDate", "quantity", "tax", "link", "draftMode", "totalAmount");
+		if (object.getQuantity() != null)
+			dataset.put("totalAmount", object.getTotalAmountWithTax());
 		dataset.put("registrationTime", i.getRegistrationTime());
 		super.getResponse().addData(dataset);
 
