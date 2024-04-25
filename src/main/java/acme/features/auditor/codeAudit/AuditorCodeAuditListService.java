@@ -75,9 +75,9 @@ public class AuditorCodeAuditListService extends AbstractService<Auditor, CodeAu
 		assert object != null;
 
 		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "execution", "type", "mark", "isPublished");
-
+		String published = object.isPublished() ? "✔️" : "❌";
+		dataset = super.unbind(object, "code", "execution", "type", "mark");
+		dataset.put("isPublished", published);
 		super.getResponse().addData(dataset);
 	}
 

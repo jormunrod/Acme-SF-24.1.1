@@ -48,9 +48,9 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		assert object != null;
 
 		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "isPublished");
-
+		String published = object.isPublished() ? "✔️" : "❌";
+		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark");
+		dataset.put("isPublished", published);
 		super.getResponse().addData(dataset);
 	}
 
