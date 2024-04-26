@@ -104,7 +104,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 		id = super.getRequest().getData("masterId", int.class);
 		trainingModule = this.repository.findOneTrainingModuleById(id);
 		object.setTrainingModule(trainingModule);
-
+		object.setId(0);
 		this.repository.save(object);
 
 	}
