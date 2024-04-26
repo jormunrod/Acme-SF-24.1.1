@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Banner;
 
@@ -78,6 +79,10 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
+		Date date;
+
+		date = MomentHelper.getCurrentMoment();
+		object.setUpdateMoment(date);
 
 		this.repository.save(object);
 	}
