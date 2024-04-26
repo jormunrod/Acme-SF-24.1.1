@@ -14,7 +14,6 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.banner.Banner;
-import acme.entities.sponsorships.Banner;
 
 @Service
 public class AdministratorBannerCreateService extends AbstractService<Administrator, Banner> {
@@ -56,7 +55,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
-		
+
 		if (!super.getBuffer().getErrors().hasErrors("displayStart") && !super.getBuffer().getErrors().hasErrors("displayEnd")) {
 			Date displayStart = object.getDisplayStart();
 			Date displayEnd = object.getDisplayEnd();
