@@ -92,6 +92,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 
 		object.setProject(project);
 		object.setManager(manager);
+		object.setId(0);
 
 		this.repository.save(object);
 	}

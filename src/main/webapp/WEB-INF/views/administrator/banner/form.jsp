@@ -6,8 +6,8 @@
 <acme:form>
     <jstl:choose>
     	<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
-		    <acme:input-textbox code="administrator.banner.form.label.instantiationMoment" path="instantiationMoment" readonly="true"/>
-		    <acme:input-textbox code="administrator.banner.form.label.updateMoment" path="updateMoment" readonly="true"/>
+		    <acme:input-moment code="administrator.banner.form.label.instantiationMoment" path="instantiationMoment" readonly="true"/>
+		    <acme:input-moment code="administrator.banner.form.label.updateMoment" path="updateMoment" readonly="true"/>
 		</jstl:when>
 	</jstl:choose>
 	

@@ -56,31 +56,28 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
-		boolean displayStartAfterInstantiation;
-		boolean displayStartAfterUpdate;
-		boolean displayEndAfterDisplayStart;
-		boolean isDisplayForAWeek;
+		if (!super.getBuffer().getErrors().hasErrors("displayStart") && !super.getBuffer().getErrors().hasErrors("displayEnd")) {
+			Date displayStart = object.getDisplayStart();
+			Date displayEnd = object.getDisplayEnd();
 
-		Date date;
+			boolean displayStartAfterInstantiation;
+			boolean displayStartAfterUpdate;
+			boolean displayEndAfterDisplayStart;
+			boolean isDisplayForAWeek;
 
-		date = MomentHelper.getCurrentMoment();
+			LocalDateTime startDateTime = LocalDateTime.ofInstant(displayStart.toInstant(), ZoneId.systemDefault());
+			LocalDateTime endDateTime = LocalDateTime.ofInstant(displayEnd.toInstant(), ZoneId.systemDefault());
+			isDisplayForAWeek = Duration.between(startDateTime, endDateTime).toDays() > 7;
 
-		Date displayStart = object.getDisplayStart();
-		Date displayEnd = object.getDisplayEnd();
+			displayEndAfterDisplayStart = displayEnd.after(displayStart);
+			displayStartAfterInstantiation = object.getInstantiationMoment().before(displayStart);
+			displayStartAfterUpdate = object.getUpdateMoment().before(displayStart);
 
-		LocalDateTime startDateTime = LocalDateTime.ofInstant(displayStart.toInstant(), ZoneId.systemDefault());
-		LocalDateTime endDateTime = LocalDateTime.ofInstant(displayEnd.toInstant(), ZoneId.systemDefault());
-
-		isDisplayForAWeek = Duration.between(startDateTime, endDateTime).toDays() > 7;
-
-		displayEndAfterDisplayStart = displayEnd.after(displayStart);
-		displayStartAfterInstantiation = date.before(displayStart);
-		displayStartAfterUpdate = date.before(displayStart);
-
-		super.state(displayEndAfterDisplayStart, "displayEnd", "administrator.banner.form.error.displayEnd");
-		super.state(displayStartAfterInstantiation, "displayStart", "administrator.banner.form.error.displayStartAfterInstantiation");
-		super.state(displayStartAfterUpdate, "displayStart", "administrator.banner.form.error.displayStartAfterUpdate");
-		super.state(isDisplayForAWeek, "*", "administrator.banner.form.error.isDisplayForAWeek");
+			super.state(displayEndAfterDisplayStart, "displayEnd", "administrator.banner.form.error.displayEnd");
+			super.state(displayStartAfterInstantiation, "displayStart", "administrator.banner.form.error.displayStartAfterInstantiation");
+			super.state(displayStartAfterUpdate, "displayStart", "administrator.banner.form.error.displayStartAfterUpdate");
+			super.state(isDisplayForAWeek, "*", "administrator.banner.form.error.isDisplayForAWeek");
+		}
 	}
 
 	@Override

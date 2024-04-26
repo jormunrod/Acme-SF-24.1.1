@@ -46,7 +46,7 @@ public class Banner extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				displayEnd;
 
-	@NotNull
+	@NotBlank
 	@URL
 	@Length(max = 255)
 	private String				picture;
@@ -55,7 +55,7 @@ public class Banner extends AbstractEntity {
 	@Length(max = 75)
 	private String				slogan;
 
-	@NotNull
+	@NotBlank
 	@URL
 	@Length(max = 255)
 	private String				webDocument;
