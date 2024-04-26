@@ -1,6 +1,6 @@
 # administrator.banner.list ###################################################
 
-administrator.banner.list.title = Mis anuncios publicitarios
+administrator.banner.list.title = Anuncios publicitarios
 administrator.banner.list.label.instantiationMoment = Momento de instanciación
 administrator.banner.list.label.updateMoment = Momento de actualización
 administrator.banner.list.label.displayStart = Inicio de visualización
@@ -10,7 +10,7 @@ administrator.banner.list.button.create = Crear
 
 # administrator.banner.form ###################################################
 
-administrator.banner.form.title = Mis anuncios publicitarios
+administrator.banner.form.title = Detalles del anuncio publicitario
 administrator.banner.form.label.instantiationMoment = Momento de instanciación
 administrator.banner.form.label.updateMoment = Momento de actualización
 administrator.banner.form.label.displayStart = Inicio de visualización

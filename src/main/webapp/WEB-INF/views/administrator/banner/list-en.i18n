@@ -1,6 +1,6 @@
 # administrator.banner.list ###################################################
 
-administrator.banner.list.title = My banners
+administrator.banner.list.title = Banners
 administrator.banner.list.label.instantiationMoment = Instantiation moment
 administrator.banner.list.label.updateMoment = Update moment
 administrator.banner.list.label.displayStart = Display start
@@ -10,7 +10,7 @@ administrator.banner.list.button.create = Create
 
 # administrator.banner.form ###################################################
 
-administrator.banner.form.title = My banners
+administrator.banner.form.title = Banner details
 administrator.banner.form.label.instantiationMoment = Instantiation moment
 administrator.banner.form.label.updateMoment = Update moment
 administrator.banner.form.label.displayStart = Display start
