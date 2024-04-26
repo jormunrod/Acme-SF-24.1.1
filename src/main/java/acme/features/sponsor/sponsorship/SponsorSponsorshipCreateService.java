@@ -8,6 +8,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
@@ -97,6 +98,10 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			String currency = object.getAmount().getCurrency();
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
 				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Money amount = object.getAmount();
+			super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
 		}
 
 	}
