@@ -36,4 +36,11 @@
 	</parent>
 
 	
+	<dependencies>
+		<dependency>
+			<groupId>C1.015</groupId>
+			<artifactId>spam-detector-lib</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

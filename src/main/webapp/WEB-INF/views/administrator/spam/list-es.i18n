@@ -1,0 +1,20 @@
+# administrator.spam.list ###################################################
+
+administrator.spam.list.title = Listado de palabras prohibidas
+administrator.spam.list.label.spanishWord = Palabra en español
+administrator.spam.list.label.englishWord = Palabra en inglés
+
+administrator.spam.list.button.create = Crear
+
+# administrator.spam.form ###################################################
+
+administrator.spam.form.title = Palabra prohibida
+administrator.spam.form.label.spanishWord = Palabra en español
+administrator.spam.form.label.englishWord = Palabra en inglés
+
+
+administrator.spam.form.button.create = Crear
+administrator.spam.form.button.update = Editar
+administrator.spam.form.button.delete = Borrar
+
+administrator.spam.form.error.duplicated = Esta palabra ya existe

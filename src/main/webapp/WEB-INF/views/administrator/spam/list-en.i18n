@@ -1,0 +1,20 @@
+# administrator.spam.list ###################################################
+
+administrator.spam.list.title = List of spam words
+administrator.spam.list.label.spanishWord = Spanish word
+administrator.spam.list.label.englishWord = English word
+
+administrator.spam.list.button.create = Create
+
+# administrator.spam.form ###################################################
+
+administrator.spam.form.title = Spam word
+administrator.spam.form.label.spanishWord = Spanish word
+administrator.spam.form.label.englishWord = English word
+
+
+administrator.spam.form.button.create = Create
+administrator.spam.form.button.update = Update
+administrator.spam.form.button.delete = Delete
+
+administrator.spam.form.error.duplicated = This word already exists

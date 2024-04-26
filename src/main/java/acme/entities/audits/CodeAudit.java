@@ -20,6 +20,7 @@ import org.hibernate.validator.constraints.URL;
 import acme.client.data.AbstractEntity;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
+import acme.validations.NoSpam;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -49,6 +50,7 @@ public class CodeAudit extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
+	@NoSpam
 	private String				correctiveActions;
 
 	private Mark				mark;
