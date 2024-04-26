@@ -30,7 +30,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		Sponsor sponsor;
 
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
-
 		status = super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
@@ -46,7 +45,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		object = new Sponsorship();
 		object.setDraftMode(true);
-
 		object.setSponsor(sponsor);
 
 		super.getBuffer().addData(object);
@@ -105,6 +103,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void perform(final Sponsorship object) {
 		assert object != null;
+		object.setId(0);
 		this.repository.save(object);
 	}
 
@@ -117,7 +116,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		Dataset dataset;
 		SelectChoices typeChoices;
 
-		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());

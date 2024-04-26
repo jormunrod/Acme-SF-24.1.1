@@ -25,10 +25,15 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	public void authorise() {
 		boolean status;
 		Sponsor sponsor;
+		int id;
+		Sponsorship sponsorship;
+
+		id = super.getRequest().getData("masterId", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(id);
 
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 
-		status = super.getRequest().getPrincipal().hasRole(sponsor);
+		status = sponsorship.getSponsor().getId() == sponsor.getId() && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
 
@@ -37,9 +42,15 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void load() {
 		Invoice object;
+		int id;
+		Sponsorship sponsorship;
+
+		id = super.getRequest().getData("masterId", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(id);
 
 		object = new Invoice();
 		object.setDraftMode(true);
+		object.setSponsorship(sponsorship);
 
 		super.getBuffer().addData(object);
 	}
@@ -124,6 +135,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		sponsorship = this.repository.findOneSponsorshipById(id);
 		object.setSponsorship(sponsorship);
 		object.setTotalAmount(object.getTotalAmountWithTax());
+		object.setId(0);
 		this.repository.save(object);
 	}
 
