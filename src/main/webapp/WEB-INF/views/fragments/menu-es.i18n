@@ -26,6 +26,11 @@ master.menu.anonymous.javrodrei = 30282701G: Rodríguez Reina, Javier
 master.menu.anonymous.isasolpad = 49127653K: Solís Padilla, Isaac
 master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 
+# master.menu.authenticated ####################################################
+master.menu.authenticated = Autenticado
+master.menu.authenticated.objective = Objetivos
+master.menu.authenticated.risk = Riesgos
+
 # master.menu.client ##########################################################
 master.menu.client = Cliente
 master.menu.client.contract.list = Lista de contratos
@@ -38,7 +43,7 @@ master.menu.developer.dashboard = Panel de indicadores
 
 master.menu.developer.training-module.list-all = Lista de Módulos de Desarrollo Publicados
 master.menu.client.contract.list-all = Lista de Contratos Publicados
-master.menu.list-published = Listados Publicados
+master.menu.any-role = Cualquier Rol
 
 # master.menu.administrator ###################################################
 
@@ -89,7 +94,6 @@ master.menu.user-account.become-developer = Hazte desarrollador
 master.menu.user-account.developer = Datos de desarrollador
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.auditor = Datos de auditor
-master.menu.user-account.risk = Riesgos
 
 # master.menu.sponsor ########################################################
 master.menu.sponsor = Patrocinador

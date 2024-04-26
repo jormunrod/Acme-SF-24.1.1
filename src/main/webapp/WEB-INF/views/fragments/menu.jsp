@@ -77,7 +77,13 @@
 			<acme:menu-suboption code="master.menu.manager.dashboard" action="/manager/manager-dashboard/show"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.list-published">
+		<acme:menu-option code="master.menu.authenticated" access="!isAnonymous()">
+		    <acme:menu-suboption code="master.menu.authenticated.objective" action="/authenticated/objective/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.risk" action="/authenticated/risk/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any-role">
 		    <acme:menu-suboption code="master.menu.manager.project.list-all" action="/any/project/list"/>
 		    <acme:menu-suboption code="master.menu.client.contract.list-all" action="/any/contract/list"/>
 			<acme:menu-suboption code="master.menu.developer.training-module.list-all" action="/any/training-module/list"/>
@@ -108,8 +114,6 @@
 			<acme:menu-suboption code="master.menu.user-account.client" action="/authenticated/client/update" access="hasRole('Client')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
-			 <acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.user-account.risk" action="/authenticated/risk/list" access="!isAnonymous()"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/authenticated/system/sign-out" access="isAuthenticated()"/>
