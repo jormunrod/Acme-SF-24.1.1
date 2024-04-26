@@ -12,9 +12,4 @@
 	<acme:input-moment code="authenticated.objective.form.label.endDate" path="endDate"/>
 	<acme:input-url code="authenticated.objective.form.label.link" path="link"/>
 	<acme:input-checkbox code="authenticated.objective.form.label.isCritical" path="isCritical"/>
-
-    <jstl:if test="${!readonly}">
-		<acme:input-checkbox code="authenticated.objective.form.label.confirmation" path="confirmation"/>
-		<acme:submit code="authenticated.objective.form.button.create" action="/administrator/announcement/create"/>
-	</jstl:if>
 </acme:form>

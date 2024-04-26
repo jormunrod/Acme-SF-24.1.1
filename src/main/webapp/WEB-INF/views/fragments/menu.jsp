@@ -49,6 +49,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.banners" action="/administrator/banner/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.objectives" action="/administrator/objective/create"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.risks" action="/administrator/risk/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/system/populate-initial"/>

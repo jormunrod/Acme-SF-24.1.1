@@ -1,0 +1,16 @@
+# administrator.objective.form ################################
+administrator.objective.form.title = Objective details
+administrator.objective.form.label.title = Title
+administrator.objective.form.label.priority = Priority
+administrator.objective.form.label.isCritical = Fatal errors
+administrator.objective.form.label.description = Description
+administrator.objective.form.label.instantiationMoment = Instantiation moment
+administrator.objective.form.label.startDate = Start date
+administrator.objective.form.label.endDate = End date
+administrator.objective.form.label.link = Link (Optional)
+administrator.objective.form.label.confirmation = Confirm the objective is correct
+
+administrator.objective.form.button.create = Create
+
+administrator.objective.form.error.startDate = Start date must be greater than instantiation moment
+administrator.objective.form.error.endDate = End date must be greater than start date
