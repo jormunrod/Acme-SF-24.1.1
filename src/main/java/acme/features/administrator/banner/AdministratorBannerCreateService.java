@@ -1,9 +1,10 @@
 
-package acme.features.administrator;
+package acme.features.administrator.banner;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Banner;
 
@@ -33,8 +35,18 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void load() {
 		Banner object;
+		Date date;
+		Calendar calendar;
 
 		object = new Banner();
+		date = MomentHelper.getCurrentMoment();
+		calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(Calendar.DAY_OF_MONTH, 1);
+		date = calendar.getTime();
+
+		object.setInstantiationMoment(date);
+		object.setUpdateMoment(date);
 
 		super.getBuffer().addData(object);
 	}
@@ -55,6 +67,15 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 		boolean displayEndAfterDisplayStart;
 		boolean isDisplayForAWeek;
 
+		Date date;
+		Calendar calendar;
+
+		date = MomentHelper.getCurrentMoment();
+		calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(Calendar.DAY_OF_MONTH, -1);
+		date = calendar.getTime();
+
 		Date displayStart = object.getDisplayStart();
 		Date displayEnd = object.getDisplayEnd();
 
@@ -64,12 +85,12 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 		isDisplayForAWeek = Duration.between(startDateTime, endDateTime).toDays() > 7;
 
 		displayEndAfterDisplayStart = displayEnd.after(displayStart);
-		displayStartAfterInstantiation = object.getInstantiationMoment().before(displayStart);
-		displayStartAfterUpdate = object.getUpdateMoment().before(displayStart);
+		//		displayStartAfterInstantiation = date.before(displayStart);
+		//		displayStartAfterUpdate = date.before(displayStart);
 
 		super.state(displayEndAfterDisplayStart, "displayEnd", "administrator.banner.form.error.displayEnd");
-		super.state(displayStartAfterInstantiation, "displayStart", "administrator.banner.form.error.displayStartAfterInstantiation");
-		super.state(displayStartAfterUpdate, "displayStart", "administrator.banner.form.error.displayStartAfterUpdate");
+		//super.state(displayStartAfterInstantiation, "displayStart", "administrator.banner.form.error.displayStartAfterInstantiation");
+		//super.state(displayStartAfterUpdate, "displayStart", "administrator.banner.form.error.displayStartAfterUpdate");
 		super.state(isDisplayForAWeek, "*", "administrator.banner.form.error.isDisplayForAWeek");
 	}
 
