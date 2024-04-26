@@ -34,7 +34,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		id = super.getRequest().getData("id", int.class);
 		trainingModule = this.repository.findTrainingModuleById(id);
 		developer = trainingModule == null ? null : trainingModule.getDeveloper();
-		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(developer);
+		status = trainingModule.isDraftMode() && trainingModule != null && super.getRequest().getPrincipal().hasRole(developer);
 
 		super.getResponse().setAuthorised(status);
 
@@ -56,7 +56,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 	public void bind(final TrainingModule object) {
 		assert object != null;
 
-		super.bind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "details", "link", "totalTime");
+		super.bind(object, "code", "difficultyLevel", "updateMoment", "details", "link", "totalTime");
 
 	}
 
@@ -102,7 +102,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
-		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "draftMode");
+		dataset = super.unbind(object, "code", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("difficultyLevels", choicesLevels);

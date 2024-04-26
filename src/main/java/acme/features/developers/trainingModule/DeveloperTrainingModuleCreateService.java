@@ -79,7 +79,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
-		super.bind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "details", "link", "totalTime");
+		super.bind(object, "code", "difficultyLevel", "updateMoment", "details", "link", "totalTime");
 		object.setProject(project);
 	}
 
@@ -120,7 +120,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
-		dataset = super.unbind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "details", "link", "totalTime", "draftMode");
+		dataset = super.unbind(object, "code", "difficultyLevel", "updateMoment", "details", "link", "totalTime", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("difficultyLevels", choicesLevels);
