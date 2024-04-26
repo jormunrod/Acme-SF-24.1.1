@@ -48,9 +48,9 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 		assert object != null;
 
 		Dataset dataset;
-
-		dataset = super.unbind(object, "title", "estimatedHours", "priority", "isPublished");
-
+		String published = object.isPublished() ? "✔️" : "❌";
+		dataset = super.unbind(object, "title", "estimatedHours", "priority");
+		dataset.put("isPublished", published);
 		super.getResponse().addData(dataset);
 	}
 
@@ -59,9 +59,12 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 		assert objects != null;
 
 		int projectId;
+		Project project;
 
 		projectId = super.getRequest().getData("projectId", int.class);
+		project = this.repository.findOneProjectById(projectId);
 
 		super.getResponse().addGlobal("projectId", projectId);
+		super.getResponse().addGlobal("projectIsPublished", project.isPublished());
 	}
 }

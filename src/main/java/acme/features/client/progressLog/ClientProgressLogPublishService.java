@@ -1,5 +1,5 @@
 /**
- * Update Service for the ProgressLog entity.
+ * Publish Service for the ProgressLog entity.
  * 
  * @Author: jormunrod
  * @Date: 2024-04-20

@@ -8,7 +8,9 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
@@ -29,7 +31,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		Sponsor sponsor;
 
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
-
 		status = super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
@@ -45,7 +46,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		object = new Sponsorship();
 		object.setDraftMode(true);
-
 		object.setSponsor(sponsor);
 
 		super.getBuffer().addData(object);
@@ -61,7 +61,8 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link");
+		super.bind(object, "code", "sponsorshipType", "startDate", "endDate", "contactEmail", "amount", "link");
+		object.setMoment(MomentHelper.getBaseMoment());
 		object.setProject(project);
 	}
 
@@ -77,24 +78,37 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date moment = object.getMoment();
 			Date startDate = object.getStartDate();
-
-			super.state(startDate.after(moment), "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
+			if (moment != null && startDate != null)
+				super.state(startDate.after(moment), "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			Date startDate = object.getStartDate();
 			Date endDate = object.getEndDate();
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(startDate);
-			cal.add(Calendar.MONTH, 1);
-			Date oneMonthAfterStartDate = cal.getTime();
-			super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+			if (startDate != null && endDate != null) {
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(startDate);
+				cal.add(Calendar.MONTH, 1);
+				Date oneMonthAfterStartDate = cal.getTime();
+				super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
+			}
+
+		}
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			String currency = object.getAmount().getCurrency();
+			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Money amount = object.getAmount();
+			super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
 		}
 
 	}
 	@Override
 	public void perform(final Sponsorship object) {
 		assert object != null;
+		object.setId(0);
 		this.repository.save(object);
 	}
 
@@ -107,14 +121,14 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		Dataset dataset;
 		SelectChoices typeChoices;
 
-		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getSponsorshipType());
-		dataset = super.unbind(object, "code", "sponsorshipType", "moment", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
+		dataset = super.unbind(object, "code", "sponsorshipType", "startDate", "endDate", "contactEmail", "amount", "link", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
+		dataset.put("moment", MomentHelper.getBaseMoment());
 		dataset.put("sponsorshipTypes", typeChoices);
 		super.getResponse().addData(dataset);
 

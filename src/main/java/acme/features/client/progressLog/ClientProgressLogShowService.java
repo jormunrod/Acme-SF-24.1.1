@@ -1,8 +1,8 @@
 /**
- * List Service for the Contract entity.
+ * List Service for the ProgressLog entity.
  * 
  * @Author: jormunrod
- * @Date: 2024-04-08
+ * @Date: 2024-04-20
  */
 
 package acme.features.client.progressLog;

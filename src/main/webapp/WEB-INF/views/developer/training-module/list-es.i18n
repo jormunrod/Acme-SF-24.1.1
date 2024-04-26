@@ -19,11 +19,8 @@ master.menu.sign-out = Sign out
 developer.training-module.list.title = Listado del Módulo de Entrenamiento
 developer.training-module.list.label.code = Código
 developer.training-module.list.label.creationMoment = Momento de Creación
-developer.training-module.list.label.details = Detalles
 developer.training-module.list.label.difficultyLevel = Nivel de Dificultad
-developer.training-module.list.label.updateMoment = Momento de Actualización
-developer.training-module.list.label.link = Link
-developer.training-module.list.label.totalTime = Tiempo Total
+developer.training-module.list.label.draftMode = Modo Borrador
 
 developer.training-module.form.title = Detalles del Módulo de Entrenamiento
 developer.training-module.form.label.code = Código
@@ -42,15 +39,13 @@ developer.training-module.list.button.create = Crear
 developer.training-module.form.button.create = Crear
 developer.training-module.form.button.delete = Eliminar
 developer.training-module.form.button.update = Actualizar
-<<<<<<< HEAD
 
-=======
 developer.training-module.form.button.publish = Publicar
 
 developer.training-module.form.label.project = Proyectos
 
 developer.training-module.form.error.hasNotSessions = El módulo de entrenamiento no tiene ninguna sesión de entrenamiento
+developer.training-module.form.error.hasUnpublishedSessions = Las sesiones de entrenamiento no están publicadas
 developer.training-module.form.error.invalid-total-time = El tiempo total debe ser positivo y mayor que cero
 developer.training-module.form.error.update-before-creation = El momento de actualización debe ser mayor que el momento de creación
 developer.training-module.form.error.duplicated = El código ya existe
->>>>>>> 69704852a95f1e2b3870b8528fdeb9bc1529ec51

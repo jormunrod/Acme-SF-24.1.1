@@ -1,0 +1,25 @@
+# menu-es.i18n
+
+
+# master.any.progress-log #####################################################
+
+any.progress-log.list.title = Historial de progreso
+any.progress-log.list.label.recordId = ID
+any.progress-log.list.label.completenessPercentage = Porcentaje de completitud
+any.progress-log.list.label.progressComment = Comentario de progreso
+any.progress-log.list.label.registrationMoment = Momento de registro
+any.progress-log.list.label.responsiblePerson = Persona responsable
+any.progress-log.list.button.create = Crear
+
+any.progress-log.form.title = Historial de progreso
+any.progress-log.form.label.recordId = ID
+any.progress-log.form.label.completenessPercentage = Porcentaje de completitud
+any.progress-log.form.label.progressComment = Comentario de progreso
+any.progress-log.form.label.registrationMoment = Momento de registro
+any.progress-log.form.label.responsiblePerson = Persona responsable
+any.progress-log.form.label.isPublished = Publicado
+any.progress-log.form.button.create = Crear
+any.progress-log.form.button.delete = Eliminar
+any.progress-log.form.button.update = Actualizar
+any.progress-log.form.button.publish = Publicar
+any.progress-log.form.error.duplicated = Ya existe un registro con el mismo ID

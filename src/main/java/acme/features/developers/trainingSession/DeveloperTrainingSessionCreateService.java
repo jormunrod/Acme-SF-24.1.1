@@ -30,7 +30,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 
 		id = super.getRequest().getData("masterId", int.class);
 		trainingModule = this.repository.findOneTrainingModuleById(id);
-		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+		status = trainingModule.isDraftMode() && trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
 
 		super.getResponse().setAuthorised(status);
 
@@ -82,14 +82,15 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 			super.state(isTrue == false, "startDate", "developer.training-sesion.form.error.bad-date");
 
 		}
-		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
-			long duration = object.getFinishDate().getTime() - object.getStartDate().getTime();
-			long oneWeek = 7L * 24 * 60 * 60 * 1000;
+		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
+			if (object.getStartDate() != null && object.getFinishDate() != null) {
+				long duration = object.getFinishDate().getTime() - object.getStartDate().getTime();
+				long oneWeek = 7L * 24 * 60 * 60 * 1000;
 
-			boolean isTrue;
-			isTrue = duration < oneWeek;
-			super.state(isTrue == false, "finishDate", "developer.training-sesion.form.error.bad-duration");
-		}
+				boolean isTrue;
+				isTrue = duration < oneWeek;
+				super.state(isTrue == false, "finishDate", "developer.training-sesion.form.error.bad-duration");
+			}
 
 	}
 
@@ -103,7 +104,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 		id = super.getRequest().getData("masterId", int.class);
 		trainingModule = this.repository.findOneTrainingModuleById(id);
 		object.setTrainingModule(trainingModule);
-
+		object.setId(0);
 		this.repository.save(object);
 
 	}

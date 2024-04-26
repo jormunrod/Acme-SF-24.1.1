@@ -20,3 +20,13 @@ sponsor.dashboard.form.title.general-indicators = Indicadores generales
 sponsor.dashboard.form.label.total-number-of-invoices-with-a-tax-less-than-or-equal-to-21 = Facturas con impuestos iguales o menores al 21%
 
 sponsor.dashboard.form.label.total-number-of-sponsorships-with-a-link = Patrocinios que tengan link
+
+
+sponsor.dashboard.form.label.average-amount-of-the-sponsorships = Cantidad promedio de los patrocinios
+sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships = Desviación en la cantidad de los patrocinios
+sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships = Cantidad mínima de los patrocinios
+sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships = Cantidad máxima de los patrocinios
+sponsor.dashboard.form.label.average-quantity-of-the-invoices = Cantidad promedio de las facturas
+sponsor.dashboard.form.label.deviation-quantity-of-the-invoices = Desviación en la cantidad de las facturas
+sponsor.dashboard.form.label.minimum-quantity-of-the-invoices = Cantidad mínima de las facturas
+sponsor.dashboard.form.label.maximum-quantity-of-the-invoices = Cantidad máxima de las facturas

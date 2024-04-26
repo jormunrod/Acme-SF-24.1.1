@@ -1,19 +1,11 @@
-# menu-en.i18n
-#
-# Copyright (C) 2012-2024 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
-
 # master.menu #################################################################
 
 master.menu.home = Home
 master.menu.sign-up = Sign up
 master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
+master.menu.any-role = Any
+master.menu.claim = Claim
 
 # master.menu.anonymous #######################################################
 
@@ -25,11 +17,17 @@ master.menu.anonymous.javrodrei = 30282701G: Rodríguez Reina, Javier
 master.menu.anonymous.isasolpad = 49127653K: Solís Padilla, Isaac
 master.menu.anonymous.alepersan3 = 53932373H: Pérez Santiago, Alejandro
 
+# master.menu.authenticated ####################################################
+master.menu.authenticated = Authenticated
+master.menu.authenticated.objective = Objectives
+master.menu.authenticated.risk = Risks
+
 # master.menu.client ##########################################################
 
 master.menu.client = Client
 master.menu.client.contract.list = List contracts
 master.menu.client.dashboard = Dashboard
+master.menu.client.contract.list-all = Published Contracts List
 
 # master.menu.developers ######################################################
 
@@ -37,12 +35,20 @@ master.menu.developer = Developers
 master.menu.developer.training-module.list = Training Module List
 master.menu.developer.dashboard = Dashboard
 
+
+master.menu.developer.training-module.list-all = Published Training Module List
+master.menu.client.contract.list-all = Published Contracts List
+master.menu.sponsor.sponsorship.list-all= Published Sponsorships List
+master.menu.any-role = Any
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.objectives = Objectives
 master.menu.administrator.banners = Banners
+master.menu.administrator.risks = Risks
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
@@ -61,27 +67,45 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.auditor = Auditor
 master.menu.auditor.code-audit.list = My code audits
+master.menu.auditor.dashboard = Dashboard
+master.menu.auditor.code-audit.list-all = Published Code Audits List
 
 # master.menu.manager #########################################################
 
 master.menu.manager = Manager
-master.menu.manager.project.list = Projects
+master.menu.manager.project.list = Projects List
+master.menu.manager.dashboard = Dashboard
+master.menu.manager.project.list-all = Published Projects List
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
+master.menu.user-account.become-manager = Become a manager
+master.menu.user-account.manager = Manager data
+master.menu.user-account.become-client = Become a client
+master.menu.user-account.client = Client data
 master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-developer = Become a developer
 master.menu.user-account.developer = Developer data
+master.menu.user-account.become-sponsor = Become a sponsor
+master.menu.user-account.sponsor = Sponsor data
+master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor = Auditor data
+
 # master.menu.sponsor ###################################################
 
 master.menu.sponsor = Sponsor
-master.menu.sponsor.sponsorship.list = SponsorshipList
+master.menu.sponsor.sponsorship.list = Sponsorship List
+master.menu.sponsor.dashboard = Dashboard
+master.menu.sponsor.sponsorship.list-all = Published Sponsorships List
 
-master.menu.user-account.become-sponsor = Become a sponsor
+# master.menu.client #########################################################
 
-master.menu.user-account.sponsor = Datos de patrocinador
+master.menu.client = Client
+master.menu.client.contracts.list = Contracts List
+master.menu.client.dashboard = Dashboard
+master.menu.client.contracts.list-all = Published Contracts List

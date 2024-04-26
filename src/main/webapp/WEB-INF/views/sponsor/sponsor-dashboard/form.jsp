@@ -1,15 +1,3 @@
-<%--
-- form.jsp
--
-- Copyright (C) 2012-2024 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
-
 <%@page%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -36,6 +24,7 @@
 			<acme:print value="${totalNumberOfSponsorshipsWithALink}"/>
 		</td>
 	</tr>
+	
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.dashboard.form.label.average-amount-of-the-sponsorships"/>
@@ -44,6 +33,7 @@
 			<acme:print value="${averageAmountOfTheSponsorships}"/>
 		</td>
 	</tr>
+
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.dashboard.form.label.deviation-amount-of-the-sponsorships"/>
@@ -52,6 +42,7 @@
 			<acme:print value="${deviationAmountOfTheSponsorships}"/>
 		</td>
 	</tr>
+	
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.dashboard.form.label.minimum-amount-of-the-sponsorships"/>
@@ -60,6 +51,8 @@
 			<acme:print value="${minimumAmountOfTheSponsorships}"/>
 		</td>
 	</tr>
+
+	
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.dashboard.form.label.maximum-amount-of-the-sponsorships"/>
@@ -68,6 +61,7 @@
 			<acme:print value="${maximumAmountOfTheSponsorships}"/>
 		</td>
 	</tr>
+
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.dashboard.form.label.average-quantity-of-the-invoices"/>
@@ -76,6 +70,7 @@
 			<acme:print value="${averageQuantityOfTheInvoices}"/>
 		</td>
 	</tr>
+
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.dashboard.form.label.deviation-quantity-of-the-invoices"/>
@@ -84,6 +79,7 @@
 			<acme:print value="${deviationQuantityOfTheInvoices}"/>
 		</td>
 	</tr>
+
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.dashboard.form.label.minimum-quantity-of-the-invoices"/>
@@ -92,6 +88,7 @@
 			<acme:print value="${minimumQuantityOfTheInvoices}"/>
 		</td>
 	</tr>
+
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.dashboard.form.label.maximum-quantity-of-the-invoices"/>
@@ -100,5 +97,6 @@
 			<acme:print value="${maximumQuantityOfTheInvoices}"/>
 		</td>
 	</tr>
-</table>
 
+
+</table>

@@ -1,0 +1,16 @@
+# any.user-story.list ###################################################
+
+any.user-story.list.title = Historias de usuario
+any.user-story.list.label.title = Nombre
+any.user-story.list.label.estimatedHours = Horas estimadas
+any.user-story.list.label.priority = Prioridad
+
+# any.user-story.form ###################################################
+
+any.user-story.form.title = Detalles de la historia de usuario
+any.user-story.form.label.title = Nombre
+any.user-story.form.label.description = Descripción
+any.user-story.form.label.estimatedHours = Horas estimadas
+any.user-story.form.label.acceptanceCriteria = Criterios de aceptación
+any.user-story.form.label.priority = Prioridad
+any.user-story.form.label.link = Enlace (Opcional)

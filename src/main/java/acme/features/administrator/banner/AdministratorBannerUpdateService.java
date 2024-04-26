@@ -13,7 +13,7 @@ import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
-import acme.entities.sponsorships.Banner;
+import acme.entities.banner.Banner;
 
 @Service
 public class AdministratorBannerUpdateService extends AbstractService<Administrator, Banner> {
