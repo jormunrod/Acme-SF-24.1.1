@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
@@ -95,7 +96,8 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			Date oneMonthAfterRegistration = cal.getTime();
 
 			super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
-
+			if (!dueDate.after(MomentHelper.getBaseMoment()))
+				super.state(false, "dueDate", "sponsor.invoice.error.DueDateMustBeInFuture");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {

@@ -82,7 +82,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		}
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			Double quantity = object.getQuantity().getAmount();
-			super.state(quantity != null && quantity >= 0., "quantity", "sponsor.invoice.error.quantityNegative");
+			super.state(quantity != null && quantity > 0., "quantity", "sponsor.invoice.error.quantityNegative");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date registrationTime = object.getRegistrationTime();

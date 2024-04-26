@@ -74,13 +74,19 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			int id;
+			id = super.getRequest().getData("id", int.class);
 			boolean status = this.repository.invoicesNotPublishedBySponsorshipId(object.getId()).isEmpty();
 			Double amount = object.getAmount().getAmount();
 			double invoicesAmount = this.repository.sumTotalAmountBySponsorshipId(object.getId()) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(object.getId());
+			double diference = amount - invoicesAmount;
+			if (diference > 0.)
+				super.state(false, "*", "sponsor.sponsorship.error.invoicesLeft");
+			if (this.repository.findInvoicesBySponsorshipId(id).isEmpty())
+				super.state(false, "*", "sponsor.sponsorship.error.ThereAreNoInvoicesAsociated");
+			if (!this.repository.findInvoicesBySponsorshipId(id).isEmpty() && !status)
+				super.state(status, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
 
-			if (amount - invoicesAmount > 0.)
-				super.state(amount - invoicesAmount == 0., "*", "sponsor.sponsorship.error.invoicesLeft");
-			super.state(status, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
