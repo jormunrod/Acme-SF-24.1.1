@@ -7,7 +7,7 @@ any.user-story.list.label.priority = Prioridad
 
 # any.user-story.form ###################################################
 
-any.user-story.form.title = Historia de usuario
+any.user-story.form.title = Detalles de la historia de usuario
 any.user-story.form.label.title = Nombre
 any.user-story.form.label.description = Descripción
 any.user-story.form.label.estimatedHours = Horas estimadas
