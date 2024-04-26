@@ -14,17 +14,13 @@ import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
-import acme.features.auditor.codeAudit.AuditorCodeAuditRepository;
 import acme.roles.Auditor;
 
 @Service
 public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, AuditRecord> {
 
 	@Autowired
-	protected AuditorAuditRecordRepository	repository;
-
-	@Autowired
-	protected AuditorCodeAuditRepository	codeAuditRepository;
+	protected AuditorAuditRecordRepository repository;
 
 
 	@Override
