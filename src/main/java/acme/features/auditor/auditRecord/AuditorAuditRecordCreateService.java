@@ -4,11 +4,6 @@ package acme.features.auditor.auditRecord;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +14,6 @@ import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
-import acme.features.auditor.codeAudit.AuditorCodeAuditRepository;
 import acme.roles.Auditor;
 
 @Service
@@ -28,10 +22,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorAuditRecordRepository	repository;
-
-	@Autowired
-	private AuditorCodeAuditRepository		codeAuditRepository;
+	private AuditorAuditRecordRepository repository;
 
 	// AbstractService interface ------------------------
 
@@ -99,31 +90,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void perform(final AuditRecord object) {
 		assert object != null;
 
-		CodeAudit codeAudit;
-		List<Mark> marks;
-
-		codeAudit = object.getCodeAudit();
-		marks = this.repository.findAllAuditRecordsByCodeAuditId(codeAudit.getId()).stream().map(ar -> ar.getMark()).toList();
-		Map<Mark, Integer> frequencies = new HashMap<>();
-		for (Mark mark : marks)
-			frequencies.put(mark, frequencies.getOrDefault(mark, 0) + 1);
-
-		List<Mark> modes = new ArrayList<>();
-		int maxFrequency = 0;
-		for (Map.Entry<Mark, Integer> entry : frequencies.entrySet()) {
-			int frequency = entry.getValue();
-			if (frequency > maxFrequency) {
-				maxFrequency = frequency;
-				modes.clear();
-				modes.add(entry.getKey());
-			} else if (frequency == maxFrequency)
-				modes.add(entry.getKey());
-		}
-		modes.sort(Comparator.naturalOrder());
-		codeAudit.setMark(modes.get(modes.size() - 1));
-
 		this.repository.save(object);
-		this.codeAuditRepository.save(codeAudit);
 	}
 
 	@Override

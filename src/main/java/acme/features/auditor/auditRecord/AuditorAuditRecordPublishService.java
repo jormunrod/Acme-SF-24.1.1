@@ -3,7 +3,7 @@ package acme.features.auditor.auditRecord;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
@@ -79,7 +79,7 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 
 		codeAudit = object.getCodeAudit();
 		marks = this.repository.findAllAuditRecordsByCodeAuditId(codeAudit.getId()).stream().filter(ar -> ar.isPublished()).map(ar -> ar.getMark()).toList();
-		Map<Mark, Integer> frequencies = new HashMap<>();
+		EnumMap<Mark, Integer> frequencies = new EnumMap<>(Mark.class);
 		for (Mark mark : marks)
 			frequencies.put(mark, frequencies.getOrDefault(mark, 0) + 1);
 
