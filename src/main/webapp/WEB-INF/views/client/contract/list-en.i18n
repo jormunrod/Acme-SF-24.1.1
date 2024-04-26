@@ -1,0 +1,31 @@
+# menu-en.i18n
+
+# master.client.contract #####################################################
+
+client.contract.list.title = List of Contracts
+client.contract.list.label.code = Code
+client.contract.list.label.instantiationMoment = Instantiation Moment
+client.contract.list.label.providerName = Provider Name
+client.contract.list.label.customerName = Customer Name
+client.contract.list.label.goals = Goals
+client.contract.list.label.budget = Budget
+client.contract.list.button.create = Create
+client.contract.list.label.published = Published
+
+client.contract.form.title = Details of Contract
+client.contract.form.label.code = Code
+client.contract.form.label.project = Project
+client.contract.form.label.instantiationMoment = Instantiation Moment
+client.contract.form.label.providerName = Provider Name
+client.contract.form.label.customerName = Customer Name
+client.contract.form.label.goals = Goals
+client.contract.form.label.budget = Budget
+client.contract.form.button.delete = Delete
+client.contract.form.button.update = Update
+client.contract.form.button.create = Create
+client.contract.form.error.duplicateCode = Duplicate code
+client.contract.form.label.publish = Published
+client.contract.form.button.publish = Publish
+client.contract.form.error.budgetExceeded = Budget exceeded
+client.contract.form.button.progress-logs = Progress Logs
+client.contract.list.label.isPublished = Published

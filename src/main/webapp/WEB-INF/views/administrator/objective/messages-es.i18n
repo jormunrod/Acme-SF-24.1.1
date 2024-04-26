@@ -1,0 +1,16 @@
+# administrator.objective.form ################################
+administrator.objective.form.title = Detalles del objetivo
+administrator.objective.form.label.title = Título
+administrator.objective.form.label.priority = Prioridad
+administrator.objective.form.label.isCritical = Errores fatales 
+administrator.objective.form.label.description = Descripción 
+administrator.objective.form.label.instantiationMoment = Momento de instanciación 
+administrator.objective.form.label.startDate = Fecha de inicio
+administrator.objective.form.label.endDate = Fecha de finalización
+administrator.objective.form.label.link = Enlace (Opcional)
+administrator.objective.form.label.confirmation = Confirme que el objetivo es correcto
+
+administrator.objective.form.button.create = Crear
+
+administrator.objective.form.error.startDate = La fecha de inicio tiene que ser posterior a la fecha de instanciación
+administrator.objective.form.error.endDate = La fecha de finalización tiene que ser posterior a la fecha de inicio
