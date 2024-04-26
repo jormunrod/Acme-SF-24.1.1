@@ -102,7 +102,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
-
+		object.setId(0);
 		this.repository.save(object);
 
 	}
