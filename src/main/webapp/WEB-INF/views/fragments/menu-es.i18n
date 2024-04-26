@@ -50,6 +50,7 @@ master.menu.any-role = Cualquier Rol
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.objectives = Objetivos
 master.menu.administrator.banners = Anuncios publicitarios
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
