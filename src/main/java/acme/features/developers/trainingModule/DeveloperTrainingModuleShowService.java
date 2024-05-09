@@ -29,7 +29,6 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 	public void authorise() {
 		boolean status;
 		int id;
-		Collection<TrainingModule> trainingModules;
 		TrainingModule trainingModule;
 
 		id = super.getRequest().getData("id", int.class);

@@ -51,7 +51,6 @@ public class DeveloperTrainingSessionListService extends AbstractService<Develop
 	@Override
 	public void unbind(final TrainingSesion object) {
 		assert object != null;
-		int id;
 		Dataset dataset;
 		String draftModeIntl = object.isDraftMode() ? "✔️" : "❌";
 
