@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.entities.trainings.TrainingSesion;
+import acme.entities.trainings.TrainingSession;
 import acme.roles.Developer;
 
 @Controller
-public class DeveloperTrainingSessionController extends AbstractController<Developer, TrainingSesion> {
+public class DeveloperTrainingSessionController extends AbstractController<Developer, TrainingSession> {
 
 	// Internal state ---------------------------------------------------------------------
 	@Autowired

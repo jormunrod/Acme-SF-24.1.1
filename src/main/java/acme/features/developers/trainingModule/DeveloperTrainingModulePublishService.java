@@ -91,13 +91,11 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 	@Override
 	public void unbind(final TrainingModule object) {
 		assert object != null;
-		int developerId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		SelectChoices choicesLevels;
 		Dataset dataset;
 
-		developerId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());

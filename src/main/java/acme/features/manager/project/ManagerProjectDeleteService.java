@@ -17,7 +17,7 @@ import acme.entities.projects.UserStory;
 import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
 import acme.entities.trainings.TrainingModule;
-import acme.entities.trainings.TrainingSesion;
+import acme.entities.trainings.TrainingSession;
 import acme.roles.Manager;
 
 @Service
@@ -87,7 +87,7 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 		this.repository.deleteAll(contracts);
 
 		for (TrainingModule tm : trainingModules) {
-			Collection<TrainingSesion> trainingSesions = this.repository.findAllTrainingSesionByTrainingModuleId(tm.getId());
+			Collection<TrainingSession> trainingSesions = this.repository.findAllTrainingSesionByTrainingModuleId(tm.getId());
 			this.repository.deleteAll(trainingSesions);
 		}
 

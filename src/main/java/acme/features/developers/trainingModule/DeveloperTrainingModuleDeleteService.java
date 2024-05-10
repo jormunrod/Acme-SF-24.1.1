@@ -12,7 +12,7 @@ import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
 import acme.entities.trainings.DifficultyLevel;
 import acme.entities.trainings.TrainingModule;
-import acme.entities.trainings.TrainingSesion;
+import acme.entities.trainings.TrainingSession;
 import acme.roles.Developer;
 
 @Service
@@ -71,9 +71,9 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 	public void perform(final TrainingModule object) {
 		assert object != null;
 
-		Collection<TrainingSesion> trainingSesions;
-		trainingSesions = this.repository.findTrainingSesionByTrainingModuleId(object.getId());
-		this.repository.deleteAll(trainingSesions);
+		Collection<TrainingSession> trainingSessions;
+		trainingSessions = this.repository.findTrainingSessionByTrainingModuleId(object.getId());
+		this.repository.deleteAll(trainingSessions);
 		this.repository.delete(object);
 	}
 

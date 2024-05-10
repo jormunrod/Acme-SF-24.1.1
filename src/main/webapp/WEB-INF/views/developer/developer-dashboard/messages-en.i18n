@@ -13,7 +13,7 @@ developer.developer-dashboard.form.title = Developer Dashboard
 
 developer.developer-dashboard.form.title.general-indicators = General Indicators
 developer.developer-dashboard.form.label.total-number-of-training-module-with-an-update-moment = Total number of Training Module with an Update Moment
-developer.developer-dashboard.form.label.total-number-of-training-sesion-with-a-link = Total number of Training Session with a Link
+developer.developer-dashboard.form.label.total-number-of-training-session-with-a-link = Total number of Training Session with a Link
 developer.developer-dashboard.form.label.average = Average of the Total Time of Training Modules
 developer.developer-dashboard.form.label.deviation = Deviation of the Total Time of Training Modules
 developer.developer-dashboard.form.label.minimum-time-of-the-training-module = Minimum Total Time of the Training Module

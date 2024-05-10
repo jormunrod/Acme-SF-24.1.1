@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class TrainingSesion extends AbstractEntity {
+public class TrainingSession extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
