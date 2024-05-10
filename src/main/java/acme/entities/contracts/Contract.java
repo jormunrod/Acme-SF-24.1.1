@@ -61,7 +61,6 @@ public class Contract extends AbstractEntity {
 	@Length(max = 100)
 	private String				goals;
 
-	// TODO: Less than or equal to the corresponding project cost (in services)
 	@NotNull
 	private Money				budget;
 

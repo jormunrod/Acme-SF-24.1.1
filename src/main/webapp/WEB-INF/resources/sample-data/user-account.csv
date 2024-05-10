@@ -18,3 +18,4 @@ user-account-auditor-02,true,"UserIdentity{name: 'Pablo', surname: 'Santiago Gom
 user-account-auditor-03,true,"UserIdentity{name: 'Juan', surname: 'Quiroga Machado', email: 'juaquimac@alum.us.es'}",auditor3,auditor3
 user-account-client-01,true,"UserIdentity{name: 'Kim', surname: '中华中華', email: 'kimio@gmail.com'}",client1,client1
 user-account-client-02,true,"UserIdentity{name: 'Estefanía', surname: 'Pérez Reverte', email: 'estefa4@gmail.com'}",client2,client2
+user-account-client-03,true,"UserIdentity{name: 'Jesús', surname: 'Solís Fernández', email: 'jesus@gmail.com'}",client3,client3
