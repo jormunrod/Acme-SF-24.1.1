@@ -1,0 +1,48 @@
+# menu-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# master.menu #################################################################
+
+master.menu.home = Home
+master.menu.sign-up = Sign up
+master.menu.sign-in = Sign in
+master.menu.sign-out = Sign out
+
+# master.developer.training-session #####################################################
+
+developer.training-session.list.title = Training Sessions
+developer.training-session.list.label.code = Code
+developer.training-session.list.label.startDate = Start Date
+developer.training-session.list.label.location = Location
+developer.training-session.list.label.draftMode = Draft Mode
+
+
+
+developer.training-session.form.title = Training Session
+developer.training-session.form.label.code = Code
+developer.training-session.form.label.startDate = Start Date
+developer.training-session.form.label.finishDate = Finish Date
+developer.training-session.form.label.location = Location
+developer.training-session.form.label.instructor = Instructor
+developer.training-session.form.label.contactEmail = Contact Email
+developer.training-session.form.label.link = Link (Optional)
+
+
+developer.training-session.list.button.create = Create
+
+developer.training-session.form.button.create = Create
+developer.training-session.form.button.delete = Delete
+developer.training-session.form.button.update = Update
+developer.training-session.form.button.publish = Publish
+
+developer.training-session.form.label.training-module = Training Modules
+developer.training-session.form.error.duplicated = Code already exists
+developer.training-session.form.error.bad-date = Start Date must be least one week ahead the training module creation moment
+developer.training-session.form.error.bad-duration = The duration between Start Date and Finish Date must be least one week 

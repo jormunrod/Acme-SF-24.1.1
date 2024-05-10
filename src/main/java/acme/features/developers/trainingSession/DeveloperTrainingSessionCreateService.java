@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.trainings.TrainingModule;
-import acme.entities.trainings.TrainingSesion;
+import acme.entities.trainings.TrainingSession;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingSessionCreateService extends AbstractService<Developer, TrainingSesion> {
+public class DeveloperTrainingSessionCreateService extends AbstractService<Developer, TrainingSession> {
 	//Internal state -----------------------------------------------------------------------------------
 
 	@Autowired
@@ -38,9 +38,9 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 
 	@Override
 	public void load() {
-		TrainingSesion object;
+		TrainingSession object;
 
-		object = new TrainingSesion();
+		object = new TrainingSession();
 		object.setDraftMode(true);
 
 		super.getBuffer().addData(object);
@@ -48,7 +48,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	}
 
 	@Override
-	public void bind(final TrainingSesion object) {
+	public void bind(final TrainingSession object) {
 		assert object != null;
 		int id;
 		TrainingModule trainingModule;
@@ -60,7 +60,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	}
 
 	@Override
-	public void validate(final TrainingSesion object) {
+	public void validate(final TrainingSession object) {
 		assert object != null;
 		int id;
 		TrainingModule trainingModule;
@@ -68,10 +68,10 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 		trainingModule = this.repository.findOneTrainingModuleById(id);
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			TrainingSesion existing;
+			TrainingSession existing;
 
-			existing = this.repository.findOneTrainingSesionByCode(object.getCode());
-			super.state(existing == null, "code", "developer.training-sesion.form.error.duplicated");
+			existing = this.repository.findOneTrainingSessionByCode(object.getCode());
+			super.state(existing == null, "code", "developer.training-session.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
@@ -79,7 +79,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 			boolean isTrue;
 			oneWeekAfterCreation = new Date(trainingModule.getCreationMoment().getTime() + 7L * 24 * 60 * 60 * 1000);
 			isTrue = object.getStartDate().before(oneWeekAfterCreation);
-			super.state(isTrue == false, "startDate", "developer.training-sesion.form.error.bad-date");
+			super.state(isTrue == false, "startDate", "developer.training-session.form.error.bad-date");
 
 		}
 		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
@@ -89,13 +89,13 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 
 				boolean isTrue;
 				isTrue = duration < oneWeek;
-				super.state(isTrue == false, "finishDate", "developer.training-sesion.form.error.bad-duration");
+				super.state(isTrue == false, "finishDate", "developer.training-session.form.error.bad-duration");
 			}
 
 	}
 
 	@Override
-	public void perform(final TrainingSesion object) {
+	public void perform(final TrainingSession object) {
 		assert object != null;
 
 		int id;
@@ -110,7 +110,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	}
 
 	@Override
-	public void unbind(final TrainingSesion object) {
+	public void unbind(final TrainingSession object) {
 		assert object != null;
 
 		Dataset dataset;

@@ -8,19 +8,19 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.trainings.TrainingModule;
-import acme.entities.trainings.TrainingSesion;
+import acme.entities.trainings.TrainingSession;
 
 @Repository
 public interface DeveloperTrainingSessionRepository extends AbstractRepository {
 
-	@Query("select ts from TrainingSesion ts where ts.trainingModule.id = :id")
-	Collection<TrainingSesion> findTrainingSesionByTrainingModuleId(int id);
+	@Query("select ts from TrainingSession ts where ts.trainingModule.id = :id")
+	Collection<TrainingSession> findTrainingSessionByTrainingModuleId(int id);
 
-	@Query("select ts from TrainingSesion ts where ts.id = :id")
-	TrainingSesion findTrainingSesionById(int id);
+	@Query("select ts from TrainingSession ts where ts.id = :id")
+	TrainingSession findTrainingSessionById(int id);
 
-	@Query("select ts from TrainingSesion ts where ts.code = :code")
-	TrainingSesion findOneTrainingSesionByCode(String code);
+	@Query("select ts from TrainingSession ts where ts.code = :code")
+	TrainingSession findOneTrainingSessionByCode(String code);
 
 	@Query("select tm from TrainingModule tm where tm.id =:id")
 	TrainingModule findOneTrainingModuleById(int id);
@@ -31,7 +31,7 @@ public interface DeveloperTrainingSessionRepository extends AbstractRepository {
 	@Query("select DISTINCT tm from TrainingModule tm where tm.developer.id = :id")
 	Collection<TrainingModule> findTrainingModuleByDeveloperId(int id);
 
-	@Query("select ts.trainingModule from TrainingSesion ts where ts.id = :id")
-	TrainingModule findOneTrainingModuleByTrainingSesionId(int id);
+	@Query("select ts.trainingModule from TrainingSession ts where ts.id = :id")
+	TrainingModule findOneTrainingModuleByTrainingSessionId(int id);
 
 }

@@ -30,7 +30,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="developer.developer-dashboard.form.label.total-number-of-training-sesion-with-a-link"/>
+			<acme:message code="developer.developer-dashboard.form.label.total-number-of-training-session-with-a-link"/>
 		</th>
 		<td>
 			<acme:print value="${totalNumberOfTrainingSessionsWithALink}"/>

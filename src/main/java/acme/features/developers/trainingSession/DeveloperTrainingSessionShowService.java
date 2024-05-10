@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.trainings.TrainingModule;
-import acme.entities.trainings.TrainingSesion;
+import acme.entities.trainings.TrainingSession;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingSessionShowService extends AbstractService<Developer, TrainingSesion> {
+public class DeveloperTrainingSessionShowService extends AbstractService<Developer, TrainingSession> {
 
 	//Internal state -----------------------------------------------------------------------------------
 
@@ -24,11 +24,11 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 	@Override
 	public void authorise() {
 		boolean status;
-		int trainingSesionId;
+		int trainingSessionId;
 		TrainingModule trainingModule;
 
-		trainingSesionId = super.getRequest().getData("id", int.class);
-		trainingModule = this.repository.findOneTrainingModuleByTrainingSesionId(trainingSesionId);
+		trainingSessionId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleByTrainingSessionId(trainingSessionId);
 		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
 
 		super.getResponse().setAuthorised(status);
@@ -36,18 +36,18 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 
 	@Override
 	public void load() {
-		TrainingSesion object;
+		TrainingSession object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findTrainingSesionById(id);
+		object = this.repository.findTrainingSessionById(id);
 
 		super.getBuffer().addData(object);
 
 	}
 
 	@Override
-	public void unbind(final TrainingSesion object) {
+	public void unbind(final TrainingSession object) {
 		assert object != null;
 
 		Dataset dataset;
