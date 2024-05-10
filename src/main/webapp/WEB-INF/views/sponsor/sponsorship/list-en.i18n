@@ -77,5 +77,8 @@ sponsor.sponsorship.error.youcantChangeTheCurrency = You cannot change the amoun
 sponsor.sponsorship.error.invoicesLeft = The totalAmount of invoices is lower tha de amount
 sponsor.sponsorship.error.NotAllInvoicesPublished = Not all invoices are published
 sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = There aren't asociated invoices
+sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = The Currency must be admited by de system
 
 sponsor.sponsorship.list.label.draftMode = Draft Mode
+
+sponsor.sponsorship.error.TheCurrencyMustBeTheSameAsTheProject = The sponsorship's currency must be equals to project's currency

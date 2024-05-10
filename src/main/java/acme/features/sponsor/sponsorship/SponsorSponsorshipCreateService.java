@@ -103,6 +103,9 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			Money amount = object.getAmount();
 			super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			if (!object.getProject().getCost().getCurrency().equals(object.getAmount().getCurrency()))
+				super.state(false, "amount", "sponsor.sponsorship.error.TheCurrencyMustBeTheSameAsTheProject");
 
 	}
 	@Override
@@ -115,7 +118,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void unbind(final Sponsorship object) {
 		assert object != null;
-		int sponsorId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;

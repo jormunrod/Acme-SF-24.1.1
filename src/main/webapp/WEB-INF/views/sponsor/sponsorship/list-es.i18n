@@ -66,5 +66,8 @@ sponsor.sponsorship.error.youcantChangeTheCurrency = No puedes cambiar la cantid
 sponsor.sponsorship.error.invoicesLeft = El totalAmount de las facturas es menor a la cantidad del patrocinio
 sponsor.sponsorship.error.NotAllInvoicesPublished = No todas las facturas están publicadas
 sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = No hay facturas asociadas
+sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = La moneda debe ser aceptada por el sistema
 
 sponsor.sponsorship.list.label.draftMode = Modo Borrador
+
+sponsor.sponsorship.error.TheCurrencyMustBeTheSameAsTheProject = La moneda del patrocinio debe ser igual a la del proyecto asociado

@@ -152,6 +152,9 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
 				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			if (!object.getProject().getCost().getCurrency().equals(object.getAmount().getCurrency()))
+				super.state(false, "amount", "sponsor.sponsorship.error.TheCurrencyMustBeTheSameAsTheProject");
 	}
 	@Override
 	public void perform(final Sponsorship object) {
@@ -166,7 +169,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void unbind(final Sponsorship object) {
 		assert object != null;
-		int sponsorId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
@@ -175,8 +177,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		int id;
 		id = super.getRequest().getData("id", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
-
-		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());

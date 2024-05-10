@@ -82,10 +82,6 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date registrationTime = object.getRegistrationTime();
 			Date dueDate = object.getDueDate();
-			Invoice invoice;
-			int id;
-			id = super.getRequest().getData("id", int.class);
-			invoice = this.repository.findInvoiceById(id);
 
 			if (registrationTime != null && dueDate != null) {
 				Calendar cal = Calendar.getInstance();

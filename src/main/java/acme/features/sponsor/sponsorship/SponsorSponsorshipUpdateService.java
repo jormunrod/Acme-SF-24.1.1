@@ -137,6 +137,9 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
 				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			if (!object.getProject().getCost().getCurrency().equals(object.getAmount().getCurrency()))
+				super.state(false, "amount", "sponsor.sponsorship.error.TheCurrencyMustBeTheSameAsTheProject");
 
 	}
 	@Override
@@ -150,7 +153,6 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void unbind(final Sponsorship object) {
 		assert object != null;
-		int sponsorId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
