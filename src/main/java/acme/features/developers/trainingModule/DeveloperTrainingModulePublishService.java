@@ -69,6 +69,18 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		int totalNumberOfTrainingSessions = this.repository.countTrainingSessionsByTrainingModuleId(id);
 		int publishedTrainingSessions = this.repository.countPublishedTrainingSessionsByTrainingModuleId(id);
 
+		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			TrainingModule existing;
+
+			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
+			if (existing != null && existing.getId() != object.getId())
+				super.state(false, "code", "developer.training-module.form.error.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
+			super.state(object.getTotalTime() > 0, "totalTime", "developer.training-module.form.error.invalid-total-time");
+
 		if (totalNumberOfTrainingSessions == 0)
 			super.state(false, "*", "developer.training-module.form.error.hasNotSessions");
 		else if (publishedTrainingSessions != totalNumberOfTrainingSessions)
