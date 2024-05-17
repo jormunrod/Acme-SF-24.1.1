@@ -82,14 +82,15 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 			super.state(isTrue == false, "startDate", "developer.training-session.form.error.bad-date");
 
 		}
-		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
-			long duration = object.getFinishDate().getTime() - object.getStartDate().getTime();
-			long oneWeek = 7L * 24 * 60 * 60 * 1000;
+		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
+			if (object.getStartDate() != null && object.getFinishDate() != null) {
+				long duration = object.getFinishDate().getTime() - object.getStartDate().getTime();
+				long oneWeek = 7L * 24 * 60 * 60 * 1000;
 
-			boolean isTrue;
-			isTrue = duration < oneWeek;
-			super.state(isTrue == false, "finishDate", "developer.training-session.form.error.bad-duration");
-		}
+				boolean isTrue;
+				isTrue = duration < oneWeek;
+				super.state(isTrue == false, "finishDate", "developer.training-session.form.error.bad-duration");
+			}
 
 	}
 
