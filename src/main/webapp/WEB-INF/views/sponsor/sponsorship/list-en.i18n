@@ -48,37 +48,17 @@ sponsor.sponsorship.list.button.update = Update
 sponsor.sponsorship.list.button.delete = Delete
 sponsor.sponsorship.list.button.publish = Publish
 sponsor.sponsorship.list.button.inovices = Invoices
-
-
-
-
-sponsor.sponsorship.error.invoicesLeft = There are still invoices to add to reach the sponsorship amount.
-sponsor.sponsorship.error.invoicesLeftOver = The sum of the total invoice amounts exceeds the sponsorship amount
-sponsor.sponsorship.error.duplicated = This code is alredy in use.
-sponsor.sponsorship.error.startDateBeforeMoment = Start date must be after Moment
-sponsor.sponsorship.error.endDateNotOneMonthAfter = End date must be at least one moth after start date
-sponsor.sponsorship.error.amountNotPositive = Amount must be positive
-
-sponsor.invoice.error.duplicated = The invoice code is duplicated
-sponsor.invoice.error.quantityNegative = The quantity cannot be negative
-sponsor.invoice.error.dueDateTooEarly = The due date is too early; it must be at least one month after the registration date
-sponsor.invoice.error.DueDateMustBeInFuture = The due date must be in the future
-sponsor.invoice.error.quantityMustBeEqualToSponsorship = The quantity must be equal to the sponsorship amount
-sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = The total amount is higher than the sponsorship amount
-sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem = The currency must be admitted by the system
-sponsor.invoice.error.taxNegative = The tax cannot be negative
-sponsor.invoice.error.quantityNegativeOrZero = The quantity cannot be negative or zero
-sponsor.sponsorship.error.duplicated = The sponsorship code is duplicated
-sponsor.sponsorship.error.startDateBeforeMoment = The start date cannot be before the creation moment
-sponsor.sponsorship.error.startDateMustBeInFuture = The start date must be in the future
-sponsor.sponsorship.error.endDateNotOneMonthAfter = The end date must be at least one month after the start date
-sponsor.sponsorship.error.amountNotPositive = The amount must be positive
-sponsor.sponsorship.error.youcantChangeTheCurrency = You cannot change the amount if invoices already exist
-sponsor.sponsorship.error.invoicesLeft = The totalAmount of invoices is lower tha de amount
-sponsor.sponsorship.error.NotAllInvoicesPublished = Not all invoices are published
-sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = There aren't asociated invoices
-sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = The Currency must be admited by de system
-
 sponsor.sponsorship.list.label.draftMode = Draft Mode
 
-sponsor.sponsorship.error.TheCurrencyMustBeTheSameAsTheProject = The sponsorship's currency must be equals to project's currency
+sponsor.sponsorship.error.invoicesLeft = The sum of the total amount of all the invoices is lower than the amount of the sponsorship
+sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = There are no invoices asociated
+sponsor.sponsorship.error.startDateMustBeInFuture = Start Date must be in the future (after 2022/07/30 00:00)
+sponsor.sponsorship.error.startDateBeforeMoment = Start Date must be after moment
+sponsor.sponsorship.error.endDateNotOneMonthAfter = End Date must be at least one moth after Start Date
+sponsor.sponsorship.error.amountNotPositive = Amount must be positive
+sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = The currency must be EUR USD or GBP
+sponsor.sponsorship.error.youcantChangeTheCurrency = You can't change the currency because this sponsorship has invoices asociated
+sponsor.sponsorship.error.youcantChangeAmount = You can't change the amount because this sponsorship has invoices asociated
+sponsor.sponsorship.error.NotAllInvoicesPublished= Not all the invoices are published, they must be published to publish this sponsorship
+sponsor.sponsorship.error.duplicated = The code is alredy in use
+

@@ -92,20 +92,15 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 				Date oneMonthAfterStartDate = cal.getTime();
 				super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
 			}
-
 		}
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			String currency = object.getAmount().getCurrency();
+			Money amount = object.getAmount();
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
 				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
+			if (!(amount.getAmount() > 0))
+				super.state(false, "amount", "sponsor.sponsorship.error.amountNotPositive");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("amount")) {
-			Money amount = object.getAmount();
-			super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("amount"))
-			if (!object.getProject().getCost().getCurrency().equals(object.getAmount().getCurrency()))
-				super.state(false, "amount", "sponsor.sponsorship.error.TheCurrencyMustBeTheSameAsTheProject");
 
 	}
 	@Override

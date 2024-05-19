@@ -30,13 +30,13 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		Sponsor sponsor;
 
 		id = super.getRequest().getData("id", int.class);
+
 		object = this.repository.findInvoiceById(id);
 		sponsor = object.getSponsorship().getSponsor();
 
 		status = object.isDraftMode() && object.getSponsorship().isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
@@ -75,10 +75,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 				status = alredyExisting.getCode().equals(actual.getCode());
 			super.state(status, "code", "sponsor.invoice.error.duplicated");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
-			Double quantity = object.getQuantity().getAmount();
-			super.state(quantity != null && quantity > 0., "quantity", "sponsor.invoice.error.quantityNegative");
-		}
+
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date registrationTime = object.getRegistrationTime();
 			Date dueDate = object.getDueDate();
@@ -95,26 +92,11 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 
 		}
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
-
-			Invoice invoice;
-			int id;
-
-			id = super.getRequest().getData("id", int.class);
-			invoice = this.repository.findInvoiceById(id);
-
-			String currency = object.getQuantity().getCurrency();
-
-			super.state(currency != null && currency.equals(invoice.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
-			String currency = object.getQuantity().getCurrency();
-			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "amount", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			int id;
 			Sponsorship sponsorship;
 			Invoice invoice;
+			Double quantity = object.getQuantity().getAmount();
+			String currency = object.getQuantity().getCurrency();
 
 			id = super.getRequest().getData("id", int.class);
 			invoice = this.repository.findInvoiceById(id);
@@ -125,7 +107,13 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 			totalAmounOfinvoice -= invoice.getTotalAmountWithTax().getAmount();
 
 			if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
-				super.state(false, "quantity", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
+				super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
+			if (!(quantity != null && quantity > 0.))
+				super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
+			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+				super.state(false, "amount", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+			if (!(currency != null && currency.equals(invoice.getSponsorship().getAmount().getCurrency())))
+				super.state(false, "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
 		}
 
 	}
