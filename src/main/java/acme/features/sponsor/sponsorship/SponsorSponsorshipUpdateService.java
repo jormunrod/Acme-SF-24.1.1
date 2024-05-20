@@ -8,7 +8,6 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
@@ -113,12 +112,6 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
-			Money amount = object.getAmount();
-			if (amount != null)
-				super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			Sponsorship sponsorship;
 			int id;
 			id = super.getRequest().getData("id", int.class);
@@ -129,15 +122,13 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			if (!currency.equals(sponsorship.getAmount().getCurrency()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
 				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
 			if (!amount.equals(sponsorship.getAmount().getAmount()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
-				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
-
-		}
-		if (!super.getBuffer().getErrors().hasErrors("amount")) {
-			String currency = object.getAmount().getCurrency();
+				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeAmount");
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
 				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
-		}
+			if (amount != null)
+				super.state(amount > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
 
+		}
 	}
 	@Override
 	public void perform(final Sponsorship object) {
@@ -150,7 +141,6 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void unbind(final Sponsorship object) {
 		assert object != null;
-		int sponsorId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
