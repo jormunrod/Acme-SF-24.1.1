@@ -63,7 +63,7 @@ public class TrainingModule extends AbstractEntity {
 	@Positive
 	private int					totalTime;
 
-	private boolean				draftMode			= true;
+	private boolean				draftMode;
 	// Derived attributes -----------------------------------------------------
 	// Relationships ----------------------------------------------------------
 
