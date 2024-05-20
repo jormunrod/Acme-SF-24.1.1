@@ -101,6 +101,14 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			if (!(amount.getAmount() > 0))
 				super.state(false, "amount", "sponsor.sponsorship.error.amountNotPositive");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("project")) {
+			Integer projectId = object.getProject().getId();
+			Project p = this.repository.findOneProjectById(projectId);
+			System.out.println(p);
+			if (!p.isPublished())
+				super.state(false, "project", "sponsor.sponsorship.error.ProjectMustBePublished");
+
+		}
 
 	}
 	@Override
