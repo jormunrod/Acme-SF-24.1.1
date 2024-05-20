@@ -56,7 +56,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 	public void bind(final TrainingModule object) {
 		assert object != null;
 
-		super.bind(object, "code", "difficultyLevel", "updateMoment", "details", "link", "totalTime");
+		super.bind(object, "code", "difficultyLevel", "details", "link", "totalTime");
 
 	}
 
@@ -65,7 +65,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		assert object != null;
 
 		int id = object.getId();
-
+		Collection<Project> publishedProjects = this.repository.findPublishedProjects();
 		int totalNumberOfTrainingSessions = this.repository.countTrainingSessionsByTrainingModuleId(id);
 		int publishedTrainingSessions = this.repository.countPublishedTrainingSessionsByTrainingModuleId(id);
 
@@ -76,6 +76,12 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
 			if (existing != null && existing.getId() != object.getId())
 				super.state(false, "code", "developer.training-module.form.error.duplicated");
+		}
+
+		if (object.getProject() != null && object.getProject().getId() != 0) {
+			Project existingProject = this.repository.findOneProjectById(object.getProject().getId());
+			if (!publishedProjects.contains(existingProject))
+				super.state(false, "project", "developer.project.form.error.notpublished");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
@@ -112,10 +118,12 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
-		dataset = super.unbind(object, "code", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "draftMode");
+		dataset = super.unbind(object, "code", "details", "difficultyLevel", "link", "totalTime", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("difficultyLevels", choicesLevels);
+		dataset.put("creationMoment", object.getCreationMoment());
+		dataset.put("updateMoment", object.getUpdateMoment());
 
 		super.getResponse().addData(dataset);
 	}

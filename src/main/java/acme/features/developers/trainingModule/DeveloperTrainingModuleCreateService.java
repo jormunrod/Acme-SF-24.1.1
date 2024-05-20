@@ -79,11 +79,18 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void validate(final TrainingModule object) {
 		assert object != null;
 
+		Collection<Project> publishedProjects = this.repository.findPublishedProjects();
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingModule existing;
 
 			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
 			super.state(existing == null, "code", "developer.training-module.form.error.duplicated");
+		}
+		if (object.getProject() != null && object.getProject().getId() != 0) {
+			Project existingProject = this.repository.findOneProjectById(object.getProject().getId());
+			if (!publishedProjects.contains(existingProject))
+				super.state(false, "project", "developer.project.form.error.notpublished");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))

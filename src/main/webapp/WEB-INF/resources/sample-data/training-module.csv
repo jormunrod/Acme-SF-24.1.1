@@ -1,9 +1,9 @@
 key,key:project,key:developer,code,creationMoment,details,difficultyLevel,updateMoment,link,totalTime,draftMode
 training-module-01,project-30,developer-01,MOD-001,2021/05/15 08:00,Introducción a la Programación,BASIC,,https://example254caracters.com/module1----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------,60,true
 training-module-02,project-31,developer-01,MOD-002,2021/01/01 00:00,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web html.,BASIC,2021/01/08 00:00,https://example.com/module1,60,true
-training-module-03,project-33,developer-01,MOD-003,2021/12/31 23:59,Introducción a la Programación,BASIC,2022/01/20 10:30,https://example.com/module1,60,true
-training-module-04,project-34,developer-01,MOD-004,2021/12/31 00:00,Introducción a la Programación,BASIC,2022/01/20 10:30,https://example.com/module1,60,true
-training-module-05,project-34,developer-01,MOD-005,2021/12/20 03:00,Introducción a la Programación y a la Ciberseguridad y a las Base de datos,BASIC,2021/01/01 00:00,https://example.com/module1,60,false
+training-module-03,project-33,developer-01,MOD-003,2021/12/31 23:59,Introducción a la Programación,BASIC,2022/01/20 10:30,https://example.com/module1,60,false
+training-module-04,project-34,developer-01,MOD-004,2020/12/31 00:00,Introducción a la Programación,BASIC,2022/01/20 10:30,https://example.com/module1,60,true
+training-module-05,project-34,developer-01,MOD-005,2021/12/20 03:00,Introducción a la Programación y a la Ciberseguridad y a las Base de datos,BASIC,2021/01/01 00:00,https://example.com/module1,60,true
 training-module-06,project-36,developer-01,MOD-006,2021/01/01 00:00,Introducción a la Programación,BASIC,2021/01/08 00:00,https://example.com/module1,60,true
 training-module-07,project-60,developer-02,MOD-007,2021/05/15 23:59,Introducción a la Programación,BASIC,2021/12/31 23:59,https://example.com/module1,60,false
 training-module-08,project-62,developer-02,MOD-008,2020/02/29 23:59,Introducción a la Programación,BASIC,2021/06/01 23:59,https://example.com/module1,60,true
@@ -13,7 +13,7 @@ training-module-11,project-31,developer-02,MOD-011,2021/03/01 00:00,Introducció
 training-module-12,project-61,developer-01,AAA-012,2021/05/15 08:00,I,BASIC,2021/06/01 10:30,https://example.com/module1,1,true
 training-module-13,project-33,developer-01,MOD-013,2021/01/01 00:00,In,BASIC,2021/01/08 00:00,https://example.com/module1,984674,false
 training-module-14,project-34,developer-01,MOD-014,2021/12/31 23:59,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web html.,BASIC,2022/01/20 10:30,https://example.com/module1,60,true
-training-module-15,project-34,developer-01,MOD-015,2021/12/31 00:00,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web htm.,BASIC,2022/01/20 10:30,https://example.com/module1,60,false
+training-module-15,project-34,developer-01,MOD-015,2021/12/31 00:00,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web htm.,BASIC,2022/01/20 10:30,https://example.com/module1,60,true
 training-module-16,project-36,developer-01,ZZZ-016,2021/12/20 03:00,Бағдарламалауға кіріспе,BASIC,2021/01/01 00:00,https://example.com/module1,2,true
 training-module-17,project-37,developer-01,MOD-017,2021/01/01 00:00,程式設計簡介,BASIC,2021/01/08 00:00,https://example.com/module1,60,true
 training-module-18,project-37,developer-02,MOD-018,2020/05/15 23:59,Introducción a la Programación,BASIC,2021/12/31 23:59,https://example.com/module1,60,true
@@ -25,7 +25,7 @@ training-module-23,project-33,developer-02,MOD-023,2020/01/01 00:00,Introducció
 training-module-24,project-34,developer-01,MOD-024,2021/05/15 08:00,I,INTERMEDIATE,2021/06/01 10:30,https://example.com/module1,60,true
 training-module-25,project-36,developer-01,ASE-025,2021/01/01 00:00,In,ADVANCED,2021/01/08 00:00,https://example.com/module1,256314,true
 training-module-26,project-37,developer-01,MOD-026,2021/12/31 23:59,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web html,BASIC,2022/01/20 10:30,https://example.com/module1,60,true
-training-module-27,project-30,developer-01,GTI-027,2021/12/31 00:00,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web htm,BASIC,2022/01/20 10:30,https://example.com/module1,60,false
+training-module-27,project-30,developer-01,GTI-027,2021/12/31 00:00,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web htm,BASIC,2022/01/20 10:30,https://example.com/module1,60,true
 training-module-28,project-39,developer-01,MOD-028,2021/12/20 03:00,Бағдарламалауға кіріспе,BASIC,2021/01/01 00:00,https://example.com/module1,60,true
 training-module-29,project-36,developer-01,MOD-029,2021/01/01 00:00,程式設計簡介,BASIC,2021/01/08 00:00,https://example.com/module1,647895,true
 training-module-30,project-30,developer-02,MOD-030,2020/05/15 23:59,Introducción a la Programación,ADVANCED,2021/12/31 23:59,https://example.com/module1,60,true
@@ -48,8 +48,8 @@ training-module-46,project-33,developer-02,ISA-046,2020/01/01 00:00,Introducció
 training-module-47,project-37,developer-02,MOD-047,2020/01/01 00:00,Introducción a la Programación,BASIC,2020/02/29 23:59,https://example.com/module1,60,false
 training-module-48,project-39,developer-01,MOD-048,2021/05/15 08:00,I,INTERMEDIATE,2021/06/01 10:30,https://example254caracters.com/module1----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------,60,true
 training-module-49,project-34,developer-01,HHH-049,2021/01/01 00:00,In,ADVANCED,,https://example255caracters.com/module1-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------,60,true
-training-module-50,project-33,developer-01,MOD-050,2021/12/31 23:59,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web html,BASIC,2022/01/20 10:30,https://example.com/module1,2147483647,false
-training-module-51,project-33,developer-01,MOD-051,2021/12/31 00:00,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web htm,BASIC,2022/01/20 10:30,https://example.com/module1,2147483646,false
+training-module-50,project-33,developer-01,MOD-050,2021/12/31 23:59,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web html,BASIC,2022/01/20 10:30,https://example.com/module1,2147483647,true
+training-module-51,project-33,developer-01,MOD-051,2021/12/31 00:00,Introducción a la Programación y a la Ciberseguridad y a las Base de datos y al desarrollo Web htm,BASIC,2022/01/20 10:30,https://example.com/module1,2147483646,true
 training-module-52,project-30,developer-01,RRR-052,2021/12/20 03:00,Бағдарламалауға кіріспе,BASIC,2021/01/01 00:00,https://example.com/module1,1073741823,true
 training-module-53,project-36,developer-01,MOD-053,2021/01/01 00:00,程式設計簡介,BASIC,2021/01/08 00:00,https://example.com/module1,1,true
 training-module-54,project-62,developer-02,MOD-054,2021/05/15 23:59,Introducción a la Programación,ADVANCED,,https://example.com/module1,1,true
