@@ -34,3 +34,13 @@ sponsor.invoice.form.button.create = Crear
 sponsor.invoice.form.button.delete = Eliminar
 sponsor.invoice.form.button.update = Actualizar
 sponsor.invoice.form.button.publish = Publicar
+
+sponsor.invoice.list.label.draftMode = Modo Borrador
+
+sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = La cantidad total es mayor que la cantidad del patrocinio. Intente cambiar la cantidad o el impuesto
+sponsor.invoice.error.CurencyMustBeEqualToSponsorship = La moneda debe ser igual a la moneda del patrocinio asociado
+sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem = La moneda debe ser EUR, USD o GBP
+sponsor.invoice.error.dueDateTooEarly = La fecha de vencimiento debe ser al menos un mes después del tiempo de registro
+sponsor.invoice.error.quantityNegativeOrZero = La cantidad debe ser positiva
+sponsor.invoice.error.duplicated = Este código ya está en uso
+sponsor.invoice.error.DueDateMustBeInFuture = La fecha de vencimiento debe estar en el futuro

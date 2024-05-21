@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.trainings.TrainingModule;
-import acme.entities.trainings.TrainingSesion;
+import acme.entities.trainings.TrainingSession;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingSessionListService extends AbstractService<Developer, TrainingSesion> {
+public class DeveloperTrainingSessionListService extends AbstractService<Developer, TrainingSession> {
 
 	//Internal state -----------------------------------------------------------------------------------
 
@@ -38,36 +38,42 @@ public class DeveloperTrainingSessionListService extends AbstractService<Develop
 
 	@Override
 	public void load() {
-		Collection<TrainingSesion> objects;
+		Collection<TrainingSession> objects;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		objects = this.repository.findTrainingSesionByTrainingModuleId(id);
+		objects = this.repository.findTrainingSessionByTrainingModuleId(id);
 
 		super.getBuffer().addData(objects);
 
 	}
 
 	@Override
-	public void unbind(final TrainingSesion object) {
+	public void unbind(final TrainingSession object) {
 		assert object != null;
-		int id;
 		Dataset dataset;
-		id = super.getRequest().getData("id", int.class);
+		String draftModeIntl = object.isDraftMode() ? "✔️" : "❌";
+
 		dataset = super.unbind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
+		dataset.put("draftMode", draftModeIntl);
 
 		super.getResponse().addData(dataset);
 	}
 
 	@Override
-	public void unbind(final Collection<TrainingSesion> objects) {
+	public void unbind(final Collection<TrainingSession> objects) {
 		assert objects != null;
 
 		int masterId;
+		final boolean showCreate;
+		TrainingModule trainingModule;
 
 		masterId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(masterId);
+		showCreate = trainingModule.isDraftMode() && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
 
 		super.getResponse().addGlobal("masterId", masterId);
+		super.getResponse().addGlobal("showCreate", showCreate);
 
 	}
 }

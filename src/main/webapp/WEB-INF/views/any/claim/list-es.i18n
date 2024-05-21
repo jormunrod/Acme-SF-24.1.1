@@ -1,0 +1,27 @@
+# list-es.i18n
+
+# any.claim #####################################################
+
+any.claim.list.title = Lista de Reclamaciones
+
+any.claim.list.label.code = Código
+any.claim.list.label.instantiationMoment = Momento de Instanciación
+any.claim.list.label.heading = Encabezado
+any.claim.list.label.description = Descripción
+any.claim.list.label.department = Departamento
+any.claim.list.label.email = Email
+any.claim.list.label.link = Enlace
+
+any.claim.list.button.create = Crear
+
+any.claim.form.title = Reclamación
+any.claim.form.label.code = Código
+any.claim.form.label.instantiationMoment = Momento de Instanciación
+any.claim.form.label.heading = Encabezado
+any.claim.form.label.description = Descripción
+any.claim.form.label.department = Departamento
+any.claim.form.label.email = Email
+any.claim.form.label.link = Enlace
+any.claim.form.button.create = Crear
+
+any.claim.form.error.duplicated = El código de la reclamación ya existe

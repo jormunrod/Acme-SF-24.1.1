@@ -1,12 +1,15 @@
 
 package acme.features.developers.trainingModule;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
@@ -28,19 +31,11 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void authorise() {
 		boolean status;
-		int developerId;
-		Collection<TrainingModule> trainingModules;
-		TrainingModule trainingModule;
+		Developer developer;
 
-		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		trainingModules = this.repository.findAllTrainingModuleByDeveloperId(developerId);
-		trainingModule = trainingModules.stream().findFirst().orElse(null);
+		developer = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
+		status = super.getRequest().getPrincipal().hasRole(developer);
 
-		if (trainingModules.isEmpty())
-			status = true;
-		else
-			status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
-		super.getResponse().setAuthorised(status);
 		super.getResponse().setAuthorised(status);
 
 	}
@@ -49,11 +44,20 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void load() {
 		TrainingModule object;
 		Developer developer;
+		Date date;
 
 		developer = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new TrainingModule();
 		object.setDraftMode(true);
 		object.setDeveloper(developer);
+
+		date = MomentHelper.getCurrentMoment();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(Calendar.DAY_OF_MONTH, -1);
+		date = calendar.getTime();
+
+		object.setCreationMoment(date);
 
 		super.getBuffer().addData(object);
 
@@ -67,7 +71,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
-		super.bind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "details", "link", "totalTime");
+		super.bind(object, "code", "difficultyLevel", "updateMoment", "details", "link", "totalTime");
 		object.setProject(project);
 	}
 
@@ -75,11 +79,18 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void validate(final TrainingModule object) {
 		assert object != null;
 
+		Collection<Project> publishedProjects = this.repository.findPublishedProjects();
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingModule existing;
 
 			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
 			super.state(existing == null, "code", "developer.training-module.form.error.duplicated");
+		}
+		if (object.getProject() != null && object.getProject().getId() != 0) {
+			Project existingProject = this.repository.findOneProjectById(object.getProject().getId());
+			if (!publishedProjects.contains(existingProject))
+				super.state(false, "project", "developer.project.form.error.notpublished");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
@@ -90,7 +101,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
-
+		object.setId(0);
 		this.repository.save(object);
 
 	}
@@ -108,7 +119,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 		choicesLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
-		dataset = super.unbind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "details", "link", "totalTime", "draftMode");
+		dataset = super.unbind(object, "code", "difficultyLevel", "updateMoment", "details", "link", "totalTime", "draftMode");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("difficultyLevels", choicesLevels);

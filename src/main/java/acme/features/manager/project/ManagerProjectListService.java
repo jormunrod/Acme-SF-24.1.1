@@ -20,7 +20,11 @@ public class ManagerProjectListService extends AbstractService<Manager, Project>
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Manager.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -39,9 +43,9 @@ public class ManagerProjectListService extends AbstractService<Manager, Project>
 		assert object != null;
 
 		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "title", "cost", "isPublished");
-
+		String published = object.isPublished() ? "✔️" : "❌";
+		dataset = super.unbind(object, "code", "title", "cost");
+		dataset.put("isPublished", published);
 		super.getResponse().addData(dataset);
 	}
 }

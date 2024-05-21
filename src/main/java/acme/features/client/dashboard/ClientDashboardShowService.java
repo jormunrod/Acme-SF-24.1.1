@@ -1,3 +1,9 @@
+/**
+ * Show service for the client dashboard.
+ * 
+ * @Author: jormunrod
+ * @Date: 2024-04-20
+ */
 
 package acme.features.client.dashboard;
 
@@ -42,21 +48,23 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 
 		clientId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		numberOfProgressLogsBelow25 = this.repository.numberOfProgressLogsBelow25(clientId);
-		numberOfProgressLogsBetween25And50 = this.repository.numberOfProgressLogsBetween25And50(clientId);
-		numberOfProgressLogsBetween50And75 = this.repository.numberOfProgressLogsBetween50And75(clientId);
-		numberOfProgressLogsAbove75 = this.repository.numberOfProgressLogsAbove75(clientId);
-		averageBudget.setAmount(this.repository.averageBudget(clientId));
-		averageBudget.setCurrency("Currency");
+		numberOfProgressLogsBelow25 = this.repository.numberOfProgressLogsBelow25(clientId) == null ? 0 : this.repository.numberOfProgressLogsBelow25(clientId);
+		numberOfProgressLogsBetween25And50 = this.repository.numberOfProgressLogsBetween25And50(clientId) == null ? 0 : this.repository.numberOfProgressLogsBetween25And50(clientId);
+		numberOfProgressLogsBetween50And75 = this.repository.numberOfProgressLogsBetween50And75(clientId) == null ? 0 : this.repository.numberOfProgressLogsBetween50And75(clientId);
+		numberOfProgressLogsAbove75 = this.repository.numberOfProgressLogsAbove75(clientId) == null ? 0 : this.repository.numberOfProgressLogsAbove75(clientId);
+		Double average = this.repository.averageBudget(clientId) == null ? 0. : this.repository.averageBudget(clientId);
+		averageBudget.setAmount(average);
+		averageBudget.setCurrency("");
+		Double deviation = this.calculateStandardDeviation(clientId) == null ? 0. : this.calculateStandardDeviation(clientId);
+		deviationBudget.setAmount(deviation);
+		deviationBudget.setCurrency("");
+		Double minimum = this.repository.minimumBudget(clientId) == null ? 0. : this.repository.minimumBudget(clientId);
+		minimumBudget.setAmount(minimum);
+		minimumBudget.setCurrency("");
 
-		deviationBudget.setAmount(this.calculateStandardDeviation(clientId));
-		deviationBudget.setCurrency("Currency");
-
-		minimumBudget.setAmount(this.repository.minimumBudget(clientId));
-		minimumBudget.setCurrency("Currency");
-
-		maximumBudget.setAmount(this.repository.maximumBudget(clientId));
-		maximumBudget.setCurrency("Currency");
+		Double maximum = this.repository.maximumBudget(clientId) == null ? 0. : this.repository.maximumBudget(clientId);
+		maximumBudget.setAmount(maximum);
+		maximumBudget.setCurrency("");
 
 		dashboard = new ClientDashboard();
 		dashboard.setNumberOfProgressLogsBelow25(numberOfProgressLogsBelow25);

@@ -46,9 +46,9 @@ public class SponsorSponsorshipListMineService extends AbstractService<Sponsor, 
 		assert object != null;
 
 		Dataset dataset;
-
+		String draftModeIntl = object.isDraftMode() ? "✔️" : "❌";
 		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "contactEmail", "amount", "sponsorshipType", "link");
-
+		dataset.put("draftMode", draftModeIntl);
 		super.getResponse().addData(dataset);
 	}
 

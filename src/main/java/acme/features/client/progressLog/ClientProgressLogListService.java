@@ -57,7 +57,10 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 	public void unbind(final ProgressLog object) {
 		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "recordId", "completenessPercentage", "progressComment", "registrationMoment", "responsiblePerson", "isPublished");
+		dataset = super.unbind(object, "recordId", "completenessPercentage", "progressComment", "registrationMoment", "responsiblePerson");
+
+		String published = object.isPublished() ? "✔️" : "❌";
+		dataset.put("isPublished", published);
 
 		super.getResponse().addData(dataset);
 	}

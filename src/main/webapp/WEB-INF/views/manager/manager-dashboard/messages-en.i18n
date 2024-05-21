@@ -1,0 +1,19 @@
+# manager.manager-dashboard.form ###################################################
+
+manager.manager-dashboard.form.title = Manager Dashboard
+manager.manager-dashboard.form.title.general-indicators = General indicators
+
+manager.manager-dashboard.form.label.total-number-must-user-stories = Total number of MUST user stories
+manager.manager-dashboard.form.label.total-number-should-user-stories = Total number of SHOULD user stories
+manager.manager-dashboard.form.label.total-number-could-user-stories = Total number of COULD user stories
+manager.manager-dashboard.form.label.total-number-wont-user-stories = Total number of WONT user stories
+
+manager.manager-dashboard.form.label.average-number-of-estimated-hours = Average number of estimated hours
+manager.manager-dashboard.form.label.deviation-number-of-estimated-hours = Deviation number of estimated hours
+manager.manager-dashboard.form.label.minimum-number-of-estimated-hours = Minimum number of estimated hours
+manager.manager-dashboard.form.label.maximum-number-of-estimated-hours = Maximum number of estimated hours
+
+manager.manager-dashboard.form.label.average-number-of-cost = Average number of the cost of a project
+manager.manager-dashboard.form.label.deviation-number-of-cost = Deviation number of the cost of a project
+manager.manager-dashboard.form.label.minimum-number-of-cost = Minimum number of cost of a project
+manager.manager-dashboard.form.label.maximum-number-of-cost = Maximum number of cost of a project

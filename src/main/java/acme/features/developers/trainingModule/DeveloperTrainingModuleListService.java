@@ -26,17 +26,9 @@ public class DeveloperTrainingModuleListService extends AbstractService<Develope
 	public void authorise() {
 		boolean status;
 		int developerId;
-		Collection<TrainingModule> trainingModules;
-		TrainingModule trainingModule;
 
 		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		trainingModules = this.repository.findAllTrainingModuleByDeveloperId(developerId);
-		trainingModule = trainingModules.stream().findFirst().orElse(null);
-
-		if (trainingModules.isEmpty())
-			status = true;
-		else
-			status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+		status = super.getRequest().getPrincipal().hasRole(this.repository.findOneDeveloperById(developerId));
 
 		super.getResponse().setAuthorised(status);
 
@@ -57,8 +49,9 @@ public class DeveloperTrainingModuleListService extends AbstractService<Develope
 		assert object != null;
 
 		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "link", "totalTime");
+		String draftModeIntl = object.isDraftMode() ? "✔️" : "❌";
+		dataset = super.unbind(object, "code", "creationMoment", "difficultyLevel", "updateMoment", "link", "totalTime", "draftMode");
+		dataset.put("draftMode", draftModeIntl);
 
 		super.getResponse().addData(dataset);
 	}

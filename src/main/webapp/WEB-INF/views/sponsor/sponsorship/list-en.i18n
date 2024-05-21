@@ -48,3 +48,17 @@ sponsor.sponsorship.list.button.update = Update
 sponsor.sponsorship.list.button.delete = Delete
 sponsor.sponsorship.list.button.publish = Publish
 sponsor.sponsorship.list.button.inovices = Invoices
+sponsor.sponsorship.list.label.draftMode = Draft Mode
+
+sponsor.sponsorship.error.invoicesLeft = The sum of the total amount of all the invoices is lower than the amount of the sponsorship
+sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = There are no invoices asociated
+sponsor.sponsorship.error.startDateMustBeInFuture = Start Date must be in the future (after 2022/07/30 00:00)
+sponsor.sponsorship.error.startDateBeforeMoment = Start Date must be after moment
+sponsor.sponsorship.error.endDateNotOneMonthAfter = End Date must be at least one moth after Start Date
+sponsor.sponsorship.error.amountNotPositive = Amount must be positive
+sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = The currency must be EUR USD or GBP
+sponsor.sponsorship.error.youcantChangeTheCurrency = You can't change the currency because this sponsorship has invoices asociated
+sponsor.sponsorship.error.youcantChangeAmount = You can't change the amount because this sponsorship has invoices asociated
+sponsor.sponsorship.error.NotAllInvoicesPublished= Not all the invoices are published, they must be published to publish this sponsorship
+sponsor.sponsorship.error.duplicated = The code is alredy in use
+

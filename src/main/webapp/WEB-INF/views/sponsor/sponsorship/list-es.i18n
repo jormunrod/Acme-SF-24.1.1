@@ -46,3 +46,17 @@ sponsor.sponsorship.list.button.update = Actualizar
 sponsor.sponsorship.list.button.delete = Borrar
 sponsor.sponsorship.list.button.publish = Publicar
 sponsor.sponsorship.list.button.inovices = Facturas
+
+sponsor.sponsorship.list.label.draftMode = Modo Borrador
+
+sponsor.sponsorship.error.invoicesLeft = La suma del total de todas las facturas es menor que la cantidad del patrocinio
+sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = No hay facturas asociadas
+sponsor.sponsorship.error.startDateMustBeInFuture = La fecha de inicio debe estar en el futuro (después de 2022/07/30 00:00)
+sponsor.sponsorship.error.startDateBeforeMoment = La fecha de inicio debe ser después del momento
+sponsor.sponsorship.error.endDateNotOneMonthAfter = La fecha de finalización debe ser al menos un mes después de la fecha de inicio
+sponsor.sponsorship.error.amountNotPositive = La cantidad debe ser positiva
+sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = La moneda debe ser EUR USD o GBP
+sponsor.sponsorship.error.youcantChangeTheCurrency = No puedes cambiar la moneda porque este patrocinio tiene facturas asociadas
+sponsor.sponsorship.error.youcantChangeAmount = No puedes cambiar la cantidad porque este patrocinio tiene facturas asociadas
+sponsor.sponsorship.error.NotAllInvoicesPublished= No todas las facturas están publicadas, deben estar publicadas para publicar este patrocinio
+sponsor.sponsorship.error.duplicated = El código ya está en uso

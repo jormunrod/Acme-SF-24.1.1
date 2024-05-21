@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.trainings.TrainingModule;
-import acme.entities.trainings.TrainingSesion;
+import acme.entities.trainings.TrainingSession;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingSessionDeleteService extends AbstractService<Developer, TrainingSesion> {
+public class DeveloperTrainingSessionDeleteService extends AbstractService<Developer, TrainingSession> {
 
 	//Internal state -----------------------------------------------------------------------------------
 
@@ -24,50 +24,50 @@ public class DeveloperTrainingSessionDeleteService extends AbstractService<Devel
 	@Override
 	public void authorise() {
 		boolean status;
-		int trainingSesionId;
+		int trainingSessionId;
 		TrainingModule trainingModule;
 
-		trainingSesionId = super.getRequest().getData("id", int.class);
-		trainingModule = this.repository.findOneTrainingModuleByTrainingSesionId(trainingSesionId);
-		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+		trainingSessionId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleByTrainingSessionId(trainingSessionId);
+		status = trainingModule.isDraftMode() && trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		TrainingSesion object;
+		TrainingSession object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findTrainingSesionById(id);
+		object = this.repository.findTrainingSessionById(id);
 
 		super.getBuffer().addData(object);
 
 	}
 
 	@Override
-	public void bind(final TrainingSesion object) {
+	public void bind(final TrainingSession object) {
 		assert object != null;
 
 		super.bind(object, "code", "startDate", "finishDate", "location", "instructor", "contactEmail", "link");
 
 	}
 	@Override
-	public void validate(final TrainingSesion object) {
+	public void validate(final TrainingSession object) {
 		assert object != null;
 
 	}
 
 	@Override
-	public void perform(final TrainingSesion object) {
+	public void perform(final TrainingSession object) {
 		assert object != null;
 
 		this.repository.delete(object);
 	}
 
 	@Override
-	public void unbind(final TrainingSesion object) {
+	public void unbind(final TrainingSession object) {
 		assert object != null;
 
 		Dataset dataset;

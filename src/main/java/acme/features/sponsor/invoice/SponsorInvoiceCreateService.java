@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
@@ -24,10 +25,15 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	public void authorise() {
 		boolean status;
 		Sponsor sponsor;
+		int id;
+		Sponsorship sponsorship;
+
+		id = super.getRequest().getData("masterId", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(id);
 
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 
-		status = super.getRequest().getPrincipal().hasRole(sponsor);
+		status = sponsorship.getSponsor().getId() == sponsor.getId() && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
 
@@ -36,9 +42,15 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void load() {
 		Invoice object;
+		int id;
+		Sponsorship sponsorship;
+
+		id = super.getRequest().getData("masterId", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(id);
 
 		object = new Invoice();
 		object.setDraftMode(true);
+		object.setSponsorship(sponsorship);
 
 		super.getBuffer().addData(object);
 	}
@@ -51,8 +63,12 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("masterId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
 
-		super.bind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link", "totalAmount");
 		object.setSponsorship(sponsorship);
+		object.setRegistrationTime(MomentHelper.getBaseMoment());
+		if (object.getQuantity() != null)
+			object.setTotalAmount(object.getTotalAmountWithTax());
+
 	}
 
 	@Override
@@ -63,10 +79,6 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			Invoice alredyExisting;
 			alredyExisting = this.repository.findInvoiceByCode(object.getCode());
 			super.state(alredyExisting == null, "code", "sponsor.invoice.error.duplicated");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
-			Double quantity = object.getQuantity().getAmount();
-			super.state(quantity != null && quantity >= 0., "quantity", "sponsor.invoice.error.quantityNegative");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date registrationTime = object.getRegistrationTime();
@@ -82,6 +94,27 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			int id;
+			Sponsorship sponsorship;
+
+			id = super.getRequest().getData("masterId", int.class);
+			sponsorship = this.repository.findOneSponsorshipById(id);
+			Double quantity = object.getQuantity().getAmount();
+			String currency = object.getQuantity().getCurrency();
+			Double totalAmounOfinvoice = this.repository.sumTotalAmountBySponsorshipId(id) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(id);
+			totalAmounOfinvoice += object.getTotalAmountWithTax().getAmount();
+
+			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+				super.state(false, "quantity", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+			if (!(currency != null && currency.equals(sponsorship.getAmount().getCurrency())))
+				super.state(false, "quantity", "sponsor.invoice.error.CurencyMustBeEqualToSponsorship");
+			if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
+				super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
+			if (!(quantity != null && quantity > 0.))
+				super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
+		}
+
 	}
 	@Override
 	public void perform(final Invoice object) {
@@ -92,6 +125,8 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("masterId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
 		object.setSponsorship(sponsorship);
+		object.setTotalAmount(object.getTotalAmountWithTax());
+		object.setId(0);
 		this.repository.save(object);
 	}
 
@@ -100,8 +135,11 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		assert object != null;
 
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode");
+		dataset = super.unbind(object, "code", "dueDate", "quantity", "tax", "link", "draftMode", "totalAmount");
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("registrationTime", MomentHelper.getBaseMoment());
+		if (object.getQuantity() != null)
+			dataset.put("totalAmount", object.getTotalAmountWithTax());
 		super.getResponse().addData(dataset);
 
 	}

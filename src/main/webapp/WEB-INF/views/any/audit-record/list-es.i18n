@@ -1,0 +1,14 @@
+# master.any.audit-record #####################################################
+
+any.audit-record.list.title = Lista de registros de auditoría
+any.audit-record.list.label.code = Código
+any.audit-record.list.label.auditPeriodStart = Inicio del período de auditoría
+any.audit-record.list.label.auditPeriodEnd = Fin del período de auditoría
+any.audit-record.list.label.mark = Nota
+
+any.audit-record.form.title = Detalles del registro de auditoría
+any.audit-record.form.label.code = Código
+any.audit-record.form.label.auditPeriodStart = Inicio del período de auditoría
+any.audit-record.form.label.auditPeriodEnd = Fin del período de auditoría
+any.audit-record.form.label.mark = Nota
+any.audit-record.form.label.link = Enlace (Opccional)

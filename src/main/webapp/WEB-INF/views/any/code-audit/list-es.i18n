@@ -1,0 +1,21 @@
+# master.any.code-audit #####################################################
+
+any.code-audit.list.title = Lista de Auditorias de Código
+any.code-audit.list.label.code = Código
+any.code-audit.list.label.auditor = Auditor
+any.code-audit.list.label.execution = Fecha de Ejecución
+any.code-audit.list.label.type = Tipo
+any.code-audit.list.label.mark = Nota
+
+any.code-audit.form.title = Detalles de la Auditoría de Código
+any.code-audit.form.label.auditor = Auditor
+any.code-audit.form.label.code = Código
+any.code-audit.form.label.project = Proyecto
+any.code-audit.form.label.execution = Fecha de Ejecución
+any.code-audit.form.label.type = Tipo
+any.code-audit.form.label.correctiveActions = Acciones Correctivas
+any.code-audit.form.label.mark = Nota
+any.code-audit.form.label.link = Enlace (Opcional)
+
+any.code-audit.form.button.create = Crear
+any.code-audit.form.button.audit-record = Registros de Auditoría

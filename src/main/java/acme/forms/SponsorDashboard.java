@@ -1,9 +1,15 @@
 
 package acme.forms;
 
+import java.util.List;
+
 import acme.client.data.AbstractForm;
 import acme.client.data.datatypes.Money;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class SponsorDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
@@ -15,14 +21,14 @@ public class SponsorDashboard extends AbstractForm {
 	Integer						totalNumberOfInvoicesWithATaxLessThanOrEqualTo21;
 	Integer						totalNumberOfSponsorshipsWithALink;
 
-	Money						averageAmountOfTheSponsorships;
-	Money						deviationAmountOfTheSponsorships;
-	Money						minimumAmountOfTheSponsorships;
-	Money						maximumAmountOfTheSponsorships;
+	List<Money>					averageAmountOfTheSponsorships;
+	List<Money>					deviationAmountOfTheSponsorships;
+	List<Money>					minimumAmountOfTheSponsorships;
+	List<Money>					maximumAmountOfTheSponsorships;
 
-	Money						averageQuantityOfTheInvoices;
-	Money						deviationQuantityOfTheInvoices;
-	Money						minimumQuantityOfTheInvoices;
-	Money						maximumQuantityOfTheInvoices;
+	List<Money>					averageQuantityOfTheInvoices;
+	List<Money>					deviationQuantityOfTheInvoices;
+	List<Money>					minimumQuantityOfTheInvoices;
+	List<Money>					maximumQuantityOfTheInvoices;
 
 }

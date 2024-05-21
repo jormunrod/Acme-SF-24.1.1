@@ -1,3 +1,8 @@
+/**
+ * Claim Entity
+ * 
+ * @Author: jormunrod
+ */
 
 package acme.entities.claims;
 

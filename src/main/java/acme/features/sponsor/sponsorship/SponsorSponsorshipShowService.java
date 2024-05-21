@@ -25,10 +25,15 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	public void authorise() {
 		boolean status;
 		Sponsor sponsor;
+		Sponsorship object;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneSponsorshipById(id);
 
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 
-		status = super.getRequest().getPrincipal().hasRole(sponsor);
+		status = super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == object.getSponsor().getId();
 
 		super.getResponse().setAuthorised(status);
 
@@ -48,13 +53,10 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	@Override
 	public void unbind(final Sponsorship object) {
 		assert object != null;
-		int sponsorId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
 		SelectChoices typeChoices;
-
-		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
