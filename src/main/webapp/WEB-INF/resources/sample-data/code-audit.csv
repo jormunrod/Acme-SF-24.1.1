@@ -18,7 +18,7 @@ code-audit-16,project-57,auditor-02,AUD-016,2020/02/28 00:00,DYNAMIC,Esto es una
 code-audit-17,project-58,auditor-02,AUD-017,2020/02/28 00:00,STATIC,Esto es una corrección,F_MINUS,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",false
 code-audit-18,project-58,auditor-02,AUD-018,2020/02/28 00:00,DYNAMIC,Esto es una corrección,A_PLUS,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",false
 code-audit-19,project-59,auditor-02,AUD-019,2020/02/28 00:00,STATIC,Esto es una corrección,A,,true
-code-audit-20,project-59,auditor-02,AUD-020,2020/02/28 00:00,DYNAMIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-20,false
+code-audit-20,project-59,auditor-02,AUD-020,2020/02/29 00:00,DYNAMIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-20,false
 code-audit-21,project-60,auditor-02,AUD-021,2020/02/28 00:00,STATIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-21,false
 code-audit-22,project-61,auditor-02,AUD-022,2020/02/28 00:00,DYNAMIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-22,false
 code-audit-23,project-62,auditor-02,AUD-023,2020/02/28 00:00,STATIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-23,false
