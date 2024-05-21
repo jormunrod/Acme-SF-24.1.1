@@ -1,70 +1,63 @@
-key,instantiationMoment,updateMoment,displayStart,displayEnd,picture,slogan,webDocument
-banner-01,2022/07/28 23:00,2022/07/29 23:00,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/Ge7xQhW.png,Race your dreams,https://www.arusteam.com/
-banner-02,1999/12/31 23:59,2000/12/31 23:59,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/Q88fAnd.png,We live performance,https://www.mercedesamgf1.com/
-banner-03,2000/01/01 00:00,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/KwbuQWp.png,Red Bull Gives You Wings,https://www.redbull.com/cl-es/tags/f1
-banner-04,2000/01/01 00:01,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/kkPZkhw.png,"Historia que tú hiciste, Historia por hacer",https://www.realmadrid.com/es-ES
-banner-05,2022/07/28 23:00,2022/07/29 23:59,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/Db6th21.png,Make it better,https://www.hp.com/es-es/home.html
-banner-06,2020/02/28 00:00,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/4Eb63Ci.png,Impossible is nothing,https://www.adidas.es/
-banner-07,2016/01/01 00:01,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/3HMHgUy.png,The ultimate driving machine,https://www.bmw.com/es/index.html
-banner-08,2016/01/01 23:59,2020/07/01 12:30,2022/07/30 00:00,2022/09/21 12:30,https://imgur.com/1X41vuE.png,Fly better!,https://www.emirates.com/es/spanish/
-banner-09,2016/02/29 12:30,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/jph2CIy.png,Destapa la felicidad!,https://www.coca-cola.com/es/es
-banner-10,2016/02/29 00:00,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/tniEN1x.png,Think different,https://www.apple.com/es/
-banner-11,2016/02/29 00:01,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/lUjCOwo.png,Just do it,https://www.amazon.es/
-banner-12,2016/02/29 23:59,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/9xOiuD2.png,"Run, don't hide!",https://www.nike.com/es/
-banner-13,2017/02/28 12:30,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/KmuD5xh.png,Inventemos el futuro,https://www.repsol.com/es/index.cshtml
-banner-14,2017/02/28 00:00,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/ePGQFvw.png,See what's next,https://www.netflix.com/es/
-banner-15,2017/02/28 00:01,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/fRR0nvc.png,Crear una vida cotidiana mejor para muchas personas,https://www.ikea.com/es/es/
-banner-16,2020/06/01 12:30,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/bROzBri.png,I'm loving it,https://mcdonalds.es/
-banner-17,2020/06/01 12:30,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/shC8ql9.png,A Crown For Every Achievement,https://www.rolex.com/es
-banner-18,2016/06/01 12:30,2020/12/31 00:00,2022/08/05 23:59,2022/09/05 23:59,https://imgur.com/rPqeZGb.png,Ponemos energía en las cosas que nos importan,https://www.fundacioniberdrolaespana.org/
-banner-19,2016/06/01 12:30,2020/12/21 00:01,2022/08/06 00:00,2022/09/06 00:00,https://imgur.com/8907sF2.png,La educación transforma,https://www.entreculturas.org/
-banner-20,2016/06/01 12:30,2020/12/31 23:59,2022/08/06 00:01,2022/09/06 00:01,https://imgur.com/XGLR4T2.png,Misión y visión,https://www.faortega.org/
-banner-21,2016/06/01 12:30,2020/01/01 12:30,2200/11/30 23:58,2200/12/31 23:58,https://imgur.com/BoRyqhx.png,BBVA Aprendemos Juntos 2030,https://www.fbbva.es/
-banner-22,2016/06/01 12:30,2020/01/01 00:00,2200/11/30 23:59,2200/12/31 23:59,https://imgur.com/zXrXQLa.png,Abriendo Oportunidades,https://www.fundacionmapfre.org/
-banner-23,2016/06/01 12:30,2020/01/01 00:01,2200/12/01 00:00,2201/01/01 00:00,https://imgur.com/gFrebqk.png,Siempre a tu lado,https://madrina.org/
-banner-24,2016/06/01 12:30,2020/01/01 23:59,2028/02/28 00:00,2028/03/28 00:00,https://imgur.com/w3emEaW.png,Alimenta una vida mejor,https://www.bancodealimentosdesevilla.org/
-banner-25,2016/06/01 12:30,2020/02/29 12:30,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/4HkJIBQ.png,Memoria en todos los corazones,https://fundacionvt.org/
-banner-26,2016/06/01 12:30,2020/02/29 00:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/IOIsfKF.png,Apadrina la ciencia,http://apadrinalaciencia.org/
-banner-27,2016/06/01 12:30,2020/02/29 00:01,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/XhUPRGL.png,Por una educación para todos,https://www.fundacionquerer.org/
-banner-28,2016/06/01 12:30,2020/02/29 23:59,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/464PvAo.png,Haz que el tiempo vaya a nuestro favor,https://www.hazloposible.org/
-banner-29,2016/06/01 12:30,2021/02/28 12:30,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/laGzDhY.png,Por una sociedad justa e igualitaria,https://fundacionprodis.org/
-banner-30,2016/06/01 12:30,2021/02/28 00:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/gQBeYYE.png,"Otras formas de enseñar, otras formas de aprender",https://fundacionsanpatricio.org/
-banner-31,2016/06/01 12:30,2021/02/28 00:01,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/UgoLNeq.png,Por un diálogo intergeneracional y un espíritu crítico en la sociedad,https://ortegaygasset.edu/
-banner-32,2016/06/01 12:30,2021/02/28 23:59,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/JshIiBs.png,Oportunidades que cambian vidas,https://tomillo.org/
-banner-33,2019/06/01 12:30,2019/07/01 12:30,2020/12/31 12:30,2021/07/01 12:30,https://imgur.com/eU7z5mg.png,We invest in knowledge that inspires informed action,https://www.carnegie.org/
-banner-34,2019/06/01 12:30,2019/07/01 12:30,2020/12/31 00:00,2021/07/01 12:30,https://imgur.com/vhTT97k.png,We Work to Expand Equity and Opportunity in Cities Across America,https://kresge.org/
-banner-35,2019/06/01 12:30,2019/07/01 12:30,2020/12/21 00:01,2021/07/01 12:30,https://imgur.com/gnNm78m.png,Inspiring philanthropy. Investing in community,https://www.fftc.org/
-banner-36,2019/06/01 12:30,2019/07/01 12:30,2020/12/31 23:59,2021/07/01 12:30,https://imgur.com/rYhIwKR.png,"Art, knowledge and science in a fairer, more sustainable and diverse world",https://gulbenkian.pt/en/
-banner-37,2019/06/01 12:30,2019/07/01 12:30,2020/01/01 12:30,2021/07/01 12:30,https://imgur.com/jvSJSmV.png,"Promoting a Just, Equitable and Sustainable Society",https://www.mott.org/
-banner-38,2019/06/01 12:30,2019/07/01 12:30,2020/01/01 00:00,2021/07/01 12:30,https://imgur.com/R5Mxkb9.png,Entiche lives and strengthens communities,https://www.dukeendowment.org/
-banner-39,2019/06/01 12:30,2019/07/01 12:30,2020/01/01 00:01,2021/07/01 12:30,https://imgur.com/FO68a35.png,We love our smart + open community,https://columbusfoundation.org/
-banner-40,2019/06/01 12:30,2019/07/01 12:30,2020/01/01 23:59,2021/07/01 12:30,https://imgur.com/4kRwUsG.png,Cumming Foundation,https://www.cummingsfoundation.org/
-banner-41,2019/06/01 12:30,2019/07/01 12:30,2020/02/29 12:30,2021/07/01 12:30,https://imgur.com/ZInvmQu.png,Give a family a change to thrive,https://www.heifer.org/index.html
-banner-42,2019/06/01 12:30,2019/07/01 12:30,2020/02/29 00:00,2021/07/01 12:30,https://imgur.com/GNPn6Lh.png,"Heal the world, make it a better place",https://www.healtheworld.org/
-banner-43,2019/06/01 12:30,2019/07/01 12:30,2020/02/29 00:01,2021/07/01 12:30,https://imgur.com/pkSWzgN.png,Improving access to health,https://www.hearttoheart.org/
-banner-44,2019/06/01 12:30,2019/07/01 12:30,2020/02/29 23:59,2021/07/01 12:30,https://imgur.com/GRV5YQo.png,We provide human care,https://highfivesfoundation.org/
-banner-45,2019/06/01 12:30,2019/07/01 12:30,2021/02/28 12:30,2021/07/01 12:30,https://imgur.com/A9T1HzM.png,Uplifting children. Strenghthering families,https://www.holtinternational.org/
-banner-46,2019/06/01 12:30,2019/07/01 12:30,2021/02/28 00:00,2021/07/01 12:30,https://imgur.com/PDJyk3x.png,Our Country Depends on It,https://www.heritage.org/
-banner-47,2019/06/01 12:30,2019/07/01 12:30,2021/02/28 00:01,2021/07/01 12:30,https://imgur.com/moDg9eC.png,Let's build a better world,https://helenkellerintl.org/
-banner-48,2019/06/01 12:30,2019/07/01 12:30,2021/02/28 23:59,2021/07/01 12:30,https://imgur.com/a8vmNU5.png,Mastering our own world. Change a life to change nations,https://www.hopeeducationlinkfoundation.org/
-banner-49,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/12/31 12:30,https://imgur.com/6Ssn79w.png,In war charity. Through humanity to peace,https://www.ifrc.org/
-banner-50,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/12/31 00:00,https://imgur.com/gHdZ66z.png,We save lives and relieve suffering,https://internationalmedicalcorps.org/
-banner-51,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/12/21 00:01,https://imgur.com/XLq3aFs.png,For a world free from discrimination,https://www.ippf.org/
-banner-52,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/12/31 23:59,https://imgur.com/lOcmGnJ.png,She blazed the trail. The next steps are up to us,https://janegoodall.org/
-banner-53,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/01/01 12:30,https://i.imgur.com/8YcXhS0.png,Be the hero nature needs,https://www.worldwildlife.org/
-banner-54,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/01/01 00:00,https://i.imgur.com/MtBRoNP.png,Medical care where it is needed most,https://www.doctorswithoutborders.org/
-banner-55,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/01/01 00:01,https://i.imgur.com/NGLSjk6.png,The world’s platform for change,https://www.change.org/
-banner-56,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/01/01 23:59,https://i.imgur.com/fihihcF.png,El gancho que muchos menores necesitan,https://fundacionelgancho.org/
-banner-57,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/02/29 12:30,https://i.imgur.com/2eVF1HG.png,Por un deporte inclusivo,https://www.afoprodei.com/
-banner-58,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/02/29 00:00,https://i.imgur.com/CqtMSmM.png,Un futuro para ellos,https://fundacionmornese.com/
-banner-59,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/02/29 00:01,https://i.imgur.com/sgx1bFo.png,Pulseras contra el cáncer,https://www.pulserasrosas.com/
-banner-60,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/02/29 23:59,http://example.org/a/b,Ser diferentes nos hace únicos,http://example.org/a/b
-banner-61,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 12:30,http://www.lorem-ipsum.org/dolor/sit.html#dolor,Unidos por un mismo objectivo,http://www.lorem-ipsum.org/dolor/sit.html#dolor
-banner-62,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 00:00,https://www.lorem-ipsum.org,Por un deporte inclusivo en nuestra sociedad,https://www.lorem-ipsum.org
-banner-63,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 00:01,http://example.org/a,국민경제의 발전을,http://example.org/a
-banner-64,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 23:59,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",' or 'A'='A,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X"
-banner-65,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 12:30,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",<h1>!</h1>,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/"
-banner-66,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 00:00,ftp://a.b,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem",ftp://a.b
-banner-67,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 00:01,ftp://a,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod te",ftp://a
-banner-68,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 09:00,ftp://,Lo,ftp://
-banner-69,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 17:00,http://www.lorem-ipsum.org,L,http://www.lorem-ipsum.org
+key,key:manager,code,title,abstractText,isPublished,hasFatalErrors,cost,link
+project-01,manager-01,PRO-0001,L,This is the abstract for Project 1,false,true,"EUR 10,000.45",http://www.example.com/project-01
+project-02,manager-01,PRO-0002,Lo,This is the abstract for Project 2,false,true,"EUR 10,000.45",http://www.example.com/project-02
+project-03,manager-01,PRO-0003,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod te",This is the abstract for Project 3,false,true,"EUR 10,000.45",http://www.example.com/project-03
+project-04,manager-01,PRO-0004,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem",This is the abstract for Project 4,false,true,"EUR 10,000.45",http://www.example.com/project-04
+project-05,manager-01,PRO-0005,<h1>!</h1>,This is the abstract for Project 5,false,true,"EUR 10,000.45",http://www.example.com/project-05
+project-06,manager-01,PRO-0006,' or 'A'='A,This is the abstract for Project 6,false,true,"EUR 10,000.45",http://www.example.com/project-06
+project-07,manager-01,PRO-0007,국민경제의 발전을,7,false,true,"EUR 10,000.45",http://www.example.com/project-07
+project-08,manager-01,PRO-0008,Project 8,L,false,true,"EUR 10,000.45",http://www.example.com/project-08
+project-09,manager-01,PRO-0009,Project 9,Lo,false,true,"EUR 10,000.45",http://www.example.com/project-09
+project-10,manager-01,PRO-0010,Project 10,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",false,true,"EUR 10,000.45",http://www.example.com/project-10
+project-11,manager-01,PRO-0011,Project 11,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore*",false,true,"EUR 10,000.45",http://www.example.com/project-11
+project-12,manager-01,PRO-0012,Project 12,<h1>!</h1>,false,true,"EUR 10,000.45",http://www.example.com/project-12
+project-13,manager-01,PRO-0013,Project 13,' or 'A'='A,false,false,"EUR 10,000.45",http://www.example.com/project-13
+project-14,manager-01,PRO-0014,Project 14,This is the abstract for Project 14,false,false,"EUR 10,000.45",http://www.example.com/project-14
+project-15,manager-01,PRO-0015,Project 15,This is the abstract for Project 15,false,true,EUR 0.00,http://www.example.com/project-15
+project-16,manager-01,PRO-0016,Project 16,This is the abstract for Project 16,false,true,EUR 0.01,http://www.example.com/project-16
+project-17,manager-01,PRO-0017,Project 17,This is the abstract for Project 17,false,true,"EUR 10,000.45",ftp://a
+project-18,manager-01,PRO-0018,Project 18,This is the abstract for Project 18,false,true,"EUR 10,000.45",ftp://a.b
+project-19,manager-01,PRO-0019,Project 19,This is the abstract for Project 19,false,true,"EUR 10,000.45","http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/"
+project-20,manager-02,PRO-0020,Project 20,This is the abstract for Project 20,true,false,"EUR 25,000.00","http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X"
+project-21,manager-02,PRO-0021,Project 21,This is the abstract for Project 21,true,false,"EUR 7,500.00",http://www.example.com/project-21
+project-22,manager-02,PRO-0022,Project 22,This is the abstract for Project 22,false,false,"EUR 12,500.00",http://www.example.com/project-22
+project-23,manager-02,PRO-0023,Project 23,This is the abstract for Project 23,true,false,"USD 25,000.00",http://www.example.com/project-23
+project-24,manager-02,PRO-0024,Project 24,This is the abstract for Project 24,true,false,"USD 7,500.00",http://www.example.com/project-24
+project-25,manager-02,PRO-0025,Project 25,This is the abstract for Project 25,false,false,"USD 12,500.00",http://www.example.com/project-25
+project-26,manager-02,PRO-0026,Project 26,This is the abstract for Project 23,true,false,"GBP 25,000.00",http://www.example.com/project-26
+project-27,manager-02,PRO-0027,Project 27,This is the abstract for Project 24,true,false,"GBP 7,500.00",http://www.example.com/project-27
+project-28,manager-02,PRO-0028,Project 28,This is the abstract for Project 25,false,false,"GBP 12,500.00",http://www.example.com/project-28
+project-29,manager-02,PRO-0029,Project 29,This is the abstract for Project 29,true,false,"EUR 20,000.00",http://www.example.com/project-29
+project-30,manager-03,PRO-0030,Project 30,This is the abstract for Project 30,true,false,"EUR 25,000.00",http://www.example.com/project-30
+project-31,manager-03,PRO-0031,Project 31,This is the abstract for Project 31,true,false,"EUR 7,500.00",http://www.example.com/project-31
+project-32,manager-03,PRO-0032,Project 32,This is the abstract for Project 32,false,false,"EUR 12,500.00",http://www.example.com/project-32
+project-33,manager-03,PRO-0033,Project 33,This is the abstract for Project 33,true,false,"USD 25,000.00",http://www.example.com/project-33
+project-34,manager-03,PRO-0034,Project 34,This is the abstract for Project 34,true,false,"USD 7,500.00",http://www.example.com/project-34
+project-35,manager-03,PRO-0035,Project 35,This is the abstract for Project 35,false,false,"USD 12,500.00",http://www.example.com/project-35
+project-36,manager-03,PRO-0036,Project 36,This is the abstract for Project 33,true,false,"GBP 25,000.00",http://www.example.com/project-36
+project-37,manager-03,PRO-0037,Project 37,This is the abstract for Project 34,true,false,"GBP 7,500.00",http://www.example.com/project-37
+project-38,manager-03,PRO-0038,Project 38,This is the abstract for Project 35,false,false,"GBP 12,500.00",http://www.example.com/project-38
+project-39,manager-03,PRO-0039,Project 39,This is the abstract for Project 39,true,false,"EUR 20,000.00",http://www.example.com/project-39
+project-40,manager-04,PRO-0040,Project 40,This is the abstract for Project 40,true,false,"EUR 25,000.00",http://www.example.com/project-40
+project-41,manager-04,PRO-0041,Project 41,This is the abstract for Project 41,true,false,"EUR 7,500.00",http://www.example.com/project-41
+project-42,manager-04,PRO-0042,Project 42,This is the abstract for Project 42,false,false,"EUR 12,500.00",http://www.example.com/project-42
+project-43,manager-04,PRO-0043,Project 43,This is the abstract for Project 43,true,false,"USD 25,000.00",http://www.example.com/project-43
+project-44,manager-04,PRO-0044,Project 44,This is the abstract for Project 44,true,false,"USD 7,500.00",http://www.example.com/project-44
+project-45,manager-04,PRO-0045,Project 45,This is the abstract for Project 45,false,false,"USD 12,500.00",http://www.example.com/project-45
+project-46,manager-04,PRO-0046,Project 46,This is the abstract for Project 43,true,false,"GBP 25,000.00",http://www.example.com/project-46
+project-47,manager-04,PRO-0047,Project 47,This is the abstract for Project 44,true,false,"GBP 7,500.00",http://www.example.com/project-47
+project-48,manager-04,PRO-0048,Project 48,This is the abstract for Project 45,false,false,"GBP 12,500.00",http://www.example.com/project-48
+project-49,manager-04,PRO-0049,Project 49,This is the abstract for Project 49,true,false,"EUR 20,000.00",http://www.example.com/project-49
+project-50,manager-05,PRO-0050,Project 50,This is the abstract for Project 50,true,false,"EUR 25,000.00",http://www.example.com/project-50
+project-51,manager-05,PRO-0051,Project 51,This is the abstract for Project 51,true,false,"EUR 7,500.00",http://www.example.com/project-51
+project-52,manager-05,PRO-0052,Project 52,This is the abstract for Project 52,false,false,"EUR 12,500.00",http://www.example.com/project-52
+project-53,manager-05,PRO-0053,Project 53,This is the abstract for Project 53,true,false,"USD 25,000.00",http://www.example.com/project-53
+project-54,manager-05,PRO-0054,Project 54,This is the abstract for Project 54,true,false,"USD 7,500.00",http://www.example.com/project-54
+project-55,manager-05,PRO-0055,Project 55,This is the abstract for Project 55,false,false,"USD 12,500.00",http://www.example.com/project-55
+project-56,manager-05,PRO-0056,Project 56,This is the abstract for Project 53,true,false,"GBP 25,000.00",http://www.example.com/project-56
+project-57,manager-05,PRO-0057,Project 57,This is the abstract for Project 54,true,false,"GBP 7,500.00",http://www.example.com/project-57
+project-58,manager-05,PRO-0058,Project 58,This is the abstract for Project 55,false,false,"GBP 12,500.00",http://www.example.com/project-58
+project-59,manager-05,PRO-0059,Project 59,This is the abstract for Project 59,true,false,"EUR 20,000.00",http://www.example.com/project-59
+project-60,manager-01,PRO-0060,Project 60,This is the abstract for Project 60,true,false,"EUR 50,000.00",http://www.example.com/project-60
+project-61,manager-01,PRO-0061,Project 61,This is the abstract for Project 61,true,false,"USD 50,000.00",http://www.example.com/project-61
+project-62,manager-01,PRO-0062,Project 62,This is the abstract for Project 62,true,false,"GBP 50,000.00",http://www.example.com/project-62
