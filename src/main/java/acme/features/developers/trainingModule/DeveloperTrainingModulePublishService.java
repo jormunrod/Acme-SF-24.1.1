@@ -65,7 +65,6 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		assert object != null;
 
 		int id = object.getId();
-		Collection<Project> publishedProjects = this.repository.findPublishedProjects();
 		int totalNumberOfTrainingSessions = this.repository.countTrainingSessionsByTrainingModuleId(id);
 		int publishedTrainingSessions = this.repository.countPublishedTrainingSessionsByTrainingModuleId(id);
 
@@ -76,12 +75,6 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
 			if (existing != null && existing.getId() != object.getId())
 				super.state(false, "code", "developer.training-module.form.error.duplicated");
-		}
-
-		if (object.getProject() != null && object.getProject().getId() != 0) {
-			Project existingProject = this.repository.findOneProjectById(object.getProject().getId());
-			if (!publishedProjects.contains(existingProject))
-				super.state(false, "project", "developer.project.form.error.notpublished");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
