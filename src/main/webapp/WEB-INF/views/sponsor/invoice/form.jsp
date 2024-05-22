@@ -9,6 +9,7 @@
 	<acme:input-moment code="sponsor.invoice.form.label.dueDate" path="dueDate"/>
 	<acme:input-money code="sponsor.invoice.form.label.quantity" path="quantity"/>
 	<acme:input-double code="sponsor.invoice.form.label.tax" path="tax"/>
+	<acme:input-money code="sponsor.invoice.form.label.totalAmount" path="totalAmount" readonly = "true"/>
 	<acme:input-email code="sponsor.invoice.form.label.link" path="link"/>
 
 	
