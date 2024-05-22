@@ -72,7 +72,10 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		status = this.repository.findOneContractByCodeAndDifferentId(object.getCode(), object.getId()) == null;
 		super.state(status, "code", "client.contract.form.error.duplicateCode");
 
-		// TODO: Add project budget validation
+		if (object.getProject() != null) {
+			status = object.getBudget().getAmount() <= object.getProject().getCost().getAmount();
+			super.state(status, "budget", "client.contract.form.error.budget");
+		}
 	}
 
 	@Override
