@@ -70,7 +70,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		currentMoment = MomentHelper.getCurrentMoment();
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
 		object.setProject(project);
 		object.setInstantiationMoment(currentMoment);
 
