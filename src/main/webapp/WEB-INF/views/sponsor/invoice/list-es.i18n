@@ -29,6 +29,7 @@ sponsor.invoice.form.label.dueDate = Fecha de vencimiento
 sponsor.invoice.form.label.quantity = Cantidad
 sponsor.invoice.form.label.tax = Impuesto
 sponsor.invoice.form.label.link = Link
+sponsor.invoice.form.label.totalAmount = Cantidad Total
 
 sponsor.invoice.form.button.create = Crear
 sponsor.invoice.form.button.delete = Eliminar
@@ -36,6 +37,7 @@ sponsor.invoice.form.button.update = Actualizar
 sponsor.invoice.form.button.publish = Publicar
 
 sponsor.invoice.list.label.draftMode = Modo Borrador
+sponsor.invoice.list.label.totalAmount = Cantidad Total
 
 sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = La cantidad total es mayor que la cantidad del patrocinio. Intente cambiar la cantidad o el impuesto
 sponsor.invoice.error.CurencyMustBeEqualToSponsorship = La moneda debe ser igual a la moneda del patrocinio asociado

@@ -19,6 +19,7 @@
 	<acme:list-column code="sponsor.invoice.list.label.code" path="code" width="20%"/>	
 	<acme:list-column code="sponsor.invoice.list.label.registrationTime" path="registrationTime" width="20%"/>
 	<acme:list-column code="sponsor.invoice.list.label.dueDate" path="dueDate" width="20%"/>
+	<acme:list-column code="sponsor.invoice.list.label.totalAmount" path="totalAmount" width="20%"/>
 	<acme:list-column code="sponsor.invoice.list.label.draftMode" path="draftMode" width="20%"/>
 	
 </acme:list>

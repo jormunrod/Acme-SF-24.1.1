@@ -52,7 +52,7 @@ public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice>
 
 		Dataset dataset;
 		String draftModeIntl = object.isDraftMode() ? "✔️" : "❌";
-		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "totalAmount");
 		dataset.put("draftMode", draftModeIntl);
 		super.getResponse().addData(dataset);
 	}
