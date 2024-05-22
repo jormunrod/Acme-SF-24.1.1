@@ -1,70 +1,36 @@
 key,instantiationMoment,updateMoment,displayStart,displayEnd,picture,slogan,webDocument
-banner-01,2022/07/28 23:00,2022/07/29 23:00,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/Ge7xQhW.png,Race your dreams,https://www.arusteam.com/
-banner-02,1999/12/31 23:59,2000/12/31 23:59,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/Q88fAnd.png,We live performance,https://www.mercedesamgf1.com/
-banner-03,2000/01/01 00:00,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/KwbuQWp.png,Red Bull Gives You Wings,https://www.redbull.com/cl-es/tags/f1
-banner-04,2000/01/01 00:01,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/kkPZkhw.png,"Historia que tú hiciste, Historia por hacer",https://www.realmadrid.com/es-ES
-banner-05,2022/07/28 23:00,2022/07/29 23:59,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/Db6th21.png,Make it better,https://www.hp.com/es-es/home.html
-banner-06,2020/02/28 00:00,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/4Eb63Ci.png,Impossible is nothing,https://www.adidas.es/
-banner-07,2016/01/01 00:01,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/3HMHgUy.png,The ultimate driving machine,https://www.bmw.com/es/index.html
-banner-08,2016/01/01 23:59,2020/07/01 12:30,2022/07/30 00:00,2022/09/21 12:30,https://imgur.com/1X41vuE.png,Fly better!,https://www.emirates.com/es/spanish/
-banner-09,2016/02/29 12:30,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/jph2CIy.png,Destapa la felicidad!,https://www.coca-cola.com/es/es
-banner-10,2016/02/29 00:00,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/tniEN1x.png,Think different,https://www.apple.com/es/
-banner-11,2016/02/29 00:01,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/lUjCOwo.png,Just do it,https://www.amazon.es/
-banner-12,2016/02/29 23:59,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/9xOiuD2.png,"Run, don't hide!",https://www.nike.com/es/
-banner-13,2017/02/28 12:30,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/KmuD5xh.png,Inventemos el futuro,https://www.repsol.com/es/index.cshtml
-banner-14,2017/02/28 00:00,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/ePGQFvw.png,See what's next,https://www.netflix.com/es/
-banner-15,2017/02/28 00:01,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/fRR0nvc.png,Crear una vida cotidiana mejor para muchas personas,https://www.ikea.com/es/es/
-banner-16,2020/06/01 12:30,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/bROzBri.png,I'm loving it,https://mcdonalds.es/
-banner-17,2020/06/01 12:30,2020/07/01 12:30,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/shC8ql9.png,A Crown For Every Achievement,https://www.rolex.com/es
-banner-18,2016/06/01 12:30,2020/12/31 00:00,2022/08/05 23:59,2022/09/05 23:59,https://imgur.com/rPqeZGb.png,Ponemos energía en las cosas que nos importan,https://www.fundacioniberdrolaespana.org/
-banner-19,2016/06/01 12:30,2020/12/21 00:01,2022/08/06 00:00,2022/09/06 00:00,https://imgur.com/8907sF2.png,La educación transforma,https://www.entreculturas.org/
-banner-20,2016/06/01 12:30,2020/12/31 23:59,2022/08/06 00:01,2022/09/06 00:01,https://imgur.com/XGLR4T2.png,Misión y visión,https://www.faortega.org/
-banner-21,2016/06/01 12:30,2020/01/01 12:30,2200/11/30 23:58,2200/12/31 23:58,https://imgur.com/BoRyqhx.png,BBVA Aprendemos Juntos 2030,https://www.fbbva.es/
-banner-22,2016/06/01 12:30,2020/01/01 00:00,2200/11/30 23:59,2200/12/31 23:59,https://imgur.com/zXrXQLa.png,Abriendo Oportunidades,https://www.fundacionmapfre.org/
-banner-23,2016/06/01 12:30,2020/01/01 00:01,2200/12/01 00:00,2201/01/01 00:00,https://imgur.com/gFrebqk.png,Siempre a tu lado,https://madrina.org/
-banner-24,2016/06/01 12:30,2020/01/01 23:59,2028/02/28 00:00,2028/03/28 00:00,https://imgur.com/w3emEaW.png,Alimenta una vida mejor,https://www.bancodealimentosdesevilla.org/
-banner-25,2016/06/01 12:30,2020/02/29 12:30,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/4HkJIBQ.png,Memoria en todos los corazones,https://fundacionvt.org/
-banner-26,2016/06/01 12:30,2020/02/29 00:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/IOIsfKF.png,Apadrina la ciencia,http://apadrinalaciencia.org/
-banner-27,2016/06/01 12:30,2020/02/29 00:01,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/XhUPRGL.png,Por una educación para todos,https://www.fundacionquerer.org/
-banner-28,2016/06/01 12:30,2020/02/29 23:59,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/464PvAo.png,Haz que el tiempo vaya a nuestro favor,https://www.hazloposible.org/
-banner-29,2016/06/01 12:30,2021/02/28 12:30,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/laGzDhY.png,Por una sociedad justa e igualitaria,https://fundacionprodis.org/
-banner-30,2016/06/01 12:30,2021/02/28 00:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/gQBeYYE.png,"Otras formas de enseñar, otras formas de aprender",https://fundacionsanpatricio.org/
-banner-31,2016/06/01 12:30,2021/02/28 00:01,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/UgoLNeq.png,Por un diálogo intergeneracional y un espíritu crítico en la sociedad,https://ortegaygasset.edu/
-banner-32,2016/06/01 12:30,2021/02/28 23:59,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/JshIiBs.png,Oportunidades que cambian vidas,https://tomillo.org/
-banner-33,2019/06/01 12:30,2019/07/01 12:30,2020/12/31 12:30,2021/07/01 12:30,https://imgur.com/eU7z5mg.png,We invest in knowledge that inspires informed action,https://www.carnegie.org/
-banner-34,2019/06/01 12:30,2019/07/01 12:30,2020/12/31 00:00,2021/07/01 12:30,https://imgur.com/vhTT97k.png,We Work to Expand Equity and Opportunity in Cities Across America,https://kresge.org/
-banner-35,2019/06/01 12:30,2019/07/01 12:30,2020/12/21 00:01,2021/07/01 12:30,https://imgur.com/gnNm78m.png,Inspiring philanthropy. Investing in community,https://www.fftc.org/
-banner-36,2019/06/01 12:30,2019/07/01 12:30,2020/12/31 23:59,2021/07/01 12:30,https://imgur.com/rYhIwKR.png,"Art, knowledge and science in a fairer, more sustainable and diverse world",https://gulbenkian.pt/en/
-banner-37,2019/06/01 12:30,2019/07/01 12:30,2020/01/01 12:30,2021/07/01 12:30,https://imgur.com/jvSJSmV.png,"Promoting a Just, Equitable and Sustainable Society",https://www.mott.org/
-banner-38,2019/06/01 12:30,2019/07/01 12:30,2020/01/01 00:00,2021/07/01 12:30,https://imgur.com/R5Mxkb9.png,Entiche lives and strengthens communities,https://www.dukeendowment.org/
-banner-39,2019/06/01 12:30,2019/07/01 12:30,2020/01/01 00:01,2021/07/01 12:30,https://imgur.com/FO68a35.png,We love our smart + open community,https://columbusfoundation.org/
-banner-40,2019/06/01 12:30,2019/07/01 12:30,2020/01/01 23:59,2021/07/01 12:30,https://imgur.com/4kRwUsG.png,Cumming Foundation,https://www.cummingsfoundation.org/
-banner-41,2019/06/01 12:30,2019/07/01 12:30,2020/02/29 12:30,2021/07/01 12:30,https://imgur.com/ZInvmQu.png,Give a family a change to thrive,https://www.heifer.org/index.html
-banner-42,2019/06/01 12:30,2019/07/01 12:30,2020/02/29 00:00,2021/07/01 12:30,https://imgur.com/GNPn6Lh.png,"Heal the world, make it a better place",https://www.healtheworld.org/
-banner-43,2019/06/01 12:30,2019/07/01 12:30,2020/02/29 00:01,2021/07/01 12:30,https://imgur.com/pkSWzgN.png,Improving access to health,https://www.hearttoheart.org/
-banner-44,2019/06/01 12:30,2019/07/01 12:30,2020/02/29 23:59,2021/07/01 12:30,https://imgur.com/GRV5YQo.png,We provide human care,https://highfivesfoundation.org/
-banner-45,2019/06/01 12:30,2019/07/01 12:30,2021/02/28 12:30,2021/07/01 12:30,https://imgur.com/A9T1HzM.png,Uplifting children. Strenghthering families,https://www.holtinternational.org/
-banner-46,2019/06/01 12:30,2019/07/01 12:30,2021/02/28 00:00,2021/07/01 12:30,https://imgur.com/PDJyk3x.png,Our Country Depends on It,https://www.heritage.org/
-banner-47,2019/06/01 12:30,2019/07/01 12:30,2021/02/28 00:01,2021/07/01 12:30,https://imgur.com/moDg9eC.png,Let's build a better world,https://helenkellerintl.org/
-banner-48,2019/06/01 12:30,2019/07/01 12:30,2021/02/28 23:59,2021/07/01 12:30,https://imgur.com/a8vmNU5.png,Mastering our own world. Change a life to change nations,https://www.hopeeducationlinkfoundation.org/
-banner-49,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/12/31 12:30,https://imgur.com/6Ssn79w.png,In war charity. Through humanity to peace,https://www.ifrc.org/
-banner-50,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/12/31 00:00,https://imgur.com/gHdZ66z.png,We save lives and relieve suffering,https://internationalmedicalcorps.org/
-banner-51,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/12/21 00:01,https://imgur.com/XLq3aFs.png,For a world free from discrimination,https://www.ippf.org/
-banner-52,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/12/31 23:59,https://imgur.com/lOcmGnJ.png,She blazed the trail. The next steps are up to us,https://janegoodall.org/
-banner-53,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/01/01 12:30,https://i.imgur.com/8YcXhS0.png,Be the hero nature needs,https://www.worldwildlife.org/
-banner-54,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/01/01 00:00,https://i.imgur.com/MtBRoNP.png,Medical care where it is needed most,https://www.doctorswithoutborders.org/
-banner-55,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/01/01 00:01,https://i.imgur.com/NGLSjk6.png,The world’s platform for change,https://www.change.org/
-banner-56,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/01/01 23:59,https://i.imgur.com/fihihcF.png,El gancho que muchos menores necesitan,https://fundacionelgancho.org/
-banner-57,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/02/29 12:30,https://i.imgur.com/2eVF1HG.png,Por un deporte inclusivo,https://www.afoprodei.com/
-banner-58,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/02/29 00:00,https://i.imgur.com/CqtMSmM.png,Un futuro para ellos,https://fundacionmornese.com/
-banner-59,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/02/29 00:01,https://i.imgur.com/sgx1bFo.png,Pulseras contra el cáncer,https://www.pulserasrosas.com/
-banner-60,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2020/02/29 23:59,http://example.org/a/b,Ser diferentes nos hace únicos,http://example.org/a/b
-banner-61,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 12:30,http://www.lorem-ipsum.org/dolor/sit.html#dolor,Unidos por un mismo objectivo,http://www.lorem-ipsum.org/dolor/sit.html#dolor
-banner-62,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 00:00,https://www.lorem-ipsum.org,Por un deporte inclusivo en nuestra sociedad,https://www.lorem-ipsum.org
-banner-63,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 00:01,http://example.org/a,국민경제의 발전을,http://example.org/a
-banner-64,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 23:59,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",' or 'A'='A,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X"
-banner-65,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 12:30,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",<h1>!</h1>,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/"
-banner-66,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 00:00,ftp://a.b,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem",ftp://a.b
-banner-67,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 00:01,ftp://a,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod te",ftp://a
-banner-68,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 09:00,ftp://,Lo,ftp://
-banner-69,2019/06/01 12:30,2019/07/01 12:30,2019/08/01 12:30,2021/02/28 17:00,http://www.lorem-ipsum.org,L,http://www.lorem-ipsum.org
+banner-01,2000/01/01 00:00,2022/07/29 23:00,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/Ge7xQhW.png,Race your dreams,https://www.arusteam.com/
+banner-02,2000/01/01 00:01,2022/07/29 23:00,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/Q88fAnd.png,We live performance,https://www.mercedesamgf1.com/
+banner-03,2022/07/29 23:58,2022/07/29 23:00,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/KwbuQWp.png,Red Bull Gives You Wings,https://www.redbull.com/cl-es/tags/f1
+banner-04,2020/07/29 23:59,2022/07/29 23:00,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/kkPZkhw.png,"Historia que tú hiciste, Historia por hacer",https://www.realmadrid.com/es-ES
+banner-05,2020/02/29 00:00,2022/07/29 23:00,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/shC8ql9.png,A Crown For Every Achievement,https://www.rolex.com/es
+banner-06,2000/01/01 00:00,2000/01/01 00:00,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/Db6th21.png,Make it better,https://www.hp.com/es-es/home.html
+banner-07,2000/01/01 00:00,2000/01/01 00:01,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/4Eb63Ci.png,Impossible is nothing,https://www.adidas.es/
+banner-08,2022/05/30 12:00,2022/07/29 23:58,2022/07/30 00:00,2022/08/21 12:30,https://imgur.com/3HMHgUy.png,The ultimate driving machine,https://www.bmw.com/es/index.html
+banner-09,2022/05/30 12:00,2022/07/29 23:59,2022/07/30 00:00,2022/09/21 12:30,https://imgur.com/1X41vuE.png,Fly better!,https://www.emirates.com/es/spanish/
+banner-10,2022/05/30 12:00,2020/02/29 00:00,2022/07/30 00:00,2022/09/05 23:59,https://imgur.com/rPqeZGb.png,Ponemos energía en las cosas que nos importan,https://www.fundacioniberdrolaespana.org/
+banner-11,2022/05/30 12:00,2022/07/29 23:00,2000/01/01 00:00,2022/08/21 12:30,https://imgur.com/jph2CIy.png,Destapa la felicidad!,https://www.coca-cola.com/es/es
+banner-12,2022/05/30 12:00,2022/07/29 23:00,2000/01/01 00:01,2022/08/21 12:30,https://imgur.com/tniEN1x.png,Think different,https://www.apple.com/es/
+banner-13,2022/05/30 12:00,2022/07/29 23:00,2200/12/24 23:58,2022/08/21 12:30,https://imgur.com/lUjCOwo.png,Just do it,https://www.amazon.es/
+banner-14,2022/05/30 12:00,2022/07/29 23:00,2200/12/24 23:59,2022/08/21 12:30,https://imgur.com/9xOiuD2.png,"Run, don't hide!",https://www.nike.com/es/
+banner-15,2022/05/30 12:00,2022/07/29 23:00,2020/02/29 00:00,2022/08/21 12:30,https://imgur.com/8907sF2.png,La educación transforma,https://www.entreculturas.org/
+banner-16,2022/05/30 12:00,2022/07/29 23:00,2000/01/01 00:00,2000/01/08 00:00,https://imgur.com/KmuD5xh.png,Inventemos el futuro,https://www.repsol.com/es/index.cshtml
+banner-17,2022/05/30 12:00,2022/07/29 23:00,2000/01/01 00:01,2000/01/08 00:01,https://imgur.com/ePGQFvw.png,See what's next,https://www.netflix.com/es/
+banner-18,2022/05/30 12:00,2022/07/29 23:00,2200/12/24 23:58,2200/12/31 23:58,https://imgur.com/fRR0nvc.png,Crear una vida cotidiana mejor para muchas personas,https://www.ikea.com/es/es/
+banner-19,2022/05/30 12:00,2022/07/29 23:00,2200/12/24 23:59,2200/12/31 23:59,https://imgur.com/bROzBri.png,I'm loving it,https://mcdonalds.es/
+banner-20,2022/05/30 12:00,2022/07/29 23:00,2024/02/22 00:00,2024/02/29 00:00,https://imgur.com/XGLR4T2.png,Misión y visión,https://www.faortega.org/
+banner-21,2022/05/30 12:00,2022/07/29 23:00,2020/07/30 00:00,2020/08/31 23:58,ftp://a,BBVA Aprendemos Juntos 2030,https://www.fbbva.es/
+banner-22,2022/05/30 12:00,2022/07/29 23:00,2200/11/30 23:59,2200/12/31 23:59,ftp://a.b,Abriendo Oportunidades,https://www.fundacionmapfre.org/
+banner-23,2022/05/30 12:00,2022/07/29 23:00,2200/12/01 00:00,2201/01/01 00:00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",Siempre a tu lado,https://madrina.org/
+banner-24,2022/05/30 12:00,2022/07/29 23:00,2028/02/28 00:00,2028/03/28 00:00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",Alimenta una vida mejor,https://www.bancodealimentosdesevilla.org/
+banner-25,2022/05/30 12:00,2022/07/29 23:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/4HkJIBQ.png,L,https://fundacionvt.org/
+banner-26,2022/05/30 12:00,2022/07/29 23:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/IOIsfKF.png,Lo,http://apadrinalaciencia.org/
+banner-27,2022/05/30 12:00,2022/07/29 23:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/XhUPRGL.png,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod te",https://www.fundacionquerer.org/
+banner-28,2022/05/30 12:00,2022/07/29 23:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/464PvAo.png,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem",https://www.hazloposible.org/
+banner-29,2022/05/30 12:00,2022/07/29 23:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/laGzDhY.png,<h1>!</h1>,https://fundacionprodis.org/
+banner-30,2022/05/30 12:00,2022/07/29 23:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/gQBeYYE.png,' or 'A'='A,https://fundacionsanpatricio.org/
+banner-31,2022/05/30 12:00,2022/07/29 23:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/UgoLNeq.png,국민경제의 발전을,https://ortegaygasset.edu/
+banner-32,2022/05/30 12:00,2022/07/29 23:00,2021/06/01 12:30,2021/07/01 12:30,https://imgur.com/JshIiBs.png,Oportunidades que cambian vidas,ftp://a
+banner-33,2022/05/30 12:00,2022/07/29 23:00,2020/12/31 12:30,2021/07/01 12:30,https://imgur.com/eU7z5mg.png,We invest in knowledge that inspires informed action,ftp://a.b
+banner-34,2022/05/30 12:00,2022/07/29 23:00,2020/12/31 00:00,2021/07/01 12:30,https://imgur.com/vhTT97k.png,We Work to Expand Equity and Opportunity in Cities Across America,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/"
+banner-35,2022/05/30 12:00,2022/07/29 23:00,2020/12/21 00:01,2021/07/01 12:30,https://imgur.com/gnNm78m.png,Inspiring philanthropy. Investing in community,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X"
