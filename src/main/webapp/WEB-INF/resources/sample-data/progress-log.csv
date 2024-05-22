@@ -14,13 +14,17 @@ progress-log-09,contract-03,PG-K-2345,0.43,' or 'A'='A,1998/11/24 11:20,Samantha
 progress-log-10,contract-03,PG-L-6789,0.54,국민경제의 발전을,1998/11/25 11:20,Robert Rodriguez
 progress-log-11,contract-03,PG-M-0123,0.78,العظمى واعتلاء,1998/11/26 11:20,Ashley Clark
 # registrationMoment check
-progress-log-12,contract-03,PG-NE-4567,0.83,Resolved performance bottleneck in search feature.,1998/11/27 11:20,William Martinez
+progress-log-12,contract-03,PG-NE-4567,0.83,Resolved performance bottleneck in search feature.,2022/07/29 23:59,William Martinez
+progress-log-13,contract-03,PG-NE-4568,0.83,Resolved performance bottleneck in search feature.,2022/07/29 23:58,William Martinez
+progress-log-14,contract-03,PG-NE-4569,0.83,Resolved performance bottleneck in search feature.,2020/02/29 00:00,William Martinez
+progress-log-15,contract-03,PG-NE-4570,0.83,Resolved performance bottleneck in search feature.,2000/01/01 00:01,William Martinez
+progress-log-16,contract-03,PG-NE-4571,0.83,Resolved performance bottleneck in search feature.,2000/01/01 00:00,William Martinez
 # responsiblePerson check
-progress-log-13,contract-04,PG-O-8901,0.22,Implemented caching mechanism for faster loading.,2005/07/09 18:55,L
-progress-log-14,contract-04,PG-P-2345,0.25,Deployed continuous integration pipeline.,2005/07/10 18:55,LO
-progress-log-15,contract-04,PG-Q-6789,0.35,Added user-friendly tooltips for guidance.,2005/07/11 18:55,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod temp"
-progress-log-16,contract-04,PG-R-0123,0.44,Optimized memory usage for scalability.,2005/07/12 18:55,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempo"
-progress-log-17,contract-05,PG-SE-4567,0.67,Improved accessibility compliance.,2012/12/13 10:00,<h1>!</h1>
-progress-log-18,contract-05,PG-SE-4568,0.77,Resolved cross-browser compatibility issues.,2012/12/14 10:00,' or 'A'='A
-progress-log-19,contract-05,PG-SE-4569,0.87,Implemented automated backup system.,2012/12/15 10:00,국민경제의 발전을
-progress-log-20,contract-05,PG-SE-4570,0.97,Enhanced security with encryption.,2012/12/16 10:00,العظمى واعتلاء
+progress-log-17,contract-04,PG-O-8901,0.22,Implemented caching mechanism for faster loading.,2005/07/09 18:55,L
+progress-log-18,contract-04,PG-P-2345,0.25,Deployed continuous integration pipeline.,2005/07/10 18:55,LO
+progress-log-19,contract-04,PG-Q-6789,0.35,Added user-friendly tooltips for guidance.,2005/07/11 18:55,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod temp"
+progress-log-20,contract-04,PG-R-0123,0.44,Optimized memory usage for scalability.,2005/07/12 18:55,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempo"
+progress-log-21,contract-05,PG-SE-4567,0.67,Improved accessibility compliance.,2012/12/13 10:00,<h1>!</h1>
+progress-log-22,contract-05,PG-SE-4568,0.77,Resolved cross-browser compatibility issues.,2012/12/14 10:00,' or 'A'='A
+progress-log-23,contract-05,PG-SE-4569,0.87,Implemented automated backup system.,2012/12/15 10:00,국민경제의 발전을
+progress-log-24,contract-05,PG-SE-4570,0.97,Enhanced security with encryption.,2012/12/16 10:00,العظمى واعتلاء

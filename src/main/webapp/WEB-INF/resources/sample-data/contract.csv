@@ -1,35 +1,39 @@
 key,key:project,key:client,code,instantiationMoment,providerName,customerName,goals,budget,isPublished
 # instantiationMoment check
-contract-00,project-20,client-01,MSN-048,2022/07/29 23:59,Samantha Rodriguez,Lucas Rivera,Deliver fully functional software within the agreed timeline.,EUR 500.00,1
+contract-00,project-20,client-01,MSN-041,2022/07/29 23:59,Samantha Rodriguez,Lucas Rivera,Deliver fully functional software within the agreed timeline.,EUR 500.00,1
+contract-01,project-20,client-01,MSN-042,2022/07/29 23:58,Samantha Rodriguez,Lucas Rivera,Deliver fully functional software within the agreed timeline.,EUR 500.00,1
+contract-02,project-20,client-01,MSN-043,2020/02/29 00:00,Samantha Rodriguez,Lucas Rivera,Deliver fully functional software within the agreed timeline.,EUR 500.00,1
+contract-03,project-20,client-01,MSN-044,2000/01/01 00:01,Samantha Rodriguez,Lucas Rivera,Deliver fully functional software within the agreed timeline.,EUR 500.00,1
+contract-04,project-20,client-01,MSN-045,2000/01/01 00:00,Samantha Rodriguez,Lucas Rivera,Deliver fully functional software within the agreed timeline.,EUR 500.00,1
 # providerName check
-contract-01,project-20,client-01,ABC-123,1995/05/03 09:30,L,Victoria Lee,Ensure code quality through rigorous testing procedures.,EUR 800.00,1
-contract-02,project-20,client-01,CIA-533,2003/09/17 15:45,LO,Noah Adams,Implement user feedback promptly to enhance user experience.,EUR 200.00,1
-contract-03,project-20,client-01,ALO-033,1998/11/22 11:20,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod temp",William Wright,Maintain clear and effective communication with stakeholders.,EUR 100.00,1
-contract-04,project-20,client-02,ESP-007,2005/07/08 18:55,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempo",Grace Phillips,Adhere to industry best practices and coding standards.,EUR 450.00,1
-contract-05,project-21,client-02,DUB-001,2012/12/12 10:00,<h1>!</h1>,Dylan Stewart,Provide comprehensive documentation for all software components.,EUR 900.00,1
-contract-06,project-21,client-02,FIA-004,1993/04/25 16:25,' or 'A'='A,Layla Price,Meet all performance benchmarks outlined in the contract.,"EUR 1,700.00",0
-contract-07,project-23,client-02,AVE-029,2010/08/30 22:10,국민경제의 발전을,James Turner,Ensure scalability to accommodate future growth.,"USD 2,800.00",0
-contract-08,project-24,client-02,JFE-012,1997/06/05 08:35,العظمى واعتلاء,Harper Watson,Implement robust security measures to protect user data.,"USD 3,200.00",0
+contract-05,project-20,client-01,ABC-123,2002/05/03 09:30,L,Victoria Lee,Ensure code quality through rigorous testing procedures.,EUR 800.00,1
+contract-06,project-20,client-01,CIA-533,2003/09/17 15:45,LO,Noah Adams,Implement user feedback promptly to enhance user experience.,EUR 200.00,1
+contract-07,project-20,client-01,ALO-033,2002/11/22 11:20,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod temp",William Wright,Maintain clear and effective communication with stakeholders.,EUR 100.00,1
+contract-08,project-20,client-02,ESP-007,2005/07/08 18:55,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempo",Grace Phillips,Adhere to industry best practices and coding standards.,EUR 450.00,1
+contract-09,project-21,client-02,DUB-001,2012/12/12 10:00,<h1>!</h1>,Dylan Stewart,Provide comprehensive documentation for all software components.,EUR 900.00,1
+contract-10,project-21,client-02,FIA-004,2012/04/25 16:25,' or 'A'='A,Layla Price,Meet all performance benchmarks outlined in the contract.,"EUR 1,700.00",0
+contract-11,project-23,client-02,AVE-029,2010/08/30 22:10,국민경제의 발전을,James Turner,Ensure scalability to accommodate future growth.,"USD 2,800.00",0
+contract-12,project-24,client-02,JFE-012,2016/06/05 08:35,العظمى واعتلاء,Harper Watson,Implement robust security measures to protect user data.,"USD 3,200.00",0
 # customerName check
-contract-09,project-24,client-02,LDL-394,2001/10/18 12:40,Maria Gonzalez,L,Offer timely support and maintenance services post-launch.,"USD 1,000.00",0
-contract-10,project-24,client-01,UDK-239,2018/03/29 07:15,Alexander Smith,LO,Integrate seamlessly with existing systems if required.,"USD 1,600.00",0
-contract-11,project-26,client-01,CIA-111,1996/11/14 14:50,Emily Martinez,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod temp",Optimize software performance for various devices and platforms.,"GBP 2,300.00",0
-contract-12,project-27,client-01,PEZ-389,2009/01/02 19:20,Benjamin Johnson,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempo",Conduct regular code reviews to identify and address issues.,"GBP 3,000.00",0
-contract-13,project-29,client-01,URL-382,1994/06/09 03:05,Sophia Anderson,<h1>!</h1>,Continuously improve software functionality based on user needs.,EUR 500.00,1
-contract-14,project-60,client-02,ZIP-495,2016/07/23 11:30,Gabriel Taylor,' or 'A'='A,Comply with all legal and regulatory requirements.,"EUR 2,000.00",0
-contract-15,project-60,client-02,GEO-134,1999/12/27 20:55,Isabella Brown,국민경제의 발전을,Facilitate smooth deployment and transition processes.,"EUR 2,700.00",0
-contract-16,project-60,client-02,NOE-987,2007/04/10 05:40,Jacob Wilson,العظمى واعتلاء,Comply with all legal and regulatory requirements.,"EUR 4,000.00",0
+contract-13,project-24,client-02,LDL-394,2001/10/18 12:40,Maria Gonzalez,L,Offer timely support and maintenance services post-launch.,"USD 1,000.00",0
+contract-14,project-24,client-01,UDK-239,2018/03/29 07:15,Alexander Smith,LO,Integrate seamlessly with existing systems if required.,"USD 1,600.00",0
+contract-15,project-26,client-01,CIA-111,2016/11/14 14:50,Emily Martinez,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod temp",Optimize software performance for various devices and platforms.,"GBP 2,300.00",0
+contract-16,project-27,client-01,PEZ-389,2009/01/02 19:20,Benjamin Johnson,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempo",Conduct regular code reviews to identify and address issues.,"GBP 3,000.00",0
+contract-17,project-29,client-01,URL-382,2013/06/09 03:05,Sophia Anderson,<h1>!</h1>,Continuously improve software functionality based on user needs.,EUR 500.00,1
+contract-18,project-60,client-02,ZIP-495,2016/07/23 11:30,Gabriel Taylor,' or 'A'='A,Comply with all legal and regulatory requirements.,"EUR 2,000.00",0
+contract-19,project-60,client-02,GEO-134,2003/12/27 20:55,Isabella Brown,국민경제의 발전을,Facilitate smooth deployment and transition processes.,"EUR 2,700.00",0
+contract-20,project-60,client-02,NOE-987,2007/04/10 05:40,Jacob Wilson,العظمى واعتلاء,Comply with all legal and regulatory requirements.,"EUR 4,000.00",0
 # goals check
-contract-17,project-60,client-02,ZXY-939,1990/10/18 12:15,Juan Torres,Lana García,L,EUR 200.00,1
-contract-18,project-60,client-02,ZZZ-999,1992/10/15 13:15,Olivia Davis,Zoey Cooper,LO,EUR 600.00,1
-contract-19,project-60,client-02,UID-000,2014/06/02 21:40,Michael Thompson,Joshua Ramirez,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut laboreee","EUR 1,300.00",0
-contract-20,project-60,client-02,UID-001,1991/01/19 09:00,Ava Clark,Natalie Baker,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut laboreeee","EUR 3,300.00",0
-contract-21,project-60,client-02,UID-002,2000/08/08 16:25,Ethan Moore,Liam Mitchell,<h1>!</h1>,EUR 850.00,0
-contract-22,project-60,client-02,UID-003,2012/11/24 22:50,Mia Lewis,Harper Green,' or 'A'='A,"EUR 1,100.00",0
-contract-23,project-60,client-02,UID-004,1998/05/31 06:15,Daniel White,Christopher Reed,국민경제의 발전을,"EUR 1,800.00",0
-contract-24,project-60,client-02,UID-005,2006/09/13 14:40,Chloe Harris,Evelyn King,العظمى واعتلاء,"EUR 2,800.00",0
+contract-21,project-60,client-02,ZXY-939,2016/10/18 12:15,Juan Torres,Lana García,L,EUR 200.00,1
+contract-22,project-60,client-02,ZZZ-999,2015/10/15 13:15,Olivia Davis,Zoey Cooper,LO,EUR 600.00,1
+contract-23,project-60,client-02,UID-000,2014/06/02 21:40,Michael Thompson,Joshua Ramirez,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut laboreee","EUR 1,300.00",0
+contract-24,project-60,client-02,UID-001,2012/01/19 09:00,Ava Clark,Natalie Baker,"Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut laboreeee","EUR 3,300.00",0
+contract-25,project-60,client-02,UID-002,2000/08/08 16:25,Ethan Moore,Liam Mitchell,<h1>!</h1>,EUR 850.00,0
+contract-26,project-60,client-02,UID-003,2012/11/24 22:50,Mia Lewis,Harper Green,' or 'A'='A,"EUR 1,100.00",0
+contract-27,project-60,client-02,UID-004,2013/05/31 06:15,Daniel White,Christopher Reed,국민경제의 발전을,"EUR 1,800.00",0
+contract-28,project-60,client-02,UID-005,2006/09/13 14:40,Chloe Harris,Evelyn King,العظمى واعتلاء,"EUR 2,800.00",0
 # budget check
-contract-25,project-60,client-02,UID-006,2017/03/26 00:05,Matthew Nelson,Andrew Scott,Collaborate effectively with other teams if applicable.,EUR 0.00,0
-contract-26,project-60,client-02,UID-007,1992/12/04 08:30,Amelia Carter,Madison Ward,Prioritize features based on their importance and impact.,EUR 0.01,0
-contract-27,project-60,client-02,UID-008,2002/07/09 16:55,David Turner,Logan Ross,Provide training and support to end-users as needed.,"EUR 49,999.99",0
-contract-28,project-60,client-02,UID-009,1995/02/20 23:20,Jes s Ram rez,Aaliyah Patel,Proactively identify and resolve potential risks and challenges.,"EUR 50,000.00",0
+contract-29,project-60,client-02,UID-006,2017/03/26 00:05,Matthew Nelson,Andrew Scott,Collaborate effectively with other teams if applicable.,EUR 0.00,0
+contract-30,project-60,client-02,UID-007,2016/12/04 08:30,Amelia Carter,Madison Ward,Prioritize features based on their importance and impact.,EUR 0.01,0
+contract-31,project-60,client-02,UID-008,2002/07/09 16:55,David Turner,Logan Ross,Provide training and support to end-users as needed.,"EUR 49,999.99",0
+contract-32,project-60,client-02,UID-009,2015/02/20 23:20,Jes s Ram rez,Aaliyah Patel,Proactively identify and resolve potential risks and challenges.,"EUR 50,000.00",0
