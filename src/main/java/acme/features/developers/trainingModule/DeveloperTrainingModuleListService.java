@@ -26,17 +26,9 @@ public class DeveloperTrainingModuleListService extends AbstractService<Develope
 	public void authorise() {
 		boolean status;
 		int developerId;
-		Collection<TrainingModule> trainingModules;
-		TrainingModule trainingModule;
 
 		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		trainingModules = this.repository.findAllTrainingModuleByDeveloperId(developerId);
-		trainingModule = trainingModules.stream().findFirst().orElse(null);
-
-		if (trainingModules.isEmpty())
-			status = true;
-		else
-			status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+		status = super.getRequest().getPrincipal().hasRole(this.repository.findOneDeveloperById(developerId));
 
 		super.getResponse().setAuthorised(status);
 

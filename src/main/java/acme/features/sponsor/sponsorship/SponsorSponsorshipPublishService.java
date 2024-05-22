@@ -8,7 +8,6 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
@@ -73,22 +72,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("amount")) {
-			int id;
-			id = super.getRequest().getData("id", int.class);
-			boolean status = this.repository.invoicesNotPublishedBySponsorshipId(object.getId()).isEmpty();
-			Double amount = object.getAmount().getAmount();
-			double invoicesAmount = this.repository.sumTotalAmountBySponsorshipId(object.getId()) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(object.getId());
-			double diference = amount - invoicesAmount;
-			if (diference > 0.)
-				super.state(false, "*", "sponsor.sponsorship.error.invoicesLeft");
-			if (this.repository.findInvoicesBySponsorshipId(id).isEmpty())
-				super.state(false, "*", "sponsor.sponsorship.error.ThereAreNoInvoicesAsociated");
-			if (!this.repository.findInvoicesBySponsorshipId(id).isEmpty() && !status)
-				super.state(status, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
-
-		}
-
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship alredyExisting;
 			Sponsorship actual;
@@ -129,28 +112,30 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
-			Money amount = object.getAmount();
-			super.state(amount.getAmount() > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("amount")) {
-			Sponsorship sponsorship;
 			int id;
+			Sponsorship sponsorship;
 			id = super.getRequest().getData("id", int.class);
 			sponsorship = this.repository.findOneSponsorshipById(id);
 			String currency = object.getAmount().getCurrency();
 			Double amount = object.getAmount().getAmount();
-
+			boolean status = this.repository.invoicesNotPublishedBySponsorshipId(object.getId()).isEmpty();
+			double invoicesAmount = this.repository.sumTotalAmountBySponsorshipId(object.getId()) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(object.getId());
+			double diference = amount - invoicesAmount;
+			if (diference > 0.)
+				super.state(false, "*", "sponsor.sponsorship.error.invoicesLeft");
+			if (this.repository.findInvoicesBySponsorshipId(id).isEmpty())
+				super.state(false, "*", "sponsor.sponsorship.error.ThereAreNoInvoicesAsociated");
+			if (!this.repository.findInvoicesBySponsorshipId(id).isEmpty() && !status)
+				super.state(status, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
+			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
 			if (!currency.equals(sponsorship.getAmount().getCurrency()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
 				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
 			if (!amount.equals(sponsorship.getAmount().getAmount()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
-				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
+				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeAmount");
+			if (!(amount > 0))
+				super.state(false, "amount", "sponsor.sponsorship.error.amountNotPositive");
 
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("amount")) {
-			String currency = object.getAmount().getCurrency();
-			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
 		}
 	}
 	@Override
@@ -166,7 +151,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void unbind(final Sponsorship object) {
 		assert object != null;
-		int sponsorId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
@@ -175,8 +159,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		int id;
 		id = super.getRequest().getData("id", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
-
-		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findAllPublishedProjects();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
