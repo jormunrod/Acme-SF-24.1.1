@@ -34,8 +34,15 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 	@Override
 	public void authorise() {
+		boolean status = true;
+		boolean x = super.getRequest().hasData("project");
+		if (x) {
+			int projectId = super.getRequest().getData("project", int.class);
+			Project project = this.repository.findOneProjectById(projectId);
+			status = project != null && project.isPublished();
+		}
 
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(status);
 
 	}
 
