@@ -43,7 +43,7 @@ public class AnySponsorshipShowService extends AbstractService<Any, Sponsorship>
 	@Override
 	public void unbind(final Sponsorship object) {
 		assert object != null;
-		int sponsorId;
+
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;

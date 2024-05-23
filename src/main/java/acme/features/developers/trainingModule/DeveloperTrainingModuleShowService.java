@@ -67,6 +67,7 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("difficultyLevels", choicesLevels);
+		dataset.put("creationMoment", object.getCreationMoment());
 
 		super.getResponse().addData(dataset);
 	}

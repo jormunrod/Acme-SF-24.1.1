@@ -6,7 +6,11 @@
 <acme:form>
 	<acme:input-textbox code="client.contract.form.label.code" path="code" placeholder="AAA-000"/>
 	<acme:input-select code="client.contract.form.label.project" path="project" choices="${projects}"/>
-	<acme:input-moment code="client.contract.form.label.instantiationMoment" readonly="true" path="instantiationMoment"/>
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
+			<acme:input-moment code="client.contract.form.label.instantiationMoment" readonly="true" path="instantiationMoment"/>
+		</jstl:when>
+	</jstl:choose>
 	<acme:input-textbox code="client.contract.form.label.providerName" path="providerName"/>
 	<acme:input-textbox code="client.contract.form.label.customerName" path="customerName"/>
 	<acme:input-textarea code="client.contract.form.label.goals" path="goals"/>

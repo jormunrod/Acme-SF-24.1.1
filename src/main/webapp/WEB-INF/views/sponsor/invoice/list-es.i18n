@@ -29,29 +29,20 @@ sponsor.invoice.form.label.dueDate = Fecha de vencimiento
 sponsor.invoice.form.label.quantity = Cantidad
 sponsor.invoice.form.label.tax = Impuesto
 sponsor.invoice.form.label.link = Link
+sponsor.invoice.form.label.totalAmount = Cantidad Total
 
 sponsor.invoice.form.button.create = Crear
 sponsor.invoice.form.button.delete = Eliminar
 sponsor.invoice.form.button.update = Actualizar
 sponsor.invoice.form.button.publish = Publicar
 
-
-sponsor.invoice.error.duplicated = El código de la factura está duplicado
-sponsor.invoice.error.quantityNegative = La cantidad no puede ser negativa o cero
-sponsor.invoice.error.dueDateTooEarly = La fecha de vencimiento es demasiado temprana; debe ser al menos un mes después de la fecha de registro
-sponsor.invoice.error.DueDateMustBeInFuture = La fecha de vencimiento debe estar en el futuro
-sponsor.invoice.error.quantityMustBeEqualToSponsorship = La cantidad debe ser igual la cantidad del patrocinio
-sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = El monto total es mayor que el monto del patrocinio
-sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem = La moneda debe ser admitida por el sistema
-sponsor.invoice.error.taxNegative = El impuesto no puede ser negativo
-sponsor.invoice.error.quantityNegativeOrZero = La cantidad no puede ser negativa o cero
-sponsor.sponsorship.error.duplicated = El código del patrocinio está duplicado
-sponsor.sponsorship.error.startDateBeforeMoment = La fecha de inicio no puede ser anterior al momento de creación
-sponsor.sponsorship.error.startDateMustBeInFuture = La fecha de inicio debe estar en el futuro
-sponsor.sponsorship.error.endDateNotOneMonthAfter = La fecha de finalización debe ser al menos un mes después de la fecha de inicio
-sponsor.sponsorship.error.amountNotPositive = La cantidad debe ser positiva
-sponsor.sponsorship.error.youcantChangeTheCurrency = No puedes cambiar la cantidad si ya existen facturas
-sponsor.sponsorship.error.invoicesLeft = Quedan facturas pendientes por publicar
-sponsor.sponsorship.error.NotAllInvoicesPublished = No todas las facturas están publicadas
-
 sponsor.invoice.list.label.draftMode = Modo Borrador
+sponsor.invoice.list.label.totalAmount = Cantidad Total
+
+sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = La cantidad total es mayor que la cantidad del patrocinio. Intente cambiar la cantidad o el impuesto
+sponsor.invoice.error.CurencyMustBeEqualToSponsorship = La moneda debe ser igual a la moneda del patrocinio asociado
+sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem = La moneda debe ser EUR, USD o GBP
+sponsor.invoice.error.dueDateTooEarly = La fecha de vencimiento debe ser al menos un mes después del tiempo de registro
+sponsor.invoice.error.quantityNegativeOrZero = La cantidad debe ser positiva
+sponsor.invoice.error.duplicated = Este código ya está en uso
+sponsor.invoice.error.DueDateMustBeInFuture = La fecha de vencimiento debe estar en el futuro
