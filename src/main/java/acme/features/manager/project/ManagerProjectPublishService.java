@@ -52,6 +52,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		boolean duplicatedCode;
 		Integer userStories;
 		Integer publishedUserStories;
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Project existing;
 			existing = this.repository.findOneProjectByCode(object.getCode());
@@ -61,13 +62,20 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 				duplicatedCode = false;
 			super.state(existing == null || duplicatedCode, "code", "manager.project.form.error.duplicateCode");
 		}
+
 		if (!super.getBuffer().getErrors().hasErrors("hasFatalErrors"))
 			super.state(!object.isHasFatalErrors(), "hasFatalErrors", "manager.project.form.error.fatalErrors");
 		userStories = this.repository.findAllUserStoriesByProjectId(object.getId()).size();
 		publishedUserStories = this.repository.findAllPublishedUserStoriesByProjectId(object.getId());
 		super.state(userStories > 0, "*", "manager.project.form.error.hasUserStories");
 		super.state(userStories.equals(publishedUserStories), "*", "manager.project.form.error.hasAllUserStoriesPublished");
+
+		if (!super.getBuffer().getErrors().hasErrors("cost")) {
+			super.state(object.getCost().getAmount() >= 1.00, "cost", "manager.project.form.error.negativeCost");
+			super.state(object.getCost().getAmount() <= 1000000.00, "cost", "manager.project.form.error.expensiveCost");
+		}
 	}
+
 	@Override
 	public void perform(final Project object) {
 		assert object != null;

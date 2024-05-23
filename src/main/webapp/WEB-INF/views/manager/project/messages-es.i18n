@@ -29,3 +29,5 @@ manager.project.form.error.duplicateCode = El código ya existe
 manager.project.form.error.fatalErrors = El proyecto contiene errores fatales
 manager.project.form.error.hasUserStories = El proyecto debe contener al menos una historia de usuario
 manager.project.form.error.hasAllUserStoriesPublished = Todas las historias de usuario asociadas al proyecto deben estar publicadas
+manager.project.form.error.negativeCost = El coste del proyecto debe ser al menos 1
+manager.project.form.error.expensiveCost = El coste del proyecto no puede superar los 1000000
