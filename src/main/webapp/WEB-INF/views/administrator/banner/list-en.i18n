@@ -27,3 +27,5 @@ administrator.banner.form.error.displayEnd = The display end date must be greate
 administrator.banner.form.error.displayStartAfterInstantiation = The display start date must be greater than the instantiation
 administrator.banner.form.error.displayStartAfterUpdate = The display start date must be greater than the update moment
 administrator.banner.form.error.isDisplayForAWeek = The display period must be at least one week
+administrator.banner.form.error.startDateIsMaxDateTime = The display start date must not exceed the year 2200
+administrator.banner.form.error.endDateIsMaxDateTime = The display end date must not exceed the year 2200

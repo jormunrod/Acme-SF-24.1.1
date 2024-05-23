@@ -57,6 +57,8 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 			Date displayStart = object.getDisplayStart();
 			Date displayEnd = object.getDisplayEnd();
 
+			boolean startDateIsMaxDateTime;
+			boolean endDateIsMaxDateTime;
 			boolean displayStartAfterInstantiation;
 			boolean displayStartAfterUpdate;
 			boolean displayEndAfterDisplayStart;
@@ -64,12 +66,17 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 			LocalDateTime startDateTime = LocalDateTime.ofInstant(displayStart.toInstant(), ZoneId.systemDefault());
 			LocalDateTime endDateTime = LocalDateTime.ofInstant(displayEnd.toInstant(), ZoneId.systemDefault());
-			isDisplayForAWeek = Duration.between(startDateTime, endDateTime).toDays() > 7;
+			LocalDateTime maxDateTime = LocalDateTime.of(2200, 12, 31, 23, 59);
 
+			startDateIsMaxDateTime = startDateTime.isBefore(maxDateTime);
+			endDateIsMaxDateTime = endDateTime.isBefore(maxDateTime);
+			isDisplayForAWeek = Duration.between(startDateTime, endDateTime).toDays() > 7;
 			displayEndAfterDisplayStart = displayEnd.after(displayStart);
 			displayStartAfterInstantiation = object.getInstantiationMoment().before(displayStart);
 			displayStartAfterUpdate = object.getUpdateMoment().before(displayStart);
 
+			super.state(startDateIsMaxDateTime, "displayStart", "administrator.banner.form.error.startDateIsMaxDateTime");
+			super.state(endDateIsMaxDateTime, "displayEnd", "administrator.banner.form.error.endDateIsMaxDateTime");
 			super.state(displayEndAfterDisplayStart, "displayEnd", "administrator.banner.form.error.displayEnd");
 			super.state(displayStartAfterInstantiation, "displayStart", "administrator.banner.form.error.displayStartAfterInstantiation");
 			super.state(displayStartAfterUpdate, "displayStart", "administrator.banner.form.error.displayStartAfterUpdate");
