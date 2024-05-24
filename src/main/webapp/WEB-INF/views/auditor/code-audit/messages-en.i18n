@@ -30,3 +30,5 @@ auditor.code-audit.form.err.fail-mark = This code audit has a mark lower than 'C
 auditor.code-audit.form.error.isPublished = This code audit is already published
 auditor.code-audit.form.err.audit-records-not-published = There are audit records not published
 auditor.code-audit.form.err.no-audit-records = There are no audit records
+auditor.code-audit.form.error.date-before-2000 = Cannot add a date before 01/01/2000 00:00
+auditor.code-audit.form.error.date-after-2200 = Cannot add a date after 12/31/2200 23:59

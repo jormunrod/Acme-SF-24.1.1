@@ -1,6 +1,8 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +68,11 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			existing = this.repository.findOneCodeAuditByCode(object.getCode());
 			if (existing != null && existing.getId() != object.getId())
 				super.state(false, "code", "auditor.code-audit.form.err.duplicated");
+		} else if (!super.getBuffer().getErrors().hasErrors("execution")) {
+			LocalDateTime executionDateTime = LocalDateTime.ofInstant(object.getExecution().toInstant(), ZoneId.systemDefault());
+
+			LocalDateTime minDateTime = LocalDateTime.of(2000, 01, 01, 00, 00);
+			super.state(executionDateTime.isAfter(minDateTime), "execution", "auditor.code-audit.form.error.date-before-2000");
 		}
 
 		super.state(!object.isPublished(), "*", "auditor.code-audit.form.err.isPublished");

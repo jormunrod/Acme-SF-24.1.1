@@ -80,8 +80,12 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		if (object.getAuditPeriodStart() != null && object.getAuditPeriodEnd() != null) {
 			LocalDateTime startDateTime = LocalDateTime.ofInstant(object.getAuditPeriodStart().toInstant(), ZoneId.systemDefault());
 			LocalDateTime endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
+			LocalDateTime minDateTime = LocalDateTime.of(2000, 01, 01, 00, 00);
+
 			super.state(startDateTime.isBefore(endDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.end-date");
 			super.state(Duration.between(startDateTime, endDateTime).toHours() >= 1, "auditPeriodEnd", "auditor.audit-record.form.error.duration");
+			super.state(startDateTime.isAfter(minDateTime), "auditPeriodStart", "auditor.audit-record.form.error.date-before-2000");
+			super.state(endDateTime.isAfter(minDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.date-before-2000");
 		}
 
 	}

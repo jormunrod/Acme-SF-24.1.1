@@ -25,3 +25,5 @@ auditor.audit-record.form.error.codeAuditPublished = El código de auditoría es
 auditor.audit-record.form.error.end-date = La fecha de inicio debe ser anterior a la fecha de fin
 auditor.audit-record.form.error.duration = La duración de la auditoría tiene que ser mayor a 1 hora
 auditor.audit-record.form.error.codeAuditPublished = El código de auditoría está publicado
+auditor.code-audit.form.error.date-before-2000 = No se puede añadir una fecha que sea antes del 01/01/2000 00:00
+auditor.code-audit.form.error.date-after-2200 = No se puede añadir una fecha que sea después del 31/12/2200 23:59

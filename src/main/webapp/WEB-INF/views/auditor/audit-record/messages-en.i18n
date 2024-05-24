@@ -27,3 +27,5 @@ auditor.audit-record.form.error.codeAuditPublished = Code Audit is published
 auditor.audit-record.form.error.end-date = End date must be greater than start date
 auditor.audit-record.form.error.duration = Duration must be greater than 1 hour
 auditor.audit-record.form.error.codeAuditPublished = Code Audit is published
+auditor.audit-record.form.error.date-before-2000 = Cannot add a date before 01/01/2000 00:00
+auditor.audit-record.form.error.date-after-2200 = Cannot add a date after 12/31/2200 23:59

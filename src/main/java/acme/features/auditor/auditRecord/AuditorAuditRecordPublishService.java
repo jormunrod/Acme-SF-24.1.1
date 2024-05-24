@@ -1,6 +1,9 @@
 
 package acme.features.auditor.auditRecord;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.EnumMap;
@@ -63,6 +66,26 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 	@Override
 	public void validate(final AuditRecord object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			AuditRecord existing;
+			existing = this.repository.findOneAuditRecordByCode(object.getCode());
+			if (existing != null && existing.getId() != object.getId())
+				super.state(false, "code", "auditor.audit-record.form.error.duplicated");
+		}
+
+		super.state(!object.getCodeAudit().isPublished(), "*", "auditor.audit-record.form.error.published");
+
+		if (object.getAuditPeriodStart() != null && object.getAuditPeriodEnd() != null) {
+			LocalDateTime startDateTime = LocalDateTime.ofInstant(object.getAuditPeriodStart().toInstant(), ZoneId.systemDefault());
+			LocalDateTime endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
+			LocalDateTime minDateTime = LocalDateTime.of(2000, 01, 01, 00, 00);
+
+			super.state(startDateTime.isBefore(endDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.end-date");
+			super.state(Duration.between(startDateTime, endDateTime).toHours() >= 1, "auditPeriodEnd", "auditor.audit-record.form.error.duration");
+			super.state(startDateTime.isAfter(minDateTime), "auditPeriodStart", "auditor.audit-record.form.error.date-before-2000");
+			super.state(endDateTime.isAfter(minDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.date-before-2000");
+		}
 
 		super.state(!object.getCodeAudit().isPublished(), "*", "auditor.audit-record.form.error.published");
 	}
