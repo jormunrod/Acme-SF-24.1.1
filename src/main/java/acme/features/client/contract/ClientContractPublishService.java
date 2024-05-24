@@ -100,6 +100,8 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			// Check if the buget is exceeded
 			if (object.getProject() != null && object.getBudget() != null && Objects.equals(object.getBudget().getCurrency(), object.getProject().getCost().getCurrency())) {
 				Double totalCost = this.repository.totalCostOfContractsByProjectId(object.getProject().getId());
+				if (totalCost == null)
+					totalCost = 0.0;
 				Double oldBudget = this.repository.findOneContractById(object.getId()).getBudget().getAmount();
 				totalCost = totalCost - oldBudget + object.getBudget().getAmount();
 				status = totalCost <= object.getProject().getCost().getAmount();
