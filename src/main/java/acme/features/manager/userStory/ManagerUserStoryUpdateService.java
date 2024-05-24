@@ -24,10 +24,12 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 		boolean status;
 		int id;
 		Project project;
+		UserStory userStory;
 
 		id = super.getRequest().getData("id", int.class);
 		project = this.repository.findOneProjectByUserStoryId(id);
-		status = project != null && !project.isPublished() && super.getRequest().getPrincipal().hasRole(project.getManager());
+		userStory = this.repository.findOneUserStoryById(id);
+		status = userStory != null && project != null && !userStory.isPublished() && !project.isPublished() && super.getRequest().getPrincipal().hasRole(project.getManager());
 
 		super.getResponse().setAuthorised(status);
 	}

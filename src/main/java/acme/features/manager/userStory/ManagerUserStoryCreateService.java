@@ -58,8 +58,9 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 		id = super.getRequest().getData("projectId", int.class);
 		project = this.repository.findOneProjectById(id);
 
-		super.bind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link", "isPublished");
+		super.bind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link");
 		object.setProject(project);
+
 	}
 
 	@Override
@@ -92,6 +93,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 
 		object.setProject(project);
 		object.setManager(manager);
+		object.setPublished(false);
 		object.setId(0);
 
 		this.repository.save(object);
