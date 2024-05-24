@@ -102,8 +102,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 				Double totalCost = this.repository.totalCostOfContractsByProjectId(object.getProject().getId());
 				if (totalCost == null)
 					totalCost = 0.0;
-				Double oldBudget = this.repository.findOneContractById(object.getId()).getBudget().getAmount();
-				totalCost = totalCost - oldBudget + object.getBudget().getAmount();
+				totalCost = totalCost + object.getBudget().getAmount();
 				status = totalCost <= object.getProject().getCost().getAmount();
 				super.state(status, "budget", "client.contract.form.error.budgetExceeded");
 				super.state(status, "budget", "(total: " + totalCost + " / max: " + object.getProject().getCost().getAmount() + ")");
