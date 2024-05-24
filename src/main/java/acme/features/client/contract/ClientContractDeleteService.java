@@ -38,10 +38,11 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 		Contract contract;
 		Client client;
 
+		// Check if the contract is not published and if the client is the owner of the contract
 		id = super.getRequest().getData("id", int.class);
 		contract = this.repository.findOneContractById(id);
 		client = contract == null ? null : contract.getClient();
-		status = client != null && super.getRequest().getPrincipal().hasRole(client);
+		status = client != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(client);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -61,7 +62,7 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 	public void bind(final Contract object) {
 		assert object != null;
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
 	}
 
 	@Override
