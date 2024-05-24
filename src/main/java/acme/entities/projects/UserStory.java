@@ -4,9 +4,10 @@ package acme.entities.projects;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -35,7 +36,8 @@ public class UserStory extends AbstractEntity {
 	@Length(max = 100)
 	private String				description;
 
-	@Positive
+	@Min(1)
+	@Max(3000)
 	private int					estimatedHours;
 
 	@NotBlank

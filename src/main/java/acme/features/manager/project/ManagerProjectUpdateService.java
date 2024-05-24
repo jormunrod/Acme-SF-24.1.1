@@ -63,6 +63,11 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 				status = false;
 			super.state(existing == null || status, "code", "manager.project.form.error.duplicateCode");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("cost")) {
+			super.state(object.getCost().getAmount() >= 1.00, "cost", "manager.project.form.error.negativeCost");
+			super.state(object.getCost().getAmount() <= 1000000.00, "cost", "manager.project.form.error.expensiveCost");
+		}
 	}
 
 	@Override
