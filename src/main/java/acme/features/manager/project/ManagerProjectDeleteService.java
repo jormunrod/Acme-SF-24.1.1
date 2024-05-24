@@ -1,12 +1,15 @@
 
 package acme.features.manager.project;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
+import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Service
@@ -53,6 +56,12 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	@Override
 	public void perform(final Project object) {
 		assert object != null;
+
+		Collection<UserStory> userStories;
+
+		userStories = this.repository.findAllUserStoriesByProjectId(object.getId());
+
+		this.repository.deleteAll(userStories);
 
 		this.repository.delete(object);
 	}
