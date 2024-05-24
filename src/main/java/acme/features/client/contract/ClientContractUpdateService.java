@@ -8,6 +8,7 @@
 package acme.features.client.contract;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,10 +38,20 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		Contract contract;
 		Client client;
 
+		// Check if the contract exists and the principal is the client
 		id = super.getRequest().getData("id", int.class);
 		contract = this.repository.findOneContractById(id);
 		client = contract == null ? null : contract.getClient();
 		status = client != null && super.getRequest().getPrincipal().hasRole(client);
+
+		// Check if the contract's project is published
+		if (super.getRequest().hasData("project")) {
+			int projectId = super.getRequest().getData("project", int.class);
+			if (projectId != 0) {
+				Project project = this.repository.findOneProjectById(projectId);
+				status = project != null && project.isPublished();
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -60,21 +71,37 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void bind(final Contract object) {
 		assert object != null;
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished", "project");
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget", "project");
 	}
 
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
-
 		boolean status;
+		// Check if the contract code is unique
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
 
-		status = this.repository.findOneContractByCodeAndDifferentId(object.getCode(), object.getId()) == null;
-		super.state(status, "code", "client.contract.form.error.duplicateCode");
+			status = this.repository.findOneContractByCodeAndDifferentId(object.getCode(), object.getId()) == null;
+			super.state(status, "code", "client.contract.form.error.duplicated");
 
-		if (object.getProject() != null) {
-			status = object.getBudget().getAmount() <= object.getProject().getCost().getAmount();
-			super.state(status, "budget", "client.contract.form.error.budget");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			// Check if the budget currency is the same as the project currency
+			if (object.getProject() != null && object.getBudget() != null && !Objects.equals(object.getBudget().getCurrency(), object.getProject().getCost().getCurrency())) {
+				super.state(false, "budget", "client.contract.form.error.currency");
+				super.state(false, "budget", "(" + object.getProject().getCost().getCurrency() + ")");
+			}
+
+			// Check if the budget amount is negative
+			if (object.getProject() != null && object.getBudget() != null && object.getBudget().getAmount() < 0)
+				super.state(false, "budget", "client.contract.form.error.negative");
+
+			// Check if the budget amount is greater than the project cost
+			if (object.getProject() != null && object.getBudget() != null && Objects.equals(object.getBudget().getCurrency(), object.getProject().getCost().getCurrency())) {
+				status = object.getBudget().getAmount() <= object.getProject().getCost().getAmount();
+				super.state(status, "budget", "client.contract.form.error.budget");
+				super.state(status, "budget", "(max: " + object.getProject().getCost().getAmount() + " " + object.getProject().getCost().getCurrency() + ")");
+			}
 		}
 	}
 

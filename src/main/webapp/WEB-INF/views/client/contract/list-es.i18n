@@ -30,4 +30,6 @@ client.contract.form.error.budgetExceeded = Presupuesto excedido
 client.contract.form.button.progress-logs = Historial de Progreso
 client.contract.list.label.isPublished = Publicado
 client.contract.form.error.budget = El presupuesto no puede ser superior al costo total del proyecto
+client.contract.form.error.currency = La moneda del contrato debe ser la misma que la del proyecto
+client.contract.form.error.negative = El presupuesto no puede ser negativo
 

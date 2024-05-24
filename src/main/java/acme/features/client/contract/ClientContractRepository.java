@@ -46,6 +46,6 @@ public interface ClientContractRepository extends AbstractRepository {
 	Contract findOneContractByCodeAndDifferentId(String code, int id);
 
 	@Query("select sum(c.budget.amount) from Contract c where c.project.id = :projectId")
-	Integer totalCostOfContractsByProjectId(int projectId);
+	Double totalCostOfContractsByProjectId(int projectId);
 
 }
