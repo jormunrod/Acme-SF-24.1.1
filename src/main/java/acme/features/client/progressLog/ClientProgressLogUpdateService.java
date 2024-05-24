@@ -31,12 +31,14 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	public void authorise() {
 		boolean status;
 		int progressLogId;
+		ProgressLog progressLog;
 		Contract contract;
 
-		// Check if the progress log contract exists, is published and the client is the principal
+		// Check if the progress log is not published and contract exists, is published and the client is the principal
 		progressLogId = super.getRequest().getData("id", int.class);
+		progressLog = this.repository.findProgressLogById(progressLogId);
 		contract = this.repository.findOneContractByProgressLogId(progressLogId);
-		status = contract != null && contract.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
+		status = contract != null && contract.isPublished() && !progressLog.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
 
 		super.getResponse().setAuthorised(status);
 	}

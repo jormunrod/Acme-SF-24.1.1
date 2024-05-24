@@ -38,11 +38,11 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		Contract contract;
 		Client client;
 
-		// Check if the contract exists and the principal is the client
+		// Check if the contract exists, is not published and the principal is the client
 		id = super.getRequest().getData("id", int.class);
 		contract = this.repository.findOneContractById(id);
 		client = contract == null ? null : contract.getClient();
-		status = client != null && super.getRequest().getPrincipal().hasRole(client);
+		status = client != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(client);
 
 		// Check if the contract's project is published
 		if (super.getRequest().hasData("project")) {
