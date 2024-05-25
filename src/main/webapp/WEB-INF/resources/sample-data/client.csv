@@ -1,3 +1,4 @@
 key,key:userAccount,identification,companyName,type,email,link
 client-01,user-account-client-01,CLI-0000,AlphaLink Solutions,COMPANY,contact@alphalink.org,https://www.alphalink.org
 client-02,user-account-client-02,CLI-0001,中華,INDIVIDUAL,contact@tecnonova.es,
+client-03,user-account-client-03,CLI-0002,Jesús Solutions,INDIVIDUAL,jesussolutions@gmail.com,https://www.jesussolutions.com

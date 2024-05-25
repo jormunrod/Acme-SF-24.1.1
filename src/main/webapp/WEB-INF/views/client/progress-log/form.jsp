@@ -7,7 +7,11 @@
 	<acme:input-textbox code="client.progress-log.form.label.recordId" path="recordId" placeholder="PG-AA-0000"/>
 	<acme:input-double code="client.progress-log.form.label.completenessPercentage" path="completenessPercentage" placeholder="0.00"/>
 	<acme:input-textarea code="client.progress-log.form.label.progressComment" path="progressComment"/>
-	<acme:input-moment code="client.progress-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
+			<acme:input-moment code="client.progress-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
+		</jstl:when>
+	</jstl:choose>
 	<acme:input-textbox code="client.progress-log.form.label.responsiblePerson" path="responsiblePerson"/>
 	<acme:input-checkbox code="client.progress-log.form.label.isPublished" path="isPublished" readonly="true"/>
 	
