@@ -85,7 +85,7 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 		Dataset dataset;
 
 		choices = SelectChoices.from(UserStoryPriority.class, object.getPriority());
-		dataset = super.unbind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link");
+		dataset = super.unbind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link", "isPublished");
 		dataset.put("priority", choices);
 
 		super.getResponse().addData(dataset);
