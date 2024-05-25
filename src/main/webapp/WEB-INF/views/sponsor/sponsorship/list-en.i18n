@@ -61,4 +61,8 @@ sponsor.sponsorship.error.youcantChangeTheCurrency = You can't change the curren
 sponsor.sponsorship.error.youcantChangeAmount = You can't change the amount because this sponsorship has invoices asociated
 sponsor.sponsorship.error.NotAllInvoicesPublished= Not all the invoices are published, they must be published to publish this sponsorship
 sponsor.sponsorship.error.duplicated = The code is alredy in use
+sponsor.sponsorship.error.between7and255 = The number of characters must be between 7 and 255
+sponsor.sponsorship.error.between6and254 = The number of characters must be between 6 and 254
+sponsor.sponsorship.error.AmountMustBeUnder1000000 = The maximun amount is 1000000
+
 
