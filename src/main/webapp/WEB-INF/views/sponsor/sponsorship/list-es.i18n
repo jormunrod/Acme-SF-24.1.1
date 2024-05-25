@@ -60,3 +60,6 @@ sponsor.sponsorship.error.youcantChangeTheCurrency = No puedes cambiar la moneda
 sponsor.sponsorship.error.youcantChangeAmount = No puedes cambiar la cantidad porque este patrocinio tiene facturas asociadas
 sponsor.sponsorship.error.NotAllInvoicesPublished= No todas las facturas están publicadas, deben estar publicadas para publicar este patrocinio
 sponsor.sponsorship.error.duplicated = El código ya está en uso
+sponsor.sponsorship.error.between7and255 = El número de caracteres debe estar entre 7 y 255
+sponsor.sponsorship.error.between6and254 = El número de caracteres debe estar entre 6 y 254
+sponsor.sponsorship.error.AmountMustBeUnder1000000 = La cantidad maxima es 1000000

@@ -1,6 +1,9 @@
 
 package acme.features.sponsor.invoice;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -74,6 +77,9 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void validate(final Invoice object) {
 		assert object != null;
+		LocalDateTime localDateTime = LocalDateTime.of(2201, 01, 01, 00, 00);
+		Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+		Date limitDueDate = Date.from(instant);
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Invoice alredyExisting;
@@ -91,6 +97,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			Date oneMonthAfterRegistration = cal.getTime();
 
 			super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
+			super.state(dueDate.before(limitDueDate), "dueDate", "sponsor.invoice.error.dueDateLimitPassed");
 
 		}
 

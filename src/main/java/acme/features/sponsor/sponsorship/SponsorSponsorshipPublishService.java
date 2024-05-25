@@ -1,6 +1,10 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -30,10 +34,15 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		int sponsorshipId;
 		Sponsorship sponsorship;
 		Sponsor sponsor;
+		boolean estadoProyecto = true;
+
+		if (super.getRequest().hasData("project"))
+			estadoProyecto = this.repository.findOneProjectById(super.getRequest().getData("project", int.class)).isPublished();
+
 		sponsorshipId = super.getRequest().getData("id", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
-		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		status = estadoProyecto && sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == super.getRequest().getPrincipal().getActiveRoleId();
 		super.getResponse().setAuthorised(status);
 
 	}
@@ -71,6 +80,10 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
+		LocalDateTime localDateTime = LocalDateTime.of(2201, 01, 01, 00, 00);
+		Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+		Date limitEndDate = Date.from(instant);
+		Date limitStartDate = MomentHelper.deltaFromMoment(limitEndDate, -31, ChronoUnit.DAYS);
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship alredyExisting;
@@ -87,20 +100,20 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date moment = object.getMoment();
 			Date startDate = object.getStartDate();
-			if (moment != null && startDate != null) {
-				if (!startDate.after(moment))
-					super.state(false, "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
-				if (!startDate.after(MomentHelper.getBaseMoment()))
-					super.state(false, "startDate", "sponsor.sponsorship.error.startDateMustBeInFuture");
 
-			}
+			if (!startDate.after(moment))
+				super.state(false, "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
+			if (!startDate.after(MomentHelper.getBaseMoment()))
+				super.state(false, "startDate", "sponsor.sponsorship.error.startDateMustBeInFuture");
+			if (!startDate.before(limitStartDate))
+				super.state(false, "startDate", "sponsor.sponsorship.error.startdateLimitPassed");
 
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			Date startDate = object.getStartDate();
 			Date endDate = object.getEndDate();
-			if (startDate != null && endDate != null) {
+			if (startDate != null) {
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(startDate);
 				cal.add(Calendar.MONTH, 1);
@@ -108,6 +121,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 				super.state(endDate.compareTo(oneMonthAfterStartDate) >= 0, "endDate", "sponsor.sponsorship.error.endDateNotOneMonthAfter");
 
 			}
+			super.state(endDate.before(limitEndDate), "endDate", "sponsor.sponsorship.error.EndDateLimitPassed");
 
 		}
 
@@ -135,8 +149,11 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeAmount");
 			if (!(amount > 0))
 				super.state(false, "amount", "sponsor.sponsorship.error.amountNotPositive");
+			if (amount > 1000000)
+				super.state(false, "amount", "sponsor.sponsorship.error.AmountMustBeUnder1000000");
 
 		}
+
 	}
 	@Override
 	public void perform(final Sponsorship object) {
