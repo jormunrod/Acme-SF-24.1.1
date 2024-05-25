@@ -115,7 +115,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			Money amount = object.getAmount();
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
 				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
-			if (!(amount.getAmount() > 0))
+			if (amount.getAmount() <= 0)
 				super.state(false, "amount", "sponsor.sponsorship.error.amountNotPositive");
 			if (amount.getAmount() > 1000000)
 				super.state(false, "amount", "sponsor.sponsorship.error.AmountMustBeUnder1000000");

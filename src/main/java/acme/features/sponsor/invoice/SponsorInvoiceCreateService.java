@@ -36,7 +36,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 
-		status = sponsorship.getSponsor().getId() == sponsor.getId() && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
+		status = sponsorship != null && sponsorship.getSponsor().getId() == sponsor.getId() && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
 
@@ -109,17 +109,24 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			sponsorship = this.repository.findOneSponsorshipById(id);
 			Double quantity = object.getQuantity().getAmount();
 			String currency = object.getQuantity().getCurrency();
-			Double totalAmounOfinvoice = this.repository.sumTotalAmountBySponsorshipId(id) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(id);
+			Double totalAmounOfinvoice = this.repository.sumTotalAmountPublishedBySponsorshipId(id) == null ? 0. : this.repository.sumTotalAmountPublishedBySponsorshipId(id);
+			Double t = totalAmounOfinvoice;
 			totalAmounOfinvoice += object.getTotalAmountWithTax().getAmount();
+			if (t.equals(sponsorship.getAmount().getAmount()))
+				super.state(false, "*", "sponsor.invoice.error.CreateInvoicesReached");
+			else {
 
-			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "quantity", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
-			if (!(currency != null && currency.equals(sponsorship.getAmount().getCurrency())))
-				super.state(false, "quantity", "sponsor.invoice.error.CurencyMustBeEqualToSponsorship");
-			if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
-				super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
-			if (!(quantity != null && quantity > 0.))
-				super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
+				if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+					super.state(false, "quantity", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+				if (!currency.equals(sponsorship.getAmount().getCurrency()))
+					super.state(false, "quantity", "sponsor.invoice.error.CurencyMustBeEqualToSponsorship");
+				if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
+					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
+				if (quantity <= 0.)
+					super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
+
+			}
+
 		}
 
 	}

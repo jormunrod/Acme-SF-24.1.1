@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="sponsor.sponsorship.form.label.code" path="code" />
+	<acme:input-textbox code="sponsor.sponsorship.form.label.code" path="code" placeholder = "AAA-000 ([A-Z]{1,3}-[0-9]{3})"/>
 	<acme:input-select code="sponsor.sponsorship.form.label.project" path="project" choices="${projects}"/>
 	<acme:input-select code="sponsor.sponsorship.form.label.sponsorshipType" path="sponsorshipType" choices="${sponsorshipTypes}"/>
 			<acme:input-moment code="sponsor.sponsorship.form.label.moment" path="moment" readonly="true" placeholder=""/>

@@ -98,11 +98,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			super.state(status, "code", "sponsor.sponsorship.error.duplicated");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			Date moment = object.getMoment();
 			Date startDate = object.getStartDate();
 
-			if (!startDate.after(moment))
-				super.state(false, "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
 			if (!startDate.after(MomentHelper.getBaseMoment()))
 				super.state(false, "startDate", "sponsor.sponsorship.error.startDateMustBeInFuture");
 			if (!startDate.before(limitStartDate))
@@ -135,19 +132,24 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			boolean status = this.repository.invoicesNotPublishedBySponsorshipId(object.getId()).isEmpty();
 			double invoicesAmount = this.repository.sumTotalAmountBySponsorshipId(object.getId()) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(object.getId());
 			double diference = amount - invoicesAmount;
-			if (diference > 0.)
-				super.state(false, "*", "sponsor.sponsorship.error.invoicesLeft");
+
 			if (this.repository.findInvoicesBySponsorshipId(id).isEmpty())
 				super.state(false, "*", "sponsor.sponsorship.error.ThereAreNoInvoicesAsociated");
-			if (!this.repository.findInvoicesBySponsorshipId(id).isEmpty() && !status)
+			else if (!this.repository.findInvoicesBySponsorshipId(id).isEmpty() && !status)
 				super.state(status, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
+			else {
+				if (!currency.equals(sponsorship.getAmount().getCurrency()))
+					super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
+				if (diference > 0.)
+					super.state(false, "*", "sponsor.sponsorship.error.invoicesLeft");
+				if (!amount.equals(sponsorship.getAmount().getAmount()) && diference < 0)
+					super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeAmount");
+
+			}
+
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
 				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
-			if (!currency.equals(sponsorship.getAmount().getCurrency()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
-				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
-			if (!amount.equals(sponsorship.getAmount().getAmount()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
-				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeAmount");
-			if (!(amount > 0))
+			if (amount <= 0)
 				super.state(false, "amount", "sponsor.sponsorship.error.amountNotPositive");
 			if (amount > 1000000)
 				super.state(false, "amount", "sponsor.sponsorship.error.AmountMustBeUnder1000000");

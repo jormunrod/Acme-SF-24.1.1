@@ -109,18 +109,25 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			invoice = this.repository.findInvoiceById(id);
 			sponsorship = invoice.getSponsorship();
 
-			Double totalAmounOfinvoice = this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId()) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId());
+			Double totalAmounOfinvoice = this.repository.sumTotalAmountPublishedBySponsorshipId(invoice.getSponsorship().getId()) == null ? 0. : this.repository.sumTotalAmountPublishedBySponsorshipId(invoice.getSponsorship().getId());
+			Double t = totalAmounOfinvoice;
 			totalAmounOfinvoice += object.getTotalAmountWithTax().getAmount();
 			totalAmounOfinvoice -= invoice.getTotalAmountWithTax().getAmount();
 
-			if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
-				super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
-			if (!(quantity != null && quantity > 0.))
-				super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
-			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "amount", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
-			if (!(currency != null && currency.equals(invoice.getSponsorship().getAmount().getCurrency())))
-				super.state(false, "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
+			if (t.equals(sponsorship.getAmount().getAmount()))
+				super.state(false, "*", "sponsor.invoice.error.PublishInvoicesReached");
+			else {
+				if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
+					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
+				if (!(quantity != null && quantity > 0.))
+					super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
+				if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+					super.state(false, "amount", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+				if (!currency.equals(invoice.getSponsorship().getAmount().getCurrency()))
+					super.state(false, "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
+
+			}
+
 		}
 
 	}
