@@ -43,10 +43,16 @@ sponsor.invoice.list.label.totalAmount = Total Amount
 
 
 # Invoice restrictions
-sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = The total amount is higher than the sponsorship amount. Try to change the quantity or the tax
-sponsor.invoice.error.CurencyMustBeEqualToSponsorship = The currency must be equals to the currency of the sponsorship asociated
+sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = The sum of the total amount of all published invoices plus the totalAmount that you are introducing is higher than the sponsorship amount. Try to change the quantity, the tax or the sponsorship amount
+sponsor.invoice.error.CurencyMustBeEqualToSponsorship = The currency must be equals to the currency of the sponsorship associated
 sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem = The currency must be EUR USD or GBP
 sponsor.invoice.error.dueDateTooEarly = The due date must be at least one moth after the registration time
 sponsor.invoice.error.quantityNegativeOrZero = Quantity must be positive
-sponsor.invoice.error.duplicated = This code is alredy in use
-sponsor.invoice.error.DueDateMustBeInFuture = The due Date must be in de future
+sponsor.invoice.error.duplicated = This code is already in use
+sponsor.invoice.error.DueDateMustBeInFuture = The due Date must be in the future
+sponsor.invoice.error.CreateInvoicesReached = The sum of the total amount of all the published invoices is equal to the sponsorship amount (sponsorship is ready to be published). If you want to add more invoices you have to increase the sponsorship amount
+sponsor.invoice.error.dueDateLimitPassed = The maximum value for due date is 2200/12/31 23:59
+sponsor.invoice.error.UpdateInvoicesReached = The sum of the total amount of all the published invoices is equal to the sponsorship amount (sponsorship is ready to be published). If you want to update this invoice you have to increase the sponsorship amount
+sponsor.invoice.error.PublishInvoicesReached = The sum of the total amount of all the published invoices is equal to the sponsorship amount (sponsorship is ready to be published). If you want to publish this invoice you have to increase the sponsorship amount
+sponsor.invoice.error.theTotalAmountIntroducedIsHigherThanTheSponsorshipAmount = The amount that you are introducing is higher than the sponsorship amount
+

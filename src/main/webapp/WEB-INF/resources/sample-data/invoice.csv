@@ -35,7 +35,7 @@ invoice-33,sponsorship-20,IN-1111-0033,2020/03/29 20:23,2020/06/28 20:45,"EUR 1,
 invoice-34,sponsorship-20,IN-1111-0034,2020/04/08 00:00,2020/06/28 20:45,"EUR 1,000.00",0.00,https://example3456.com/invoice3456Published,"EUR 1,000.00",false
 invoice-35,sponsorship-20,IN-1111-0035,2020/05/30 00:00,2020/07/28 20:45,"EUR 1,000.00",0.00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X","EUR 1,000.00",false
 invoice-36,sponsorship-21,IN-1111-0036,2021/08/30 21:26,2021/10/22 12:43,"GBP 1,000.00",0.00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/","GBP 1,000.00",false
-invoice-37,sponsorship-22,IN-1111-0037,2022/05/29 22:11,2022/11/29 22:11,"USD 1,000.00",0.00,ftp://a.b,"USD 1,000.00",true
+invoice-37,sponsorship-22,IN-1111-0037,2022/05/29 22:11,2022/11/29 22:11,"USD 1,000.00",0.00,ftp://a.b,"USD 1,000.00",false
 invoice-38,sponsorship-23,IN-1111-0038,2000/01/01 00:01,2022/11/29 22:11,"EUR 999,999.99",0.00,ftp://a,"EUR 999,999.99",true
 invoice-39,sponsorship-25,IN-1111-0039,2000/01/01 00:02,2022/11/29 22:11,EUR 0.01,0.00,ftp://,EUR 0.01,true
 invoice-40,sponsorship-26,IN-1111-0040,2022/05/29 22:11,2022/11/29 22:11,EUR 1.00,0.00,,EUR 1.00,true

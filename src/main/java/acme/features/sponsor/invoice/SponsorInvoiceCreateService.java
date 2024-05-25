@@ -34,9 +34,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("masterId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
 
-		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
-
-		status = sponsorship != null && sponsorship.getSponsor().getId() == sponsor.getId() && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
+		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
 
 		super.getResponse().setAuthorised(status);
 
@@ -66,7 +64,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("masterId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
 
-		super.bind(object, "code", "dueDate", "quantity", "tax", "link", "totalAmount");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link");
 		object.setSponsorship(sponsorship);
 		object.setRegistrationTime(MomentHelper.getBaseMoment());
 		if (object.getQuantity() != null)
@@ -120,10 +118,12 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 					super.state(false, "quantity", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
 				if (!currency.equals(sponsorship.getAmount().getCurrency()))
 					super.state(false, "quantity", "sponsor.invoice.error.CurencyMustBeEqualToSponsorship");
-				if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
-					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
 				if (quantity <= 0.)
 					super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
+				if (quantity > sponsorship.getAmount().getAmount())
+					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIntroducedIsHigherThanTheSponsorshipAmount");
+				else if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
+					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
 
 			}
 

@@ -40,4 +40,8 @@ public interface SponsorInvoiceRepository extends AbstractRepository {
 
 	@Query("SELECT SUM(i.totalAmount.amount) FROM Invoice i WHERE i.sponsorship.id = :id and i.draftMode = false")
 	Double sumTotalAmountPublishedBySponsorshipId(int id);
+
+	@Query("select i from Invoice i where i.sponsorship.id = :id and i.draftMode = false")
+	Collection<Invoice> findPublishedInvoicesBySponsorshipId(int id);
+
 }
