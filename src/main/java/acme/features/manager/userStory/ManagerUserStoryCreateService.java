@@ -71,7 +71,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 			UserStory existing;
 
 			existing = this.repository.findOneUserStoryByTitle(object.getTitle());
-			super.state(existing == null, "title", "manager.userStory.form.error.duplicateTitle");
+			super.state(existing == null, "title", "manager.user-story.form.error.duplicateTitle");
 		}
 
 		super.state(!object.getProject().isPublished(), "link", "manager.user-story.form.error.projectPublished");
