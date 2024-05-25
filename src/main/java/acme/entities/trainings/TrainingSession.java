@@ -55,7 +55,7 @@ public class TrainingSession extends AbstractEntity {
 
 	@NotBlank
 	@Email
-	@Length(max = 255)
+	@Length(min = 6, max = 254)
 	private String				contactEmail;
 
 	@URL
