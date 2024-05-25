@@ -1,5 +1,5 @@
 key,key:sponsorship,code,registrationTime,dueDate,quantity,tax,link,totalAmount,draftMode
-invoice-01,sponsorship-01,IN-1111-0001,2022/01/30 00:00,2022/03/30 00:00,EUR 500.00,0.00,https://example.com/invoice,EUR 500.00,false
+invoice-01,sponsorship-01,IN-1111-0001,2022/01/30 00:00,2022/03/30 00:00,EUR 500.00,0.00,,EUR 500.00,false
 invoice-02,sponsorship-01,IN-1111-0002,2022/01/30 23:59,2022/03/30 23:59,EUR 500.00,0.00,https://example.com/invoice.reallylarge23,EUR 500.00,false
 invoice-03,sponsorship-02,IN-1111-0003,2022/07/18 09:12,2022/12/18 09:12,EUR 1.00,0.50,https://example.com/invoice,EUR 1.50,true
 invoice-04,sponsorship-02,IN-1111-0004,2022/02/12 03:20,2022/04/12 03:20,EUR 1.00,0.10,,EUR 1.10,false
