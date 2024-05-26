@@ -27,8 +27,16 @@ public class AnyTrainingModuleShowService extends AbstractService<Any, TrainingM
 
 	@Override
 	public void authorise() {
+		boolean status;
+		int id;
+		TrainingModule trainingModule;
 
-		super.getResponse().setAuthorised(true);
+		id = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findTrainingModuleById(id);
+
+		status = !trainingModule.isDraftMode() && trainingModule != null;
+
+		super.getResponse().setAuthorised(status);
 
 	}
 

@@ -2,11 +2,13 @@ key,enabled,identity,password,username
 user-account-consumer-01,true,"UserIdentity{name: 'Peter', surname: 'Consumer', email: 'peter@acme.com'}",consumer1,consumer1
 user-account-consumer-02,true,"UserIdentity{name: 'Mary', surname: '貸んい建濯よ芝弾テソ Λορεμ ιπσθμ', email: 'mary@acme.com'}",consumer2,consumer2
 user-account-provider-01,true,"UserIdentity{name: 'Laurel', surname: 'Provider', email: 'laurel@acme.com'}",provider1,provider1
+user-account-developer-03,true,"UserIdentity{name: 'Isaac3', surname: 'Solis Padilla', email: 'isasolpad3@alum.us.es'}",developer3,developer3
 user-account-developer-02,true,"UserIdentity{name: 'Isaac2', surname: 'Solis Padilla', email: 'isasolpad2@alum.us.es'}",developer2,developer2
 user-account-developer-01,true,"UserIdentity{name: 'Isaac', surname: 'Solis Padilla', email: 'isasolpad@alum.us.es'}",developer1,developer1
 user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
 user-account-sponsor-01,true,"UserIdentity{name: 'Javier', surname: 'Rodriguez Reina', email: 'javrodrei@alum.us.es'}",sponsor1,sponsor1
 user-account-sponsor-02,true,"UserIdentity{name: 'Javier2', surname: 'Rodriguez Reina', email: 'javrodrei2@alum.us.es'}",sponsor2,sponsor2
+user-account-sponsor-03,true,"UserIdentity{name: 'Javier3', surname: 'Rodriguez Reina', email: 'javrodrei3@alum.us.es'}",sponsor3,sponsor3
 user-account-manager-01,true,"UserIdentity{name: 'Juan', surname: 'Cabello Rubio', email: 'juan@alum.us.es'}",manager1,manager1
 user-account-manager-02,true,"UserIdentity{name: 'Rodrygo', surname: 'Soto Grado', email: 'rodrygo@alum.us.es'}",manager2,manager2
 user-account-manager-03,true,"UserIdentity{name: 'Octavio', surname: 'Royo Guerra', email: 'octavio@alum.us.es'}",manager3,manager3
@@ -18,4 +20,4 @@ user-account-auditor-02,true,"UserIdentity{name: 'Pablo', surname: 'Santiago Gom
 user-account-auditor-03,true,"UserIdentity{name: 'Juan', surname: 'Quiroga Machado', email: 'juaquimac@alum.us.es'}",auditor3,auditor3
 user-account-client-01,true,"UserIdentity{name: 'Kim', surname: '中华中華', email: 'kimio@gmail.com'}",client1,client1
 user-account-client-02,true,"UserIdentity{name: 'Estefanía', surname: 'Pérez Reverte', email: 'estefa4@gmail.com'}",client2,client2
-user-account-sponsor-03,true,"UserIdentity{name: 'Javier3', surname: 'Rodriguez Reina', email: 'javrodrei3@alum.us.es'}",sponsor3,sponsor3
+user-account-client-03,true,"UserIdentity{name: 'Jesús', surname: 'Solís Fernández', email: 'jesus@gmail.com'}",client3,client3

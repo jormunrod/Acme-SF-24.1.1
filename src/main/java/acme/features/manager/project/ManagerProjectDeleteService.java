@@ -8,16 +8,8 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.audits.AuditRecord;
-import acme.entities.audits.CodeAudit;
-import acme.entities.contracts.Contract;
-import acme.entities.contracts.ProgressLog;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
-import acme.entities.sponsorships.Invoice;
-import acme.entities.sponsorships.Sponsorship;
-import acme.entities.trainings.TrainingModule;
-import acme.entities.trainings.TrainingSession;
 import acme.roles.Manager;
 
 @Service
@@ -66,46 +58,10 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 		assert object != null;
 
 		Collection<UserStory> userStories;
-		Collection<Contract> contracts;
-		Collection<TrainingModule> trainingModules;
-		Collection<Sponsorship> sponsorships;
-		Collection<CodeAudit> codeAudits;
 
 		userStories = this.repository.findAllUserStoriesByProjectId(object.getId());
-		contracts = this.repository.findAllContractsByProjectId(object.getId());
-		trainingModules = this.repository.findAllTrainingModulesByProjectId(object.getId());
-		sponsorships = this.repository.findAllSponsorshipsByProjectId(object.getId());
-		codeAudits = this.repository.findAllCodeAuditsByProjectId(object.getId());
 
 		this.repository.deleteAll(userStories);
-
-		for (Contract c : contracts) {
-			Collection<ProgressLog> progressLogs = this.repository.findAllProgressLogsByContractId(c.getId());
-			this.repository.deleteAll(progressLogs);
-		}
-
-		this.repository.deleteAll(contracts);
-
-		for (TrainingModule tm : trainingModules) {
-			Collection<TrainingSession> trainingSesions = this.repository.findAllTrainingSesionByTrainingModuleId(tm.getId());
-			this.repository.deleteAll(trainingSesions);
-		}
-
-		this.repository.deleteAll(trainingModules);
-
-		for (Sponsorship s : sponsorships) {
-			Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorshipId(s.getId());
-			this.repository.deleteAll(invoices);
-		}
-
-		this.repository.deleteAll(sponsorships);
-
-		for (CodeAudit ca : codeAudits) {
-			Collection<AuditRecord> auditRecords = this.repository.findAllAduditRecordsByCodeAuditId(ca.getId());
-			this.repository.deleteAll(auditRecords);
-		}
-
-		this.repository.deleteAll(codeAudits);
 
 		this.repository.delete(object);
 	}

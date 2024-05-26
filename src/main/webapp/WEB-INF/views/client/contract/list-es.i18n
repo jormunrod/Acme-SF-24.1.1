@@ -29,3 +29,5 @@ client.contract.form.button.publish = Publicar
 client.contract.form.error.budgetExceeded = Presupuesto excedido
 client.contract.form.button.progress-logs = Historial de Progreso
 client.contract.list.label.isPublished = Publicado
+client.contract.form.error.budget = El presupuesto no puede ser superior al costo total del proyecto
+

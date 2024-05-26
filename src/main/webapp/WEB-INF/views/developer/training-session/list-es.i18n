@@ -44,5 +44,7 @@ developer.training-session.form.button.publish = Publicar
 
 developer.training-session.form.label.training-module = Sesiones de entrenamiento
 developer.training-session.form.error.duplicated = El código ya existe
+developer.training-session.error.startDateLimitPassed = La Fecha Inicio ha pasado el límite
+developer.training-session.error.finishDateLimitPassed = La Fecha Fin ha pasado el límite
 developer.training-session.form.error.bad-date = La Fecha Inicio debe ser al menos una semana posterior al momento de creación del módulo de entrenamiento
 developer.training-session.form.error.bad-duration = La duración entre la Fecha Inicio y la Fecha Finalización debe ser de al menos una semana

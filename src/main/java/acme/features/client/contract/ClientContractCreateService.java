@@ -34,7 +34,16 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = true;
+		boolean x = super.getRequest().hasData("project");
+		if (x) {
+			int projectId = super.getRequest().getData("project", int.class);
+			Project project = this.repository.findOneProjectById(projectId);
+			status = project != null && project.isPublished();
+		}
+
+		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
@@ -61,7 +70,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		currentMoment = MomentHelper.getCurrentMoment();
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "isPublished");
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
 		object.setProject(project);
 		object.setInstantiationMoment(currentMoment);
 
@@ -70,13 +79,22 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
+		boolean status;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract existing;
 
 			existing = this.repository.findOneContractByCode(object.getCode());
 			super.state(existing == null, "code", "client.contract.form.error.duplicated");
+
 		}
+
+		if (object.getProject() != null) {
+			status = object.getBudget().getAmount() <= object.getProject().getCost().getAmount();
+			super.state(status, "budget", "client.contract.form.error.budget");
+
+		}
+
 	}
 
 	@Override

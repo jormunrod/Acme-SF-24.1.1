@@ -30,22 +30,26 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int developerId;
-		Collection<TrainingModule> trainingModules;
-		TrainingModule trainingModule;
+		Developer developer;
+		boolean status = false;
 
-		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		trainingModules = this.repository.findAllTrainingModuleByDeveloperId(developerId);
-		trainingModule = trainingModules.stream().findFirst().orElse(null);
+		developer = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
 
-		if (trainingModules.isEmpty())
-			status = true;
-		else
-			status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+		if (super.getRequest().hasData("project")) {
+			int projectId = super.getRequest().getData("project", int.class);
+			if (projectId > 0) {
+				Project project = this.repository.findOneProjectById(projectId);
+
+				if (project != null) {
+					boolean isPublish = project.isPublished();
+					status = isPublish && super.getRequest().getPrincipal().hasRole(developer);
+				}
+			} else
+				status = super.getRequest().getPrincipal().hasRole(developer);
+		} else
+			status = super.getRequest().getPrincipal().hasRole(developer);
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override

@@ -1,9 +1,25 @@
 key,key:project,key:auditor,code,execution,type,correctiveActions,mark,link,isPublished
-code-audit-01,project-50,auditor-01,AUD-001,2021/03/12 09:00,STATIC,"Optimize database queries, Update library versions",A,https://example.com/code-audit-1,0
-code-audit-02,project-51,auditor-01,AU-002,2021/03/30 00:00,DYNAMIC,a,B,https://example.com/code-audit-2,0
-code-audit-03,project-53,auditor-02,A-003,2021/04/03 23:59,STATIC,aa,A_PLUS,https://example.com/code-audit-3,1
-code-audit-04,project-54,auditor-02,AUD-004,2021/04/14 09:00,DYNAMIC,"Enhance security, fix bugs, update UI, improve UX.",F,https://example.com/abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabc,0
-code-audit-05,project-56,auditor-01,AUD-005,2021/05/07 15:00,STATIC,"Implement multi-factor authentications, optimize database queries, enhance logging system, fix bugs.",F_MINUS,,0
-code-audit-06,project-57,auditor-02,AU-006,2021/06/01 12:00,STATIC,"Enhance security measures, optimize database queries, improve error handling, test data validation.",B,https://example.com/abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcd,0
-code-audit-07,project-60,auditor-01,A-007,2022/07/29 22:50,DYNAMIC,修复资源泄漏，更新文档。,C,https://example.com/abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcd1,1
-code-audit-08,project-61,auditor-01,AUD-008,2021/06/07 15:00,STATIC,a,C,,0
+code-audit-01,project-50,auditor-01,AUD-001,2000/01/01 00:00,STATIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-01,true
+code-audit-02,project-50,auditor-01,AUD-002,2000/01/01 00:01,DYNAMIC,Esto es una corrección,A,http://www.example.com/code-audit-02,false
+code-audit-03,project-51,auditor-01,AUD-003,2020/02/29 00:00,STATIC,Esto es una corrección,B,http://www.example.com/code-audit-03,true
+code-audit-04,project-51,auditor-01,AUD-004,2021/05/13 23:59,DYNAMIC,Esto es una corrección,C,http://www.example.com/code-audit-04,false
+code-audit-05,project-51,auditor-01,AUD-005,2022/07/29 23:59,STATIC,Esto es una corrección,F,http://www.example.com/code-audit-05,false
+code-audit-06,project-53,auditor-01,AUD-006,2022/07/30 00:00,DYNAMIC,Esto es una corrección,F_MINUS,http://www.example.com/code-audit-06,false
+code-audit-07,project-53,auditor-01,AUD-007,2020/02/28 00:00,STATIC,L,A,http://www.example.com/code-audit-07,true
+code-audit-08,project-53,auditor-01,AUD-008,2020/02/28 00:00,DYNAMIC,Lo,B,http://www.example.com/code-audit-08,false
+code-audit-09,project-54,auditor-01,AUD-009,2020/02/28 00:00,STATIC,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod te",C,http://www.example.com/code-audit-09,false
+code-audit-10,project-54,auditor-02,AUD-010,2020/02/28 00:00,DYNAMIC,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem",F,http://www.example.com/code-audit-10,false
+code-audit-11,project-54,auditor-02,AUD-011,2020/02/28 00:00,STATIC,<h1>!</h1>,F_MINUS,http://www.example.com/code-audit-11,false
+code-audit-12,project-56,auditor-02,AUD-012,2020/02/28 00:00,DYNAMIC,' or 'A'='A,A_PLUS,http://www.example.com/code-audit-12,false
+code-audit-13,project-56,auditor-02,AUD-013,2020/02/28 00:00,STATIC,국민경제의 발전을,A,http://www.example.com/code-audit-13,true
+code-audit-14,project-56,auditor-02,AUD-014,2020/02/28 00:00,DYNAMIC,العظمى واعتلاء,B,http://www.example.com/code-audit-14,false
+code-audit-15,project-57,auditor-02,AUD-015,2020/02/28 00:00,STATIC,Esto es una corrección,C,ftp://a,false
+code-audit-16,project-57,auditor-02,AUD-016,2020/02/28 00:00,DYNAMIC,Esto es una corrección,F,ftp://a.b,false
+code-audit-17,project-57,auditor-02,AUD-017,2020/02/28 00:00,STATIC,Esto es una corrección,F_MINUS,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",false
+code-audit-18,project-59,auditor-02,AUD-018,2020/02/28 00:00,DYNAMIC,Esto es una corrección,A_PLUS,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",false
+code-audit-19,project-59,auditor-02,AUD-019,2020/02/28 00:00,STATIC,Esto es una corrección,A,,true
+code-audit-20,project-59,auditor-02,AUD-020,2020/02/28 00:00,DYNAMIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-20,false
+code-audit-21,project-60,auditor-02,AUD-021,2020/02/28 00:00,STATIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-21,false
+code-audit-22,project-61,auditor-02,AUD-022,2020/02/28 00:00,DYNAMIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-22,false
+code-audit-23,project-62,auditor-02,AUD-023,2020/02/28 00:00,STATIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-23,false
+code-audit-24,project-62,auditor-02,AUD-024,2020/02/28 00:00,DYNAMIC,Esto es una corrección,A_PLUS,http://www.example.com/code-audit-24,false
