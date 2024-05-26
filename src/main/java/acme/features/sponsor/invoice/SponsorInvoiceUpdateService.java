@@ -112,13 +112,13 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 				super.state(false, "*", "sponsor.invoice.error.UpdateInvoicesReached");
 			else {
 
-				if (!(quantity != null && quantity > 0.))
+				if (quantity <= 0.)
 					super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
 				if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-					super.state(false, "amount", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+					super.state(false, "quantity", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
 				if (!currency.equals(invoice.getSponsorship().getAmount().getCurrency()))
 					super.state(false, "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
-				if (quantity > sponsorship.getAmount().getAmount())
+				if (object.getTotalAmountWithTax().getAmount() > sponsorship.getAmount().getAmount())
 					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIntroducedIsHigherThanTheSponsorshipAmount");
 				else if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
 					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
