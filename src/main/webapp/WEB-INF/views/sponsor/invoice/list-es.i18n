@@ -50,5 +50,5 @@ sponsor.invoice.error.CreateInvoicesReached = La suma de la cantidad total de to
 sponsor.invoice.error.dueDateLimitPassed = El valor máximo para la fecha de vencimiento es el 31/12/2200 23:59
 sponsor.invoice.error.UpdateInvoicesReached = La suma de la cantidad total de todas las facturas publicadas es igual a la cantidad del patrocinio (el patrocinio está listo para ser publicado). Si quiere actualizar esta factura tiene que aumentar la cantidad del patrocinio
 sponsor.invoice.error.PublishInvoicesReached = La suma de la cantidad total de todas las facturas publicadas es igual a la cantidad del patrocinio (el patrocinio está listo para ser publicado). Si quiere publicar esta factura tiene que aumentar la cantidad del patrocinio
-sponsor.invoice.error.theTotalAmountIntroducedIsHigherThanTheSponsorshipAmount = La cantidad que está introduciendo es mayor que la cantidad del patrocinio
+sponsor.invoice.error.theTotalAmountIntroducedIsHigherThanTheSponsorshipAmount = La cantidad total (con impuesto) que está introduciendo es mayor que la cantidad del patrocinio
 

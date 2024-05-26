@@ -120,7 +120,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 					super.state(false, "quantity", "sponsor.invoice.error.CurencyMustBeEqualToSponsorship");
 				if (quantity <= 0.)
 					super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
-				if (quantity > sponsorship.getAmount().getAmount())
+				if (object.getTotalAmountWithTax().getAmount() > sponsorship.getAmount().getAmount())
 					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIntroducedIsHigherThanTheSponsorshipAmount");
 				else if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
 					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");

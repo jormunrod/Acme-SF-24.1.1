@@ -141,7 +141,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 			if (this.repository.findInvoicesBySponsorshipId(id).isEmpty())
 				super.state(false, "*", "sponsor.sponsorship.error.ThereAreNoInvoicesAsociated");
-			else if (!this.repository.findInvoicesBySponsorshipId(id).isEmpty() && !status)
+			else if (!status)
 				super.state(status, "*", "sponsor.sponsorship.error.NotAllInvoicesPublished");
 			else {
 				if (!currency.equals(sponsorship.getAmount().getCurrency()))
