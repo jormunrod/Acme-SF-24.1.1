@@ -45,7 +45,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		status = client != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(client);
 
 		// Check if the contract's project is published
-		if (super.getRequest().hasData("project")) {
+		if (status && super.getRequest().hasData("project")) {
 			int projectId = super.getRequest().getData("project", int.class);
 			if (projectId != 0) {
 				Project project = this.repository.findOneProjectById(projectId);
