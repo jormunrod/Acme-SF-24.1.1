@@ -42,6 +42,7 @@ public class ProgressLog extends AbstractEntity {
 	@Pattern(regexp = "PG-[A-Z]{1,2}-[0-9]{4}")
 	private String				recordId;
 
+	@NotNull
 	@Range(min = 0, max = 1)
 	@Digits(integer = 1, fraction = 2)
 	private Double				completenessPercentage;
