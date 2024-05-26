@@ -29,18 +29,25 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		TrainingModule trainingModule;
 		Developer developer;
+		boolean status = false;
 
-		id = super.getRequest().getData("id", int.class);
-		trainingModule = this.repository.findTrainingModuleById(id);
-		developer = trainingModule == null ? null : trainingModule.getDeveloper();
-		status = trainingModule.isDraftMode() && trainingModule != null && super.getRequest().getPrincipal().hasRole(developer);
+		developer = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
+
+		int trainingModuleId = super.getRequest().getData("id", int.class);
+		TrainingModule trainingModule = this.repository.findTrainingModuleById(trainingModuleId);
+
+		if (super.getRequest().hasData("project")) {
+			int projectId = super.getRequest().getData("project", int.class);
+			if (projectId > 0) {
+				Project project = this.repository.findOneProjectById(projectId);
+				if (project != null && project.isPublished() && trainingModule != null && trainingModule.isDraftMode())
+					status = super.getRequest().getPrincipal().hasRole(developer);
+			} else
+				status = trainingModule != null && trainingModule.isDraftMode() && super.getRequest().getPrincipal().hasRole(developer);
+		}
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
@@ -66,7 +73,6 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 	@Override
 	public void validate(final TrainingModule object) {
 		assert object != null;
-		Collection<Project> publishedProjects = this.repository.findPublishedProjects();
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingModule existing;
@@ -74,12 +80,6 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
 			if (existing != null && existing.getId() != object.getId())
 				super.state(false, "code", "developer.training-module.form.error.duplicated");
-		}
-
-		if (object.getProject() != null && object.getProject().getId() != 0) {
-			Project existingProject = this.repository.findOneProjectById(object.getProject().getId());
-			if (!publishedProjects.contains(existingProject))
-				super.state(false, "project", "developer.project.form.error.notpublished");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))

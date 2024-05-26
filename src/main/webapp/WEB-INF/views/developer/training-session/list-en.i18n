@@ -44,5 +44,7 @@ developer.training-session.form.button.publish = Publish
 
 developer.training-session.form.label.training-module = Training Modules
 developer.training-session.form.error.duplicated = Code already exists
+developer.training-session.error.startDateLimitPassed = Start Date has passed the limit
+developer.training-session.error.finishDateLimitPassed = Finish date has passed the limit
 developer.training-session.form.error.bad-date = Start Date must be least one week ahead the training module creation moment
 developer.training-session.form.error.bad-duration = The duration between Start Date and Finish Date must be least one week 
