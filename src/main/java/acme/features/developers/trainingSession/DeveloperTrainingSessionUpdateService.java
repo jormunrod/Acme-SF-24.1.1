@@ -65,8 +65,8 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 		assert object != null;
 		int id;
 		TrainingModule trainingModule;
-		id = super.getRequest().getData("masterId", int.class);
-		trainingModule = this.repository.findOneTrainingModuleById(id);
+		id = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleByTrainingSessionId(id);
 		LocalDateTime localDateTime = LocalDateTime.of(2201, 1, 1, 0, 0);
 		Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
 		Date limitDate = Date.from(instant);
@@ -75,7 +75,8 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 			TrainingSession existing;
 
 			existing = this.repository.findOneTrainingSessionByCode(object.getCode());
-			super.state(existing == null, "code", "developer.training-session.form.error.duplicated");
+			if (existing != null && existing.getId() != object.getId())
+				super.state(existing == null, "code", "developer.training-session.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
