@@ -36,13 +36,19 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		Sponsor sponsor;
 		boolean estadoProyecto = true;
 
-		if (super.getRequest().hasData("project"))
-			estadoProyecto = this.repository.findOneProjectById(super.getRequest().getData("project", int.class)).isPublished();
+		if (super.getRequest().hasData("project") && super.getRequest().getData("project", int.class) > 0) {
+			Project p = this.repository.findOneProjectById(super.getRequest().getData("project", int.class));
+			if (p != null)
+				estadoProyecto = p.isPublished();
+			else
+				estadoProyecto = false;
+
+		}
 
 		sponsorshipId = super.getRequest().getData("id", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
-		status = estadoProyecto && sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsor) && estadoProyecto && sponsorship.isDraftMode();
 		super.getResponse().setAuthorised(status);
 
 	}
@@ -98,11 +104,8 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			super.state(status, "code", "sponsor.sponsorship.error.duplicated");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			Date moment = object.getMoment();
 			Date startDate = object.getStartDate();
 
-			if (!startDate.after(moment))
-				super.state(false, "startDate", "sponsor.sponsorship.error.startDateBeforeMoment");
 			if (!startDate.after(MomentHelper.getBaseMoment()))
 				super.state(false, "startDate", "sponsor.sponsorship.error.startDateMustBeInFuture");
 			if (!startDate.before(limitStartDate))
@@ -132,16 +135,19 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			String currency = object.getAmount().getCurrency();
 			Double amount = object.getAmount().getAmount();
 
-			if (!currency.equals(sponsorship.getAmount().getCurrency()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
-				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
-			if (!amount.equals(sponsorship.getAmount().getAmount()) && !this.repository.findInvoicesBySponsorshipId(id).isEmpty())
-				super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeAmount");
-			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
-			if (amount != null)
-				super.state(amount > 0, "amount", "sponsor.sponsorship.error.amountNotPositive");
+			if (!this.repository.findPublishedInvoicesBySponsorshipId(id).isEmpty()) {
+
+				if (this.repository.sumTotalAmountPublishedBySponsorshipId(id) > amount)
+					super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeAmount");
+				if (!currency.equals(sponsorship.getAmount().getCurrency()))
+					super.state(false, "amount", "sponsor.sponsorship.error.youcantChangeTheCurrency");
+			}
+			if (amount <= 0)
+				super.state(false, "amount", "sponsor.sponsorship.error.amountNotPositive");
 			if (amount > 1000000)
 				super.state(false, "amount", "sponsor.sponsorship.error.AmountMustBeUnder1000000");
+			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
 
 		}
 	}

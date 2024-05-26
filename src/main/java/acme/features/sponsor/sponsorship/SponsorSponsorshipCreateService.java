@@ -35,11 +35,17 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		Sponsor sponsor;
 		boolean estadoProyecto = true;
 
-		if (super.getRequest().hasData("project"))
-			estadoProyecto = this.repository.findOneProjectById(super.getRequest().getData("project", int.class)).isPublished();
+		if (super.getRequest().hasData("project") && super.getRequest().getData("project", int.class) > 0) {
+			Project p = this.repository.findOneProjectById(super.getRequest().getData("project", int.class));
+			if (p != null)
+				estadoProyecto = p.isPublished();
+			else
+				estadoProyecto = false;
+
+		}
 
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
-		status = estadoProyecto && super.getRequest().getPrincipal().hasRole(sponsor);
+		status = super.getRequest().getPrincipal().hasRole(sponsor) && estadoProyecto;
 
 		super.getResponse().setAuthorised(status);
 
@@ -115,7 +121,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			Money amount = object.getAmount();
 			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
 				super.state(false, "amount", "sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem");
-			if (!(amount.getAmount() > 0))
+			if (amount.getAmount() <= 0)
 				super.state(false, "amount", "sponsor.sponsorship.error.amountNotPositive");
 			if (amount.getAmount() > 1000000)
 				super.state(false, "amount", "sponsor.sponsorship.error.AmountMustBeUnder1000000");
