@@ -27,3 +27,4 @@ manager.user-story.form.button.delete = Delete
 manager.user-story.form.button.publish = Publish
 
 manager.user-story.form.error.duplicateTitle = This title is already used
+manager.user-story.form.error.projectPublished = The project related to this user story is already published
