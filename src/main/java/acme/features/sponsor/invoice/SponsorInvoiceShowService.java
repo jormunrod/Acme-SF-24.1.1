@@ -22,13 +22,13 @@ public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice>
 		boolean status;
 		int invoiceId;
 		Sponsorship sponsorship;
-		Sponsor sponsor;
-		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
+		Invoice invoice;
 
 		invoiceId = super.getRequest().getData("id", int.class);
+		invoice = this.repository.findInvoiceById(invoiceId);
 		sponsorship = this.repository.findOneSponsorshipByInvoiceId(invoiceId);
 
-		status = sponsorship != null && sponsorship.getSponsor().getId() == sponsor.getId() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
+		status = invoice != null && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
 
 		super.getResponse().setAuthorised(status);
 

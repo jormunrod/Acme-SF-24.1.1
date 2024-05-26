@@ -49,17 +49,18 @@ sponsor.sponsorship.list.button.inovices = Facturas
 
 sponsor.sponsorship.list.label.draftMode = Modo Borrador
 
-sponsor.sponsorship.error.invoicesLeft = La suma del total de todas las facturas es menor que la cantidad del patrocinio
-sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = No hay facturas asociadas
-sponsor.sponsorship.error.startDateMustBeInFuture = La fecha de inicio debe estar en el futuro (después de 2022/07/30 00:00)
-sponsor.sponsorship.error.startDateBeforeMoment = La fecha de inicio debe ser después del momento
-sponsor.sponsorship.error.endDateNotOneMonthAfter = La fecha de finalización debe ser al menos un mes después de la fecha de inicio
+sponsor.sponsorship.error.youcantChangeAmount = La suma de la cantidad total de las facturas publicadas es mayor que la cantidad que está introduciendo
 sponsor.sponsorship.error.amountNotPositive = La cantidad debe ser positiva
-sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = La moneda debe ser EUR USD o GBP
-sponsor.sponsorship.error.youcantChangeTheCurrency = No puedes cambiar la moneda porque este patrocinio tiene facturas asociadas
-sponsor.sponsorship.error.youcantChangeAmount = No puedes cambiar la cantidad porque este patrocinio tiene facturas asociadas
-sponsor.sponsorship.error.NotAllInvoicesPublished= No todas las facturas están publicadas, deben estar publicadas para publicar este patrocinio
-sponsor.sponsorship.error.duplicated = El código ya está en uso
-sponsor.sponsorship.error.between7and255 = El número de caracteres debe estar entre 7 y 255
-sponsor.sponsorship.error.between6and254 = El número de caracteres debe estar entre 6 y 254
-sponsor.sponsorship.error.AmountMustBeUnder1000000 = La cantidad maxima es 1000000
+sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = La moneda debe ser admitida por el sistema (EUR, USD, GBP)
+sponsor.sponsorship.error.youcantChangeTheCurrency = No puede cambiar la moneda porque este patrocinio tiene facturas publicadas asociadas
+sponsor.sponsorship.error.startDateMustBeInFuture = La Fecha de Inicio debe estar en el futuro (después de 30/07/2022 00:00)
+sponsor.sponsorship.error.endDateNotOneMonthAfter = La Fecha de Finalización debe ser al menos un mes después de la Fecha de Inicio
+sponsor.sponsorship.error.duplicated = Este código ya está en uso
+sponsor.sponsorship.error.startdateLimitPassed = El valor máximo de la Fecha de Inicio es 30/11/2200 23:59
+sponsor.sponsorship.error.EndDateLimitPassed = El valor máximo de la Fecha de Finalización es 31/12/2200 23:59
+sponsor.sponsorship.error.AmountMustBeUnder1000000 = La cantidad máxima es 1,000,000.00
+sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = No hay facturas asociadas
+sponsor.sponsorship.error.NotAllInvoicesPublished = No todas las facturas están publicadas. Asegúrate de que no haya facturas en modo borrador
+sponsor.sponsorship.error.invoicesLeft = Todas las facturas están publicadas pero la suma de la cantidad total de las facturas publicadas no es igual a la cantidad del patrocinio. Añade más facturas o cambia la cantidad de este patrocinio
+sponsor.sponsorship.error.startDateBeforeMoment= La Fecha de Inicio debe ser después del momento
+

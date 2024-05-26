@@ -50,19 +50,18 @@ sponsor.sponsorship.list.button.publish = Publish
 sponsor.sponsorship.list.button.inovices = Invoices
 sponsor.sponsorship.list.label.draftMode = Draft Mode
 
-sponsor.sponsorship.error.invoicesLeft = The sum of the total amount of all the invoices is lower than the amount of the sponsorship
-sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = There are no invoices asociated
-sponsor.sponsorship.error.startDateMustBeInFuture = Start Date must be in the future (after 2022/07/30 00:00)
-sponsor.sponsorship.error.startDateBeforeMoment = Start Date must be after moment
-sponsor.sponsorship.error.endDateNotOneMonthAfter = End Date must be at least one moth after Start Date
+sponsor.sponsorship.error.youcantChangeAmount = The sum of the total amount of the published invoices is higher than the amount that you are introducing 
 sponsor.sponsorship.error.amountNotPositive = Amount must be positive
-sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = The currency must be EUR USD or GBP
-sponsor.sponsorship.error.youcantChangeTheCurrency = You can't change the currency because this sponsorship has invoices asociated
-sponsor.sponsorship.error.youcantChangeAmount = You can't change the amount because this sponsorship has invoices asociated
-sponsor.sponsorship.error.NotAllInvoicesPublished= Not all the invoices are published, they must be published to publish this sponsorship
-sponsor.sponsorship.error.duplicated = The code is alredy in use
-sponsor.sponsorship.error.between7and255 = The number of characters must be between 7 and 255
-sponsor.sponsorship.error.between6and254 = The number of characters must be between 6 and 254
-sponsor.sponsorship.error.AmountMustBeUnder1000000 = The maximun amount is 1000000
-
+sponsor.sponsorship.error.theCurrencyMustBeAdmitedByTheSistem = The currency must be admitted by the system (EUR, USD , GBP)
+sponsor.sponsorship.error.youcantChangeTheCurrency = You can't change the currency because this sponsorship has published invoices associated
+sponsor.sponsorship.error.startDateMustBeInFuture = StartDate must be in the future (after 2022/07/30 00:00)
+sponsor.sponsorship.error.endDateNotOneMonthAfter = EndDate must be at least one month after StartDate
+sponsor.sponsorship.error.duplicated = This code is already in use
+sponsor.sponsorship.error.startdateLimitPassed = The maximum value of the StartDate is 2200/11/30 23:59
+sponsor.sponsorship.error.EndDateLimitPassed = The maximum value of EndDate is 2200/12/31 23:59
+sponsor.sponsorship.error.AmountMustBeUnder1000000 = The maximum amount is 1,000,000.00
+sponsor.sponsorship.error.ThereAreNoInvoicesAsociated = There are no invoices associated
+sponsor.sponsorship.error.NotAllInvoicesPublished = Not all the invoices are published. Make sure that there aren't invoices in draftMode
+sponsor.sponsorship.error.invoicesLeft = All the invoices are published but the sum of the total amount of the published invoices is not equal to the sponsorship amount. Add more invoices or change the amount
+sponsor.sponsorship.error.startDateBeforeMoment= StartDate must be after moment
 

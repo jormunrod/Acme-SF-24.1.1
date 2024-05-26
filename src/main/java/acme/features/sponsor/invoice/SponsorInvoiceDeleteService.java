@@ -19,16 +19,15 @@ public class SponsorInvoiceDeleteService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void authorise() {
 
-		Invoice object;
+		Invoice invoice;
 		int id;
 		boolean status;
 		Sponsor sponsor;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findInvoiceById(id);
-		sponsor = object.getSponsorship().getSponsor();
+		invoice = this.repository.findInvoiceById(id);
 
-		status = object.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
+		status = invoice != null && super.getRequest().getPrincipal().hasRole(invoice.getSponsorship().getSponsor()) && invoice.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 
