@@ -26,12 +26,15 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 		boolean status;
 		int trainingSessionId;
 		TrainingModule trainingModule;
+		TrainingSession trainingSession;
 
 		trainingSessionId = super.getRequest().getData("id", int.class);
+		trainingSession = this.repository.findTrainingSessionById(trainingSessionId);
 		trainingModule = this.repository.findOneTrainingModuleByTrainingSessionId(trainingSessionId);
-		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+		status = trainingSession != null && trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
