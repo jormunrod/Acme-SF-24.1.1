@@ -32,7 +32,15 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		Contract contract;
+
+		id = super.getRequest().getData("id", int.class);
+		contract = this.repository.findOneContractById(id);
+
+		status = contract != null && super.getRequest().getPrincipal().hasRole(contract.getClient());
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
