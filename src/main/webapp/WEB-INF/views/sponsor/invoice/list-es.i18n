@@ -39,10 +39,16 @@ sponsor.invoice.form.button.publish = Publicar
 sponsor.invoice.list.label.draftMode = Modo Borrador
 sponsor.invoice.list.label.totalAmount = Cantidad Total
 
-sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = La cantidad total es mayor que la cantidad del patrocinio. Intente cambiar la cantidad o el impuesto
+sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount = La suma de la cantidad total de todas las facturas publicadas más la cantidad que estás introduciendo es mayor que la cantidad del patrocinio. Intente cambiar la cantidad, el impuesto o la cantidad del patrocinio
 sponsor.invoice.error.CurencyMustBeEqualToSponsorship = La moneda debe ser igual a la moneda del patrocinio asociado
 sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem = La moneda debe ser EUR, USD o GBP
 sponsor.invoice.error.dueDateTooEarly = La fecha de vencimiento debe ser al menos un mes después del tiempo de registro
 sponsor.invoice.error.quantityNegativeOrZero = La cantidad debe ser positiva
 sponsor.invoice.error.duplicated = Este código ya está en uso
-sponsor.invoice.error.DueDateMustBeInFuture = La fecha de vencimiento debe estar en el futuro
+sponsor.invoice.error.DueDateMustBeInFuture = La fecha de vencimiento debe estar en el futuro (después de 30/07/2022 00:00)
+sponsor.invoice.error.CreateInvoicesReached = La suma de la cantidad total de todas las facturas publicadas es igual a la cantidad del patrocinio (el patrocinio está listo para ser publicado). Si quiere añadir más facturas tiene que aumentar la cantidad del patrocinio
+sponsor.invoice.error.dueDateLimitPassed = El valor máximo para la fecha de vencimiento es el 31/12/2200 23:59
+sponsor.invoice.error.UpdateInvoicesReached = La suma de la cantidad total de todas las facturas publicadas es igual a la cantidad del patrocinio (el patrocinio está listo para ser publicado). Si quiere actualizar esta factura tiene que aumentar la cantidad del patrocinio
+sponsor.invoice.error.PublishInvoicesReached = La suma de la cantidad total de todas las facturas publicadas es igual a la cantidad del patrocinio (el patrocinio está listo para ser publicado). Si quiere publicar esta factura tiene que aumentar la cantidad del patrocinio
+sponsor.invoice.error.theTotalAmountIntroducedIsHigherThanTheSponsorshipAmount = La cantidad total (con impuesto) que está introduciendo es mayor que la cantidad del patrocinio
+

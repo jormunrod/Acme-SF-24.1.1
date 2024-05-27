@@ -1,6 +1,9 @@
 
 package acme.features.sponsor.invoice;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -27,14 +30,12 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		Invoice object;
 		int id;
 		boolean status;
-		Sponsor sponsor;
 
 		id = super.getRequest().getData("id", int.class);
 
 		object = this.repository.findInvoiceById(id);
-		sponsor = object.getSponsorship().getSponsor();
 
-		status = object.isDraftMode() && object.getSponsorship().isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
+		status = object != null && super.getRequest().getPrincipal().hasRole(object.getSponsorship().getSponsor()) && object.isDraftMode() && object.getSponsorship().isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -62,6 +63,9 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void validate(final Invoice object) {
 		assert object != null;
+		LocalDateTime localDateTime = LocalDateTime.of(2201, 01, 01, 00, 00);
+		Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+		Date limitDueDate = Date.from(instant);
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Invoice alredyExisting;
@@ -79,16 +83,14 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date registrationTime = object.getRegistrationTime();
 			Date dueDate = object.getDueDate();
-
-			if (registrationTime != null && dueDate != null) {
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(registrationTime);
-				cal.add(Calendar.MONTH, 1);
-				Date oneMonthAfterRegistration = cal.getTime();
-				super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
-			}
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(registrationTime);
+			cal.add(Calendar.MONTH, 1);
+			Date oneMonthAfterRegistration = cal.getTime();
+			super.state(dueDate.compareTo(oneMonthAfterRegistration) >= 0, "dueDate", "sponsor.invoice.error.dueDateTooEarly");
 			if (!dueDate.after(MomentHelper.getBaseMoment()))
 				super.state(false, "dueDate", "sponsor.invoice.error.DueDateMustBeInFuture");
+			super.state(dueDate.before(limitDueDate), "dueDate", "sponsor.invoice.error.dueDateLimitPassed");
 
 		}
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
@@ -102,18 +104,26 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 			invoice = this.repository.findInvoiceById(id);
 			sponsorship = invoice.getSponsorship();
 
-			Double totalAmounOfinvoice = this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId()) == null ? 0. : this.repository.sumTotalAmountBySponsorshipId(invoice.getSponsorship().getId());
+			Double totalAmounOfinvoice = this.repository.sumTotalAmountPublishedBySponsorshipId(invoice.getSponsorship().getId()) == null ? 0. : this.repository.sumTotalAmountPublishedBySponsorshipId(invoice.getSponsorship().getId());
+			Double t = totalAmounOfinvoice;
 			totalAmounOfinvoice += object.getTotalAmountWithTax().getAmount();
-			totalAmounOfinvoice -= invoice.getTotalAmountWithTax().getAmount();
 
-			if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
-				super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
-			if (!(quantity != null && quantity > 0.))
-				super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
-			if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
-				super.state(false, "amount", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
-			if (!(currency != null && currency.equals(invoice.getSponsorship().getAmount().getCurrency())))
-				super.state(false, "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
+			if (t.equals(sponsorship.getAmount().getAmount()))
+				super.state(false, "*", "sponsor.invoice.error.UpdateInvoicesReached");
+			else {
+
+				if (quantity <= 0.)
+					super.state(false, "quantity", "sponsor.invoice.error.quantityNegativeOrZero");
+				if (!currency.equals("EUR") && !currency.equals("GBP") && !currency.equals("USD"))
+					super.state(false, "quantity", "sponsor.invoice.error.theCurrencyMustBeAdmitedByTheSistem");
+				if (!currency.equals(invoice.getSponsorship().getAmount().getCurrency()))
+					super.state(false, "quantity", "sponsor.invoice.error.quantityMustBeEqualToSponsorship");
+				if (object.getTotalAmountWithTax().getAmount() > sponsorship.getAmount().getAmount())
+					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIntroducedIsHigherThanTheSponsorshipAmount");
+				else if (totalAmounOfinvoice > sponsorship.getAmount().getAmount())
+					super.state(false, "*", "sponsor.invoice.error.theTotalAmountIsHigherThanTheSponsorshipAmount");
+
+			}
 		}
 
 	}

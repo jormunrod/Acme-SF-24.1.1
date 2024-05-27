@@ -1,6 +1,9 @@
 
 package acme.features.developers.trainingSession;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +34,7 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 
 		trainingSessionId = super.getRequest().getData("id", int.class);
 		trainingModule = this.repository.findOneTrainingModuleByTrainingSessionId(trainingSessionId);
-		status = trainingModule.isDraftMode() && trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
+		status = trainingModule != null && trainingModule.isDraftMode() && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper());
 
 		super.getResponse().setAuthorised(status);
 
@@ -60,11 +63,13 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 	@Override
 	public void validate(final TrainingSession object) {
 		assert object != null;
-
 		int id;
 		TrainingModule trainingModule;
 		id = super.getRequest().getData("id", int.class);
 		trainingModule = this.repository.findOneTrainingModuleByTrainingSessionId(id);
+		LocalDateTime localDateTime = LocalDateTime.of(2201, 1, 1, 0, 0);
+		Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+		Date limitDate = Date.from(instant);
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingSession existing;
@@ -77,19 +82,25 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date oneWeekAfterCreation;
 			boolean isTrue;
+			boolean isGreater;
 			oneWeekAfterCreation = new Date(trainingModule.getCreationMoment().getTime() + 7L * 24 * 60 * 60 * 1000);
 			isTrue = object.getStartDate().before(oneWeekAfterCreation);
+			isGreater = object.getStartDate().before(limitDate);
 			super.state(isTrue == false, "startDate", "developer.training-session.form.error.bad-date");
+			super.state(isGreater, "startDate", "developer.training-session.error.startDateLimitPassed");
 
 		}
 		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
-			if (object.getStartDate() != null && object.getFinishDate() != null) {
+			if (object.getStartDate() != null) {
 				long duration = object.getFinishDate().getTime() - object.getStartDate().getTime();
 				long oneWeek = 7L * 24 * 60 * 60 * 1000;
 
 				boolean isTrue;
+				boolean isFinishBeforeLimit;
 				isTrue = duration < oneWeek;
+				isFinishBeforeLimit = object.getFinishDate().before(limitDate);
 				super.state(isTrue == false, "finishDate", "developer.training-session.form.error.bad-duration");
+				super.state(isFinishBeforeLimit, "finishDate", "developer.training-session.error.finishDateLimitPassed");
 			}
 
 	}

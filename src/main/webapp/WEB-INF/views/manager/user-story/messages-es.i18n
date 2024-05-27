@@ -27,3 +27,4 @@ manager.user-story.form.button.delete = Borrar
 manager.user-story.form.button.publish = Publicar
 
 manager.user-story.form.error.duplicateTitle = El nombre de la historia de usuario ya existe
+manager.user-story.form.error.projectPublished = El proyecto relacionado con esta historia de usuario ya está publicado
