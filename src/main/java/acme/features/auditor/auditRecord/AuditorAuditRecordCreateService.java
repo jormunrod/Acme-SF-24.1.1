@@ -68,6 +68,10 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void validate(final AuditRecord object) {
 		assert object != null;
 
+		LocalDateTime startDateTime;
+		LocalDateTime endDateTime;
+		LocalDateTime minDateTime = LocalDateTime.of(1999, 12, 31, 23, 59);
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			AuditRecord existing;
 
@@ -78,16 +82,21 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		super.state(!object.getCodeAudit().isPublished(), "*", "auditor.audit-record.form.error.codeAuditPublished");
 
 		if (object.getAuditPeriodStart() != null && object.getAuditPeriodEnd() != null) {
-			LocalDateTime startDateTime = LocalDateTime.ofInstant(object.getAuditPeriodStart().toInstant(), ZoneId.systemDefault());
-			LocalDateTime endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
-			LocalDateTime minDateTime = LocalDateTime.of(2000, 01, 01, 00, 00);
-
+			startDateTime = LocalDateTime.ofInstant(object.getAuditPeriodStart().toInstant(), ZoneId.systemDefault());
+			endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
 			super.state(startDateTime.isBefore(endDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.end-date");
 			super.state(Duration.between(startDateTime, endDateTime).toHours() >= 1, "auditPeriodEnd", "auditor.audit-record.form.error.duration");
-			super.state(startDateTime.isAfter(minDateTime), "auditPeriodStart", "auditor.audit-record.form.error.date-before-2000");
-			super.state(endDateTime.isAfter(minDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.date-before-2000");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("auditPeriodStart")) {
+			startDateTime = LocalDateTime.ofInstant(object.getAuditPeriodStart().toInstant(), ZoneId.systemDefault());
+			super.state(startDateTime.isAfter(minDateTime), "auditPeriodStart", "auditor.audit-record.form.error.date-before-2000");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("auditPeriodEnd")) {
+			endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
+			super.state(endDateTime.isAfter(minDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.date-before-2000");
+		}
 	}
 
 	@Override

@@ -68,10 +68,11 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			existing = this.repository.findOneCodeAuditByCode(object.getCode());
 			if (existing != null && existing.getId() != object.getId())
 				super.state(false, "code", "auditor.code-audit.form.err.duplicated");
-		} else if (!super.getBuffer().getErrors().hasErrors("execution")) {
+		}
+		if (!super.getBuffer().getErrors().hasErrors("execution")) {
 			LocalDateTime executionDateTime = LocalDateTime.ofInstant(object.getExecution().toInstant(), ZoneId.systemDefault());
 
-			LocalDateTime minDateTime = LocalDateTime.of(2000, 01, 01, 00, 00);
+			LocalDateTime minDateTime = LocalDateTime.of(1999, 12, 31, 23, 59);
 			super.state(executionDateTime.isAfter(minDateTime), "execution", "auditor.code-audit.form.error.date-before-2000");
 		}
 
