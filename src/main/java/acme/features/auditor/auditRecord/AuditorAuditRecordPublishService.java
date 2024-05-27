@@ -37,10 +37,12 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 		boolean status;
 		int id;
 		CodeAudit codeAudit;
+		AuditRecord auditRecord;
 
 		id = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(id);
-		status = codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
+		auditRecord = this.repository.findOneAuditRecordById(id);
+		status = auditRecord != null && !auditRecord.isPublished() && codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -60,7 +62,7 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		super.bind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "isPublished");
+		super.bind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link");
 	}
 
 	@Override
@@ -96,8 +98,6 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 			endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
 			super.state(endDateTime.isAfter(minDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.date-before-2000");
 		}
-
-		super.state(!object.getCodeAudit().isPublished(), "*", "auditor.audit-record.form.error.published");
 	}
 
 	@Override
@@ -144,7 +144,7 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 		Dataset dataset;
 
 		choices = SelectChoices.from(Mark.class, object.getMark());
-		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link");
+		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "isPublished");
 		dataset.put("mark", choices);
 
 		super.getResponse().addData(dataset);

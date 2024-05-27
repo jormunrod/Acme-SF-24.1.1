@@ -14,17 +14,13 @@
 		<jstl:when test="${_command == 'show' && isPublished == true}">
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
-			<acme:submit code="auditor.audit-record.form.button.delete"
-				action="/auditor/audit-record/delete" />
-			<acme:submit code="auditor.audit-record.form.button.update"
-				action="/auditor/audit-record/update" />
-			<acme:submit code="auditor.audit-record.form.button.publish"
-				action="/auditor/audit-record/publish" />
+			<acme:submit code="auditor.audit-record.form.button.delete" action="/auditor/audit-record/delete"/>
+			<acme:submit code="auditor.audit-record.form.button.update" action="/auditor/audit-record/update"/>
+			<acme:submit code="auditor.audit-record.form.button.publish" action="/auditor/audit-record/publish"/>
 		</jstl:when>
 
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="auditor.audit-record.form.button.create"
-				action="/auditor/audit-record/create?codeAuditId=${codeAuditId}" />
+			<acme:submit code="auditor.audit-record.form.button.create" action="/auditor/audit-record/create?codeAuditId=${codeAuditId}"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

@@ -7,8 +7,8 @@ code-audit-05,project-51,auditor-01,AUD-005,2022/07/29 23:59,STATIC,Esto es una 
 code-audit-06,project-53,auditor-01,AUD-006,2022/07/30 00:00,DYNAMIC,Esto es una corrección,F_MINUS,http://www.example.com/code-audit-06,false
 code-audit-07,project-53,auditor-01,AUD-007,2020/02/28 00:00,STATIC,L,A_PLUS,http://www.example.com/code-audit-07,true
 code-audit-08,project-53,auditor-01,AUD-008,2020/02/28 00:00,DYNAMIC,Lo,A,http://www.example.com/code-audit-08,false
-code-audit-09,project-54,auditor-01,AUD-009,2020/02/28 00:00,STATIC,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod te",B,http://www.example.com/code-audit-09,false
-code-audit-10,project-54,auditor-02,AUD-010,2020/02/28 00:00,DYNAMIC,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem",C,http://www.example.com/code-audit-10,false
+code-audit-09,project-54,auditor-01,AUD-009,2020/02/28 00:00,STATIC,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",B,http://www.example.com/code-audit-09,false
+code-audit-10,project-54,auditor-02,AUD-010,2020/02/28 00:00,DYNAMIC,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore*",C,http://www.example.com/code-audit-10,false
 code-audit-11,project-54,auditor-02,AUD-011,2020/02/28 00:00,STATIC,<h1>!</h1>,F,http://www.example.com/code-audit-11,false
 code-audit-12,project-56,auditor-02,AUD-012,2020/02/28 00:00,DYNAMIC,' or 'A'='A,F_MINUS,http://www.example.com/code-audit-12,false
 code-audit-13,project-56,auditor-02,AUD-013,2020/02/28 00:00,STATIC,국민경제의 발전을,A_PLUS,http://www.example.com/code-audit-13,true
