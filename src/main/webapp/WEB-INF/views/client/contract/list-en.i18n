@@ -30,3 +30,5 @@ client.contract.form.error.budgetExceeded = Budget exceeded
 client.contract.form.button.progress-logs = Progress Logs
 client.contract.list.label.isPublished = Published
 client.contract.form.error.budget = The budget can not be greater than the total cost of the project
+client.contract.form.error.currency = The currency of the budget must be the same as the currency of the project
+client.contract.form.error.negative = The budget can not be negative
