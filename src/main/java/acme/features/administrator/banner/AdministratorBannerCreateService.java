@@ -34,8 +34,12 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void load() {
 		Banner object;
-
+		Date date;
+		date = MomentHelper.getCurrentMoment();
 		object = new Banner();
+
+		object.setInstantiationMoment(date);
+		object.setUpdateMoment(date);
 
 		super.getBuffer().addData(object);
 	}
@@ -51,45 +55,61 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("displayStart") && !super.getBuffer().getErrors().hasErrors("displayEnd")) {
-			Date displayStart = object.getDisplayStart();
-			Date displayEnd = object.getDisplayEnd();
+		Date displayStart = object.getDisplayStart();
+		Date displayEnd = object.getDisplayEnd();
+		LocalDateTime startDateTime;
+		LocalDateTime endDateTime;
+		LocalDateTime maxDateTime = LocalDateTime.of(2201, 01, 01, 00, 00);
+		LocalDateTime minDateTime = LocalDateTime.of(1999, 12, 31, 23, 59);
+		Date now = MomentHelper.getCurrentMoment();
 
-			boolean startDateIsMaxDateTime;
-			boolean endDateIsMaxDateTime;
-			boolean displayStartAfterInstantiation;
-			boolean displayStartAfterUpdate;
+		if (displayStart != null && displayEnd != null) {
+
+			startDateTime = LocalDateTime.ofInstant(displayStart.toInstant(), ZoneId.systemDefault());
+			endDateTime = LocalDateTime.ofInstant(displayEnd.toInstant(), ZoneId.systemDefault());
+
 			boolean displayEndAfterDisplayStart;
 			boolean isDisplayForAWeek;
 
-			LocalDateTime startDateTime = LocalDateTime.ofInstant(displayStart.toInstant(), ZoneId.systemDefault());
-			LocalDateTime endDateTime = LocalDateTime.ofInstant(displayEnd.toInstant(), ZoneId.systemDefault());
-			LocalDateTime maxDateTime = LocalDateTime.of(2200, 12, 31, 23, 59);
-
-			startDateIsMaxDateTime = startDateTime.isBefore(maxDateTime);
-			endDateIsMaxDateTime = endDateTime.isBefore(maxDateTime);
 			isDisplayForAWeek = Duration.between(startDateTime, endDateTime).toDays() > 7;
 			displayEndAfterDisplayStart = displayEnd.after(displayStart);
-			displayStartAfterInstantiation = object.getInstantiationMoment().before(displayStart) || object.getInstantiationMoment().equals(displayStart);
-			displayStartAfterUpdate = object.getUpdateMoment().before(displayStart) || object.getUpdateMoment().equals(displayStart);
+
+			super.state(displayEndAfterDisplayStart, "displayEnd", "administrator.banner.form.error.displayEnd");
+
+			super.state(isDisplayForAWeek, "*", "administrator.banner.form.error.isDisplayForAWeek");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("displayStart")) {
+			boolean startDateIsMaxDateTime;
+			boolean startDateIsMinDateTime;
+			boolean displayStartAfterInstantiation;
+
+			startDateTime = LocalDateTime.ofInstant(displayStart.toInstant(), ZoneId.systemDefault());
+			startDateIsMaxDateTime = startDateTime.isBefore(maxDateTime);
+			startDateIsMinDateTime = startDateTime.isAfter(minDateTime);
+			displayStartAfterInstantiation = now.before(displayStart) || now.equals(displayStart);
 
 			super.state(startDateIsMaxDateTime, "displayStart", "administrator.banner.form.error.startDateIsMaxDateTime");
-			super.state(endDateIsMaxDateTime, "displayEnd", "administrator.banner.form.error.endDateIsMaxDateTime");
-			super.state(displayEndAfterDisplayStart, "displayEnd", "administrator.banner.form.error.displayEnd");
+			super.state(startDateIsMinDateTime, "displayStart", "administrator.banner.form.error.startDateIsMinDateTime");
 			super.state(displayStartAfterInstantiation, "displayStart", "administrator.banner.form.error.displayStartAfterInstantiation");
-			super.state(displayStartAfterUpdate, "displayStart", "administrator.banner.form.error.displayStartAfterUpdate");
-			super.state(isDisplayForAWeek, "*", "administrator.banner.form.error.isDisplayForAWeek");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("displayEnd")) {
+			boolean endDateIsMaxDateTime;
+			boolean endDateIsMinDateTime;
+
+			endDateTime = LocalDateTime.ofInstant(displayEnd.toInstant(), ZoneId.systemDefault());
+			endDateIsMaxDateTime = endDateTime.isBefore(maxDateTime);
+			endDateIsMinDateTime = endDateTime.isAfter(minDateTime);
+
+			super.state(endDateIsMaxDateTime, "displayEnd", "administrator.banner.form.error.endDateIsMaxDateTime");
+			super.state(endDateIsMinDateTime, "displayEnd", "administrator.banner.form.error.endDateIsMinDateTime");
 		}
 	}
 
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
-		Date date;
-		date = MomentHelper.getCurrentMoment();
-
-		object.setInstantiationMoment(date);
-		object.setUpdateMoment(date);
 
 		this.repository.save(object);
 	}

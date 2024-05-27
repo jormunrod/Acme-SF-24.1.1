@@ -29,3 +29,5 @@ administrator.banner.form.error.displayStartAfterUpdate = La fecha de inicio de 
 administrator.banner.form.error.isDisplayForAWeek = El anuncio debe ser visible al menos durante una semana
 administrator.banner.form.error.startDateIsMaxDateTime = La fecha de inicio de visualización no debe exceder la fecha 31/12/2200 23:59
 administrator.banner.form.error.endDateIsMaxDateTime = La fecha de fin de visualización no debe exceder la fecha 31/12/2200 23:59
+administrator.banner.form.error.startDateIsMinDateTime = La fecha de inicio de visualización no debe exceder la fecha 01/01/2000 00:00
+administrator.banner.form.error.endDateIsMinDateTime = La fecha de fin de visualización no debe exceder la fecha 01/01/2000 00:00
