@@ -22,7 +22,6 @@ public class SponsorInvoiceDeleteService extends AbstractService<Sponsor, Invoic
 		Invoice invoice;
 		int id;
 		boolean status;
-		Sponsor sponsor;
 
 		id = super.getRequest().getData("id", int.class);
 		invoice = this.repository.findInvoiceById(id);
