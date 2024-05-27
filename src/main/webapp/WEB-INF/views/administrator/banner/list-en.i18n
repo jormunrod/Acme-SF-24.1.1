@@ -29,3 +29,5 @@ administrator.banner.form.error.displayStartAfterUpdate = The display start date
 administrator.banner.form.error.isDisplayForAWeek = The display period must be at least one week
 administrator.banner.form.error.startDateIsMaxDateTime = The display start date must not be greater than 12/31/2200 23:59
 administrator.banner.form.error.endDateIsMaxDateTime = The display end date must not be greater than 12/31/2200 23:59
+administrator.banner.form.error.startDateIsMinDateTime = The display start date must not be less than 01/01/2000 00:00
+administrator.banner.form.error.endDateIsMinDateTime = The display end date must not be less than 01/01/2000 00:00
