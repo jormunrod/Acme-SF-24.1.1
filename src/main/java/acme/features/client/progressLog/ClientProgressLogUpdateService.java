@@ -31,11 +31,14 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	public void authorise() {
 		boolean status;
 		int progressLogId;
+		ProgressLog progressLog;
 		Contract contract;
 
+		// Check if the progress log is not published and contract exists, is published and the client is the principal
 		progressLogId = super.getRequest().getData("id", int.class);
+		progressLog = this.repository.findProgressLogById(progressLogId);
 		contract = this.repository.findOneContractByProgressLogId(progressLogId);
-		status = contract != null && super.getRequest().getPrincipal().hasRole(contract.getClient());
+		status = contract != null && contract.isPublished() && !progressLog.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -55,7 +58,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	public void bind(final ProgressLog object) {
 		assert object != null;
 
-		super.bind(object, "recordId", "completenessPercentage", "progressComment", "registrationMoment", "responsiblePerson", "isPublished");
+		super.bind(object, "recordId", "completenessPercentage", "progressComment", "responsiblePerson");
 	}
 
 	@Override

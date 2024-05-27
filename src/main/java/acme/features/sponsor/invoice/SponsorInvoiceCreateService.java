@@ -27,7 +27,6 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void authorise() {
 		boolean status;
-		Sponsor sponsor;
 		int id;
 		Sponsorship sponsorship;
 

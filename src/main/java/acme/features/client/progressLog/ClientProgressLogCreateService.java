@@ -36,9 +36,10 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		int id;
 		Contract contract;
 
+		// Check if the contract exists, is published and the client is the principal
 		id = super.getRequest().getData("masterId", int.class);
 		contract = this.repository.findOneContractById(id);
-		status = contract != null && super.getRequest().getPrincipal().hasRole(contract.getClient());
+		status = contract != null && contract.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -65,7 +66,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 
 		currentMoment = MomentHelper.getCurrentMoment();
 
-		super.bind(object, "recordId", "completenessPercentage", "progressComment", "registrationMoment", "responsiblePerson", "isPublished");
+		super.bind(object, "recordId", "completenessPercentage", "progressComment", "responsiblePerson");
 		object.setContract(contract);
 		object.setRegistrationMoment(currentMoment);
 	}
@@ -74,6 +75,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	public void validate(final ProgressLog object) {
 		assert object != null;
 
+		// Check if the recordId is unique
 		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
 			ProgressLog existing;
 

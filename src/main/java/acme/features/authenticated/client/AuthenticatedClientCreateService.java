@@ -67,6 +67,7 @@ public class AuthenticatedClientCreateService extends AbstractService<Authentica
 	public void validate(final Client object) {
 		assert object != null;
 
+		// Check if the identification is unique
 		if (!super.getBuffer().getErrors().hasErrors("identification")) {
 			Client existing;
 
