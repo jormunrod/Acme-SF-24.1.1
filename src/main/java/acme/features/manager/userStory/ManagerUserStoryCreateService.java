@@ -58,8 +58,9 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 		id = super.getRequest().getData("projectId", int.class);
 		project = this.repository.findOneProjectById(id);
 
-		super.bind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link", "isPublished");
+		super.bind(object, "title", "description", "estimatedHours", "acceptanceCriteria", "priority", "link");
 		object.setProject(project);
+
 	}
 
 	@Override
@@ -70,7 +71,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 			UserStory existing;
 
 			existing = this.repository.findOneUserStoryByTitle(object.getTitle());
-			super.state(existing == null, "title", "manager.userStory.form.error.duplicateTitle");
+			super.state(existing == null, "title", "manager.user-story.form.error.duplicateTitle");
 		}
 
 		super.state(!object.getProject().isPublished(), "link", "manager.user-story.form.error.projectPublished");
@@ -92,6 +93,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 
 		object.setProject(project);
 		object.setManager(manager);
+		object.setPublished(false);
 		object.setId(0);
 
 		this.repository.save(object);
