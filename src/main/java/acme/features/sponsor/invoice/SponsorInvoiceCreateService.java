@@ -34,7 +34,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("masterId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
 
-		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
+		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
 
 		super.getResponse().setAuthorised(status);
 

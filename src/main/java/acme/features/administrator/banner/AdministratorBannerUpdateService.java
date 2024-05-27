@@ -84,7 +84,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 			startDateTime = LocalDateTime.ofInstant(displayStart.toInstant(), ZoneId.systemDefault());
 			startDateIsMaxDateTime = startDateTime.isBefore(maxDateTime);
 			startDateIsMinDateTime = startDateTime.isAfter(minDateTime);
-			displayStartAfterUpdate = now.before(displayStart);
+			displayStartAfterUpdate = now.before(displayStart) || now.equals(displayStart);
 
 			super.state(startDateIsMaxDateTime, "displayStart", "administrator.banner.form.error.startDateIsMaxDateTime");
 			super.state(startDateIsMinDateTime, "displayStart", "administrator.banner.form.error.startDateIsMinDateTime");
