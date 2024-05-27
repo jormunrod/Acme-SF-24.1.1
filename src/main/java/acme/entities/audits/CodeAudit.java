@@ -26,6 +26,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+/*
+ * @Table(indexes = {
+ * 
+ * @Index(columnList = "auditor_id"), @Index(columnList = "code")
+ * 
+ * })
+ */
 public class CodeAudit extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------

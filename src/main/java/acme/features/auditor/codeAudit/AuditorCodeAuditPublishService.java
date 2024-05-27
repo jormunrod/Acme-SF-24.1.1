@@ -1,6 +1,8 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,6 +81,21 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 			status = !(mark.equals(Mark.F) || mark.equals(Mark.F_MINUS));
 			super.state(status, "mark", "auditor.code-audit.form.err.fail-mark");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			CodeAudit existing;
+
+			existing = this.repository.findOneCodeAuditByCode(object.getCode());
+			if (existing != null && existing.getId() != object.getId())
+				super.state(false, "code", "auditor.code-audit.form.err.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("execution")) {
+			LocalDateTime executionDateTime = LocalDateTime.ofInstant(object.getExecution().toInstant(), ZoneId.systemDefault());
+
+			LocalDateTime minDateTime = LocalDateTime.of(1999, 12, 31, 23, 59);
+			super.state(executionDateTime.isAfter(minDateTime), "execution", "auditor.code-audit.form.error.date-before-2000");
+		}
+
+		super.state(!object.isPublished(), "*", "auditor.code-audit.form.err.isPublished");
 	}
 
 	@Override

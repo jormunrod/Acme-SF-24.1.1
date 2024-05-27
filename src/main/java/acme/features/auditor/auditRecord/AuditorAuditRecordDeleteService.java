@@ -47,7 +47,7 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		super.bind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "isPublished");
+		super.bind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link");
 	}
 
 	@Override

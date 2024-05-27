@@ -11,6 +11,8 @@
 	<acme:input-url code="auditor.audit-record.form.label.link" path="link"/>
 	
 	<jstl:choose>
+		<jstl:when test="${_command == 'show' && isPublished == true}">
+		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
 			<acme:submit code="auditor.audit-record.form.button.delete" action="/auditor/audit-record/delete"/>
 			<acme:submit code="auditor.audit-record.form.button.update" action="/auditor/audit-record/update"/>

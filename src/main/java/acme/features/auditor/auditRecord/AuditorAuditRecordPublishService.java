@@ -1,6 +1,9 @@
 
 package acme.features.auditor.auditRecord;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.EnumMap;
@@ -34,10 +37,12 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 		boolean status;
 		int id;
 		CodeAudit codeAudit;
+		AuditRecord auditRecord;
 
 		id = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(id);
-		status = codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
+		auditRecord = this.repository.findOneAuditRecordById(id);
+		status = auditRecord != null && !auditRecord.isPublished() && codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -57,22 +62,53 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		super.bind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "isPublished");
+		super.bind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link");
 	}
 
 	@Override
 	public void validate(final AuditRecord object) {
 		assert object != null;
 
+		LocalDateTime startDateTime;
+		LocalDateTime endDateTime;
+		LocalDateTime minDateTime = LocalDateTime.of(1999, 12, 31, 23, 59);
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			AuditRecord existing;
+			existing = this.repository.findOneAuditRecordByCode(object.getCode());
+			if (existing != null && existing.getId() != object.getId())
+				super.state(false, "code", "auditor.audit-record.form.error.duplicated");
+		}
+
 		super.state(!object.getCodeAudit().isPublished(), "*", "auditor.audit-record.form.error.published");
+
+		if (object.getAuditPeriodStart() != null && object.getAuditPeriodEnd() != null) {
+			startDateTime = LocalDateTime.ofInstant(object.getAuditPeriodStart().toInstant(), ZoneId.systemDefault());
+			endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
+			super.state(startDateTime.isBefore(endDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.end-date");
+			super.state(Duration.between(startDateTime, endDateTime).toHours() >= 1, "auditPeriodEnd", "auditor.audit-record.form.error.duration");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("auditPeriodStart")) {
+			startDateTime = LocalDateTime.ofInstant(object.getAuditPeriodStart().toInstant(), ZoneId.systemDefault());
+			super.state(startDateTime.isAfter(minDateTime), "auditPeriodStart", "auditor.audit-record.form.error.date-before-2000");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("auditPeriodEnd")) {
+			endDateTime = LocalDateTime.ofInstant(object.getAuditPeriodEnd().toInstant(), ZoneId.systemDefault());
+			super.state(endDateTime.isAfter(minDateTime), "auditPeriodEnd", "auditor.audit-record.form.error.date-before-2000");
+		}
 	}
 
 	@Override
 	public void perform(final AuditRecord object) {
 		assert object != null;
-		object.setPublished(true);
+		AuditRecord auditRecord;
+		auditRecord = object;
 
-		this.repository.save(object);
+		auditRecord.setPublished(true);
+
+		this.repository.save(auditRecord);
 
 		CodeAudit codeAudit;
 		List<Mark> marks;
@@ -108,7 +144,7 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 		Dataset dataset;
 
 		choices = SelectChoices.from(Mark.class, object.getMark());
-		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link");
+		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "isPublished");
 		dataset.put("mark", choices);
 
 		super.getResponse().addData(dataset);
