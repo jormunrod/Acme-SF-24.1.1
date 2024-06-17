@@ -2,9 +2,7 @@
 package acme.entities.projects;
 
 import javax.persistence.Entity;
-import javax.persistence.Index;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -22,9 +20,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "project_id"), @Index(columnList = "project_id, isPublished"), @Index(columnList = "title")
-})
+//@Table(indexes = {
+//	@Index(columnList = "project_id"), @Index(columnList = "project_id, isPublished"), @Index(columnList = "title")
+//})
 public class UserStory extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -57,17 +55,11 @@ public class UserStory extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
-	@NotNull
 	private boolean				isPublished;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Project				project;
 
 	@NotNull
 	@Valid
