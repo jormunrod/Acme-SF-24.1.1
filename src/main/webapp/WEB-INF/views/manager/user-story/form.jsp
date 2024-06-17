@@ -22,7 +22,7 @@
 		</jstl:when>
 
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="manager.user-story.form.button.create" action="/manager/user-story/create?projectId=${projectId}"/>
+			<acme:submit code="manager.user-story.form.button.create" action="/manager/user-story/create"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

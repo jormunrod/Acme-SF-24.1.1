@@ -4,10 +4,10 @@ package acme.features.manager.userStory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
 import acme.entities.projects.UserStoryPriority;
 import acme.roles.Manager;
@@ -22,14 +22,19 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
-		Project project;
+		Principal principal;
 		UserStory userStory;
+		int id;
+		int userStoryId;
 
-		id = super.getRequest().getData("id", int.class);
-		project = this.repository.findOneProjectByUserStoryId(id);
-		userStory = this.repository.findOneUserStoryById(id);
-		status = userStory != null && project != null && !userStory.isPublished() && !project.isPublished() && super.getRequest().getPrincipal().hasRole(project.getManager());
+		principal = super.getRequest().getPrincipal();
+		id = principal.getActiveRoleId();
+
+		userStoryId = super.getRequest().getData("id", int.class);
+		userStory = this.repository.findOneUserStoryById(userStoryId);
+
+		status = userStory != null && !userStory.isPublished() && super.getRequest().getPrincipal().hasRole(Manager.class) //
+			&& userStory.getManager().getId() == id;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -65,8 +70,6 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 				status = false;
 			super.state(existing == null || status, "title", "manager.user-story.form.error.duplicateTitle");
 		}
-
-		super.state(!object.getProject().isPublished(), "link", "manager.user-story.form.error.projectPublished");
 	}
 
 	@Override

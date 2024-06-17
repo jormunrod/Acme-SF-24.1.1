@@ -11,8 +11,8 @@ import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.contracts.Contract;
 import acme.entities.contracts.ProgressLog;
+import acme.entities.projects.Assignment;
 import acme.entities.projects.Project;
-import acme.entities.projects.UserStory;
 import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
 import acme.entities.trainings.TrainingModule;
@@ -34,11 +34,11 @@ public interface ManagerProjectRepository extends AbstractRepository {
 	@Query("select p from Project p where p.code = :code")
 	Project findOneProjectByCode(String code);
 
-	@Query("select count (us) from UserStory us where us.project.id = :id and us.isPublished = true")
+	@Query("select count (a.userStory) from Assignment a where a.project.id = :id and a.userStory.isPublished = true")
 	Integer findAllPublishedUserStoriesByProjectId(int id);
 
-	@Query("select us from UserStory us where us.project.id = :id")
-	Collection<UserStory> findAllUserStoriesByProjectId(int id);
+	@Query("select a from Assignment a where a.project.id = :id")
+	Collection<Assignment> findAllAssignmentsByProjectId(int id);
 
 	@Query("select tm from TrainingModule tm where tm.project.id = :id")
 	Collection<TrainingModule> findAllTrainingModulesByProjectId(int id);

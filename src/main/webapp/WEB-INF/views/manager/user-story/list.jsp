@@ -10,4 +10,11 @@
 	<acme:list-column code="manager.user-story.list.label.isPublished" path="isPublished" width="20%"/>
 </acme:list>
 
-<acme:button test="${ _command == 'list' && projectIsPublished == false}" code="manager.user-story.list.button.create" action="/manager/user-story/create?projectId=${projectId}"/>
+<jstl:if test="${_command == 'list-mine'}">
+	<acme:button code="manager.user-story.list.button.create" action="/manager/user-story/create"/>
+</jstl:if>
+
+<jstl:if test="${projectIsNotPublished}">
+	<acme:button code="manager.user-story.list.button.add" action="/manager/assignment/create?projectId=${projectId}"/>
+	<acme:button code="manager.user-story.list.button.delete" action="/manager/assignment/delete?projectId=${projectId}"/>
+</jstl:if>

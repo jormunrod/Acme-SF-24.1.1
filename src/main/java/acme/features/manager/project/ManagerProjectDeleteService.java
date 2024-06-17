@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.projects.Assignment;
 import acme.entities.projects.Project;
-import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Service
@@ -24,11 +24,11 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 		boolean status;
 		int id;
 		Project project;
-		Manager manager;
+		//Manager manager;
 		id = super.getRequest().getData("id", int.class);
 		project = this.repository.findOneProjectById(id);
-		manager = project == null ? null : project.getManager();
-		status = project != null && !project.isPublished() && super.getRequest().getPrincipal().hasRole(manager);
+		//manager = project == null ? null : project.getManager();
+		status = project != null && !project.isPublished() && super.getRequest().getPrincipal().hasRole(project.getManager());
 		super.getResponse().setAuthorised(status);
 	}
 	@Override
@@ -57,11 +57,10 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	public void perform(final Project object) {
 		assert object != null;
 
-		Collection<UserStory> userStories;
+		Collection<Assignment> assignments;
 
-		userStories = this.repository.findAllUserStoriesByProjectId(object.getId());
-
-		this.repository.deleteAll(userStories);
+		assignments = this.repository.findAllAssignmentsByProjectId(object.getId());
+		this.repository.deleteAll(assignments);
 
 		this.repository.delete(object);
 	}

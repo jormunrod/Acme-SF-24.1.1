@@ -8,6 +8,8 @@ manager.user-story.list.label.project = Project
 manager.user-story.list.label.isPublished = Published
 
 manager.user-story.list.button.create = Create
+manager.user-story.list.button.add = Add user story to project
+manager.user-story.list.button.delete = Delete user story from project
 
 # manager.user-story.form ###################################################
 

@@ -1,12 +1,15 @@
 
 package acme.features.manager.userStory;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.projects.Project;
+import acme.entities.projects.Assignment;
 import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
@@ -20,14 +23,18 @@ public class ManagerUserStoryDeleteService extends AbstractService<Manager, User
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
+		Principal principal;
 		UserStory userStory;
-		Project project;
+		int id;
+		int userStoryId;
 
-		id = super.getRequest().getData("id", int.class);
-		userStory = this.repository.findOneUserStoryById(id);
-		project = this.repository.findOneProjectByUserStoryId(id);
-		status = project != null && !userStory.isPublished() && super.getRequest().getPrincipal().hasRole(project.getManager());
+		principal = super.getRequest().getPrincipal();
+		id = principal.getActiveRoleId();
+
+		userStoryId = super.getRequest().getData("id", int.class);
+		userStory = this.repository.findOneUserStoryById(userStoryId);
+
+		status = userStory != null && !userStory.isPublished() && super.getRequest().getPrincipal().hasRole(Manager.class) && userStory.getManager().getId() == id;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -59,6 +66,11 @@ public class ManagerUserStoryDeleteService extends AbstractService<Manager, User
 	public void perform(final UserStory object) {
 		assert object != null;
 
+		Collection<Assignment> assignments;
+
+		assignments = this.repository.findAllAssignmentsByUserStoryId(object.getId());
+
+		this.repository.deleteAll(assignments);
 		this.repository.delete(object);
 	}
 
