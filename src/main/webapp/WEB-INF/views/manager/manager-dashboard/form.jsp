@@ -45,7 +45,7 @@
 				code="manager.manager-dashboard.form.label.average-number-of-estimated-hours" />
 		</th>
 		<td>
-			<acme:print value="${averageNumberOfEstimatedHours}" />
+			<acme:print value="${averageNumberOfUserStoryEstimatedHours}" />
 		</td>
 	</tr>
 	<tr>
@@ -53,7 +53,7 @@
 				code="manager.manager-dashboard.form.label.deviation-number-of-estimated-hours" />
 		</th>
 		<td>
-			<acme:print value="${deviationNumberOfEstimatedHours}" />
+			<acme:print value="${deviationNumberOfUserStoryEstimatedHours}" />
 		</td>
 	</tr>
 	<tr>
@@ -61,15 +61,15 @@
 				code="manager.manager-dashboard.form.label.minimum-number-of-estimated-hours" />
 		</th>
 		<td>
-			<acme:print value="${minimumNumberOfEstimatedHours}" />
+			<acme:print value="${minimumNumberOfUserStoryEstimatedHours}" />
 		</td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="manager.manager-dashboard.form.label.maximum-number-of-cost" />
+				code="manager.manager-dashboard.form.label.maximum-number-of-estimated-hours" />
 		</th>
 		<td>
-			<acme:print value="${maximumNumberOfCost}" />
+			<acme:print value="${maximumNumberOfUserStoryEstimatedHours}" />
 		</td>
 	</tr>
 	<tr>
@@ -77,15 +77,15 @@
 				code="manager.manager-dashboard.form.label.average-number-of-cost" />
 		</th>
 		<td>
-			<acme:print value="${averageNumberOfCost}" />
+			<acme:print value="${averageNumberOfProjectCost}" />
 		</td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="manager.manager-dashboard.form.label.deviation-number-of-estimated-hours" />
+				code="manager.manager-dashboard.form.label.deviation-number-of-cost" />
 		</th>
 		<td>
-			<acme:print value="${deviationNumberOfEstimatedHours}" />
+			<acme:print value="${deviationNumberOfProjectCost}" />
 		</td>
 	</tr>
 	<tr>
@@ -93,7 +93,7 @@
 				code="manager.manager-dashboard.form.label.minimum-number-of-cost" />
 		</th>
 		<td>
-			<acme:print value="${minimumNumberOfCost}" />
+			<acme:print value="${minimumNumberOfProjectCost}" />
 		</td>
 	</tr>
 	<tr>
@@ -101,7 +101,7 @@
 				code="manager.manager-dashboard.form.label.maximum-number-of-cost" />
 		</th>
 		<td>
-			<acme:print value="${maximumNumberOfCost}" />
+			<acme:print value="${maximumNumberOfProjectCost}" />
 		</td>
 	</tr>
 </table>

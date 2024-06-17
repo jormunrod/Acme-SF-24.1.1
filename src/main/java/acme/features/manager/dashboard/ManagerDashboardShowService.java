@@ -33,30 +33,30 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 		Integer totalNumberOfCOULDUserStories;
 		Integer totalNumberOfWONTUserStories;
 
-		Double averageNumberOfEstimatedHours;
-		Double deviationNumberOfEstimatedHours;
-		Integer minimumNumberOfEstimatedHours;
-		Integer maximumNumberOfEstimatedHours;
+		Double averageNumberOfUserStoryEstimatedHours;
+		Double deviationNumberOfUserStoryEstimatedHours;
+		Integer minimumNumberOfUserStoryEstimatedHours;
+		Integer maximumNumberOfUserStoryEstimatedHours;
 
-		Double averageNumberOfCost;
-		Double deviationNumberOfCost;
-		Integer minimumNumberOfCost;
-		Integer maximumNumberOfCost;
+		Double averageNumberOfProjectCost;
+		Double deviationNumberOfProjectCost;
+		Integer minimumNumberOfProjectCost;
+		Integer maximumNumberOfProjectCost;
 
 		totalNumberOfMUSTUserStories = this.repository.totalNumberOfMUSTUserStories(id);
 		totalNumberOfSHOULDUserStories = this.repository.totalNumberOfSHOULDUserStories(id);
 		totalNumberOfCOULDUserStories = this.repository.totalNumberOfCOULDUserStories(id);
 		totalNumberOfWONTUserStories = this.repository.totalNumberOfWONTUserStories(id);
 
-		averageNumberOfEstimatedHours = this.repository.averageNumberOfEstimatedHours(id);
-		deviationNumberOfEstimatedHours = this.repository.deviationNumberOfEstimatedHours(id);
-		minimumNumberOfEstimatedHours = this.repository.minimumNumberOfEstimatedHours(id);
-		maximumNumberOfEstimatedHours = this.repository.maximumNumberOfEstimatedHours(id);
+		averageNumberOfUserStoryEstimatedHours = this.repository.averageNumberOfUserStoryEstimatedHours(id);
+		deviationNumberOfUserStoryEstimatedHours = this.repository.deviationNumberOfUserStoryEstimatedHours(id);
+		minimumNumberOfUserStoryEstimatedHours = this.repository.minimumNumberOfUserStoryEstimatedHours(id);
+		maximumNumberOfUserStoryEstimatedHours = this.repository.maximumNumberOfUserStoryEstimatedHours(id);
 
-		averageNumberOfCost = this.repository.averageNumberOfCost(id);
-		deviationNumberOfCost = this.repository.deviationNumberOfCost(id);
-		minimumNumberOfCost = this.repository.minimumNumberOfCost(id);
-		maximumNumberOfCost = this.repository.maximumNumberOfCost(id);
+		averageNumberOfProjectCost = this.repository.averageNumberOfProjectCost(id);
+		deviationNumberOfProjectCost = this.repository.deviationNumberOfProjectCost(id);
+		minimumNumberOfProjectCost = this.repository.minimumNumberOfProjectCost(id);
+		maximumNumberOfProjectCost = this.repository.maximumNumberOfProjectCost(id);
 
 		dashboard = new ManagerDashboard();
 		dashboard.setTotalNumberOfMUSTUserStories(totalNumberOfMUSTUserStories);
@@ -64,15 +64,15 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 		dashboard.setTotalNumberOfCOULDUserStories(totalNumberOfCOULDUserStories);
 		dashboard.setTotalNumberOfWONTUserStories(totalNumberOfWONTUserStories);
 
-		dashboard.setAverageNumberOfEstimatedHours(averageNumberOfEstimatedHours);
-		dashboard.setDeviationNumberOfEstimatedHours(deviationNumberOfEstimatedHours);
-		dashboard.setMinimumNumberOfEstimatedHours(minimumNumberOfEstimatedHours);
-		dashboard.setMaximumNumberOfEstimatedHours(maximumNumberOfEstimatedHours);
+		dashboard.setAverageNumberOfUserStoryEstimatedHours(averageNumberOfUserStoryEstimatedHours);
+		dashboard.setDeviationNumberOfUserStoryEstimatedHours(deviationNumberOfUserStoryEstimatedHours);
+		dashboard.setMinimumNumberOfUserStoryEstimatedHours(minimumNumberOfUserStoryEstimatedHours);
+		dashboard.setMaximumNumberOfUserStoryEstimatedHours(maximumNumberOfUserStoryEstimatedHours);
 
-		dashboard.setAverageNumberOfCost(averageNumberOfCost);
-		dashboard.setDeviationNumberOfCost(deviationNumberOfCost);
-		dashboard.setMinimumNumberOfCost(minimumNumberOfCost);
-		dashboard.setMaximumNumberOfCost(maximumNumberOfCost);
+		dashboard.setAverageNumberOfProjectCost(averageNumberOfProjectCost);
+		dashboard.setDeviationNumberOfProjectCost(deviationNumberOfProjectCost);
+		dashboard.setMinimumNumberOfProjectCost(minimumNumberOfProjectCost);
+		dashboard.setMaximumNumberOfProjectCost(maximumNumberOfProjectCost);
 
 		super.getBuffer().addData(dashboard);
 	}
@@ -82,10 +82,10 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 		Dataset dataset;
 
 		dataset = super.unbind(object, "totalNumberOfMUSTUserStories", "totalNumberOfSHOULDUserStories", //
-			"totalNumberOfCOULDUserStories", "totalNumberOfWONTUserStories", "averageNumberOfEstimatedHours", //
-			"deviationNumberOfEstimatedHours", "minimumNumberOfEstimatedHours", //
-			"maximumNumberOfEstimatedHours", "averageNumberOfCost", "deviationNumberOfCost", //
-			"minimumNumberOfCost", "maximumNumberOfCost");
+			"totalNumberOfCOULDUserStories", "totalNumberOfWONTUserStories", "averageNumberOfUserStoryEstimatedHours", //
+			"deviationNumberOfUserStoryEstimatedHours", "minimumNumberOfUserStoryEstimatedHours", //
+			"maximumNumberOfUserStoryEstimatedHours", "averageNumberOfProjectCost", "deviationNumberOfProjectCost", //
+			"minimumNumberOfProjectCost", "maximumNumberOfProjectCost");
 
 		super.getResponse().addData(dataset);
 	}
