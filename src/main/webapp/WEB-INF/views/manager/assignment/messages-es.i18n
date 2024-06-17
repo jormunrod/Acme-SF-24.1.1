@@ -1,0 +1,9 @@
+# manager.assignment.form ############################################
+manager.assignment.form.title = Asignación de las historias de usuario
+manager.assignment.form.label.project-title = Nombre del proyecto
+manager.assignment.form.label.project-description = Descripción del proyecto
+manager.assignment.form.label.project-cost = Coste del proyecto
+manager.assignment.form.label.user-story = Nombre de la historia de usuario
+
+manager.assignment.form.button.create = Asignar
+manager.assignment.form.button.delete = Desasignar
