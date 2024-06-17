@@ -74,6 +74,7 @@ master.menu.auditor.code-audit.list-all = Published Code Audits List
 
 master.menu.manager = Manager
 master.menu.manager.project.list = Projects List
+master.menu.manager.user-story.list = User Stories List
 master.menu.manager.dashboard = Dashboard
 master.menu.manager.project.list-all = Published Projects List
 

@@ -78,6 +78,7 @@ master.menu.auditor.code-audit.list-all = Listar Códigos de Auditorías Publica
 
 master.menu.manager = Gestor
 master.menu.manager.project.list = Listado de Proyectos
+master.menu.manager.user-story.list = Listado de Historias de Usuario
 master.menu.manager.dashboard = Panel de indicadores
 master.menu.manager.project.list-all = Lista de Proyectos Publicados
 
