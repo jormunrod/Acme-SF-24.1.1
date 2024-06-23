@@ -7,3 +7,6 @@ manager.assignment.form.label.user-story = User Story title
 
 manager.assignment.form.button.create = Assign
 manager.assignment.form.button.delete = Unassign
+
+manager.assignment.form.error.userStory = User story is required
+manager.assignment.form.error.manager = These user story belongs to another manager

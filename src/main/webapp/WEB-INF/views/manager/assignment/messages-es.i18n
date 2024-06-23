@@ -7,3 +7,6 @@ manager.assignment.form.label.user-story = Nombre de la historia de usuario
 
 manager.assignment.form.button.create = Asignar
 manager.assignment.form.button.delete = Desasignar
+
+manager.assignment.form.error.userStory = Debe seleccionar una historia de usuario
+manager.assignment.form.error.manager = La historia de usuario pertenece a otro gestor
