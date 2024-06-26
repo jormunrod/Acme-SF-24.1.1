@@ -65,7 +65,7 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("cost")) {
-			super.state(object.getCost().getAmount() >= 1.00, "cost", "manager.project.form.error.negativeCost");
+			super.state(object.getCost().getAmount() >= 0.00, "cost", "manager.project.form.error.negativeCost");
 			super.state(object.getCost().getAmount() <= 1000000.00, "cost", "manager.project.form.error.expensiveCost");
 		}
 	}

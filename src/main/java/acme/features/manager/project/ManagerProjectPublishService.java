@@ -71,7 +71,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		super.state(userStories.equals(publishedUserStories), "*", "manager.project.form.error.hasAllUserStoriesPublished");
 
 		if (!super.getBuffer().getErrors().hasErrors("cost")) {
-			super.state(object.getCost().getAmount() >= 1.00, "cost", "manager.project.form.error.negativeCost");
+			super.state(object.getCost().getAmount() >= 0.00, "cost", "manager.project.form.error.negativeCost");
 			super.state(object.getCost().getAmount() <= 1000000.00, "cost", "manager.project.form.error.expensiveCost");
 		}
 	}
